@@ -1,0 +1,2597 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!--
+  ╔══════════════════════════════════════════════════════════════════════════╗
+  ║  Unified Document Template — Multi-Purpose, Theme-Agnostic              ║
+  ║  Version: 6.0 · 2026-05-14                                             ║
+  ║                                                                         ║
+  ║  PURPOSE:                                                               ║
+  ║  A single template for all document types. Supports tabbed mode         ║
+  ║  (deep content with tab navigation) and linear mode (scrollable,        ║
+  ║  print-friendly — no tabs). Mode is structural: include <nav class=     ║
+  ║  "tabs"> for tabbed, omit it for linear. See section_library.md.        ║
+  ║                                                                         ║
+  ║  USE CASES (4 consolidated types):                                      ║
+  ║  • Analysis — as-is, gap analysis, codebase review, tech debt           ║
+  ║    Tabs: Context | Business | Technical | Assessment                    ║
+  ║  • Proposal — PRD, to-be, feature proposal, discovery, concept pitch    ║
+  ║    Tabs: Vision | Users | Solution | Delivery                          ║
+  ║  • Plan — implementation, migration, API spec, sprint brief             ║
+  ║    Tabs: Overview | Architecture | Implementation | Delivery            ║
+  ║  • Review — security audit, launch readiness, compliance                ║
+  ║    Tabs: Summary | Checklist | Findings | Remediation                   ║
+  ║                                                                         ║
+  ║  Each use case has depth levels:                                        ║
+  ║  • Light → linear mode (no tabs, cards stack vertically)                ║
+  ║  • Standard / Deep → tabbed mode                                        ║
+  ║                                                                         ║
+  ║  HOW IT WORKS:                                                          ║
+  ║  1. Hero section: title, description, KPIs (context-dependent)          ║
+  ║  2. Mode: tabbed (include <nav class="tabs">) or linear (omit it)       ║
+  ║  3. Cards: Each card is one section — add/remove as needed              ║
+  ║  4. Components: Pick from the CSS classes below to fill cards           ║
+  ║  5. See section_library.md for section suggestions per use case         ║
+  ║                                                                         ║
+  ║  SKILL COLLABORATION:                                                   ║
+  ║  Product skill → structured content across 5 dimensions                 ║
+  ║  (Context, Business, Technical, Assessment, Action)                     ║
+  ║  Dev skill → renders this template (mode, tabs, components, theme)      ║
+  ║                                                                         ║
+  ║  Theming:                                                               ║
+  ║  • Ships with NEUTRAL DEFAULT theme (current :root).                    ║
+  ║  • When user specifies a theme, load from ~/.agents/themes/ or          ║
+  ║    ~/.copilot/themes/ and apply tokens to :root + placeholders.         ║
+  ║  • Available themes: akkuro, htp28, topicus                             ║
+  ║                                                                         ║
+  ║  Usage:                                                                 ║
+  ║  1. Copy this file and rename (e.g. feature-name-analysis.html)         ║
+  ║  2. Choose mode: tabbed (include tabs nav) or linear (omit tabs)        ║
+  ║  3. Add cards with appropriate components per section                   ║
+  ║  4. Replace all {{PLACEHOLDER}} variables with content                  ║
+  ║  5. Apply theme if specified (or keep neutral defaults)                 ║
+  ║  6. Place SVG diagrams alongside HTML in the same directory             ║
+  ║  7. Delete the <template id="component-examples"> block                 ║
+  ║                                                                         ║
+  ║  Component library (use inside .card-content):                          ║
+  ║    .ref-group / .ref-table  – Reference tables, data grids             ║
+  ║    .finding                 – Severity-flagged review items             ║
+  ║    .stats-grid / .stat-box  – KPI stat boxes in grid                   ║
+  ║    .cap-grid / .cap-card    – Capability/feature cards                 ║
+  ║    .ref-note                – Callout box (warning/info/success/err)   ║
+  ║    .scorecard               – A–F graded dimension cards               ║
+  ║    .timeline                – Phased roadmap with dot markers           ║
+  ║    .persona                 – User persona card with avatar            ║
+  ║    .checklist               – Pass/fail/warn items with severity       ║
+  ║    .journey-table           – Customer journey map table               ║
+  ║    .okr-block               – Objective + Key Results card             ║
+  ║    .metric-hl               – North Star / metric highlight            ║
+  ║    .score-table             – RICE / scoring table with bars           ║
+  ║    .story-card              – User story with Gherkin AC               ║
+  ║    .matrix-2x2              – 2×2 quadrant matrix                      ║
+  ║    details.collapsible      – Expandable section (ADRs, code, notes)   ║
+  ║    .problem-box             – Highlighted statement with left border   ║
+  ║    .pain-grid / .pain-card  – 2×2 grid; .critical / .warning          ║
+  ║    .scenario                – Icon + title + description rows          ║
+  ║    .steps-list              – Numbered next-step items                 ║
+  ║    .callout-box             – Amber callout for assets/notes/warnings  ║
+  ║                                                                         ║
+  ║  Template variables (HTML):                                             ║
+  ║    {{PAGE_TITLE}}       – Browser tab title                             ║
+  ║    {{TITLE_SUFFIX}}     – Title bar suffix (e.g. "Lending Platform")    ║
+  ║    {{FAVICON_URL}}      – Favicon URL (brand icon)                      ║
+  ║    {{FONT_IMPORT_URL}}  – Google Fonts (or other) CSS import URL        ║
+  ║    {{ICON_CDN_URL}}     – Icon library CDN (FA 4.x / Lucide / icomoon) ║
+  ║    {{TOPIC}}            – Chip label (e.g. "Covenant Management")       ║
+  ║    {{DATE}}             – Date chip (e.g. "2026-05-07")                 ║
+  ║    {{HEADING}}          – Hero heading (single line, supports <em>)     ║
+  ║    {{DESCRIPTION}}      – Brief hero description (1-2 sentences)        ║
+  ║    {{WATERMARK}}        – Large ghost text (e.g. "ANALYSIS", "PLAN")    ║
+  ║    {{KPI_N_VAL}}        – KPI value (number or short text)              ║
+  ║    {{KPI_N_LBL}}        – KPI label (e.g. "Diagrams", "Cards")          ║
+  ║    {{TAB_N_LABEL}}      – Tab button label (LLM decides)                ║
+  ║    {{TAB_N_COUNT}}      – Tab badge count                               ║
+  ║    {{TAB_N_ID}}         – Tab panel ID (LLM decides)                    ║
+  ║    {{BRAND_MARK}}       – Footer brand mark letters (e.g. "BR")         ║
+  ║    {{BRAND_NAME}}       – Footer brand name (e.g. "Brand")              ║
+  ║    {{BRAND_SUFFIX}}     – Footer brand suffix (e.g. "/ Platform")       ║
+  ║    {{FOOTER_SUBJECT}}   – Footer left text                              ║
+  ║    {{FOOTER_META}}      – Footer right metadata                         ║
+  ║                                                                         ║
+  ║  Theme tokens (CSS :root):                                              ║
+  ║    --primary            – Hero brand colour, active elements            ║
+  ║    --primary-dark       – Hover variant of primary                      ║
+  ║    --primary-pale       – Light tint of primary for backgrounds         ║
+  ║    --bg-dark            – Dark surface (hero bg, card border, tabs)     ║
+  ║    --bg-dark-mid        – Mid-dark variant                              ║
+  ║    --bg-dark-deep       – Deepest dark variant                          ║
+  ║    --bg-warm            – Warm accent surface (hero title em)           ║
+  ║    --accent             – KPI highlight colour on dark background       ║
+  ║    --font-display       – Display / heading font-family                 ║
+  ║    --font-body          – Body / UI font-family                         ║
+  ║    --font-mono          – Monospace / data font-family                  ║
+  ║                                                                         ║
+  ║  Theme presets (from ~/.agents/themes/ or ~/.copilot/themes/):          ║
+  ║  The :root defaults below are NEUTRAL — not tied to any brand.          ║
+  ║  ┌──────────┬──────────────┬──────────────┬──────────────┐              ║
+  ║  │ Token    │ akkuro       │ htp28        │ topicus      │              ║
+  ║  ├──────────┼──────────────┼──────────────┼──────────────┤              ║
+  ║  │ primary  │ #008071      │ #FFC90E      │ #f8e800      │              ║
+  ║  │ prim-dk  │ #004D44      │ #D4A800      │ #C6B900      │              ║
+  ║  │ prim-pl  │ #E0F5E6      │ #3A3520      │ #FFFDE0      │              ║
+  ║  │ bg-dark  │ #1A2419      │ #101010      │ #242f36      │              ║
+  ║  │ bg-dk-md │ #2D3A2C      │ #1A1A1A      │ #3A4A52      │              ║
+  ║  │ bg-dk-dp │ #040604      │ #080808      │ #141D21      │              ║
+  ║  │ bg-warm  │ #FFF8F1      │ #1A1A1A      │ #f6f8fa      │              ║
+  ║  │ accent   │ #73C088      │ #FFC90E      │ #f8e800      │              ║
+  ║  │ display  │ Outfit       │ Space Grotesk│ sans-serif   │              ║
+  ║  │ body     │ Poppins      │ Space Grotesk│ sans-serif   │              ║
+  ║  │ mono     │ DM Mono      │ Space Mono   │ monospace    │              ║
+  ║  └──────────┴──────────────┴──────────────┴──────────────┘              ║
+  ╚══════════════════════════════════════════════════════════════════════════╝
+-->
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{{PAGE_TITLE}} | {{TITLE_SUFFIX}}</title>
+		<link rel="shortcut icon" href="{{FAVICON_URL}}" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="{{FONT_IMPORT_URL}}" rel="stylesheet" />
+		<!-- Icon library — replace {{ICON_CDN_URL}} with theme's icon CDN (see theme-contract.md § Icon System) -->
+		<link href="{{ICON_CDN_URL}}" rel="stylesheet" />
+		<style>
+			/* ═══════════════════════════════════════════════════════════════════
+			   Theme Tokens — NEUTRAL DEFAULTS (no specific brand)
+			   When user specifies a theme, replace these with values from
+			   .agents/references/<scope>/theme.md
+			   See .agents/references/general/theme-contract.md for the token interface.
+			   ═══════════════════════════════════════════════════════════════════ */
+			:root {
+				/* ── Brand (neutral defaults — override per theme) ───────────── */
+				--primary: #3B82F6;
+				--primary-dark: #2563EB;
+				--primary-pale: #EFF6FF;
+				--bg-dark: #1E293B;
+				--bg-dark-mid: #334155;
+				--bg-dark-deep: #0F172A;
+				--bg-warm: #F8FAFC;
+				--accent: #60A5FA;
+
+				/* ── Brand RGBA derived (update when changing --primary / --bg-dark) ── */
+				--primary-glow: rgba(59, 130, 246, .10);
+				--primary-chip-bg: rgba(59, 130, 246, .16);
+				--primary-chip-border: rgba(59, 130, 246, .28);
+				--dark-shadow-xs: rgba(30, 41, 59, .04);
+				--dark-shadow-sm: rgba(30, 41, 59, .05);
+				--dark-shadow-md: rgba(30, 41, 59, .07);
+				--dark-shadow-lg: rgba(30, 41, 59, .22);
+
+				/* ── Fonts (neutral defaults — override per theme) ──────────────── */
+				--font-display: 'Inter', sans-serif;
+				--font-body: 'Inter', sans-serif;
+				--font-mono: 'JetBrains Mono', monospace;
+
+				/* ── Neutral (shared across themes) ─────────────────────────── */
+				--white: #FFFFFF;
+				--grey01: #EEEEEE;
+				--grey02: #DDDDDD;
+				--grey03: #CCCCCC;
+				--grey04: #999999;
+				--outline: #C5BFB9;
+				--outline-dark: #9D9791;
+
+				/* ── Status (shared across themes) ──────────────────────────── */
+				--warning: #F3C74D;
+				--warning-light: #FEF3D6;
+				--error: #E86B6B;
+				--error-light: #FDE2E2;
+				--success: #73C088;
+				--success-light: #E0F5E6;
+				--info: #5FAEE3;
+				--info-light: #E2F3FC;
+
+				/* ── Semantic aliases ────────────────────────────────────────── */
+				--text: var(--bg-dark);
+				--muted: #777777;
+				--faint: #999999;
+				--border: #DDDDDD;
+				--surface: #FFFFFF;
+				--shadow-s: 0 1px 3px var(--dark-shadow-sm), 0 4px 14px var(--dark-shadow-xs);
+				--shadow-m: 0 4px 12px var(--dark-shadow-md), 0 12px 32px var(--dark-shadow-sm);
+				--shadow-l: 0 8px 24px rgba(0, 0, 0, .09), 0 20px 48px rgba(0, 0, 0, .06);
+				--radius: 14px;
+			}
+
+			/* ═══ Reset ═══════════════════════════════════════════════════════ */
+			*,
+			*::before,
+			*::after {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+
+			html {
+				scroll-behavior: smooth;
+			}
+
+			body {
+				font-family: var(--font-body);
+				font-size: 14px;
+				background: var(--white);
+				color: var(--text);
+				min-height: 100vh;
+				line-height: 1.5;
+				-webkit-font-smoothing: antialiased;
+				overflow-x: hidden;
+			}
+
+			/* ═══ Hero ════════════════════════════════════════════════════════ */
+			.hero {
+				position: relative;
+				background: var(--bg-dark);
+				overflow: hidden;
+			}
+
+			.hero::after {
+				content: '';
+				position: absolute;
+				right: -120px;
+				top: -60px;
+				width: 520px;
+				height: 520px;
+				background: radial-gradient(circle at 50% 50%, var(--primary-glow) 0%, transparent 70%);
+				pointer-events: none;
+			}
+
+			.hero-inner {
+				position: relative;
+				z-index: 1;
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 44px;
+				display: flex;
+				align-items: stretch;
+			}
+
+			.hero-body {
+				flex: 1;
+				padding: 40px 0 36px;
+			}
+
+			.hero-chips {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				margin-bottom: 12px;
+				flex-wrap: wrap;
+			}
+
+			.chip {
+				display: inline-flex;
+				align-items: center;
+				font-family: var(--font-mono);
+				font-size: 10px;
+				font-weight: 500;
+				letter-spacing: .08em;
+				text-transform: uppercase;
+				border-radius: 4px;
+				padding: 3px 9px;
+			}
+
+			.chip--primary {
+				background: var(--primary-chip-bg);
+				color: var(--accent);
+				border: 1px solid var(--primary-chip-border);
+			}
+
+			.chip--ghost {
+				background: rgba(255, 255, 255, .06);
+				color: rgba(255, 255, 255, .45);
+				border: 1px solid rgba(255, 255, 255, .10);
+			}
+
+			.hero-title {
+				font-family: var(--font-display);
+				font-size: clamp(26px, 3.6vw, 38px);
+				font-weight: 300;
+				color: #fff;
+				letter-spacing: -.02em;
+				line-height: 1.15;
+				margin-bottom: 10px;
+			}
+
+			.hero-title em {
+				font-style: italic;
+				color: var(--bg-warm);
+			}
+
+			.hero-sub {
+				font-size: 13px;
+				font-weight: 400;
+				color: rgba(255, 255, 255, .50);
+				max-width: 680px;
+				line-height: 1.7;
+			}
+
+			.hero-kpis {
+				display: flex;
+				gap: 18px;
+				margin-top: 24px;
+				flex-wrap: wrap;
+			}
+
+			.kpi {
+				display: flex;
+				flex-direction: column;
+				gap: 1px;
+			}
+
+			.kpi-val {
+				font-family: var(--font-mono);
+				font-size: 19px;
+				font-weight: 500;
+				color: var(--accent);
+				line-height: 1;
+			}
+
+			.kpi-lbl {
+				font-size: 9.5px;
+				font-weight: 600;
+				text-transform: uppercase;
+				letter-spacing: .08em;
+				color: rgba(255, 255, 255, .36);
+			}
+
+			.kpi-div {
+				width: 1px;
+				height: 30px;
+				background: rgba(255, 255, 255, .10);
+				align-self: center;
+			}
+
+			.hero-watermark {
+				position: absolute;
+				right: -8px;
+				top: 50%;
+				transform: translateY(-50%);
+				font-family: var(--font-display);
+				font-size: 160px;
+				font-weight: 900;
+				line-height: 1;
+				color: rgba(255, 255, 255, .03);
+				letter-spacing: -.04em;
+				pointer-events: none;
+				user-select: none;
+				white-space: nowrap;
+				z-index: 0;
+			}
+
+			/* ═══ Layout ══════════════════════════════════════════════════════ */
+			.wrap {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 44px 72px;
+			}
+
+			/* ═══ Legend ══════════════════════════════════════════════════════ */
+			.legend {
+				background: var(--surface);
+				border: 1px solid var(--border);
+				border-top: none;
+				border-radius: 0 0 var(--radius) var(--radius);
+				padding: 11px 22px;
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				gap: 5px 16px;
+				box-shadow: var(--shadow-s);
+				margin-bottom: 36px;
+			}
+
+			.legend-head {
+				font-family: var(--font-mono);
+				font-size: 9px;
+				font-weight: 500;
+				letter-spacing: .11em;
+				text-transform: uppercase;
+				color: var(--faint);
+				padding-right: 14px;
+				border-right: 1px solid var(--border);
+			}
+
+			.legend-item {
+				display: flex;
+				align-items: center;
+				gap: 6px;
+				font-size: 11px;
+				font-weight: 500;
+				color: var(--muted);
+				white-space: nowrap;
+			}
+
+			.sw {
+				width: 12px;
+				height: 12px;
+				border-radius: 3px;
+				border: 1.5px solid;
+				flex-shrink: 0;
+			}
+
+			/* ═══ Grid Helpers ════════════════════════════════════════════════ */
+			.grid-2 {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 14px;
+				margin-bottom: 16px;
+			}
+
+			.grid-3 {
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr;
+				gap: 14px;
+				margin-bottom: 16px;
+			}
+
+			@media (max-width: 640px) {
+
+				.grid-2,
+				.grid-3 {
+					grid-template-columns: 1fr;
+				}
+			}
+
+			/* ═══ Tags / Badges ═══════════════════════════════════════════════ */
+			.tag {
+				display: inline-block;
+				font-family: var(--font-mono);
+				font-size: 9.5px;
+				font-weight: 600;
+				text-transform: uppercase;
+				letter-spacing: .06em;
+				padding: 2px 8px;
+				border-radius: 4px;
+			}
+
+			.tag-success,
+			.tag-ok {
+				background: var(--success-light);
+				color: var(--success);
+			}
+
+			.tag-warning {
+				background: var(--warning-light);
+				color: #C09520;
+			}
+
+			.tag-error,
+			.tag-high {
+				background: var(--error-light);
+				color: var(--error);
+			}
+
+			.tag-info {
+				background: var(--info-light);
+				color: var(--info);
+			}
+
+			.tag-neutral,
+			.tag-low {
+				background: var(--grey01);
+				color: var(--faint);
+			}
+
+			.tag-medium {
+				background: var(--warning-light);
+				color: #C09520;
+			}
+
+			.tag-primary {
+				background: var(--primary-chip-bg);
+				color: var(--primary);
+			}
+
+			/* ═══ Tabs ════════════════════════════════════════════════════════ */
+			.tabs {
+				display: flex;
+				gap: 7px;
+				margin-bottom: 28px;
+				align-items: center;
+				flex-wrap: wrap;
+			}
+
+			.tab {
+				display: flex;
+				align-items: center;
+				gap: 9px;
+				padding: 10px 20px;
+				font-family: var(--font-body);
+				font-size: 13px;
+				font-weight: 600;
+				cursor: pointer;
+				border: 1px solid var(--outline);
+				background: var(--surface);
+				color: var(--muted);
+				border-radius: 32px;
+				transition: all .18s ease;
+				box-shadow: var(--shadow-s);
+			}
+
+			.tab:hover {
+				border-color: var(--bg-dark);
+				color: var(--bg-dark);
+				box-shadow: 0 0 0 3px var(--dark-shadow-md);
+			}
+
+			.tab-count {
+				font-family: var(--font-mono);
+				font-size: 10px;
+				font-weight: 500;
+				border-radius: 16px;
+				padding: 2px 8px;
+				background: var(--grey01);
+				color: var(--faint);
+				transition: all .18s;
+			}
+
+			.tab.active {
+				background: var(--bg-dark);
+				border-color: var(--bg-dark);
+				color: #fff;
+				box-shadow: 0 3px 14px var(--dark-shadow-lg);
+			}
+
+			.tab.active .tab-count {
+				background: rgba(255, 255, 255, .18);
+				color: #fff;
+			}
+
+			.tab-line {
+				flex: 1;
+				height: 1px;
+				background: var(--border);
+			}
+
+			.tab-sum {
+				font-family: var(--font-mono);
+				font-size: 10px;
+				color: var(--faint);
+				letter-spacing: .05em;
+			}
+
+			/* ═══ Panels ══════════════════════════════════════════════════════ */
+			.panel {
+				display: none;
+			}
+
+			.panel.on {
+				display: block;
+			}
+
+			.panel.on .card {
+				animation: rise .32s ease both;
+			}
+
+			.panel.on .card:nth-child(1) {
+				animation-delay: 0s;
+			}
+
+			.panel.on .card:nth-child(2) {
+				animation-delay: .06s;
+			}
+
+			.panel.on .card:nth-child(3) {
+				animation-delay: .12s;
+			}
+
+			.panel.on .card:nth-child(4) {
+				animation-delay: .18s;
+			}
+
+			.panel.on .card:nth-child(5) {
+				animation-delay: .24s;
+			}
+
+			.panel.on .card:nth-child(6) {
+				animation-delay: .30s;
+			}
+
+			@keyframes rise {
+				from {
+					opacity: 0;
+					transform: translateY(12px);
+				}
+
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			/* ═══ Cards ═══════════════════════════════════════════════════════ */
+			.card {
+				position: relative;
+				background: var(--surface);
+				border: 1px solid var(--border);
+				border-top: 3px solid var(--bg-dark);
+				border-radius: var(--radius);
+				margin-bottom: 22px;
+				box-shadow: var(--shadow-s);
+				overflow: hidden;
+				transition: box-shadow .22s, transform .22s;
+			}
+
+			.card:hover {
+				box-shadow: var(--shadow-m);
+				transform: translateY(-2px);
+			}
+
+			.card-head {
+				position: relative;
+				padding: 24px 32px 18px;
+				display: flex;
+				align-items: flex-start;
+				gap: 18px;
+				overflow: hidden;
+			}
+
+			.card-head::after {
+				content: attr(data-id);
+				position: absolute;
+				right: 20px;
+				top: 50%;
+				transform: translateY(-52%);
+				font-family: var(--font-display);
+				font-size: 88px;
+				font-weight: 800;
+				line-height: 1;
+				pointer-events: none;
+				user-select: none;
+				letter-spacing: -.04em;
+				color: var(--dark-shadow-xs);
+			}
+
+			.card-badge {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 38px;
+				height: 38px;
+				border-radius: 9px;
+				font-family: var(--font-mono);
+				font-size: 12px;
+				font-weight: 500;
+				flex-shrink: 0;
+				letter-spacing: .02em;
+				background: var(--grey01);
+				color: var(--bg-dark);
+				border: 1.5px solid var(--outline);
+			}
+
+			.card-info {
+				flex: 1;
+				min-width: 0;
+			}
+
+			.card-tag {
+				display: inline-block;
+				font-family: var(--font-mono);
+				font-size: 9px;
+				font-weight: 500;
+				text-transform: uppercase;
+				letter-spacing: .10em;
+				padding: 2px 7px;
+				border-radius: 3px;
+				margin-bottom: 4px;
+				background: var(--grey01);
+				color: var(--bg-dark-mid);
+			}
+
+			.card-title {
+				font-family: var(--font-display);
+				font-size: 16px;
+				font-weight: 500;
+				color: var(--bg-dark);
+				letter-spacing: -.01em;
+				line-height: 1.3;
+				margin-bottom: 5px;
+			}
+
+			.card-desc {
+				font-size: 12.5px;
+				font-weight: 400;
+				color: var(--muted);
+				line-height: 1.65;
+				max-width: 660px;
+			}
+
+			.card-desc strong {
+				font-weight: 600;
+				color: var(--text);
+			}
+
+			.card-desc em {
+				font-style: italic;
+				color: var(--text);
+			}
+
+			.card-desc code {
+				font-family: var(--font-mono);
+				font-size: 10.5px;
+				background: var(--grey01);
+				border: 1px solid var(--border);
+				border-radius: 3px;
+				padding: 1px 5px;
+				color: var(--bg-dark);
+			}
+
+			.card-rule {
+				height: 1px;
+				background: linear-gradient(90deg, var(--border) 0%, transparent 75%);
+				margin: 0 32px;
+			}
+
+			.card-diagram {
+				background: #FAFAFA;
+			}
+
+			.card-diagram img {
+				display: block;
+				width: 100%;
+				height: auto;
+				max-height: 720px;
+				object-fit: contain;
+				padding: 20px 28px;
+			}
+
+			.card-diagram .err {
+				padding: 44px;
+				text-align: center;
+				font-size: 12.5px;
+				color: var(--faint);
+			}
+
+			/* ═══ Card Content ════════════════════════════════════════════════ */
+			.card-content {
+				padding: 20px 32px 28px;
+			}
+
+			.ref-group {
+				margin-bottom: 20px;
+			}
+
+			.ref-group:last-child {
+				margin-bottom: 0;
+			}
+
+			.ref-group-title {
+				font-family: var(--font-display);
+				font-size: 12.5px;
+				font-weight: 600;
+				color: var(--bg-dark);
+				text-transform: uppercase;
+				letter-spacing: .06em;
+				margin-bottom: 10px;
+				padding-bottom: 6px;
+				border-bottom: 1px solid var(--grey01);
+				display: flex;
+				align-items: center;
+				gap: 8px;
+			}
+
+			.ref-group-title .ref-icon {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 20px;
+				height: 20px;
+				border-radius: 4px;
+				font-size: 10px;
+				flex-shrink: 0;
+			}
+
+			.ref-table {
+				width: 100%;
+				border-collapse: collapse;
+				font-size: 12px;
+			}
+
+			.ref-table th {
+				text-align: left;
+				font-family: var(--font-mono);
+				font-size: 9px;
+				font-weight: 500;
+				text-transform: uppercase;
+				letter-spacing: .10em;
+				color: var(--faint);
+				padding: 5px 10px 5px 0;
+				border-bottom: 1px solid var(--grey01);
+			}
+
+			.ref-table td {
+				padding: 6px 10px 6px 0;
+				color: var(--text);
+				border-bottom: 1px solid var(--grey01);
+				vertical-align: top;
+				line-height: 1.55;
+			}
+
+			.ref-table tr:last-child td {
+				border-bottom: none;
+			}
+
+			.ref-table .path {
+				font-family: var(--font-mono);
+				font-size: 10.5px;
+				color: var(--primary-dark);
+				word-break: break-all;
+			}
+
+			.ref-table .route {
+				font-family: var(--font-mono);
+				font-size: 10.5px;
+				background: var(--grey01);
+				border: 1px solid var(--border);
+				border-radius: 3px;
+				padding: 1px 6px;
+				color: var(--bg-dark);
+				white-space: nowrap;
+			}
+
+			.ref-table .method {
+				font-family: var(--font-mono);
+				font-size: 9px;
+				font-weight: 500;
+				border-radius: 3px;
+				padding: 2px 6px;
+				white-space: nowrap;
+			}
+
+			.method-get {
+				background: var(--status-success-light);
+				color: #2D7A43;
+			}
+
+			.method-post {
+				background: var(--status-info-light);
+				color: #2E7AB8;
+			}
+
+			.ref-note {
+				margin-top: 14px;
+				padding: 10px 14px;
+				background: var(--status-warning-light);
+				border-left: 3px solid var(--status-warning);
+				border-radius: 0 6px 6px 0;
+				font-size: 11.5px;
+				color: var(--text);
+				line-height: 1.6;
+			}
+
+			.ref-note.note-info {
+				background: var(--status-info-light);
+				border-left-color: var(--status-info);
+			}
+
+			.ref-note.note-success {
+				background: var(--status-success-light);
+				border-left-color: var(--status-success);
+			}
+
+			.ref-note.note-error {
+				background: var(--status-error-light);
+				border-left-color: var(--status-error);
+			}
+
+			/* ═══ Review Findings ═════════════════════════════════════════════ */
+			.finding {
+				display: flex;
+				gap: 14px;
+				padding: 12px 0;
+				border-bottom: 1px solid var(--grey01);
+			}
+
+			.finding:last-child {
+				border-bottom: none;
+			}
+
+			.finding-icon {
+				width: 28px;
+				height: 28px;
+				border-radius: 6px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 12px;
+				flex-shrink: 0;
+				margin-top: 2px;
+			}
+
+			.finding-icon.severity-high {
+				background: var(--status-error-light);
+				color: var(--status-error);
+			}
+
+			.finding-icon.severity-medium {
+				background: var(--status-warning-light);
+				color: #C09520;
+			}
+
+			.finding-icon.severity-low {
+				background: var(--status-info-light);
+				color: var(--status-info);
+			}
+
+			.finding-icon.severity-ok {
+				background: var(--status-success-light);
+				color: #2D7A43;
+			}
+
+			.finding-body {
+				flex: 1;
+			}
+
+			.finding-title {
+				font-size: 13px;
+				font-weight: 600;
+				color: var(--bg-dark);
+				margin-bottom: 2px;
+			}
+
+			.finding-desc {
+				font-size: 12px;
+				color: var(--muted);
+				line-height: 1.6;
+			}
+
+			.finding-desc code {
+				font-family: var(--font-mono);
+				font-size: 10px;
+				background: var(--grey01);
+				border: 1px solid var(--border);
+				border-radius: 3px;
+				padding: 1px 4px;
+				color: var(--bg-dark);
+			}
+
+			.finding-skill {
+				display: inline-block;
+				font-family: var(--font-mono);
+				font-size: 8.5px;
+				font-weight: 500;
+				text-transform: uppercase;
+				letter-spacing: .08em;
+				padding: 1px 6px;
+				border-radius: 3px;
+				margin-left: 6px;
+				background: var(--grey01);
+				color: var(--faint);
+			}
+
+			/* ═══ Stats Grid ══════════════════════════════════════════════════ */
+			.stats-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+				gap: 12px;
+				margin-bottom: 20px;
+			}
+
+			.stat-box {
+				background: var(--grey01);
+				border-radius: 10px;
+				padding: 16px;
+				text-align: center;
+			}
+
+			.stat-val {
+				font-family: var(--font-mono);
+				font-size: 28px;
+				font-weight: 500;
+				color: var(--primary);
+				line-height: 1;
+			}
+
+			.stat-label {
+				font-size: 10px;
+				font-weight: 600;
+				text-transform: uppercase;
+				letter-spacing: .06em;
+				color: var(--faint);
+				margin-top: 4px;
+			}
+
+			/* ═══ Capability Grid ═════════════════════════════════════════════ */
+			.cap-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+				gap: 14px;
+				margin-bottom: 20px;
+			}
+
+			.cap-card {
+				background: var(--surface);
+				border: 1px solid var(--border);
+				border-radius: 10px;
+				padding: 18px;
+				transition: box-shadow .18s, transform .18s;
+			}
+
+			.cap-card:hover {
+				box-shadow: var(--shadow-s);
+				transform: translateY(-1px);
+			}
+
+			.cap-card-head {
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				margin-bottom: 8px;
+			}
+
+			.cap-icon {
+				width: 32px;
+				height: 32px;
+				border-radius: 7px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 14px;
+				flex-shrink: 0;
+			}
+
+			.cap-title {
+				font-family: var(--font-display);
+				font-size: 13.5px;
+				font-weight: 600;
+				color: var(--bg-dark);
+			}
+
+			.cap-desc {
+				font-size: 11.5px;
+				color: var(--muted);
+				line-height: 1.6;
+			}
+
+			.cap-desc code {
+				font-family: var(--font-mono);
+				font-size: 10px;
+				background: var(--grey01);
+				border: 1px solid var(--border);
+				border-radius: 3px;
+				padding: 1px 4px;
+				color: var(--bg-dark);
+			}
+
+			.cap-tags {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 4px;
+				margin-top: 10px;
+			}
+
+			.cap-tag {
+				font-family: var(--font-mono);
+				font-size: 8.5px;
+				font-weight: 500;
+				text-transform: uppercase;
+				letter-spacing: .06em;
+				padding: 2px 6px;
+				border-radius: 3px;
+				background: var(--grey01);
+				color: var(--bg-dark-mid);
+			}
+
+			/* ═══ Footer ══════════════════════════════════════════════════════ */
+			.foot {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 20px 44px 36px;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 14px;
+				border-top: 1px solid var(--border);
+				flex-wrap: wrap;
+			}
+
+			.foot-brand {
+				display: flex;
+				align-items: center;
+				gap: 7px;
+				font-family: var(--font-body);
+				font-size: 12px;
+				font-weight: 700;
+				color: var(--bg-dark);
+			}
+
+			.foot-mark {
+				width: 22px;
+				height: 22px;
+				background: var(--primary);
+				border-radius: 4px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 9px;
+				font-weight: 800;
+				color: #fff;
+			}
+
+			.foot-meta {
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				font-family: var(--font-mono);
+				font-size: 10px;
+				color: var(--faint);
+				letter-spacing: .03em;
+				flex-wrap: wrap;
+			}
+
+			.foot-meta .sep {
+				opacity: .3;
+			}
+
+			/* ═══ Scorecard (A–F graded dimensions) ═══════════════════════════ */
+			.scorecard {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+				gap: 10px;
+				margin-bottom: 20px;
+			}
+
+			.scorecard-item {
+				display: flex;
+				align-items: center;
+				gap: 12px;
+				background: var(--surface);
+				border: 1px solid var(--border);
+				border-radius: 10px;
+				padding: 14px 16px;
+				transition: box-shadow .18s;
+			}
+
+			.scorecard-item:hover {
+				box-shadow: var(--shadow-s);
+			}
+
+			.scorecard-grade {
+				width: 36px;
+				height: 36px;
+				border-radius: 8px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-family: var(--font-mono);
+				font-size: 16px;
+				font-weight: 700;
+				flex-shrink: 0;
+				color: #fff;
+			}
+
+			.grade-a {
+				background: #22A861;
+			}
+
+			.grade-b {
+				background: #5FAEE3;
+			}
+
+			.grade-c {
+				background: #E5A00D;
+			}
+
+			.grade-d {
+				background: #E8843C;
+			}
+
+			.grade-f {
+				background: #DC3545;
+			}
+
+			.scorecard-info {
+				flex: 1;
+				min-width: 0;
+			}
+
+			.scorecard-dim {
+				font-size: 12.5px;
+				font-weight: 600;
+				color: var(--bg-dark);
+				line-height: 1.3;
+			}
+
+			.scorecard-note {
+				font-size: 10.5px;
+				color: var(--muted);
+				line-height: 1.5;
+				margin-top: 1px;
+			}
+
+			/* ═══ Timeline / Roadmap ══════════════════════════════════════════ */
+			.timeline {
+				position: relative;
+				padding-left: 28px;
+				margin-bottom: 20px;
+			}
+
+			.timeline::before {
+				content: '';
+				position: absolute;
+				left: 8px;
+				top: 6px;
+				bottom: 6px;
+				width: 2px;
+				background: var(--border);
+			}
+
+			.timeline-phase {
+				position: relative;
+				margin-bottom: 20px;
+			}
+
+			.timeline-phase:last-child {
+				margin-bottom: 0;
+			}
+
+			.timeline-dot {
+				position: absolute;
+				left: -28px;
+				top: 2px;
+				width: 18px;
+				height: 18px;
+				border-radius: 50%;
+				border: 2.5px solid var(--primary);
+				background: var(--surface);
+				z-index: 1;
+			}
+
+			.timeline-dot.done {
+				background: var(--primary);
+			}
+
+			.timeline-dot.done::after {
+				content: '✓';
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 9px;
+				color: #fff;
+				line-height: 13px;
+			}
+
+			.timeline-label {
+				font-family: var(--font-mono);
+				font-size: 9px;
+				font-weight: 500;
+				text-transform: uppercase;
+				letter-spacing: .10em;
+				color: var(--primary);
+				margin-bottom: 4px;
+			}
+
+			.timeline-title {
+				font-family: var(--font-display);
+				font-size: 14px;
+				font-weight: 600;
+				color: var(--bg-dark);
+				margin-bottom: 4px;
+			}
+
+			.timeline-desc {
+				font-size: 12px;
+				color: var(--muted);
+				line-height: 1.6;
+			}
+
+			.timeline-items {
+				list-style: none;
+				padding: 0;
+				margin: 6px 0 0;
+			}
+
+			.timeline-items li {
+				position: relative;
+				padding-left: 14px;
+				font-size: 12px;
+				color: var(--muted);
+				line-height: 1.7;
+			}
+
+			.timeline-items li::before {
+				content: '→';
+				position: absolute;
+				left: 0;
+				color: var(--primary);
+				font-weight: 600;
+			}
+
+			/* ═══ Persona Card ════════════════════════════════════════════════ */
+			.persona {
+				display: flex;
+				gap: 20px;
+				align-items: flex-start;
+				margin-bottom: 20px;
+			}
+
+			.persona-avatar {
+				width: 56px;
+				height: 56px;
+				border-radius: 50%;
+				background: var(--primary-pale);
+				border: 2px solid var(--primary);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-family: var(--font-display);
+				font-size: 18px;
+				font-weight: 700;
+				color: var(--primary);
+				flex-shrink: 0;
+			}
+
+			.persona-body {
+				flex: 1;
+				min-width: 0;
+			}
+
+			.persona-name {
+				font-family: var(--font-display);
+				font-size: 15px;
+				font-weight: 600;
+				color: var(--bg-dark);
+				line-height: 1.2;
+			}
+
+			.persona-role {
+				font-size: 11.5px;
+				color: var(--muted);
+				margin-bottom: 8px;
+			}
+
+			.persona-details {
+				display: grid;
+				grid-template-columns: auto 1fr;
+				gap: 3px 12px;
+				font-size: 12px;
+			}
+
+			.persona-details dt {
+				font-family: var(--font-mono);
+				font-size: 9.5px;
+				font-weight: 500;
+				text-transform: uppercase;
+				letter-spacing: .06em;
+				color: var(--faint);
+				padding-top: 2px;
+			}
+
+			.persona-details dd {
+				color: var(--text);
+				line-height: 1.6;
+			}
+
+			.persona-tags {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 4px;
+				margin-top: 8px;
+			}
+
+			/* ═══ Checklist ═══════════════════════════════════════════════════ */
+			.checklist {
+				list-style: none;
+				padding: 0;
+				margin-bottom: 20px;
+			}
+
+			.checklist li {
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				padding: 8px 0;
+				border-bottom: 1px solid var(--grey01);
+				font-size: 12.5px;
+				color: var(--text);
+			}
+
+			.checklist li:last-child {
+				border-bottom: none;
+			}
+
+			.checklist-icon {
+				width: 20px;
+				height: 20px;
+				border-radius: 5px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 10px;
+				flex-shrink: 0;
+			}
+
+			.checklist-icon.pass {
+				background: var(--status-success-light);
+				color: #22A861;
+			}
+
+			.checklist-icon.fail {
+				background: var(--status-error-light);
+				color: #DC3545;
+			}
+
+			.checklist-icon.warn {
+				background: var(--status-warning-light);
+				color: #E5A00D;
+			}
+
+			.checklist-icon.na {
+				background: var(--status-neutral-light);
+				color: var(--grey04);
+			}
+
+			.checklist-label {
+				flex: 1;
+			}
+
+			.checklist-severity {
+				font-family: var(--font-mono);
+				font-size: 8.5px;
+				font-weight: 600;
+				text-transform: uppercase;
+				letter-spacing: .08em;
+				padding: 2px 7px;
+				border-radius: 3px;
+			}
+
+			.sev-blocker {
+				background: var(--status-error-light);
+				color: #DC3545;
+			}
+
+			.sev-high {
+				background: #FDE8D4;
+				color: #C05A1A;
+			}
+
+			.sev-medium {
+				background: var(--status-warning-light);
+				color: #B8920C;
+			}
+
+			.sev-low {
+				background: var(--status-info-light);
+				color: #2E7AB8;
+			}
+
+			/* ═══ Journey Map Table ════════════════════════════════════════════ */
+			.journey-table {
+				width: 100%;
+				border-collapse: collapse;
+				font-size: 11.5px;
+				margin-bottom: 20px;
+			}
+
+			.journey-table th {
+				font-family: var(--font-mono);
+				font-size: 9px;
+				font-weight: 500;
+				text-transform: uppercase;
+				letter-spacing: .10em;
+				color: var(--faint);
+				text-align: left;
+				padding: 8px 10px;
+				border-bottom: 2px solid var(--border);
+				white-space: nowrap;
+			}
+
+			.journey-table td {
+				padding: 10px 10px;
+				border-bottom: 1px solid var(--grey01);
+				vertical-align: top;
+				line-height: 1.55;
+				color: var(--text);
+			}
+
+			.journey-table tr:last-child td {
+				border-bottom: none;
+			}
+
+			.emotion-happy {
+				color: #22A861;
+			}
+
+			.emotion-neutral {
+				color: #E5A00D;
+			}
+
+			.emotion-sad {
+				color: #DC3545;
+			}
+
+			/* ═══ OKR / Metric Cards ══════════════════════════════════════════ */
+			.okr-block {
+				background: var(--surface);
+				border: 1px solid var(--border);
+				border-left: 4px solid var(--primary);
+				border-radius: 0 10px 10px 0;
+				padding: 16px 20px;
+				margin-bottom: 12px;
+			}
+
+			.okr-objective {
+				font-family: var(--font-display);
+				font-size: 14px;
+				font-weight: 600;
+				color: var(--bg-dark);
+				margin-bottom: 8px;
+			}
+
+			.okr-results {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+
+			.okr-results li {
+				position: relative;
+				padding-left: 20px;
+				font-size: 12px;
+				color: var(--muted);
+				line-height: 1.7;
+			}
+
+			.okr-results li::before {
+				content: 'KR';
+				position: absolute;
+				left: 0;
+				font-family: var(--font-mono);
+				font-size: 8px;
+				font-weight: 700;
+				color: var(--primary);
+				background: var(--primary-pale);
+				padding: 1px 3px;
+				border-radius: 2px;
+				top: 3px;
+			}
+
+			/* ═══ Metric Highlight (North Star / KR target) ═══════════════════ */
+			.metric-hl {
+				display: flex;
+				align-items: center;
+				gap: 16px;
+				padding: 16px 20px;
+				background: var(--primary-pale);
+				border: 1px solid var(--primary);
+				border-radius: 10px;
+				margin-bottom: 16px;
+			}
+
+			.metric-hl-val {
+				font-family: var(--font-mono);
+				font-size: 28px;
+				font-weight: 600;
+				color: var(--primary);
+				line-height: 1;
+			}
+
+			.metric-hl-info {
+				flex: 1;
+			}
+
+			.metric-hl-name {
+				font-size: 13px;
+				font-weight: 600;
+				color: var(--bg-dark);
+			}
+
+			.metric-hl-desc {
+				font-size: 11px;
+				color: var(--muted);
+			}
+
+			/* ═══ Collapsible Section ═════════════════════════════════════════ */
+			details.collapsible {
+				border: 1px solid var(--border);
+				border-radius: 8px;
+				margin-bottom: 10px;
+				overflow: hidden;
+			}
+
+			details.collapsible summary {
+				padding: 10px 16px;
+				font-family: var(--font-body);
+				font-size: 12.5px;
+				font-weight: 600;
+				color: var(--bg-dark);
+				cursor: pointer;
+				background: var(--grey01);
+				border-bottom: 1px solid transparent;
+				list-style: none;
+				display: flex;
+				align-items: center;
+				gap: 8px;
+			}
+
+			details.collapsible summary::before {
+				content: '▸';
+				font-size: 10px;
+				color: var(--faint);
+				transition: transform .18s;
+			}
+
+			details.collapsible[open] summary::before {
+				transform: rotate(90deg);
+			}
+
+			details.collapsible[open] summary {
+				border-bottom-color: var(--border);
+			}
+
+			details.collapsible .collapsible-body {
+				padding: 14px 16px;
+			}
+
+			/* ═══ RICE / Scoring Table ════════════════════════════════════════ */
+			.score-table {
+				width: 100%;
+				border-collapse: collapse;
+				font-size: 12px;
+				margin-bottom: 20px;
+			}
+
+			.score-table th {
+				font-family: var(--font-mono);
+				font-size: 9px;
+				font-weight: 500;
+				text-transform: uppercase;
+				letter-spacing: .08em;
+				color: var(--faint);
+				text-align: left;
+				padding: 8px 10px;
+				border-bottom: 2px solid var(--border);
+			}
+
+			.score-table th:last-child {
+				text-align: right;
+			}
+
+			.score-table td {
+				padding: 8px 10px;
+				border-bottom: 1px solid var(--grey01);
+				vertical-align: middle;
+				line-height: 1.5;
+			}
+
+			.score-table td:last-child {
+				text-align: right;
+				font-family: var(--font-mono);
+				font-weight: 600;
+			}
+
+			.score-table tr:last-child td {
+				border-bottom: none;
+			}
+
+			.score-bar {
+				display: inline-block;
+				height: 6px;
+				border-radius: 3px;
+				background: var(--primary);
+				vertical-align: middle;
+			}
+
+			/* ═══ User Story Card ═════════════════════════════════════════════ */
+			.story-card {
+				background: var(--surface);
+				border: 1px solid var(--border);
+				border-radius: 10px;
+				padding: 16px 20px;
+				margin-bottom: 10px;
+			}
+
+			.story-card-head {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				margin-bottom: 6px;
+				flex-wrap: wrap;
+			}
+
+			.story-epic {
+				font-family: var(--font-mono);
+				font-size: 8.5px;
+				font-weight: 500;
+				text-transform: uppercase;
+				letter-spacing: .06em;
+				padding: 2px 7px;
+				border-radius: 3px;
+				background: var(--primary-pale);
+				color: var(--primary);
+			}
+
+			.story-priority {
+				font-family: var(--font-mono);
+				font-size: 8.5px;
+				font-weight: 600;
+				text-transform: uppercase;
+				letter-spacing: .06em;
+				padding: 2px 7px;
+				border-radius: 3px;
+			}
+
+			.story-priority.p0 {
+				background: var(--status-error-light);
+				color: #DC3545;
+			}
+
+			.story-priority.p1 {
+				background: var(--status-warning-light);
+				color: #B8920C;
+			}
+
+			.story-priority.p2 {
+				background: var(--status-info-light);
+				color: #2E7AB8;
+			}
+
+			.story-size {
+				font-family: var(--font-mono);
+				font-size: 8.5px;
+				font-weight: 500;
+				padding: 2px 7px;
+				border-radius: 3px;
+				background: var(--grey01);
+				color: var(--faint);
+			}
+
+			.story-text {
+				font-size: 13px;
+				color: var(--text);
+				line-height: 1.6;
+				margin-bottom: 8px;
+			}
+
+			.story-text strong {
+				font-weight: 600;
+				color: var(--bg-dark);
+			}
+
+			.story-ac {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+
+			.story-ac li {
+				font-size: 11.5px;
+				color: var(--muted);
+				line-height: 1.6;
+				padding: 3px 0;
+				border-bottom: 1px dashed var(--grey01);
+			}
+
+			.story-ac li:last-child {
+				border-bottom: none;
+			}
+
+			.story-ac .kw {
+				font-weight: 600;
+				color: var(--primary);
+			}
+
+			/* ═══ 2x2 Matrix ══════════════════════════════════════════════════ */
+			.matrix-2x2 {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 2px;
+				background: var(--border);
+				border-radius: 10px;
+				overflow: hidden;
+				margin-bottom: 20px;
+			}
+
+			.matrix-cell {
+				background: var(--surface);
+				padding: 14px 16px;
+			}
+
+			.matrix-cell-title {
+				font-family: var(--font-mono);
+				font-size: 9px;
+				font-weight: 600;
+				text-transform: uppercase;
+				letter-spacing: .08em;
+				color: var(--faint);
+				margin-bottom: 8px;
+			}
+
+			.matrix-cell ul {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+
+			.matrix-cell li {
+				font-size: 12px;
+				color: var(--text);
+				line-height: 1.6;
+				padding: 2px 0;
+			}
+
+			/* ═══ Print Button ═════════════════════════════════════════════════ */
+			.print-btn {
+				position: fixed;
+				bottom: 24px;
+				right: 24px;
+				width: 44px;
+				height: 44px;
+				border-radius: 50%;
+				background: var(--bg-dark);
+				color: #fff;
+				border: none;
+				font-size: 18px;
+				cursor: pointer;
+				box-shadow: var(--shadow-m);
+				z-index: 100;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				transition: background .18s, transform .18s;
+			}
+
+			.print-btn:hover {
+				background: var(--primary);
+				transform: scale(1.08);
+			}
+
+			/* ═══ Problem Box (highlighted statement) ═════════════════════════════ */
+			.problem-box {
+				background: var(--primary-pale);
+				border-left: 4px solid var(--primary);
+				padding: 14px 18px;
+				border-radius: 0 8px 8px 0;
+				font-size: 12.5px;
+				line-height: 1.65;
+				color: var(--text);
+			}
+
+			.problem-box strong {
+				font-weight: 600;
+				color: var(--bg-dark);
+			}
+
+			/* ═══ Pain Grid (2×2 card grid) ═══════════════════════════════════ */
+			.pain-grid {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 10px;
+				margin-bottom: 20px;
+			}
+
+			.pain-card {
+				background: var(--grey01);
+				border-radius: 8px;
+				padding: 12px 14px;
+			}
+
+			.pain-card .pain-label {
+				font-family: var(--font-mono);
+				font-size: 9px;
+				font-weight: 600;
+				text-transform: uppercase;
+				letter-spacing: .06em;
+				color: var(--faint);
+				margin-bottom: 4px;
+			}
+
+			.pain-card .pain-text {
+				font-size: 12px;
+				line-height: 1.55;
+				color: var(--text);
+			}
+
+			.pain-card.critical {
+				border-left: 3px solid var(--error);
+			}
+
+			.pain-card.warning {
+				border-left: 3px solid var(--warning);
+			}
+
+			/* ═══ Scenario (icon + title + description) ═══════════════════════ */
+			.scenario {
+				display: flex;
+				gap: 12px;
+				margin-bottom: 10px;
+				align-items: flex-start;
+			}
+
+			.scenario:last-child {
+				margin-bottom: 0;
+			}
+
+			.scenario-icon {
+				width: 28px;
+				height: 28px;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 11px;
+				font-weight: 700;
+				flex-shrink: 0;
+				margin-top: 2px;
+			}
+
+			.scenario-icon.red {
+				background: var(--error-light);
+				color: var(--error);
+			}
+
+			.scenario-icon.amber {
+				background: var(--warning-light);
+				color: #C09520;
+			}
+
+			.scenario-icon.blue {
+				background: var(--info-light);
+				color: var(--info);
+			}
+
+			.scenario-body strong {
+				font-size: 12.5px;
+				font-weight: 600;
+				color: var(--bg-dark);
+				display: block;
+				margin-bottom: 2px;
+			}
+
+			.scenario-body p {
+				font-size: 12px;
+				color: var(--muted);
+				line-height: 1.55;
+			}
+
+			/* ═══ Callout Box (amber callout for notes/warnings) ══════════════ */
+			.callout-box {
+				background: var(--warning-light);
+				border-left: 4px solid var(--warning);
+				padding: 14px 18px;
+				border-radius: 0 8px 8px 0;
+				font-size: 12.5px;
+				line-height: 1.65;
+				color: var(--text);
+			}
+
+			/* ═══ Steps List (numbered next steps) ════════════════════════════ */
+			.steps-list {
+				list-style: none;
+				counter-reset: step;
+				padding: 0;
+				margin-bottom: 20px;
+			}
+
+			.steps-list li {
+				counter-increment: step;
+				display: flex;
+				align-items: flex-start;
+				gap: 10px;
+				margin-bottom: 8px;
+				font-size: 12.5px;
+				color: var(--text);
+				line-height: 1.6;
+			}
+
+			.steps-list li::before {
+				content: counter(step);
+				width: 22px;
+				height: 22px;
+				background: var(--primary);
+				color: #fff;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 10px;
+				font-weight: 600;
+				flex-shrink: 0;
+				margin-top: 1px;
+			}
+
+			.steps-list li strong {
+				font-weight: 600;
+				color: var(--bg-dark);
+			}
+
+			/* ═══ Print ═══════════════════════════════════════════════════════ */
+			@media print {
+				body {
+					font-size: 11pt;
+					background: #fff;
+				}
+
+				.hero {
+					-webkit-print-color-adjust: exact;
+					print-color-adjust: exact;
+				}
+
+				.tabs,
+				.print-btn {
+					display: none;
+				}
+
+				.panel {
+					display: block !important;
+				}
+
+				.card {
+					animation: none !important;
+					page-break-inside: avoid;
+					box-shadow: none;
+					transform: none !important;
+				}
+
+				.wrap {
+					padding-bottom: 0;
+				}
+
+				.foot {
+					page-break-inside: avoid;
+				}
+			}
+
+			/* ═══ Responsive ══════════════════════════════════════════════════ */
+			@media (max-width: 768px) {
+
+				.hero-inner,
+				.wrap,
+				.foot {
+					padding-left: 18px;
+					padding-right: 18px;
+				}
+
+				.hero-watermark {
+					display: none;
+				}
+
+				.card-head {
+					padding: 18px 16px 14px;
+					gap: 12px;
+				}
+
+				.card-head::after {
+					font-size: 56px;
+					right: 10px;
+				}
+
+				.card-rule {
+					margin: 0 16px;
+				}
+
+				.card-diagram img {
+					padding: 14px;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<!-- ═══════ HERO ═══════ -->
+		<header class="hero">
+			<div class="hero-inner">
+				<div class="hero-body">
+					<div class="hero-chips">
+						<span class="chip chip--primary">{{TOPIC}}</span>
+						<span class="chip chip--ghost">{{DATE}}</span>
+					</div>
+					<h1 class="hero-title">{{HEADING}}</h1>
+					<p class="hero-sub">{{DESCRIPTION}}</p>
+					<div class="hero-kpis">
+						<!-- Add KPI blocks as needed. Separate with .kpi-div -->
+						<div class="kpi">
+							<div class="kpi-val">{{KPI_1_VAL}}</div>
+							<div class="kpi-lbl">{{KPI_1_LBL}}</div>
+						</div>
+						<div class="kpi-div"></div>
+						<div class="kpi">
+							<div class="kpi-val">{{KPI_2_VAL}}</div>
+							<div class="kpi-lbl">{{KPI_2_LBL}}</div>
+						</div>
+						<!-- Add more KPIs or remove as needed -->
+					</div>
+				</div>
+			</div>
+			<div class="hero-watermark">{{WATERMARK}}</div>
+		</header>
+
+		<!-- ═══════ MAIN ═══════ -->
+		<main class="wrap">
+
+			<!-- Legend — optional, include when document has diagrams -->
+			<div class="legend">
+				<div class="legend-head">Colour Key</div>
+				<!-- Add legend items matching your diagram palette -->
+				<div class="legend-item">
+					<div class="sw" style="background:#DCE8FB; border-color:#5FAEE3;"></div>{{LEGEND_1}}
+				</div>
+				<div class="legend-item">
+					<div class="sw" style="background:#D6E8D4; border-color:#008071;"></div>{{LEGEND_2}}
+				</div>
+			</div>
+
+			<!--
+				TABS — Dynamic. LLM decides labels based on use case type.
+				Standard patterns by use case:
+				• Analysis:    Context | Business | Technical | Assessment
+				• Proposal:    Vision | Users | Solution | Delivery
+				• Plan:        Overview | Architecture | Implementation | Delivery
+				• Review:      Summary | Checklist | Findings | Remediation
+
+				LINEAR MODE: To render without tabs, omit this <nav class="tabs">
+				block entirely and put cards directly inside <main class="wrap">
+				without <section class="panel"> wrappers.
+			-->
+			<nav class="tabs">
+				<!-- Add/remove tab buttons. First tab gets class="tab active" -->
+				<button class="tab active" id="btn-{{TAB_1_ID}}" onclick="go('{{TAB_1_ID}}')">{{TAB_1_LABEL}} <span
+						class="tab-count">{{TAB_1_COUNT}}</span></button>
+				<button class="tab" id="btn-{{TAB_2_ID}}" onclick="go('{{TAB_2_ID}}')">{{TAB_2_LABEL}} <span
+						class="tab-count">{{TAB_2_COUNT}}</span></button>
+				<button class="tab" id="btn-{{TAB_3_ID}}" onclick="go('{{TAB_3_ID}}')">{{TAB_3_LABEL}} <span
+						class="tab-count">{{TAB_3_COUNT}}</span></button>
+				<!-- Add more tabs as needed -->
+				<div class="tab-line"></div>
+				<div class="tab-sum">{{TOTAL_CARDS}} cards total</div>
+			</nav>
+
+			<!--
+				PANELS — One per tab. Fill with .card elements.
+				Each card = one section. Use components from the library below.
+				First panel gets class="panel on", rest get class="panel".
+			-->
+			<section id="p-{{TAB_1_ID}}" class="panel on">
+
+				<!-- Card with diagram (SVG embed) -->
+				<article class="card">
+					<div class="card-head" data-id="01">
+						<div class="card-badge">01</div>
+						<div class="card-info">
+							<span class="card-tag">{{SECTION_TAG}}</span>
+							<h2 class="card-title">{{SECTION_TITLE}}</h2>
+							<p class="card-desc">{{SECTION_DESCRIPTION}}</p>
+						</div>
+					</div>
+					<div class="card-rule"></div>
+					<div class="card-diagram">
+						<img src="{{SVG_FILENAME}}" alt="{{SECTION_TITLE}}" loading="lazy"
+							onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+						<div class="err" style="display:none">SVG unavailable — ensure the .svg file is in the same
+							folder.</div>
+					</div>
+				</article>
+
+				<!-- Card with content (tables, findings, stats, etc.) -->
+				<article class="card">
+					<div class="card-head" data-id="02">
+						<div class="card-badge">02</div>
+						<div class="card-info">
+							<span class="card-tag">{{SECTION_TAG}}</span>
+							<h2 class="card-title">{{SECTION_TITLE}}</h2>
+							<p class="card-desc">{{SECTION_DESCRIPTION}}</p>
+						</div>
+					</div>
+					<div class="card-rule"></div>
+					<div class="card-content">
+						<!-- Fill with components from the library:
+							 .ref-table, .finding, .stats-grid, .cap-grid,
+							 .scorecard, .timeline, .persona, .checklist,
+							 .journey-table, .okr-block, .metric-hl,
+							 .score-table, .story-card, .matrix-2x2,
+							 details.collapsible, .ref-note -->
+					</div>
+				</article>
+
+			</section>
+
+			<section id="p-{{TAB_2_ID}}" class="panel">
+				<!-- Add cards for this tab -->
+			</section>
+
+			<section id="p-{{TAB_3_ID}}" class="panel">
+				<!-- Add cards for this tab -->
+			</section>
+
+		</main>
+
+		<!--
+		╔══════════════════════════════════════════════════════════════════════╗
+		║  COMPONENT REFERENCE — Copy snippets into .card-content sections   ║
+		║  These examples are hidden (inside a template tag) and are NOT     ║
+		║  rendered. Delete this entire <template> block in production.      ║
+		║                                                                    ║
+		║  Pick components based on what the section needs:                  ║
+		║  • Data/requirements → .ref-table                                 ║
+		║  • Audit findings → .finding                                      ║
+		║  • KPIs/metrics → .stats-grid, .metric-hl                        ║
+		║  • Features/capabilities → .cap-grid                              ║
+		║  • Tech debt grades → .scorecard                                  ║
+		║  • Phased plans/roadmaps → .timeline                             ║
+		║  • User personas → .persona                                       ║
+		║  • Compliance/readiness → .checklist                             ║
+		║  • Journey maps → .journey-table                                  ║
+		║  • OKRs → .okr-block                                             ║
+		║  • Prioritization → .score-table                                  ║
+		║  • User stories → .story-card                                     ║
+		║  • Value/effort trade-offs → .matrix-2x2                         ║
+		║  • Long details/ADRs → details.collapsible                       ║
+		║  • Warnings/notes → .ref-note                                    ║
+		║  • Problem/context → .problem-box                                ║
+		║  • Pain points grid → .pain-grid + .pain-card                    ║
+		║  • Scenarios/risks → .scenario                                   ║
+		║  • Next steps → .steps-list                                      ║
+		║  • Assets/notes → .callout-box                                   ║
+		║  • Layout columns → .grid-2, .grid-3                             ║
+		║  • Status/severity badges → .tag + variant                       ║
+		║                                                                    ║
+		║  ICONS: Examples below use Font Awesome 4.x class names            ║
+		║  (icon icon-{name}). When applying a theme, replace with:          ║
+		║    Akkuro  → icon icon-{name}  (Font Awesome 4.x)                 ║
+		║    HTP28   → lucide lucide-{name}  (Lucide)                       ║
+		║    Topicus → icon icon-{name}  (icomoon)                          ║
+		║                                                                    ║
+		║  LINEAR MODE EXAMPLE:                                              ║
+		║  For linear (no-tab) documents, omit <nav class="tabs"> and        ║
+		║  <section class="panel"> wrappers. Cards go directly in <main>:    ║
+		║                                                                    ║
+		║  <main class="wrap">                                               ║
+		║    <article class="card">...</article>                             ║
+		║    <article class="card">...</article>                             ║
+		║  </main>                                                           ║
+		╚══════════════════════════════════════════════════════════════════════╝
+		-->
+		<template id="component-examples">
+
+			<!-- ─── Scorecard (master-architect: tech debt A–F grades) ─── -->
+			<div class="scorecard">
+				<div class="scorecard-item">
+					<div class="scorecard-grade grade-a">A</div>
+					<div class="scorecard-info">
+						<div class="scorecard-dim">Architecture</div>
+						<div class="scorecard-note">Clean layering, clear boundaries</div>
+					</div>
+				</div>
+				<div class="scorecard-item">
+					<div class="scorecard-grade grade-c">C</div>
+					<div class="scorecard-info">
+						<div class="scorecard-dim">Security</div>
+						<div class="scorecard-note">Missing rate limiting on public APIs</div>
+					</div>
+				</div>
+				<div class="scorecard-item">
+					<div class="scorecard-grade grade-f">F</div>
+					<div class="scorecard-info">
+						<div class="scorecard-dim">Documentation</div>
+						<div class="scorecard-note">No API docs, missing README sections</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- ─── Timeline / Roadmap (master-architect/pm: phased plan) ─── -->
+			<div class="timeline">
+				<div class="timeline-phase">
+					<div class="timeline-dot done"></div>
+					<div class="timeline-label">Immediate — This Sprint</div>
+					<div class="timeline-title">Critical Security Fixes</div>
+					<ul class="timeline-items">
+						<li>Implement bcrypt password hashing</li>
+						<li>Add CSRF protection to all forms</li>
+					</ul>
+				</div>
+				<div class="timeline-phase">
+					<div class="timeline-dot"></div>
+					<div class="timeline-label">Next Quarter</div>
+					<div class="timeline-title">API Modernisation</div>
+					<div class="timeline-desc">Migrate REST endpoints to versioned OpenAPI contracts.</div>
+				</div>
+				<div class="timeline-phase">
+					<div class="timeline-dot"></div>
+					<div class="timeline-label">6+ Months</div>
+					<div class="timeline-title">Event-Driven Architecture</div>
+					<div class="timeline-desc">Introduce message bus for inter-service communication.</div>
+				</div>
+			</div>
+
+			<!-- ─── Persona Card (master-analyst: user personas) ─── -->
+			<div class="persona">
+				<div class="persona-avatar">AC</div>
+				<div class="persona-body">
+					<div class="persona-name">Alex Chen</div>
+					<div class="persona-role">Inventory Manager · Mid-market Retailer</div>
+					<dl class="persona-details">
+						<dt>JTBD</dt>
+						<dd>Reconcile inventory across 5 locations daily without manual spreadsheets</dd>
+						<dt>Pains</dt>
+						<dd>4+ hours daily on Excel reconciliation; discrepancies found only at audit</dd>
+						<dt>Workaround</dt>
+						<dd>Excel macros + email chains to regional team</dd>
+					</dl>
+					<div class="persona-tags">
+						<span class="cap-tag">Moderate Tech Literacy</span>
+						<span class="cap-tag">10 Yrs Retail</span>
+					</div>
+				</div>
+			</div>
+
+			<!-- ─── Checklist (master-assurance / architect: pass/fail items) ─── -->
+			<ul class="checklist">
+				<li>
+					<span class="checklist-icon pass"><i class="icon icon-check"></i></span>
+					<span class="checklist-label">Parameterised queries used for all DB access</span>
+					<span class="checklist-severity sev-low">OK</span>
+				</li>
+				<li>
+					<span class="checklist-icon fail"><i class="icon icon-times"></i></span>
+					<span class="checklist-label">Passwords stored as MD5 — must migrate to bcrypt</span>
+					<span class="checklist-severity sev-blocker">Blocker</span>
+				</li>
+				<li>
+					<span class="checklist-icon warn"><i class="icon icon-exclamation-triangle"></i></span>
+					<span class="checklist-label">Rate limiting on public endpoints not configured</span>
+					<span class="checklist-severity sev-high">High</span>
+				</li>
+				<li>
+					<span class="checklist-icon na"><i class="icon icon-minus"></i></span>
+					<span class="checklist-label">Payment processing — not applicable (internal tool)</span>
+					<span class="checklist-severity" style="opacity:.4">N/A</span>
+				</li>
+			</ul>
+
+			<!-- ─── Journey Map Table (master-analyst: customer journey) ─── -->
+			<table class="journey-table">
+				<tr>
+					<th>Stage</th>
+					<th>Action</th>
+					<th>Touchpoint</th>
+					<th>Emotion</th>
+					<th>Pain</th>
+					<th>Opportunity</th>
+				</tr>
+				<tr>
+					<td>Morning</td>
+					<td>Open inventory source files</td>
+					<td>Email, Shared Drive</td>
+					<td class="emotion-sad"><i class="icon icon-frown-o"></i> Frustrated</td>
+					<td>Files scattered across systems</td>
+					<td>Single source of truth dashboard</td>
+				</tr>
+				<tr>
+					<td>Midday</td>
+					<td>Manual reconciliation in Excel</td>
+					<td>Spreadsheet</td>
+					<td class="emotion-neutral"><i class="icon icon-meh-o"></i> Resigned</td>
+					<td>4 hours of repetitive work</td>
+					<td>Automated sync with alerts</td>
+				</tr>
+			</table>
+
+			<!-- ─── OKR Block (master-pm: objectives & key results) ─── -->
+			<div class="okr-block">
+				<div class="okr-objective">Become the #1 inventory management tool for mid-market retail</div>
+				<ul class="okr-results">
+					<li>Increase Monthly Active Users from 5K → 15K</li>
+					<li>Raise Net Retention from 95% → 110%</li>
+					<li>Achieve 4.5-star app store rating (from 3.8)</li>
+				</ul>
+			</div>
+
+			<!-- ─── Metric Highlight (master-pm: North Star) ─── -->
+			<div class="metric-hl">
+				<div class="metric-hl-val">4.2h</div>
+				<div class="metric-hl-info">
+					<div class="metric-hl-name">Monthly Active Hours per User</div>
+					<div class="metric-hl-desc">Target: 8h — tracks core engagement with reconciliation features</div>
+				</div>
+			</div>
+
+			<!-- ─── RICE / Scoring Table (master-pm: prioritisation) ─── -->
+			<table class="score-table">
+				<tr>
+					<th>Opportunity</th>
+					<th>Reach</th>
+					<th>Impact</th>
+					<th>Confidence</th>
+					<th>Effort</th>
+					<th>Score</th>
+				</tr>
+				<tr>
+					<td>Real-time inventory sync</td>
+					<td>4,000</td>
+					<td>3 (Massive)</td>
+					<td>100%</td>
+					<td>8 wks</td>
+					<td>150 <span class="score-bar" style="width:80px"></span></td>
+				</tr>
+				<tr>
+					<td>Mobile app for warehouse</td>
+					<td>2,000</td>
+					<td>2 (High)</td>
+					<td>75%</td>
+					<td>12 wks</td>
+					<td>75 <span class="score-bar" style="width:40px"></span></td>
+				</tr>
+			</table>
+
+			<!-- ─── User Story Card (master-analyst: dev-ready stories) ─── -->
+			<div class="story-card">
+				<div class="story-card-head">
+					<span class="story-epic">Automated Reconciliation</span>
+					<span class="story-priority p0">P0</span>
+					<span class="story-size">L</span>
+				</div>
+				<div class="story-text">
+					<strong>As a</strong> inventory manager <strong>I want to</strong> see live inventory counts
+					<strong>so that</strong> I can detect discrepancies immediately.
+				</div>
+				<ul class="story-ac">
+					<li><span class="kw">Given</span> a location updates inventory, <span class="kw">when</span> system
+						syncs, <span class="kw">then</span> dashboard shows change within 5 min</li>
+					<li><span class="kw">Given</span> a discrepancy &gt; 5%, <span class="kw">when</span> detected,
+						<span class="kw">then</span> alert sent to manager within 1 min
+					</li>
+				</ul>
+			</div>
+
+			<!-- ─── 2x2 Matrix (master-pm/analyst: value-effort, stakeholder power) ─── -->
+			<div class="matrix-2x2">
+				<div class="matrix-cell">
+					<div class="matrix-cell-title"><i class="icon icon-bolt"></i> Quick Wins (High Value · Low Effort)
+					</div>
+					<ul>
+						<li>Pre-built report templates</li>
+						<li>Email digest alerts</li>
+					</ul>
+				</div>
+				<div class="matrix-cell">
+					<div class="matrix-cell-title"><i class="icon icon-bullseye"></i> Big Bets (High Value · High
+						Effort)</div>
+					<ul>
+						<li>Real-time multi-location sync</li>
+					</ul>
+				</div>
+				<div class="matrix-cell">
+					<div class="matrix-cell-title"><i class="icon icon-wrench"></i> Fill-Ins (Low Value · Low Effort)
+					</div>
+					<ul>
+						<li>Dark mode support</li>
+					</ul>
+				</div>
+				<div class="matrix-cell">
+					<div class="matrix-cell-title"><i class="icon icon-ban"></i> Avoid (Low Value · High Effort)</div>
+					<ul>
+						<li>Custom report builder v1</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- ─── Collapsible Section (any: expandable detail) ─── -->
+			<details class="collapsible">
+				<summary>ADR-001: Use PostgreSQL over MongoDB</summary>
+				<div class="collapsible-body">
+					<p><strong>Status:</strong> Accepted · <strong>Date:</strong> 2026-03-15</p>
+					<p><strong>Context:</strong> Need ACID compliance for financial transactions…</p>
+					<p><strong>Decision:</strong> Use PostgreSQL 16 with JSONB for semi-structured data.</p>
+				</div>
+			</details>
+
+			<!-- ─── Problem Box (context/problem statement) ─── -->
+			<div class="problem-box">
+				2-4 sentences. Lead with who is affected and what they struggle with.
+				<strong>Bold the key pain.</strong> Do NOT describe the solution here.
+			</div>
+
+			<!-- ─── Pain Grid (pain points, gap cards) ─── -->
+			<div class="pain-grid">
+				<!-- .critical = red border, .warning = amber, neutral = no class
+					 Use style="border-left: 3px solid var(--primary)" for opportunities -->
+				<div class="pain-card critical">
+					<div class="pain-label">Label</div>
+					<div class="pain-text">Description of the pain point or gap.</div>
+				</div>
+				<div class="pain-card warning">
+					<div class="pain-label">Label</div>
+					<div class="pain-text">Description of the pain point or gap.</div>
+				</div>
+			</div>
+
+			<!-- ─── Scenario (risks, opportunities, situations) ─── -->
+			<div class="scenario">
+				<div class="scenario-icon red">!</div>
+				<div class="scenario-body">
+					<strong>Scenario Title</strong>
+					<p>Narrative description of the scenario, risk, or opportunity.</p>
+				</div>
+			</div>
+			<div class="scenario">
+				<div class="scenario-icon amber">⚠</div>
+				<div class="scenario-body">
+					<strong>Warning Scenario</strong>
+					<p>Medium-severity risk or dependency.</p>
+				</div>
+			</div>
+			<div class="scenario">
+				<div class="scenario-icon blue">→</div>
+				<div class="scenario-body">
+					<strong>Opportunity</strong>
+					<p>Positive scenario or opportunity to capture.</p>
+				</div>
+			</div>
+
+			<!-- ─── Steps List (numbered next steps / action items) ─── -->
+			<ol class="steps-list">
+				<li><strong>Step title</strong> — Description and expected outcome.</li>
+				<li><strong>Step title</strong> — Description and expected outcome.</li>
+				<li><strong>Step title</strong> — Description and expected outcome.</li>
+			</ol>
+
+			<!-- ─── Callout Box (assets, warnings, notes) ─── -->
+			<div class="callout-box">
+				Notes, links to prototypes, related documents, or important warnings.
+				Use for any auxiliary information that needs visual emphasis.
+			</div>
+
+			<!-- ─── Grid Helpers (2 or 3 column layout) ─── -->
+			<div class="grid-2">
+				<div>Column 1 content</div>
+				<div>Column 2 content</div>
+			</div>
+			<div class="grid-3">
+				<div>Column 1</div>
+				<div>Column 2</div>
+				<div>Column 3</div>
+			</div>
+
+			<!-- ─── Tags / Badges (inline status indicators) ─── -->
+			<span class="tag tag-success">Active</span>
+			<span class="tag tag-warning">Pending</span>
+			<span class="tag tag-error">Critical</span>
+			<span class="tag tag-info">New</span>
+			<span class="tag tag-neutral">Deprecated</span>
+			<span class="tag tag-primary">Custom</span>
+			<!-- Severity aliases: tag-high = tag-error, tag-medium = tag-warning,
+			     tag-low = tag-neutral, tag-ok = tag-success -->
+
+		</template>
+
+		<!-- ═══════ PRINT BUTTON ═══════ -->
+		<button class="print-btn" onclick="window.print()" title="Print / Save as PDF">⎙</button>
+
+		<!-- ═══════ FOOTER ═══════ -->
+		<footer class="foot">
+			<div class="foot-brand">
+				<div class="foot-mark">{{BRAND_MARK}}</div>
+				{{BRAND_NAME}} <span style="font-weight:400;opacity:.5">{{BRAND_SUFFIX}}</span>
+			</div>
+			<div class="foot-meta">
+				<span>{{FOOTER_SUBJECT}}</span>
+				<span class="sep">|</span>
+				<span>{{FOOTER_META}}</span>
+				<span class="sep">|</span>
+				<span>Generated {{DATE}}</span>
+			</div>
+		</footer>
+
+		<script>
+			function go(id) {
+				document.querySelectorAll('.panel').forEach(function (p) { p.classList.remove('on'); });
+				document.querySelectorAll('.tab').forEach(function (b) { b.classList.remove('active'); });
+				document.getElementById('p-' + id).classList.add('on');
+				document.getElementById('btn-' + id).classList.add('active');
+			}
+		</script>
+
+	</body>
+
+</html>

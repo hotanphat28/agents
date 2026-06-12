@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!--
+  ╔══════════════════════════════════════════════════════════════════════════╗
+  ║  Goals Setting Template — Theme-Agnostic                                ║
+  ║  Version: 3.0 · 2026-04-25                                             ║
+  ║                                                                         ║
+  ║  Purpose: Used for first-time goals setting and for updated versions    ║
+  ║  after coach review (e.g. v1 → v2). Coach feedback is handled in the   ║
+  ║  chat session, not embedded in this document.                           ║
+  ║                                                                         ║
+  ║  Layout: Document / report style — matches typical goals setting PDF.   ║
+  ║  Structure: Header with metadata table → Goals (each with SMART        ║
+  ║  breakdown table, description) → Competencies (current + target state)  ║
+  ║  → Actions (what/support/success/by-when) → Blockers.                  ║
+  ║  Continuous scroll, no tabs or dashboard panels.                        ║
+  ║                                                                         ║
+  ║  Theming:                                                               ║
+  ║  • Ships with NEUTRAL defaults (blue tones, Inter font).               ║
+  ║  • When user specifies a theme (e.g. "use akkuro theme"), load         ║
+  ║    .agents/references/<scope>/theme.md and apply tokens to :root.      ║
+  ║  ┌──────────┬──────────────┬──────────────┬──────────────┐              ║
+  ║  │ Token    │ akkuro       │ htp28        │ topicus      │              ║
+  ║  ├──────────┼──────────────┼──────────────┼──────────────┤              ║
+  ║  │ primary  │ #008071      │ #FFC90E      │ #f8e800      │              ║
+  ║  │ prim-dk  │ #004D44      │ #D4A800      │ #C6B900      │              ║
+  ║  │ prim-pl  │ #E0F5E6      │ #3A3520      │ #FFFDE0      │              ║
+  ║  │ bg-dark  │ #1A2419      │ #101010      │ #242f36      │              ║
+  ║  │ accent   │ #73C088      │ #FFC90E      │ #f8e800      │              ║
+  ║  │ display  │ Poppins      │ Space Grotesk│ sans-serif   │              ║
+  ║  │ body     │ Poppins      │ Space Grotesk│ sans-serif   │              ║
+  ║  │ mono     │ DM Mono      │ Space Mono   │ monospace    │              ║
+  ║  └──────────┴──────────────┴──────────────┴──────────────┘              ║
+  ║                                                                         ║
+  ║  Template variables:                                                    ║
+  ║    {{PAGE_TITLE}}       – Browser tab title                             ║
+  ║    {{TITLE_SUFFIX}}     – e.g. "Lending Platform"                       ║
+  ║    {{FAVICON_URL}}      – Favicon URL                                   ║
+  ║    {{FONT_IMPORT_URL}}  – Google Fonts CSS import                       ║
+  ║    {{PERSON_NAME}}      – Full name                                     ║
+  ║    {{ROLE}}             – Job role                                       ║
+  ║    {{LEVEL}}            – Level (Junior/Medior/Senior)                   ║
+  ║    {{TEAM}}             – Team name(s)                                   ║
+  ║    {{REVIEW_PERIOD}}    – e.g. "2026"                                   ║
+  ║    {{VERSION}}          – e.g. "v1" or "v2"                             ║
+  ║    {{DATE}}             – e.g. "2026-04-25"                             ║
+  ║    {{SUBMITTED_DATE}}   – Original submission date                      ║
+  ║    {{BRAND_MARK}}       – Footer 2-letter mark (e.g. "AK")             ║
+  ║    {{BRAND_NAME}}       – Footer brand name                             ║
+  ║    {{BRAND_SUFFIX}}     – Footer brand suffix                           ║
+  ║                                                                         ║
+  ║  Per-goal: {{GOAL_N_TITLE}}, {{GOAL_N_DATE}},                          ║
+  ║            {{GOAL_N_SPECIFIC}}, {{GOAL_N_MEASURABLE}}, etc.             ║
+  ║  Per-competency: {{COMP_N_TITLE}}, {{COMP_TYPE}}, current/target text   ║
+  ║  Per-action: {{ACTION_N_TITLE}}, what/support/success/by-when           ║
+  ║  Blockers: {{BLOCKER_N}}, {{MITIGATION_N}}                              ║
+  ║  Support: {{SUPPORT_N}}                                                 ║
+  ║                                                                         ║
+  ║  Components (CSS classes):                                              ║
+  ║    .meta-table          – Key-value metadata table                      ║
+  ║    .goal-block          – Goal container with heading + target date     ║
+  ║    .smart-table         – Full SMART breakdown table                    ║
+  ║    .detail-list         – Dash-prefixed bullet list                     ║
+  ║    .comp-block          – Competency with current/target/measure        ║
+  ║    .action-block        – Action with detail table                      ║
+  ║    .action-table        – What/support/success/by-when table            ║
+  ║    .blocker-table       – Blocker vs. mitigation table                  ║
+  ║    .example-list        – Before/after examples                         ║
+  ╚══════════════════════════════════════════════════════════════════════════╝
+-->
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{{PAGE_TITLE}} | {{TITLE_SUFFIX}}</title>
+		<link rel="shortcut icon" href="{{FAVICON_URL}}" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="{{FONT_IMPORT_URL}}" rel="stylesheet" />
+		<style>
+			/* ═══ Theme Tokens — NEUTRAL DEFAULTS ═════════════════════════════ */
+			:root {
+				--primary: #3B82F6;
+				--primary-dark: #2563EB;
+				--primary-pale: #EFF6FF;
+				--bg-dark: #1E293B;
+				--bg-dark-mid: #334155;
+				--accent: #60A5FA;
+
+				--font-display: 'Inter', sans-serif;
+				--font-body: 'Inter', sans-serif;
+				--font-mono: 'JetBrains Mono', monospace;
+
+				--text: #1E293B;
+				--muted: #555555;
+				--faint: #888888;
+				--border: #D0D0D0;
+				--border-light: #E8E8E8;
+				--surface: #FFFFFF;
+				--bg-page: #F7F8FA;
+			}
+
+			/* ═══ Reset ═══════════════════════════════════════════════════════ */
+			*,
+			*::before,
+			*::after {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+
+			html {
+				scroll-behavior: smooth;
+			}
+
+			body {
+				font-family: var(--font-body);
+				font-size: 13.5px;
+				background: var(--bg-page);
+				color: var(--text);
+				line-height: 1.65;
+				-webkit-font-smoothing: antialiased;
+			}
+
+			/* ═══ Document container ══════════════════════════════════════════ */
+			.document {
+				max-width: 800px;
+				margin: 32px auto;
+				background: var(--surface);
+			}
+
+			/* ═══ Document header ═════════════════════════════════════════════ */
+			.doc-header {
+				padding: 32px 40px 24px;
+				border-bottom: 3px solid var(--primary);
+			}
+
+			.doc-title {
+				font-family: var(--font-display);
+				font-size: 22px;
+				font-weight: 600;
+				color: var(--text);
+				margin-bottom: 4px;
+			}
+
+			.doc-subtitle {
+				font-size: 12px;
+				color: var(--faint);
+				margin-bottom: 16px;
+			}
+
+			/* ═══ Metadata table ══════════════════════════════════════════════ */
+			.meta-table {
+				width: 100%;
+				border-collapse: collapse;
+				font-size: 13px;
+			}
+
+			.meta-table td {
+				padding: 7px 12px;
+				border: 1px solid var(--border-light);
+				vertical-align: top;
+			}
+
+			.meta-table td:first-child {
+				width: 130px;
+				font-weight: 600;
+				color: var(--text);
+				background: #FAFAFA;
+			}
+
+			.meta-table td:last-child {
+				color: var(--muted);
+			}
+
+			/* ═══ Sections ════════════════════════════════════════════════════ */
+			.doc-body {
+				padding: 0 40px 40px;
+			}
+
+			.section {
+				margin-top: 32px;
+			}
+
+			.section-title {
+				font-family: var(--font-display);
+				font-size: 11px;
+				font-weight: 600;
+				text-transform: uppercase;
+				letter-spacing: .12em;
+				color: var(--primary);
+				padding-bottom: 8px;
+				border-bottom: 2px solid var(--primary);
+				margin-bottom: 20px;
+			}
+
+			/* ═══ Goal blocks ═════════════════════════════════════════════════ */
+			.goal-block {
+				margin-bottom: 28px;
+				padding-bottom: 28px;
+				border-bottom: 1px solid var(--border-light);
+			}
+
+			.goal-block:last-child {
+				border-bottom: none;
+				padding-bottom: 0;
+			}
+
+			.goal-heading {
+				font-family: var(--font-display);
+				font-size: 16px;
+				font-weight: 600;
+				color: var(--text);
+				margin-bottom: 4px;
+				line-height: 1.4;
+			}
+
+			.target-date {
+				font-family: var(--font-mono);
+				font-size: 12px;
+				color: var(--faint);
+				margin-bottom: 12px;
+			}
+
+			/* ═══ Content label + text ════════════════════════════════════════ */
+			.field-label {
+				font-size: 11px;
+				font-weight: 600;
+				text-transform: uppercase;
+				letter-spacing: .08em;
+				color: var(--faint);
+				margin-bottom: 4px;
+				margin-top: 14px;
+			}
+
+			.field-label:first-child {
+				margin-top: 0;
+			}
+
+			.field-text {
+				font-size: 13.5px;
+				color: var(--text);
+				line-height: 1.7;
+			}
+
+			.field-text strong {
+				font-weight: 600;
+			}
+
+			/* ═══ SMART breakdown table ═══════════════════════════════════════ */
+			.smart-table {
+				width: 100%;
+				border-collapse: collapse;
+				font-size: 13px;
+				margin: 10px 0 16px;
+			}
+
+			.smart-table th {
+				text-align: left;
+				font-weight: 600;
+				color: var(--text);
+				padding: 8px 12px;
+				border: 1px solid var(--border-light);
+				background: #FAFAFA;
+				width: 110px;
+				vertical-align: top;
+			}
+
+			.smart-table td {
+				padding: 8px 12px;
+				border: 1px solid var(--border-light);
+				color: var(--muted);
+				vertical-align: top;
+				line-height: 1.65;
+			}
+
+			.smart-letter {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 20px;
+				height: 20px;
+				border-radius: 3px;
+				font-family: var(--font-mono);
+				font-size: 10px;
+				font-weight: 700;
+				color: #fff;
+				background: var(--primary);
+				margin-right: 5px;
+				vertical-align: middle;
+			}
+
+			/* ═══ Subsection title ════════════════════════════════════════════ */
+			.subsection-title {
+				font-family: var(--font-display);
+				font-size: 13px;
+				font-weight: 600;
+				color: var(--text);
+				margin: 18px 0 8px;
+			}
+
+			/* ═══ Detail list ═════════════════════════════════════════════════ */
+			.detail-list {
+				list-style: none;
+				padding: 0;
+				margin: 0 0 12px;
+			}
+
+			.detail-list li {
+				position: relative;
+				padding: 3px 0 3px 18px;
+				font-size: 13px;
+				color: var(--muted);
+				line-height: 1.65;
+			}
+
+			.detail-list li::before {
+				content: '—';
+				position: absolute;
+				left: 0;
+				color: var(--primary);
+				font-weight: 600;
+			}
+
+			.detail-list li strong {
+				font-weight: 600;
+				color: var(--text);
+			}
+
+			/* ═══ Competency blocks ═══════════════════════════════════════════ */
+			.comp-block {
+				margin-bottom: 24px;
+				padding-bottom: 24px;
+				border-bottom: 1px solid var(--border-light);
+			}
+
+			.comp-block:last-child {
+				border-bottom: none;
+				padding-bottom: 0;
+			}
+
+			.comp-heading {
+				font-family: var(--font-display);
+				font-size: 15px;
+				font-weight: 600;
+				color: var(--text);
+				margin-bottom: 12px;
+			}
+
+			.comp-type {
+				font-weight: 400;
+				color: var(--faint);
+				font-size: 12px;
+			}
+
+			/* ═══ Action blocks ═══════════════════════════════════════════════ */
+			.action-block {
+				margin-bottom: 24px;
+				padding-bottom: 24px;
+				border-bottom: 1px solid var(--border-light);
+			}
+
+			.action-block:last-child {
+				border-bottom: none;
+				padding-bottom: 0;
+			}
+
+			.action-heading {
+				font-family: var(--font-display);
+				font-size: 14px;
+				font-weight: 600;
+				color: var(--text);
+				margin-bottom: 4px;
+				line-height: 1.4;
+			}
+
+			/* ═══ Action detail table ═════════════════════════════════════════ */
+			.action-table {
+				width: 100%;
+				border-collapse: collapse;
+				font-size: 13px;
+				margin: 10px 0 0;
+			}
+
+			.action-table th {
+				text-align: left;
+				font-weight: 600;
+				color: var(--text);
+				padding: 7px 12px;
+				border: 1px solid var(--border-light);
+				background: #FAFAFA;
+				width: 130px;
+				vertical-align: top;
+			}
+
+			.action-table td {
+				padding: 7px 12px;
+				border: 1px solid var(--border-light);
+				color: var(--muted);
+				vertical-align: top;
+				line-height: 1.6;
+			}
+
+			/* ═══ Blockers table ══════════════════════════════════════════════ */
+			.blocker-table {
+				width: 100%;
+				border-collapse: collapse;
+				font-size: 13px;
+				margin: 10px 0 16px;
+			}
+
+			.blocker-table th {
+				text-align: left;
+				font-weight: 600;
+				color: var(--text);
+				padding: 8px 12px;
+				border: 1px solid var(--border-light);
+				background: #FAFAFA;
+			}
+
+			.blocker-table td {
+				padding: 8px 12px;
+				border: 1px solid var(--border-light);
+				color: var(--muted);
+				vertical-align: top;
+				line-height: 1.65;
+			}
+
+			/* ═══ Examples (before/after) ═════════════════════════════════════ */
+			.example-list {
+				list-style: none;
+				padding: 0;
+				margin: 8px 0 12px;
+			}
+
+			.example-list li {
+				font-size: 13px;
+				color: var(--muted);
+				line-height: 1.7;
+				margin-bottom: 6px;
+			}
+
+			.example-list li .before {
+				color: #999;
+				text-decoration: line-through;
+			}
+
+			.example-list li .after {
+				color: var(--primary-dark);
+				font-weight: 500;
+			}
+
+			/* ═══ Footer ══════════════════════════════════════════════════════ */
+			.doc-footer {
+				padding: 16px 40px;
+				border-top: 1px solid var(--border-light);
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				font-size: 11px;
+				color: var(--faint);
+			}
+
+			.doc-footer-brand {
+				display: flex;
+				align-items: center;
+				gap: 6px;
+				font-weight: 600;
+				color: var(--text);
+			}
+
+			.doc-footer-mark {
+				width: 18px;
+				height: 18px;
+				background: var(--primary);
+				border-radius: 3px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 8px;
+				font-weight: 800;
+				color: #fff;
+			}
+
+			/* ═══ Print ═══════════════════════════════════════════════════════ */
+			@media print {
+				body {
+					background: #fff;
+				}
+
+				.document {
+					margin: 0;
+				}
+
+				.goal-block,
+				.comp-block,
+				.action-block {
+					page-break-inside: avoid;
+				}
+
+			}
+
+			/* ═══ Responsive ══════════════════════════════════════════════════ */
+			@media (max-width: 640px) {
+				.document {
+					margin: 0;
+				}
+
+				.doc-header,
+				.doc-body,
+				.doc-footer {
+					padding-left: 18px;
+					padding-right: 18px;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="document">
+
+			<!-- ═══ HEADER ═══ -->
+			<header class="doc-header">
+				<h1 class="doc-title">Goals {{REVIEW_PERIOD}} — {{PERSON_NAME}}</h1>
+				<p class="doc-subtitle">{{VERSION}} — {{DATE}}</p>
+
+				<table class="meta-table">
+					<tr>
+						<td>Role</td>
+						<td>{{ROLE}}</td>
+					</tr>
+					<tr>
+						<td>Level</td>
+						<td>{{LEVEL}}</td>
+					</tr>
+					<tr>
+						<td>Team</td>
+						<td>{{TEAM}}</td>
+					</tr>
+					<tr>
+						<td>Submitted</td>
+						<td>{{SUBMITTED_DATE}}</td>
+					</tr>
+					<!-- Add more metadata rows as needed -->
+				</table>
+			</header>
+
+			<div class="doc-body">
+
+				<!-- ═══ GOALS ═══ -->
+				<div class="section">
+					<div class="section-title">Goals</div>
+
+					<!--
+					  GOAL BLOCK TEMPLATE — Repeat for each goal.
+					  - Include SMART breakdown table and optional subsection + detail-list.
+					-->
+					<div class="goal-block">
+						<h2 class="goal-heading">{{GOAL_1_TITLE}}</h2>
+						<div class="target-date">Target date: {{GOAL_1_DATE}}</div>
+
+						<table class="smart-table">
+							<tr>
+								<th><span class="smart-letter">S</span> Specific</th>
+								<td>{{GOAL_1_SPECIFIC}}</td>
+							</tr>
+							<tr>
+								<th><span class="smart-letter">M</span> Measurable</th>
+								<td>{{GOAL_1_MEASURABLE}}</td>
+							</tr>
+							<tr>
+								<th><span class="smart-letter">A</span> Achievable</th>
+								<td>{{GOAL_1_ACHIEVABLE}}</td>
+							</tr>
+							<tr>
+								<th><span class="smart-letter">R</span> Relevant</th>
+								<td>{{GOAL_1_RELEVANT}}</td>
+							</tr>
+							<tr>
+								<th><span class="smart-letter">T</span> Time-bound</th>
+								<td>{{GOAL_1_TIMEBOUND}}</td>
+							</tr>
+						</table>
+
+						<!-- Optional: subsection with detail list -->
+						<div class="subsection-title">{{GOAL_1_SUBSECTION_TITLE}}</div>
+						<ul class="detail-list">
+							<li>{{GOAL_1_DETAIL_1}}</li>
+							<li>{{GOAL_1_DETAIL_2}}</li>
+						</ul>
+					</div>
+
+					<!-- Repeat goal-block for Goal 2, Goal 3, etc. -->
+
+				</div>
+
+				<!-- ═══ COMPETENCIES ═══ -->
+				<div class="section">
+					<div class="section-title">Competencies</div>
+
+					<!--
+					  COMPETENCY BLOCK TEMPLATE — Repeat for each competency.
+					  Uses field-label + field-text for "Where do you stand now?"
+					  and "Where do you want to go?" questions.
+					-->
+					<div class="comp-block">
+						<h3 class="comp-heading">{{COMP_1_TITLE}} <span class="comp-type">— {{COMP_1_TYPE}}</span></h3>
+
+						<div class="field-label">Where do you stand now?</div>
+						<p class="field-text">{{COMP_1_CURRENT}}</p>
+
+						<div class="field-label">Where do you want to go by end of {{REVIEW_PERIOD}}?</div>
+						<p class="field-text">{{COMP_1_TARGET}}</p>
+
+						<!-- Optional: measurement -->
+						<div class="field-label">How I'll measure it</div>
+						<p class="field-text">{{COMP_1_MEASURE}}</p>
+					</div>
+
+					<!-- Repeat comp-block for C2, C3, etc. -->
+
+				</div>
+
+				<!-- ═══ ACTIONS ═══ -->
+				<div class="section">
+					<div class="section-title">Actions</div>
+
+					<!--
+					  ACTION BLOCK TEMPLATE — Repeat for each action.
+					  Uses action-table for structured fields.
+					-->
+					<div class="action-block">
+						<h3 class="action-heading">{{ACTION_1_TITLE}}</h3>
+						<table class="action-table">
+							<tr>
+								<th>What</th>
+								<td>{{ACTION_1_WHAT}}</td>
+							</tr>
+							<tr>
+								<th>Support needed</th>
+								<td>{{ACTION_1_SUPPORT}}</td>
+							</tr>
+							<tr>
+								<th>Success criteria</th>
+								<td>{{ACTION_1_SUCCESS}}</td>
+							</tr>
+							<tr>
+								<th>By when</th>
+								<td>{{ACTION_1_BYWHEN}}</td>
+							</tr>
+						</table>
+					</div>
+
+					<!-- Repeat action-block for A2, A3, etc. -->
+
+				</div>
+
+				<!-- ═══ BLOCKERS & SUPPORT ═══ -->
+				<div class="section">
+					<div class="section-title">Blockers &amp; Support</div>
+
+					<table class="blocker-table">
+						<tr>
+							<th style="width:45%">Blocker</th>
+							<th>Mitigation</th>
+						</tr>
+						<tr>
+							<td>{{BLOCKER_1}}</td>
+							<td>{{MITIGATION_1}}</td>
+						</tr>
+						<!-- Repeat rows for each blocker -->
+					</table>
+
+					<div class="subsection-title">What support do I need from my coach?</div>
+					<ul class="detail-list">
+						<li>{{SUPPORT_1}}</li>
+						<li>{{SUPPORT_2}}</li>
+						<!-- Add more as needed -->
+					</ul>
+				</div>
+
+			</div>
+
+			<!-- ═══ FOOTER ═══ -->
+			<footer class="doc-footer">
+				<div class="doc-footer-brand">
+					<div class="doc-footer-mark">{{BRAND_MARK}}</div>
+					{{BRAND_NAME}} <span style="font-weight:400;opacity:.5">{{BRAND_SUFFIX}}</span>
+				</div>
+				<div>Goals {{REVIEW_PERIOD}} — {{PERSON_NAME}} · {{VERSION}} · Generated {{DATE}}</div>
+			</footer>
+
+		</div>
+	</body>
+
+</html>
