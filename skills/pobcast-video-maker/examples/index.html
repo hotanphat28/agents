@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Podcast Video - Kinetic Typography</title>
+    <meta name="viewport" content="width=1920, height=1080">
+    <style>
+      @font-face {
+        font-family: 'Space Grotesk';
+        src: url('assets/fonts/space-grotesk.woff2') format('woff2');
+        font-weight: 700;
+        font-style: normal;
+      }
+      
+      /* Reset & Global */
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #101010; /* Surface 0 */
+        font-family: 'Space Grotesk', sans-serif;
+        color: #F4F4F4; /* Text Primary */
+        overflow: hidden;
+      }
+      
+      /* Root Composition Container */
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        background-color: #101010;
+        overflow: hidden;
+      }
+
+      /* Ambient Radial Glow */
+      .ambient-glow {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 1500px;
+        height: 1500px;
+        transform: translate(-50%, -50%);
+        background: radial-gradient(circle, rgba(255, 201, 14, 0.25) 0%, rgba(16, 16, 16, 0) 70%);
+        z-index: 1;
+      }
+      
+      /* Subtle moving noise/grid */
+      .ambient-noise {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background-image: radial-gradient(#2A2A2A 1px, transparent 1px);
+        background-size: 40px 40px;
+        opacity: 0.3;
+        z-index: 2;
+      }
+
+      /* Top Metadata Bar */
+      .metadata-bar {
+        position: absolute;
+        top: 60px;
+        left: 60px;
+        right: 60px;
+        display: flex;
+        justify-content: space-between;
+        font-family: 'Space Mono', monospace;
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        color: #888888; /* Text Muted */
+        z-index: 20;
+        border-bottom: 2px solid #2A2A2A;
+        padding-bottom: 16px;
+      }
+      .metadata-accent {
+        color: #FFC90E; /* Gold */
+      }
+      .timer-display {
+        color: #FFC90E;
+        font-variant-numeric: tabular-nums;
+      }
+
+      /* Podcast Logo / Watermark */
+      .podcast-logo {
+        position: absolute;
+        bottom: 60px;
+        right: 60px;
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 32px;
+        font-weight: 700;
+        color: #F4F4F4;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .logo-circle {
+        width: 32px;
+        height: 32px;
+        background-color: #FFC90E;
+        border-radius: 50%;
+      }
+
+      /* Captions Container (Centered for Kinetic Typography) */
+      #captions-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 40;
+      }
+      
+      .caption-group {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        opacity: 0;
+      }
+
+      .caption-vi {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 110px;
+        font-weight: 700;
+        color: #FFC90E;
+        text-transform: uppercase;
+        letter-spacing: -0.02em;
+        text-shadow: 0 10px 40px rgba(0,0,0,0.8);
+        line-height: 1.1;
+        max-width: 1600px;
+      }
+
+      .caption-en {
+        font-family: 'Space Mono', monospace;
+        font-size: 40px;
+        font-weight: 400;
+        color: #A0A0A0;
+        margin-top: 24px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        max-width: 1200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-root" id="root" data-composition-id="main" data-start="0" data-duration="138.99" data-fps="30" data-width="1920" data-height="1080">
+      
+      <!-- Background Elements -->
+      <div data-hf-id="hf-ambient" id="ambient" class="ambient-glow"></div>
+      <div data-hf-id="hf-noise" id="noise" class="ambient-noise"></div>
+      
+      <!-- Global Overlays -->
+      <div data-hf-id="hf-overlays" id="global-overlays" class="clip" data-start="0" data-duration="138.99" data-track-index="10">
+        <div data-hf-id="hf-meta" class="metadata-bar">
+          <div data-hf-id="hf-rec">[ REC ]</div>
+          <div data-hf-id="hf-title">EP.01 <span data-hf-id="hf-sep" class="metadata-accent">—</span> FEELING LOST AT WORK</div>
+          <div data-hf-id="hf-timer"><span data-hf-id="hf-time" class="timer-display">00:00:00:00</span></div>
+        </div>
+        <div data-hf-id="hf-logo" class="podcast-logo">
+          <div data-hf-id="hf-circle" class="logo-circle"></div>
+          hồ tấn phát
+        </div>
+      </div>
+
+      <!-- Audio Track -->
+      <audio data-hf-id="hf-audio" id="aud-main" class="clip" data-start="0" data-duration="138.99" data-track-index="1" src="main_audio.m4a" data-volume="1"></audio>
+
+      <!-- Captions Container -->
+      <div data-hf-id="hf-caps" id="captions-container" class="clip" data-start="0" data-duration="138.99" data-track-index="20"></div>
+
+    </div>
+
+    <!-- GSAP is required by the framework for any motion -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <!-- Load captions data synchronously to avoid breaking engine -->
+    <script src="captions.js"></script>
+    <script>
+
+      // Format time in HH:MM:SS:FF based on 30 FPS
+      function formatTime(seconds) {
+        const h = Math.floor(seconds / 3600);
+        const m = Math.floor((seconds % 3600) / 60);
+        const s = Math.floor(seconds % 60);
+        const f = Math.floor((seconds % 1) * 30);
+        
+        const pad = (num) => num.toString().padStart(2, '0');
+        return `${pad(h)}:${pad(m)}:${pad(s)}:${pad(f)}`;
+      }
+
+      function initAnimation() {
+        console.log("initAnimation called! window.__timelines:", window.__timelines);
+        if (!window.__timelines || !window.__timelines["main"]) {
+        console.log("Building GSAP timeline... typeof gsap:", typeof gsap);
+        window.__timelines = window.__timelines || {};
+        const tl = gsap.timeline({ paused: true });
+        window.__timelines["main"] = tl;
+        
+        // --- 0. Robust Timer Tween ---
+        const timerObj = { t: 0 };
+        tl.to(timerObj, {
+          t: 138.99,
+          duration: 138.99,
+          ease: "none",
+          onUpdate: function() {
+            const timeEl = document.querySelector('.timer-display');
+            if (timeEl) timeEl.textContent = formatTime(timerObj.t);
+          }
+        }, 0);
+        
+        // --- 1. Ambient Background Motion (Drifting glow & noise) ---
+        tl.to("#ambient", {
+          scale: 1.3,
+          opacity: 0.8,
+          duration: 10,
+          yoyo: true,
+          repeat: 14,
+          ease: "sine.inOut"
+        }, 0);
+
+        tl.to("#noise", {
+          y: 40,
+          x: 40,
+          duration: 4,
+          repeat: Math.floor(138.99 / 4) - 1,
+          ease: "none"
+        }, 0);
+
+        // --- 2. Global Overlays Entrance (Metadata bar and Logo) ---
+        tl.from(".metadata-bar", {
+          y: -100,
+          opacity: 0,
+          duration: 1.5,
+          ease: "expo.out"
+        }, 0);
+        
+        tl.from(".podcast-logo", {
+          x: 100,
+          opacity: 0,
+          duration: 1.5,
+          ease: "expo.out"
+        }, 0.5);
+
+        // --- 3. Build Bilingual Subtitles ---
+        const captionsContainer = document.getElementById('captions-container');
+        
+        const captions = window.CAPTIONS || [];
+
+        captions.forEach((caption) => {
+              // Wrapper for the dual languages
+              const groupEl = document.createElement('div');
+              groupEl.className = 'caption-group';
+              
+              const viEl = document.createElement('div');
+              viEl.className = 'caption-vi';
+              viEl.textContent = caption.vi;
+              
+              const enEl = document.createElement('div');
+              enEl.className = 'caption-en';
+              enEl.textContent = caption.en;
+              
+              groupEl.appendChild(viEl);
+              groupEl.appendChild(enEl);
+              captionsContainer.appendChild(groupEl);
+
+              const start = caption.start;
+              const end = caption.end;
+              const duration = end - start;
+              
+              // Kinetic Slam Animation
+              tl.set(groupEl, { xPercent: -50, yPercent: -50 }, start);
+              
+              // Slam in
+              tl.fromTo(groupEl, 
+                { opacity: 0, scale: 3, rotation: -2 },
+                { opacity: 1, scale: 1, rotation: 0, duration: 0.4, ease: "power4.out" },
+                start
+              );
+              
+              // Drift slowly
+              tl.to(groupEl, {
+                scale: 1.05,
+                duration: duration - 0.4 - 0.2,
+                ease: "none"
+              }, start + 0.4);
+
+              // Exit
+              tl.to(groupEl, 
+                { opacity: 0, scale: 0.9, y: 50, duration: 0.2, ease: "power2.in", overwrite: "auto" }, 
+                end - 0.2
+              );
+              
+              tl.set(groupEl, { opacity: 0 }, end);
+        });
+        
+        } // end of timeline building block
+        
+        // The HyperFrames engine will automatically pick up window.__timelines["main"]
+        // We only trigger the fallback if the file is opened directly (not in an iframe)
+        if (window.self === window.top) {
+          console.warn("Direct file open detected! Playing fallback.");
+          window.__timelines["main"].play();
+          const aud = document.getElementById('aud-main');
+          if (aud) aud.play().catch(e => console.log("Audio autoplay blocked by browser:", e));
+        }
+      }
+      
+      // Execute synchronously inline (HyperFrames core rule)
+      initAnimation();
+    </script>
+  </body>
+</html>
