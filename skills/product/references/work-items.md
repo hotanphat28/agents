@@ -6,7 +6,7 @@
 
 ## Epic
 
-```
+```markdown
 ## Context
 Business context, link to parent initiative or OKR.
 Why this epic exists — the business driver.
@@ -15,36 +15,20 @@ Why this epic exists — the business driver.
 What this epic delivers and why — value proposition and intended outcome.
 No implementation details — that belongs in stories.
 
-## Success Metrics
-| Metric | Current | Target | How to Measure |
-|--------|---------|--------|----------------|
-| [Metric 1] | [Baseline] | [Goal] | [Method] |
-
-## Acceptance Criteria
+## Acceptance criteria
 - Verifiable criteria that define "epic complete"
 - Should be outcome-based, not task-based
 
-## Scope
-### In Scope
-- [Included capability 1]
-- [Included capability 2]
-
-### Out of Scope
+## Out of scope
 - [Explicitly excluded item 1]
 - [Explicitly excluded item 2]
-
-## Dependencies
-- [Dependency with status and risk]
-
-## Stories
-- [Link to child stories]
 ```
 
 ---
 
 ## Story
 
-```
+```markdown
 ## Context
 > As a [role], I want [feature], so that [benefit].
 
@@ -52,16 +36,11 @@ No implementation details — that belongs in stories.
 One high-level paragraph — outcome and value focused, no implementation steps.
 Focus on WHAT and WHY, not HOW.
 
-## Acceptance Criteria
-Given [precondition]
-When [action]
-Then [expected result]
+## Acceptance criteria
+- Verifiable criteria that define "story complete"
+- Should be outcome-based, not task-based
 
-Given [precondition]
-When [action]
-Then [expected result]
-
-## How to Test
+## How to test?
 - What to test and expected outcomes (not step-by-step scripts)
 - Include happy path and key edge cases
 
@@ -74,7 +53,7 @@ Then [expected result]
 ## Risks/Impacts (optional)
 - Potential risks with mitigation strategies
 
-## Notes (optional)
+## Notes/Q&A (optional)
 - Additional context, links to designs, related tickets
 ```
 
@@ -82,19 +61,19 @@ Then [expected result]
 
 ## Bug
 
-```
+```markdown
 ## Description
 [What is broken — clear, factual, no opinion]
 
-## Steps to Reproduce
+## Steps to reproduce
 1. [Navigate to / Open / Start with state]
 2. [Specific action with specific inputs]
 3. [Next action]
 
-## Actual Result
+## Actual result
 [What actually happens — include error messages, screenshots]
 
-## Expected Result
+## Expected result
 [What should happen according to the acceptance criteria / design]
 
 ## Environment
@@ -134,7 +113,7 @@ Then [expected result]
 
 ## Task
 
-```
+```markdown
 ## Description
 [What needs to be done — imperative, clear]
 
@@ -153,7 +132,7 @@ Then [expected result]
 
 ## Technical Spike
 
-```
+```markdown
 ## Question
 [The specific question this spike answers — phrased as a question]
 
@@ -186,7 +165,7 @@ Then [expected result]
 
 For significant technical or process changes that need team input before deciding.
 
-```
+```markdown
 ## RFC-[N]: [Descriptive Title]
 
 **Author:** [Name]
@@ -231,7 +210,7 @@ For significant technical or process changes that need team input before decidin
 
 ## Design Doc
 
-```
+```markdown
 ## Context & Objectives
 
 ### Context
@@ -285,7 +264,7 @@ For significant technical or process changes that need team input before decidin
 
 ## Sub-Task
 
-```
+```markdown
 ## Description
 [Specific technical task — part of a parent story]
 
@@ -305,7 +284,7 @@ For significant technical or process changes that need team input before decidin
 
 For grouping epics under a strategic theme (used in roadmaps).
 
-```
+```markdown
 ## Initiative: [Name]
 
 ### Strategic Alignment

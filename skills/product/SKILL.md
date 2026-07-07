@@ -104,10 +104,10 @@ Full product lifecycle — from unvalidated idea through shipped, measured, iter
 1. Initiation → Charter + Stakeholder Map
 2. Requirements → BRD + NFRs
 3. Analysis & Design → System Design + PRD
-3.5. Synthesis Gate → Validated Solution Proposal
-4. Dev Readiness → Epics → Stories → AC (Gherkin)
-5. Testing → Test Strategy + UAT
-6. Deployment → Release plan + Rollback
+4. Synthesis Gate → Validated Solution Proposal
+5. Dev Readiness → Epics → Stories → AC (Gherkin)
+6. Testing → Test Strategy + UAT
+7. Deployment → Release plan + Rollback
 
 ### Key Techniques
 - Root Cause: 5 Whys → Fishbone
