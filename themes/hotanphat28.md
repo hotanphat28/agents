@@ -12,13 +12,13 @@
 | Full name | hồ tấn phát |
 | Website | hotanphat.com |
 | Email | hello@hotanphat.com |
-| Social | [X](http://x.com/hotanphat28) · [YouTube](https://youtube.com/@hotanphat28) · [GitHub](https://github.com/hotanphat28) · [LinkedIn](https://linkedin.com/in/hotanphat28/) |
+| Social | [X](http://x.com/hotanphat28) · [YouTube](https://youtube.com/@hotanphat28) · [GitHub](https://github.com/hotanphat28) · [LinkedIn](https://linkedin.com/in/hotanphat28/) · [Pexels](https://www.pexels.com/@hotanphat28) |
 
 **Tagline variants:**
 - VI: "chạm đến sự tối giản"
 - EN: "to reach the simplicity"
 
-**Brand personality:** Personal tech brand with premium, minimalist, luxury-meets-tech identity. Dark surfaces, gold accents, monospace data, generous whitespace. Every pixel earns its place.
+**Brand personality:** Personal brand with premium, minimalist, luxury-meets-tech identity. Dark surfaces, gold accents, monospace data, generous whitespace. Every pixel earns its place.
 
 ---
 
@@ -208,10 +208,7 @@ The hotanphat28 logo is a golden circular emblem mark alongside "hồ tấn phá
 
 | Variant | Usage | URL |
 |---------|-------|-----|
-| Golden logo (full) | Light or dark surfaces | `https://hotanphat.com/wp-content/uploads/2026/01/20251017_logo_hotanphat28_golden.png` |
-| Favicon (32×32) | Browser tab | `https://hotanphat.com/wp-content/uploads/2026/01/cropped-20251017_logo_hotanphat28_golden-32x32.png` |
-| Favicon (192×192) | Android/PWA | `https://hotanphat.com/wp-content/uploads/2026/01/cropped-20251017_logo_hotanphat28_golden-192x192.png` |
-| Apple Touch Icon | iOS home screen | `https://hotanphat.com/wp-content/uploads/2026/01/cropped-20251017_logo_hotanphat28_golden-180x180.png` |
+| Golden logo (full) | Light or dark surfaces, favicon, all sizes | `https://hotanphat.com/assets/images/logo/20251017_logo_hotanphat28_golden.png` |
 
 **Logo rules:**
 - Gold (`#FFC90E`) palette — naturally belongs on dark surfaces
@@ -224,9 +221,7 @@ The hotanphat28 logo is a golden circular emblem mark alongside "hồ tấn phá
 ## Favicon & OG Image
 
 ```html
-<link rel="icon" href="https://hotanphat.com/wp-content/uploads/2026/01/cropped-20251017_logo_hotanphat28_golden-32x32.png" sizes="32x32">
-<link rel="icon" href="https://hotanphat.com/wp-content/uploads/2026/01/cropped-20251017_logo_hotanphat28_golden-192x192.png" sizes="192x192">
-<link rel="apple-touch-icon" href="https://hotanphat.com/wp-content/uploads/2026/01/cropped-20251017_logo_hotanphat28_golden-180x180.png">
+<link rel="icon" href="https://hotanphat.com/assets/images/logo/20251017_logo_hotanphat28_golden.png" type="image/png">
 ```
 
 ---
@@ -260,7 +255,7 @@ The hotanphat28 logo is a golden circular emblem mark alongside "hồ tấn phá
 
 | Variable | Value |
 |---|---|
-| `{{FAVICON_URL}}` | `https://hotanphat.com/wp-content/uploads/2026/01/cropped-20251017_logo_hotanphat28_golden-32x32.png` |
+| `{{FAVICON_URL}}` | `https://hotanphat.com/assets/images/logo/20251017_logo_hotanphat28_golden.png` |
 | `{{FONT_IMPORT_URL}}` | `https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap` |
 | `{{ICON_CDN_URL}}` | `https://unpkg.com/lucide-static@latest/font/lucide.min.css` |
 | `{{BRAND_MARK}}` | `HP` |
