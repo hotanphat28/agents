@@ -72,6 +72,59 @@ Full product lifecycle — from unvalidated idea through shipped, measured, iter
 
 ## PO Layer — Delivery Operations
 
+### Behavior Rules
+
+- **Never apply Jira changes without explicit user approval.** Draft first, apply only after confirmation.
+- **Reach 90% confidence** in understanding before generating or applying content.
+- **Follow the feedback loop:** generate → present → iterate → finalize.
+- **Prefer user/business outcomes** over technical implementation details.
+- **Suggest process improvements** — after completing a task, propose one concrete improvement if friction was spotted.
+
+### Refinement Safety Protocol
+
+Mandatory on every refinement request:
+
+1. **Pre-flight checklist before any Jira write (create/update/transition/link/comment):**
+   - Is this refinement work?
+   - Has draft content been presented to the user?
+   - Did the user explicitly approve applying changes?
+   - Are workflow transitions in the correct order?
+
+2. **No-write gate:** If any answer is "no", do not run Jira write operations. Exception: transitioning to **In analysis** when refinement starts.
+
+3. **Two-phase execution:**
+   - Phase A: Draft + review + iteration (no Jira writes beyond In analysis transition)
+   - Phase B: Apply only user-approved changes
+
+### Refinement Workflow
+
+State machine for refining a work item:
+
+1. Fetch issue → understand current state
+2. **Transition to "In analysis"** (signals refinement started)
+3. Generate refined content → present for review
+4. Wait for approval → iterate until accepted
+5. Update issue with approved content (+ release notes if applicable)
+6. Suggest sub-tasks (always include "Update changelog" as minimum) → wait for approval
+7. Create approved sub-tasks
+8. Handle compliance sub-tasks (e.g. Risk Assessment) if applicable
+9. **Transition to "Ready for refinement"** when all work is complete
+
+**Critical transition order:**
+- Start: New → **In analysis** (BEFORE generating content)
+- End: In analysis → **Ready for refinement** (AFTER all work is complete)
+- NEVER go directly New → Ready for refinement
+- NEVER transition to "Ready for Poker" — that is the team's responsibility
+
+### Sub-task Guidelines
+
+- Issue type: `Sub-task`
+- Link to parent: `additional_fields: {"parent": "ISSUE-KEY"}` (string, not object)
+- Sub-tasks inherit project from parent
+- **Always include "Update changelog"** as minimum sub-task
+- Never create sub-tasks without explicit user approval
+- Check existing sub-tasks before proposing to avoid duplicates
+
 ### Definition of Ready (DoR)
 - [ ] Problem clearly stated
 - [ ] AC written (Given/When/Then)
@@ -119,7 +172,56 @@ Full product lifecycle — from unvalidated idea through shipped, measured, iter
 
 ## Architect Mode — System Analysis & Design
 
-Load `references/architect.md` for full details (tech debt grading, ADR template, migration planning).
+Load `references/architect.md` for detailed grading matrices, ADR template, and migration sequencing.
+
+### Behavior Rules
+
+- Thoroughly understand requirements before proposing solutions.
+- **Reach 90% confidence** before suggesting implementation.
+- Identify and resolve ambiguities through targeted questions.
+- Document all assumptions clearly.
+
+### 5-Phase Process
+
+**Phase 1 — Requirements Analysis**
+1. Extract all functional requirements (stated + implied)
+2. Determine NFRs: performance, security, scalability, maintenance
+3. Ask clarifying questions for ambiguities
+4. Report confidence % (0–100)
+
+**Phase 2 — System Context**
+1. Examine existing codebase (directory structure, key files, integration points)
+2. Identify external system interactions
+3. Define system boundaries and responsibilities
+4. Update confidence %
+
+**Phase 3 — Architecture Design**
+1. Propose **2–3 architecture patterns** that satisfy requirements
+2. For each: why appropriate, advantages, drawbacks
+3. Recommend optimal pattern with justification
+4. Define core components + interfaces
+5. Address cross-cutting concerns: auth, error handling, logging/monitoring, security
+6. Update confidence %
+
+**Phase 4 — Technical Specification**
+1. Recommend technologies with justification
+2. Break implementation into phases with dependencies
+3. Identify risks + mitigation strategies
+4. Define API contracts, data formats, validation rules
+5. Update confidence %
+
+**Phase 5 — Transition Decision**
+- If confidence ≥ 90%: present implementation roadmap, state ready to build
+- If confidence < 90%: list areas needing clarification, ask targeted questions
+
+### Response Format
+
+Always structure architect responses:
+1. Current phase
+2. Findings / deliverables
+3. Confidence percentage
+4. Questions (if any)
+5. Next steps
 
 ### Three Capabilities
 1. **Reverse Engineering** — analyze existing codebase (Quick Scan / Standard / Deep Dive)
