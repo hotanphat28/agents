@@ -54,13 +54,30 @@ A perfect reference implementation is provided in the `examples/` directory:
 
 ## 🚀 Execution Workflow
 
-When tasked with building a podcast video, execute the following steps:
+When tasked with building a podcast video, execute the following steps precisely:
 
-1.  **Scaffold**: Initialize a blank HyperFrames project (`npx hyperframes init <name> --example blank`).
-2.  **Assets**: Drop the primary audio file into the workspace.
-3.  **Data Structure**: Structure the subtitle data as a global `window.CAPTIONS` array inside `captions.js` (and ensure it is loaded synchronously in the HTML).
-4.  **Profanity Filter**: Review the `captions.js` text and filter any profanity.
-5.  **Build**: Replicate the architectural patterns from `examples/index.html` to build the composition.
-6.  **Preview/Render**: Render the video via `npx hyperframes preview` or `npx hyperframes render`.
-7.  **Cleanup**: Delete temporary or scaffolded files (e.g., `meta.json`, test scripts, unused images, or downloaded `node_modules` used for debugging).
-8.  **Social Media Copy**: Generate highly concise, YouTube-optimized Titles and Descriptions (in both English and Vietnamese) based on the video context for the user to publish.
+### Step 1: Scaffold Project
+Run `npx hyperframes init <name> --example blank` to set up the base project directory. Navigate into it.
+
+### Step 2: Setup Assets and Data
+1. Ensure the primary audio file is placed in the workspace (e.g., `assets/audio.mp3`).
+2. Structure the subtitle data as a global `window.CAPTIONS` array and write it to `captions.js`. Ensure it includes bilingual translations (e.g., Vietnamese/English) line-by-line as requested by the user, preserving the timestamps. Ensure `captions.js` is loaded synchronously in the HTML.
+
+### Step 3: Profanity Filter
+Review the `captions.js` text and censor any profanity to ensure the content is safe for social media publishing.
+
+### Step 4: Build Composition
+Build the kinetic typography and ambient background in `index.html`. 
+*   **Crucial:** Apply all the **Core Architectural Rules** from above (Synchronous Timeline, Dummy Timer Tween, Opacity instead of Visibility).
+*   Ensure the `captions.js` is loaded synchronously before your timeline script.
+*   Build the CSS, layout, and GSAP animations.
+
+### Step 5: Lint and Render
+1. Run `npx hyperframes@latest lint` (if applicable) or verify the timeline locally.
+2. Render the video via `npx hyperframes preview` or render it fully.
+
+### Step 6: Generate Social Media Copy
+Generate highly concise, YouTube-optimized Titles and Descriptions (in both English and Vietnamese) based on the context of the podcast video. Present this to the user.
+
+### Step 7: Clean Up (IMPORTANT)
+Once the video and copy are approved by the user, delete all temporary files and unused scaffolded assets (e.g., `meta.json`, test scripts, unused images, `node_modules` used for debugging) so the project directory remains neat.
