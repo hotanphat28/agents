@@ -1,15 +1,15 @@
 ---
-name: pobcast-video-maker
-description: Author a "pobcast"-style audio-driven kinetic typography video in HyperFrames. Uses a purely motion-graphics timeline (no video tracks) with bilingual subtitles, a robust GSAP dummy-tween timer, and asynchronous-safe synchronous initialization.
+name: podcast-video-maker
+description: Author a "podcast"-style audio-driven kinetic typography video in HyperFrames. Uses a purely motion-graphics timeline (no video tracks) with bilingual subtitles, a robust GSAP dummy-tween timer, and asynchronous-safe synchronous initialization.
 ---
 
-# Pobcast Video Maker
+# Podcast Video Maker
 
-This skill defines the architecture and workflow for building a **Pobcast Video** — an audio-driven HyperFrames composition featuring kinetic typography (subtitles that slam/drift in sync with the audio), a running timer, and ambient background visuals, without relying on actual video footage.
+This skill defines the architecture and workflow for building a **Podcast Video** — an audio-driven HyperFrames composition featuring kinetic typography (subtitles that slam/drift in sync with the audio), a running timer, and ambient background visuals, without relying on actual video footage.
 
 ## 🏗️ Core Architectural Rules
 
-When authoring a pobcast video, you must **strictly** follow these rules to ensure the composition captures correctly in headless preview and rendering engines:
+When authoring a podcast video, you must **strictly** follow these rules to ensure the composition captures correctly in headless preview and rendering engines:
 
 ### 1. Synchronous Timeline Registration
 Do **NOT** use `window.addEventListener("load")` or `composition-ready` to trigger timeline building. The HyperFrames engine may fire its interception events before the browser completes parsing, causing the timeline registration to silently fail.
@@ -54,7 +54,7 @@ A perfect reference implementation is provided in the `examples/` directory:
 
 ## 🚀 Execution Workflow
 
-When tasked with building a pobcast video, execute the following steps:
+When tasked with building a podcast video, execute the following steps:
 
 1.  **Scaffold**: Initialize a blank HyperFrames project (`npx hyperframes init <name> --example blank`).
 2.  **Assets**: Drop the primary audio file into the workspace.
