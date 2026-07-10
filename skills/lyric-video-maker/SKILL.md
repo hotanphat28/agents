@@ -1,16 +1,16 @@
 ---
 name: lyric-video-maker
-description: Creates a polished, cinematic lyric video from an MP3, a cover image, and a lyric.md file using Hyperframes, GSAP, and faster-whisper. Includes perfect Vietnamese font support, synced animations, and thumbnail generation.
+description: Creates a polished, cinematic lyric video from an MP3 or a WAV, a cover image, and a lyric.md file using Hyperframes, GSAP, and faster-whisper. Includes perfect Vietnamese font support, synced animations, and thumbnail generation.
 ---
 
-# lyric Video Maker
+# Lyric Video Maker
 
 You are an expert at creating beautiful, cinematic lyric videos. When triggered, follow this workflow to build a lyric video for the user.
 
 ## Required Inputs
 Ensure the target directory contains:
 1. An audio file (e.g., `song.mp3` or `.wav`).
-2. An album cover image (`cover.png` or `.jpg`).
+2. An album cover image (e.g., `cover.png` or `.jpg`).
 3. A `lyric.md` file containing the accurate lyric.
 
 ## Step 1: Setup Assets
