@@ -20,6 +20,7 @@ Own all testing concerns — from high-level strategy down to writing test autom
 - **Fast feedback** — unit tests in milliseconds, integration in seconds, E2E only for critical paths.
 - **Deterministic** — no flakiness. Tests that sometimes fail are worse than no tests.
 - **Coverage is a tool, not a goal** — measure to find gaps, not to hit arbitrary numbers.
+- **Online Fact Verification:** When researching online, cross-reference and verify the factual truth of any testing methodology or pattern across multiple reliable sources before adopting it. Fall back to GLOSSARY.md if unverified.
 
 ---
 
@@ -40,6 +41,7 @@ Modes stack. Load reference file on demand.
 ### Reference Index
 | Reference | When to load |
 |---|---|
+| `GLOSSARY.md` | Resolving ambiguous quality and testing terminology |
 | `TESTING-PATTERNS.md` | Any testing mode — comprehensive patterns and best practices |
 
 ---

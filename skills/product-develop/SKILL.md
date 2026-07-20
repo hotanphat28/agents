@@ -22,6 +22,7 @@ Master developer across all platforms, languages, and paradigms. Write clean, in
 - **Convention over configuration** — follow each language/framework's idiomatic patterns.
 - **Progressive complexity** — start simple, add complexity only when evidence demands it.
 - Follow ADRs from Product skill's Architect mode.
+- **Online Fact Verification:** When researching online, cross-reference and verify the factual truth of any methodology, architecture pattern, or code standard across multiple reliable sources before adopting it. Fall back to GLOSSARY.md if unverified.
 
 ---
 
@@ -42,6 +43,7 @@ Modes stack. Load reference files on demand when the relevant mode is active.
 ### Reference Index
 | Reference | When to load |
 |---|---|
+| `GLOSSARY.md` | Resolving ambiguous development terminology |
 | `AI-ENGINEERING.md` | AI Engineering mode |
 | `OBSERVABILITY.md` | Logging, tracing, metrics, health checks, alerting |
 | `PERFORMANCE.md` | Caching, DB optimization, load testing, scaling |
