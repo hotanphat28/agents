@@ -1,5 +1,5 @@
 ---
-name: product
+name: product-analyze
 description: >
   The complete product lifecycle skill — from zero-to-one greenfield builds through continuous
   enhancement of mature products. Covers all four product roles: Product Manager (strategy,
@@ -35,9 +35,9 @@ Full product lifecycle — from unvalidated idea through shipped, measured, iter
 | Vision, strategy, roadmap, OKRs, GTM, market, pricing | **PM Layer** |
 | Backlog, sprint, refinement, velocity, stakeholder update | **PO Layer** |
 | Requirements, user stories, AC, process map, gap analysis | **Analyst Layer** |
-| Codebase analysis, tech debt, ADR, pattern, migration | **Architect Mode** → load `references/architect.md` |
-| Write tickets, epics, stories, bugs | **Work Items** → load `references/work-items.md` |
-| JIRA formatting, title patterns, ADF | **JIRA** → load `references/jira-conventions.md` |
+| Codebase analysis, tech debt, ADR, pattern, migration | **Architect Mode** → load `ARCHITECT.md` |
+| Write tickets, epics, stories, bugs | **Work Items** → load `WORK-ITEMS.md` |
+| JIRA formatting, title patterns, ADF | **JIRA** → load `CONVENTIONS.md` |
 
 ### Lifecycle Detection
 
@@ -172,7 +172,7 @@ State machine for refining a work item:
 
 ## Architect Mode — System Analysis & Design
 
-Load `references/architect.md` for detailed grading matrices, ADR template, and migration sequencing.
+Load `ARCHITECT.md` for detailed grading matrices, ADR template, and migration sequencing.
 
 ### Behavior Rules
 
@@ -253,8 +253,20 @@ Monolith → Modular Monolith → Microservices → Event-Driven → Serverless
 ### Diagrams
 Primary: PlantUML. Mermaid when requested.
 
-### Document Rendering
-Product skill owns content (5 dimensions: Context, Business, Technical, Assessment, Action). Dev skill renders via `document.html`. See `~/.agents/templates/section_library.md`.
+### Document Rendering (Self-Contained)
+
+This skill renders its own HTML output — no dev skill dependency.
+
+**Process:**
+1. Determine use case (Analysis / Proposal / Plan / Review) and depth (Light / Standard / Deep)
+2. Load `templates/DOCUMENT-TEMPLATE.html` as base
+3. Apply theme via `templates/DESIGN-UI.md` (load theme from `~/.agents/themes/` or `~/.claude/themes/`)
+4. Populate **6 mandatory tabs**: Context | Business | Functional | Technical | Assessment | Action
+5. Follow `templates/SECTION-LIBRARY.md` for section → component mapping
+6. Include mock-UI prototypes in **Functional** tab when topic involves user-facing screens
+7. Save as `YYYYMMDD-<type>-<topic>.html`
+
+**6 dimensions** (always present): Context, Business, Functional, Technical, Assessment, Action.
 
 ### Handoff Protocol
 | Deliverable | Consumer |
@@ -263,10 +275,14 @@ Product skill owns content (5 dimensions: Context, Business, Technical, Assessme
 | Requirements (PRD, stories) | Design → Dev skill |
 | Architecture (ADRs) | Dev skill |
 | Sprint artifacts | Development team |
+| HTML document output | Direct to user (self-rendered) |
 
 ### Reference Index
 | Reference | When to load |
 |---|---|
-| `references/architect.md` | ADRs, tech debt, migration |
-| `references/jira-conventions.md` | JIRA formatting, titles |
-| `references/work-items.md` | Writing epics, stories, bugs |
+| `ARCHITECT.md` | ADRs, tech debt, migration |
+| `CONVENTIONS.md` | JIRA formatting, titles |
+| `WORK-ITEMS.md` | Writing epics, stories, bugs |
+| `templates/SECTION-LIBRARY.md` | Rendering HTML documents |
+| `templates/DOCUMENT-TEMPLATE.html` | HTML template base |
+| `templates/DESIGN-UI.md` | Theme token → CSS mapping |

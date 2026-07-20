@@ -3,23 +3,22 @@
 	<!--
   ╔══════════════════════════════════════════════════════════════════════════╗
   ║  Unified Document Template — Multi-Purpose, Theme-Agnostic              ║
-  ║  Version: 6.0 · 2026-05-14                                             ║
+  ║  Version: 7.0 · 2026-07-20                                             ║
   ║                                                                         ║
   ║  PURPOSE:                                                               ║
   ║  A single template for all document types. Supports tabbed mode         ║
   ║  (deep content with tab navigation) and linear mode (scrollable,        ║
   ║  print-friendly — no tabs). Mode is structural: include <nav class=     ║
-  ║  "tabs"> for tabbed, omit it for linear. See section_library.md.        ║
+  ║  "tabs"> for tabbed, omit it for linear. See SECTION-LIBRARY.md.        ║
   ║                                                                         ║
   ║  USE CASES (4 consolidated types):                                      ║
   ║  • Analysis — as-is, gap analysis, codebase review, tech debt           ║
-  ║    Tabs: Context | Business | Technical | Assessment                    ║
   ║  • Proposal — PRD, to-be, feature proposal, discovery, concept pitch    ║
-  ║    Tabs: Vision | Users | Solution | Delivery                          ║
   ║  • Plan — implementation, migration, API spec, sprint brief             ║
-  ║    Tabs: Overview | Architecture | Implementation | Delivery            ║
   ║  • Review — security audit, launch readiness, compliance                ║
-  ║    Tabs: Summary | Checklist | Findings | Remediation                   ║
+  ║                                                                         ║
+  ║  ALL use cases use 6 MANDATORY TABS (uniform structure):                ║
+  ║    Context | Business | Functional | Technical | Assessment | Action    ║
   ║                                                                         ║
   ║  Each use case has depth levels:                                        ║
   ║  • Light → linear mode (no tabs, cards stack vertically)                ║
@@ -30,12 +29,12 @@
   ║  2. Mode: tabbed (include <nav class="tabs">) or linear (omit it)       ║
   ║  3. Cards: Each card is one section — add/remove as needed              ║
   ║  4. Components: Pick from the CSS classes below to fill cards           ║
-  ║  5. See section_library.md for section suggestions per use case         ║
+  ║  5. See SECTION-LIBRARY.md for section suggestions per use case         ║
+  ║  6. Include mock-UI prototypes in Functional tab when relevant          ║
   ║                                                                         ║
-  ║  SKILL COLLABORATION:                                                   ║
-  ║  Product skill → structured content across 5 dimensions                 ║
-  ║  (Context, Business, Technical, Assessment, Action)                     ║
-  ║  Dev skill → renders this template (mode, tabs, components, theme)      ║
+  ║  RENDERING:                                                             ║
+  ║  product-analyze skill renders this template directly (self-contained). ║
+  ║  No dev skill dependency. Theme applied via DESIGN-UI.md.               ║
   ║                                                                         ║
   ║  Theming:                                                               ║
   ║  • Ships with NEUTRAL DEFAULT theme (current :root).                    ║

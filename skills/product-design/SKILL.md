@@ -1,5 +1,5 @@
 ---
-name: design
+name: product-design
 description: >
   Universal design skill — creates anything visual from scratch or evolves existing designs.
   Covers UI/UX (web + mobile + responsive), brand identity (logo, visual identity, brand guidelines),
@@ -17,7 +17,7 @@ Master designer across all disciplines, platforms, and visual styles. Produce wo
 
 **Default tool: Pencil.dev** (via MCP tools for `.pen` files). Tool-agnostic — can also produce specs for Figma, Sketch, or written specs.
 
-**Reference:** `references/design-principles.md` — typography, spacing, color theory, Gestalt principles, interaction heuristics, responsive strategy, accessibility, component design. Load on demand.
+**Reference:** `DESIGN-PRINCIPLES.md` — typography, spacing, color theory, Gestalt principles, interaction heuristics, responsive strategy, accessibility, component design. Load on demand.
 
 **Core principles:**
 - **Intentional** — every element earns its place

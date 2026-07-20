@@ -1,15 +1,15 @@
 ---
-name: dev
+name: product-develop
 description: >
   Universal developer skill — builds anything from scratch or enhances existing systems.
   Covers web (frontend + backend + full-stack), mobile (React Native, Flutter, native),
   AI/ML engineering, API design, database design, microservices, DevOps, and design-quality UI.
   Supports all major languages (TypeScript, Python, Java, C#, Go, Kotlin, Swift, Rust, PHP).
-  Guarantees security (OWASP Top 10), quality (testing pyramid + code review), accessibility
-  (WCAG 2.2 AA), performance, and production-ready deployment. Activate when the user asks
-  to build, implement, code, fix, refactor, deploy, test, audit, or review code in any
-  language or platform. For architecture decisions (ADRs, patterns, codebase analysis),
-  route to product skill's Architect mode.
+  Guarantees security (OWASP Top 10), accessibility (WCAG 2.2 AA), performance, and
+  production-ready deployment. Activate when the user asks to build, implement, code, fix,
+  refactor, deploy, or review code in any language or platform. For testing strategy or
+  writing tests, route to product-quality. For architecture decisions (ADRs, patterns,
+  codebase analysis), route to product-analyze's Architect mode.
 ---
 
 # Developer
@@ -31,11 +31,10 @@ Master developer across all platforms, languages, and paradigms. Write clean, in
 |---|---|
 | Web Dev | Pages, SPAs, APIs, backends, CLI tools, scripts |
 | Mobile Dev | iOS, Android, cross-platform mobile apps |
-| AI Engineering | LLMs, agents, RAG, embeddings, evals (load `references/ai-engineering.md`) |
+| AI Engineering | LLMs, agents, RAG, embeddings, evals (load `AI-ENGINEERING.md`) |
 | API Design | REST, GraphQL, gRPC, WebSocket, OpenAPI specs |
 | Database Design | Schema design, migrations, data modeling |
-| Design-Quality UI | Polished UI, themed reports (load `references/design-ui.md`) |
-| Assurance | Security review, launch readiness, threat model |
+| Design-Quality UI | Polished UI, component styling, CSS implementation |
 | DevOps | CI/CD, containers, IaC, monitoring, deployment |
 
 Modes stack. Load reference files on demand when the relevant mode is active.
@@ -43,11 +42,14 @@ Modes stack. Load reference files on demand when the relevant mode is active.
 ### Reference Index
 | Reference | When to load |
 |---|---|
-| `references/ai-engineering.md` | AI Engineering mode |
-| `references/design-ui.md` | Design-Quality UI mode |
-| `references/testing-patterns.md` | Writing tests, TDD, test strategy decisions |
-| `references/observability.md` | Logging, tracing, metrics, health checks, alerting |
-| `references/performance.md` | Caching, DB optimization, load testing, scaling |
+| `AI-ENGINEERING.md` | AI Engineering mode |
+| `OBSERVABILITY.md` | Logging, tracing, metrics, health checks, alerting |
+| `PERFORMANCE.md` | Caching, DB optimization, load testing, scaling |
+
+### Handoff
+- For testing strategy or writing tests → route to **product-quality** skill.
+- For HTML document rendering (analysis, proposal, plan, review) → route to **product-analyze** skill.
+- For security reviews, threat models, launch readiness audits → route to **product-analyze** (Review use case).
 
 ---
 
@@ -78,37 +80,6 @@ Modes stack. Load reference files on demand when the relevant mode is active.
 | Vector DB | Chroma (dev) / pgvector (prod) |
 | Embeddings | Gemini `gemini-embedding-001` |
 | Eval | Custom pytest suite |
-
----
-
-## Theme Implementation Contract (Dev Owns)
-
-Dev skill owns how theme tokens render to CSS. Design skill owns what tokens exist.
-
-### CSS Variable Mapping
-
-Load theme file → map brand tokens to `:root` CSS variables → compute derived values → apply to components.
-
-### Derived Values
-
-```css
-/* From --primary */
---primary-glow: rgba(PRIMARY, .10);
---primary-chip-bg: rgba(PRIMARY, .16);
---primary-chip-border: rgba(PRIMARY, .28);
---primary-hover: /* 10% darker */
---primary-active: /* 15% darker */
-
-/* From --bg-dark */
---dark-shadow-xs: rgba(BG_DARK, .04);
---dark-shadow-sm: rgba(BG_DARK, .05);
---dark-shadow-md: rgba(BG_DARK, .07);
---dark-shadow-lg: rgba(BG_DARK, .22);
-```
-
-### Applying to Akkuro App Layouts
-
-For Akkuro apps, load the matching layout template from `~/.claude/templates/akkuro-app-layouts/` and apply the akkuro theme's CSS variables. Match by app name (e.g., "atlanta" → `atlanta-layout.html`).
 
 ---
 
