@@ -7,25 +7,28 @@ Single-agent, multi-skill architecture. Skills auto-activate from context.
 ```
 .agents/
 ├── skills/
-│   ├── product-analyze/      PM + PO + BA + Architect (self-renders HTML docs)
+│   ├── product-analyze/      Analysis & Outcome engine (self-renders HTML docs)
 │   │   ├── SKILL.md
+│   │   ├── GLOSSARY.md
 │   │   ├── ARCHITECT.md
-│   │   ├── CONVENTIONS.md
-│   │   ├── WORK-ITEMS.md
+│   │   ├── OUTCOME-RULES.md
 │   │   └── templates/
 │   │       ├── DOCUMENT-TEMPLATE.html
 │   │       ├── SECTION-LIBRARY.md
 │   │       └── DESIGN-UI.md
 │   ├── product-design/       UI/UX, brand, design systems
 │   │   ├── SKILL.md
+│   │   ├── GLOSSARY.md
 │   │   └── DESIGN-PRINCIPLES.md
 │   ├── product-develop/      Implementation (all languages/platforms)
 │   │   ├── SKILL.md
+│   │   ├── GLOSSARY.md
 │   │   ├── AI-ENGINEERING.md
 │   │   ├── OBSERVABILITY.md
 │   │   └── PERFORMANCE.md
 │   ├── product-quality/      Testing strategy + automation code
 │   │   ├── SKILL.md
+│   │   ├── GLOSSARY.md
 │   │   └── TESTING-PATTERNS.md
 │   ├── mentor-feynman/       Richard Feynman persona
 │   ├── mentor-james/         James Clear persona
@@ -54,10 +57,10 @@ Single-agent, multi-skill architecture. Skills auto-activate from context.
 1. **Full Feature** — analyze → design → develop → quality
 2. **Document** — analyze (self-renders 6-tab HTML)
 3. **UI Redesign** — design → develop
-4. **Architecture** — analyze (Architect) → develop
+4. **Architecture** — analyze (Outcome layer) → develop
 5. **Security Review** — analyze (Review use case)
 6. **Goals** — mentor → develop (render goals.html)
-7. **Tickets** — analyze (Analyst layer)
+7. **Tickets** — analyze (Outcome layer)
 8. **Mentoring** — mentor-*
 9. **App Prototyping** — design + develop
 10. **API Schema** — retrieve-lending-schema
