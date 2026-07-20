@@ -35,8 +35,6 @@ Shared reference for all mentors. Mentors are coaches focused on growth, resilie
 |---|---|---|
 | Emotional regulation & state mastery | **Tony** | The Triad, state change, pattern interrupts |
 | Inner peace & acceptance | **Naval** | Happiness equation, desire management, presence |
-| Resilience through adversity | **Bruce** | Adaptability, overcoming physical/mental setbacks |
-| Fear & anxiety management | **Tim** | Fear-setting, Stoic practice, naming fears |
 | Stress management habits | **James** | Daily routines, habit systems for mental health |
 | Understanding your own mind | **Richard** | First-principles thinking about thought patterns |
 
@@ -103,61 +101,7 @@ The fourth option — wishing it were different while doing nothing — is the s
 
 ---
 
-## Framework 3 — Fear & Anxiety Management (Tim)
-
-### Fear-Setting Exercise (Detailed)
-
-**Step 1: Define** — "What's the absolute worst that could happen?"
-Write it all down. Be specific. Don't let it stay vague in your head.
-
-| Fear | Worst Case | Probability (1-10) | Permanence (1-10) |
-|---|---|---|---|
-| [specific fear] | [worst outcome] | [how likely?] | [how permanent?] |
-
-**Step 2: Prevent** — "What could I do to decrease the probability?"
-For each fear, list 2-3 prevention steps.
-
-**Step 3: Repair** — "If the worst case happened, how would I recover?"
-For each fear, write the recovery plan. Most situations are recoverable.
-
-**Step 4: Benefits** — "What are the benefits of attempting or partially succeeding?"
-List all potential upside — even partial success.
-
-**Step 5: Cost of Inaction** — "What is the cost of doing nothing — in 6 months, 1 year, 3 years?"
-This is usually the most powerful step. Inaction has a cost. Calculate it.
-
-### Tim's Anxiety Toolkit
-- **Journaling** — "Journaling saved my life more than once. It forces you to look at reality, not your imagination."
-- **Stoic negative visualization** — Imagine losing what you have. Then open your eyes and be grateful.
-- **The view from above** — Imagine looking at your problems from 30,000 feet. How important are they really?
-- **Memento mori** — Remember that you'll die. Not to be morbid — to cut through the trivial.
-- **Name the fear** — "Named fears are manageable fears. Unnamed fears are monsters."
-
----
-
-## Framework 4 — Resilience Building (Bruce)
-
-### Bruce's Resilience Philosophy
-- "Do not pray for an easy life, pray for the strength to endure a difficult one."
-- "Defeat is a state of mind. No one is ever defeated until defeat has been accepted as a reality."
-- Adversity is not something to avoid — it is the training ground for growth
-
-### The Water Resilience Model
-1. **Acknowledge the impact** — Don't pretend it doesn't hurt. Water yields to force.
-2. **Adapt your form** — You are not the same person after adversity. Don't try to go back. Flow forward.
-3. **Find the opening** — Water finds the crack, the gap, the path of least resistance through rock.
-4. **Build pressure** — When contained, water builds pressure until it breaks through. Channel frustration into focused force.
-5. **Return to calm** — After the crash, water becomes still again. Recovery is part of the cycle.
-
-### Daily Resilience Practices
-- Start each morning by acknowledging one difficulty you're facing without flinching
-- Physical training — building physical toughness translates to mental toughness
-- Meditation in motion — find flow in physical practice to reset the mind
-- "Empty the cup" — release attachment to how things should be
-
----
-
-## Framework 5 — Stress Management Habits (James)
+## Framework 3 — Stress Management Habits (James)
 
 ### The Stress Habit Stack
 Build stress management INTO your daily routine, not as a reaction to stress:
@@ -184,7 +128,7 @@ Build stress management INTO your daily routine, not as a reaction to stress:
 
 ---
 
-## Framework 6 — Understanding Your Mind (Richard)
+## Framework 4 — Understanding Your Mind (Richard)
 
 ### Feynman's Approach to Mental Clarity
 - "The first principle is that you must not fool yourself — and you are the easiest person to fool."
@@ -205,7 +149,7 @@ Build stress management INTO your daily routine, not as a reaction to stress:
 
 ---
 
-## Framework 7 — Imposter Syndrome Toolkit
+## Framework 5 — Imposter Syndrome Toolkit
 
 ### Tony's Approach
 - "Imposter syndrome means you're GROWING. If you felt comfortable, you'd be stagnating."
@@ -222,14 +166,9 @@ Build stress management INTO your daily routine, not as a reaction to stress:
 - Keep an evidence log: list concrete accomplishments and positive feedback
 - Read the evidence log when imposter syndrome hits — data beats feelings
 
-### Tim's Approach
-- "I've interviewed 700+ world-class performers. Nearly ALL of them feel like imposters at times."
-- "The difference? They feel it AND do the work anyway."
-- "Name it: 'I'm experiencing imposter syndrome.' Named feelings lose power."
-
 ---
 
-## Framework 8 — The Mental Health Check-In
+## Framework 6 — The Mental Health Check-In
 
 **Monthly self-assessment:**
 

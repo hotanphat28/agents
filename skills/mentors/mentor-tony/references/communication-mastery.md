@@ -10,9 +10,7 @@ Shared reference for all mentors. The ability to navigate conflict, negotiate ef
 |---|---|---|
 | Conflict resolution & difficult conversations | **Tony** | Pattern interrupts, emotional mastery, direct confrontation with love |
 | Calm assertiveness & non-reactive communication | **Naval** | First-principles clarity, not taking things personally |
-| Adaptive communication & reading opponents | **Bruce** | Fluidity, reading the situation, the intercepting fist |
 | Explaining complex ideas clearly | **Richard** | Feynman Technique, strip jargon, make it simple |
-| Persuasion frameworks & negotiation protocols | **Tim** | Structured approaches, expert extraction, tactical empathy |
 | Consistent communication habits | **James** | Daily practice, identity as a communicator, habit stacking |
 
 ---
@@ -33,11 +31,6 @@ Shared reference for all mentors. The ability to navigate conflict, negotiate ef
 1. Get your body right FIRST — move, breathe, stand tall
 2. Choose your state: enter the conversation as the person you want to be, not the person who's been triggered
 3. "The person with the most certainty in a conversation usually wins. But the person with the most calm always wins bigger."
-
-**Bruce's Situational Read:**
-1. Who is the other person? What do they want? What are they afraid of?
-2. "Know your opponent, but do not become rigid in your assessment. People change mid-conversation."
-3. Be prepared to adapt your approach mid-conversation — have no fixed plan
 
 ### Phase 2: During the Conversation
 
@@ -62,24 +55,9 @@ Shared reference for all mentors. The ability to navigate conflict, negotiate ef
 
 ## Framework 2 — Negotiation Mastery
 
-### Tim's Negotiation Protocol
+**### Tony's Negotiation Protocol
 
-**Preparation (80% of negotiation success):**
-1. Know your BATNA (Best Alternative To Negotiated Agreement)
-2. Know THEIR BATNA — this tells you their flexibility
-3. Research: what does the other side truly value? (Often not what they say)
-4. Define your walk-away point BEFORE the conversation
-5. Prepare to be silent — the most powerful negotiation tool
-
-**During Negotiation:**
-1. Let them speak first when possible — gather information
-2. Ask questions, don't make demands: "Help me understand..." "What would work for you?"
-3. Use silence strategically — after making a point, stop talking
-4. Never negotiate against yourself — if you make an offer, wait for a counter
-5. Look for creative solutions — expand the pie before dividing it
-6. End with commitment: "So we agree that..." (summarize in writing)
-
-**Tony's Negotiation Mindset:**
+Tony's Negotiation Mindset:**
 - "Negotiation is not about winning. It's about both parties leaving with enough to be committed."
 - Enter from a position of certainty, not desperation
 - "The person who needs the deal least has the most power"
@@ -175,12 +153,6 @@ Is there anything else you need from me?"
 | **A**sk | Ask open questions. Don't jump to solutions. | "Tell me more about that." / "What was that like?" |
 | **R**eflect | Mirror back what you heard — both content and feeling. | "So what you're saying is... and you're feeling..." |
 
-### Bruce's Listening Wisdom
-- "A good fighter reads the opponent. A great communicator reads the person."
-- Listen for what they're NOT saying — the hesitation, the avoided topic, the tone shift
-- "Empty your cup" — set aside your own agenda while listening
-- "The block and the strike are one movement. Listening and responding are one act."
-
 ---
 
 ## Framework 6 — Communication in Relationships
@@ -218,22 +190,9 @@ When triggered:
 - "Don't take yourself so seriously. Don't take others so seriously either."
 - "The person who can remain calm in an argument has more power than the person who shouts."
 
-### Bruce's Conflict Philosophy
-- "In the middle of difficulty lies opportunity."
-- "Do not react. Respond. A reaction is unconscious. A response is conscious."
-- "The best fighter is not tense but ready. Not thinking but not dreaming. Ready for whatever may come."
-- When attacked (verbally), don't meet force with force — redirect the energy. Let them exhaust themselves.
-
 ---
 
 ## Framework 8 — Public Speaking & Presentation
-
-### Tim's Protocol
-1. Know the 3 key points — no more. What are the 3 things the audience must remember?
-2. Open with a story or question — not "Today I'm going to talk about..."
-3. Practice out loud — not in your head. Minimum 3 full run-throughs.
-4. Record yourself — watch for filler words, pacing, body language
-5. Time yourself — always shorter than allotted time
 
 ### Tony's Stage Mastery
 - State first — if your state is powerful, the words follow
@@ -266,4 +225,4 @@ When triggered:
 | Written communication | | | |
 | Reading body language | | | |
 
-Focus on the lowest 2-3 scores. Design one habit (James) + one experiment (Tim) for each.
+Focus on the lowest 2-3 scores. Design one habit (James) for each.

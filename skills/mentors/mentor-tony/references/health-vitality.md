@@ -8,10 +8,8 @@ Shared reference for all mentors. Mentors are coaches, not medical professionals
 
 | Health Domain | Primary Mentor | Why |
 |---|---|---|
-| Fitness protocols & biohacking | **Tim** | Self-experimentation, minimum effective dose, protocol design |
 | Energy & peak performance | **Tony** | Physiology drives psychology, morning routines, sustained energy |
 | Health habit architecture | **James** | Two-minute rule, habit stacking, environment design for health |
-| Mind-body connection | **Bruce** | Martial arts discipline, flow state, body awareness |
 | Health philosophy & longevity mindset | **Naval** | Long-term thinking, simplicity, calm body as foundation |
 | Understanding your body | **Richard** | First-principles approach to how health mechanisms actually work |
 
@@ -20,13 +18,6 @@ Shared reference for all mentors. Mentors are coaches, not medical professionals
 ## Framework 1 — The Four Pillars of Vitality
 
 ### Pillar 1: Movement & Exercise
-
-**Tim's Minimum Effective Dose Approach:**
-- "What is the minimum amount of exercise that produces maximum health benefit?"
-- 80/20 of fitness: compound movements (squats, deadlifts, pushups, pulls) beat isolation exercises
-- 2-3 sessions per week of 30-45 minutes can achieve 80% of results
-- Kettlebell swings: Tim's single-exercise recommendation for time-pressed people
-- Track one metric: total weekly movement minutes
 
 **Tony's Energy Approach:**
 - "Motion creates emotion. Your body is the foundation of everything."
@@ -40,19 +31,7 @@ Shared reference for all mentors. Mentors are coaches, not medical professionals
 - Don't miss twice — one miss is an accident, two is the start of a new pattern
 - Identity: "I am someone who moves every day" — even a 5-minute walk counts
 
-**Bruce's Philosophy:**
-- "Do not pray for an easy life, pray for the strength to endure a difficult one."
-- Train for function, not appearance — your body should be capable, not decorative
-- Fluidity in movement: stretch daily, maintain flexibility alongside strength
-- The martial artist's body serves the mind — not the other way around
-
 ### Pillar 2: Nutrition
-
-**Tim's Slow-Carb Protocol (from *The 4-Hour Body*):**
-- 5 rules: No white carbs, eat the same few meals, don't drink calories, no fruit (except avocado/tomato), take one day off per week
-- "The best diet is the one you'll actually follow"
-- 80/20: protein at every meal + vegetables = 80% of the benefit
-- One dietary change at a time — test for 2 weeks before judging
 
 **Naval's Simple Philosophy:**
 - "Eat real food, not too much, mostly plants" (paraphrasing Pollan)
@@ -68,14 +47,6 @@ Shared reference for all mentors. Mentors are coaches, not medical professionals
 
 ### Pillar 3: Sleep
 
-**Tim's Sleep Protocol:**
-- Room: cold (18-19°C), dark (blackout curtains), quiet
-- No screens 1 hour before bed (or use blue-light blockers)
-- No caffeine after 2pm
-- Consistent sleep/wake times ±30 minutes, even weekends
-- Pre-sleep ritual: chamomile tea + 5-minute journal + light stretching
-- Track sleep quality, not just duration
-
 **Naval's Sleep Philosophy:**
 - "Sleep is the foundation. Optimize it before anything else."
 - "8 hours of sleep is not lazy. It's strategic."
@@ -89,42 +60,11 @@ Shared reference for all mentors. Mentors are coaches, not medical professionals
 
 ### Pillar 4: Recovery & Stress Management
 
-**Tim's Recovery Protocols:**
-- Cold exposure: cold showers (30 seconds to 2 minutes) for resilience and inflammation
-- Sauna: 20-30 minutes, 3-4x/week for cardiovascular and recovery benefits
-- Active recovery: walking, yoga, or light movement on rest days
-- Deload weeks: reduce training intensity every 4-6 weeks
-
-**Bruce's Mind-Body Recovery:**
-- "Be like water" — learn to relax completely, not just reduce tension
-- Daily stretching/mobility as meditation through movement
-- Body awareness: notice where you hold tension and release it consciously
-- Recovery is not weakness — it's the space where growth happens
-
 **Tony's Energy Management:**
 - "Energy is not something you have — it's something you create"
 - Morning priming: movement + breathing + gratitude = sustained energy
 - Breathing techniques: box breathing (4-4-4-4) for instant state change
 - "Your energy is your most valuable resource — protect it"
-
----
-
-## Framework 2 — Tim's 2-Week Health Experiment
-
-For any health change, run a structured experiment:
-
-1. **Hypothesis:** "If I [specific change], I expect [specific outcome]"
-2. **Protocol:** Exact actions, dosage, timing, duration (minimum 2 weeks)
-3. **Baseline:** Measure current state (energy 1-10, sleep quality, mood, weight, etc.)
-4. **Track daily:** One simple metric, same time each day
-5. **Review at 2 weeks:** Did the metric improve? By how much?
-6. **Decision:** Continue, modify, or abandon based on data
-
-### Example Experiments
-- Sleep: "Go to bed at 10pm for 14 days, measure morning energy 1-10"
-- Nutrition: "Eat 30g protein at breakfast for 14 days, measure afternoon energy"
-- Exercise: "Walk 20 minutes after lunch for 14 days, measure stress level 1-10"
-- Recovery: "30-second cold shower each morning for 14 days, measure alertness"
 
 ---
 
@@ -177,15 +117,6 @@ Every healthy action is a vote for your health identity:
 - Health is a long-term game — play it with patience
 - Consistency beats intensity — 30 minutes daily for 10 years beats extreme programs that last 3 months
 - "The best health decision is the one you'll still be doing in 5 years"
-
-**Tim's Longevity Checklist (80/20):**
-1. Sleep 7-9 hours consistently
-2. Move your body 3-5 times per week
-3. Eat mostly whole foods, enough protein
-4. Maintain social connections
-5. Manage stress (meditation, journaling, therapy)
-6. Don't smoke, moderate alcohol
-7. Regular health check-ups
 
 ---
 

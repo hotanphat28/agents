@@ -31,13 +31,6 @@ A one-page diagnostic to understand where you are before deciding where to go.
 3. Identify specific knowledge — what feels like play to you?
 4. List non-negotiables for the next role
 
-### Phase 2: Fear-Setting (Tim leads)
-1. Define worst case of making the change
-2. Assess real probability (usually <10%)
-3. Plan recovery if worst case happens
-4. Calculate cost of NOT changing (5-year projection)
-5. Define a reversible experiment to test the new direction
-
 ### Phase 3: Execution (Tony leads)
 1. Raise your standards — turn "should change" into "must change"
 2. Create a Massive Action Plan with specific deadlines
@@ -121,13 +114,6 @@ For interviews, promotions, and career conversations.
 
 ## Tool 6 — Interview Preparation Protocol
 
-### Tim's 80/20 Interview Prep
-1. Research the 5 most likely questions for this specific role
-2. Prepare 2 STAR stories per question
-3. Prepare 3 thoughtful questions that demonstrate insight
-4. Research the interviewer — find common ground
-5. Practice answers out loud (not in your head) — minimum 3 reps
-
 ### Tony's State Preparation
 1. Morning of: full priming routine (movement, gratitude, visualization)
 2. 10 minutes before: power posing + controlled breathing
@@ -181,17 +167,15 @@ For each goal, add:
 
 **Used for annual goals, career reviews, and major career decisions.**
 
-### Panel: Naval + Tim + James + Tony
+### Panel: Naval + James + Tony
 
 1. **Naval opens:** Clarity on direction — are you building the right thing?
-2. **Tim audits:** 80/20 analysis — which 20% of activities drive 80% of career growth?
-3. **James structures:** What daily habits support your career identity?
-4. **Tony closes:** What standards need to be raised? What's the commitment?
+2. **James structures:** What daily habits support your career identity?
+3. **Tony closes:** What standards need to be raised? What's the commitment?
 
 ### Output Format
 - Career Canvas (Tool 1) completed
 - 3-5 SMART goals (Tool 7)
-- 1-2 fear-setting exercises on the biggest career decision (Tim)
 - Daily habit plan supporting the goals (James)
 - Massive Action Plan with deadlines (Tony)
 
@@ -208,14 +192,4 @@ For each goal, add:
 4. What feels like play to you but looks like work to others?
 5. Where do you have an unfair advantage (skills + interests + personality)?
 
-**Tim's Rapid Career Experimentation:**
-1. List 5 careers/roles that intrigue you
-2. For each: find someone doing it and have a 30-minute conversation
-3. For the top 2: design a 2-week experiment (shadow, freelance, side project)
-4. Measure: energy, learning rate, excitement, and skill fit
-5. Decision based on data, not daydreaming
 
-**Bruce's Approach:**
-- Stop trying to find the "right" path — there isn't one
-- What can you do RIGHT NOW that expresses who you actually are?
-- The path reveals itself through action, not contemplation

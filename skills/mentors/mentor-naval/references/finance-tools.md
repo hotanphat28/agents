@@ -81,11 +81,6 @@ If you can live off 4% of your investments annually, you're financially free. Th
 - "Don't try to beat the market. You have better things to do."
 - "Own equity. The path to wealth is ownership, not salary."
 
-**Tim's Approach:**
-- "Study what the best investors actually DO, not what they say on TV."
-- "Diversify across asset classes. Don't put everything in one basket."
-- "The 80/20 of investing: automate, diversify, hold long-term. Everything else is noise."
-
 **Tony's Framework (from *Money: Master the Game*):**
 - Asymmetric risk/reward — look for investments where upside >> downside
 - The power of compounding — start early, be consistent, let time work
@@ -111,14 +106,6 @@ If you can live off 4% of your investments annually, you're financially free. Th
 3. **Product Income** (code & media leverage) — courses, software, content, books
 4. **Investment Income** (capital leverage) — dividends, interest, rental income
 5. **Business Income** (labor + capital leverage) — equity in businesses you own
-
-### Tim's Muse Framework
-A "muse" is a semi-automated business that generates income without consuming your identity:
-1. Find a niche market you understand
-2. Create/source a product with >50% margin
-3. Automate fulfillment and customer service
-4. Target €1,000-€10,000/month in passive income
-5. Use the income to buy back your time
 
 ### Building Path
 - **Year 1:** Master active income — get paid what you're worth
@@ -157,7 +144,7 @@ A "muse" is a semi-automated business that generates income without consuming yo
 5. **Freedom progress** — What % of your Freedom Number have you reached?
 
 ### Annual Deep Review
-Run with Naval (direction) + Tim (systems audit) + James (habit assessment) + Tony (standards check).
+Run with Naval (direction) + James (habit assessment) + Tony (standards check).
 
 ---
 
@@ -178,10 +165,6 @@ Run with Naval (direction) + Tim (systems audit) + James (habit assessment) + To
 - "Wealth is built by tiny financial habits compounded over decades."
 - "You don't need a financial breakthrough — you need financial consistency."
 - "Every automated savings transfer is a vote for the identity of 'someone who builds wealth.'"
-
-### Bruce's Mindset
-- "Don't cling to money or fear losing it. Flow with it."
-- "The person who is afraid of losing money will never have the freedom that money can provide."
 
 ---
 
