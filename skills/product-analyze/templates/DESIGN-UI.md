@@ -1,17 +1,12 @@
 # Design-Quality UI — CSS Implementation Contract
-
 How to render theme tokens to CSS variables and apply them to components.
 
----
-
 ## Token Flow
-
 ```
 Brand Theme File -> CSS Variables (:root) -> Component Styles -> Rendered UI
 ```
 
 ## CSS Variable Mapping
-
 Load theme from `~/.agents/themes/` or `~/.claude/themes/` and map to `:root`:
 
 ```css
@@ -31,7 +26,6 @@ Load theme from `~/.agents/themes/` or `~/.claude/themes/` and map to `:root`:
 ```
 
 ## Derived Values (Compute at Build/Runtime)
-
 ```css
 --primary-glow: rgba(PRIMARY, .10);
 --primary-chip-bg: rgba(PRIMARY, .16);
@@ -45,17 +39,14 @@ Load theme from `~/.agents/themes/` or `~/.claude/themes/` and map to `:root`:
 ```
 
 ## Status Colors (Universal — Never Override)
-
 `--status-success` #22A861, `--status-warning` #E5A00D, `--status-error` #DC3545, `--status-info` #3B82F6, `--status-neutral` #6B7280.
 
 ## Akkuro App Layout Wiring
-
 For Akkuro apps, load matching layout from `~/.claude/templates/akkuro-app-layouts/` and apply akkuro theme variables. Design system details in `~/.claude/themes/akkuro-design-systems/`.
 
 ## Key Rules
-
-- Use `font-display: swap` for Google Fonts
-- System font fallback: `-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`
-- 4px spacing base unit
-- Respect `prefers-reduced-motion` for all animations
-- Dark mode: use `prefers-color-scheme` media query or `.dark` class toggle
+* Use `font-display: swap` for Google Fonts
+* System font fallback: `-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`
+* 4px spacing base unit
+* Respect `prefers-reduced-motion` for all animations
+* Dark mode: use `prefers-color-scheme` media query or `.dark` class toggle

@@ -2,14 +2,19 @@
 
 This document provides a single source of truth for terminology used within the `product-analyze` skill, ensuring context accuracy and preventing hallucinations.
 
-## Frameworks & Methods
+## Frameworks
+
+* **Wardley Map**: A business strategy framework that visualizes the evolution of components (from genesis to commodity) against user needs, helping determine what to build vs. buy.
+* **JTBD (Jobs To Be Done)**: A framework for understanding customer behavior that focuses on the "job" a customer is hiring a product to do, rather than the customer's demographic profile.
+* **OKRs (Objectives and Key Results)**: A goal-setting framework that defines qualitative, aspirational Objectives and pairs them with quantitative, measurable Key Results.
+* **RICE / ICE**: Prioritization frameworks. RICE = Reach, Impact, Confidence, Effort. ICE = Impact, Confidence, Ease.
+
+## Methods
 
 * **Lean Canvas**: A 1-page business plan template that helps deconstruct a business idea into its key assumptions (e.g., Problem, Solution, Key Metrics, Value Proposition).
-* **Wardley Map**: A business strategy framework that visualizes the evolution of components (from genesis to commodity) against user needs, helping determine what to build vs. buy.
 * **Event Storming**: A workshop-based method to quickly find out what is happening in the domain of a software program, focusing on domain events (sticky notes) rather than data structures.
 * **Impact Mapping**: A strategic planning technique that visually connects business goals (Why) to actors (Who), impacts (How), and deliverables (What).
 * **Story Mapping**: A technique to visualize the product backlog in two dimensions: user journey (horizontal) and release slices/priority (vertical).
-* **JTBD (Jobs To Be Done)**: A framework for understanding customer behavior that focuses on the "job" a customer is hiring a product to do, rather than the customer's demographic profile.
 * **C4 Model**: An "abstraction-first" approach to software architecture diagramming consisting of Context, Container, Component, and Code diagrams.
 * **Strangler Fig Pattern**: A software migration pattern where a legacy system is gradually replaced by a new system by intercepting traffic at the edge and routing it to the new system, feature by feature, until the old system can be safely decommissioned.
 
@@ -18,21 +23,19 @@ This document provides a single source of truth for terminology used within the 
 * **PRD (Product Requirements Document)**: A document containing all the requirements to a certain product, describing what the product should do and how it should behave.
 * **BRD (Business Requirements Document)**: A document detailing the business solution for a project, including customer needs, purpose, and expectations. Focuses on the "Why" and "What" from a business perspective.
 * **ADR (Architecture Decision Record)**: A document that captures an important architectural decision made along with its context and consequences.
-* **AC (Acceptance Criteria)**: Conditions that a software product must satisfy to be accepted by a user, customer, or other stakeholder (often written in Given/When/Then format).
 * **IA (Information Architecture)**: The structural design of shared information environments; the art and science of organizing and labeling websites, intranets, online communities, and software to support usability and findability.
 * **RFC (Request for Comments)**: A document authored by an engineer or team to propose a significant technical or process change, designed to gather feedback before implementation.
 
 ## Metrics & Strategy
 
-* **OKRs (Objectives and Key Results)**: A goal-setting framework that defines qualitative, aspirational Objectives and pairs them with quantitative, measurable Key Results.
 * **North Star Metric**: The single key indicator that best captures the core value your product delivers to its customers.
 * **GTM (Go-To-Market)**: The strategy a company uses to bring a new product or service to market, including pricing, positioning, and distribution.
-* **RICE / ICE**: Prioritization frameworks. RICE = Reach, Impact, Confidence, Effort. ICE = Impact, Confidence, Ease.
 * **AARRR (Pirate Metrics)**: A startup metrics model focusing on Acquisition, Activation, Retention, Referral, and Revenue.
 * **MVP (Minimum Viable Product)**: A version of a new product which allows a team to collect the maximum amount of validated learning about customers with the least effort.
 
 ## Agile & JIRA
 
+* **AC (Acceptance Criteria)**: Conditions that a software product must satisfy to be accepted by a user, customer, or other stakeholder (often written in Given/When/Then format).
 * **DoR (Definition of Ready)**: A checklist of criteria that a user story must meet before it is considered ready to be pulled into a sprint by the development team.
 * **DoD (Definition of Done)**: A checklist of criteria (e.g., code reviewed, tested, deployed) that must be met before a work item is considered fully complete.
 * **Spike**: A time-boxed investigation or research task aimed at answering a specific question, reducing risk, or prototyping a solution before full implementation.

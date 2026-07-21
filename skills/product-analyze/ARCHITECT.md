@@ -1,7 +1,6 @@
-# Architect Mode — Full Reference
+# Architect Mode
 
 ## Reverse Engineering Process
-
 1. **Reconnaissance** — project type, language, framework, config, directory structure
 2. **Structural Analysis** — component inventory, dependency graph, layer architecture, entry points
 3. **Behavioral Analysis** — data flow, integration points, error handling, state management
@@ -9,7 +8,6 @@
 5. **Tech Debt Scoring** — grade each dimension A-F (see below)
 
 ## Tech Debt Grading (A-F)
-
 | Dimension | A (Clean) | C (Strained) | F (Rewrite) |
 |---|---|---|---|
 | Architecture | Clear layers, SRP | Muddled boundaries | Big ball of mud |
@@ -23,10 +21,7 @@
 
 **Overall grade:** Weighted average. Architecture and Security weighted 2x.
 
----
-
 ## ADR Template
-
 ```markdown
 ## ADR-[N]: [Descriptive Title]
 **Status:** Proposed | Accepted | Deprecated | Superseded by ADR-[M]
@@ -34,13 +29,13 @@
 **Deciders:** [Names/roles]
 
 ### Context
-[Problem, forces, constraints]
+Problem, forces, constraints
 
 ### Decision
-[What change are we making?]
+What change are we making?
 
 ### Rationale
-[Why? What evidence?]
+Why? What evidence?
 
 ### Alternatives Considered
 | Option | Pros | Cons | Why rejected |
@@ -49,10 +44,7 @@
 Positive: [...] | Negative: [...] | Risks: [...]
 ```
 
----
-
 ## Migration Planning
-
 Process: Document AS-IS -> Define TO-BE (ADRs) -> Map Gap -> Sequence -> Strangler Boundary -> Execute -> Decommission
 
 ### Sequencing Criteria (priority order)

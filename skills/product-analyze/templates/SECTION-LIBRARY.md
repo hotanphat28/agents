@@ -1,14 +1,10 @@
 ## Section & Component Library
-
 > Reference for rendering `DOCUMENT-TEMPLATE.html`.
 > Maps use cases → dimensions → tab structure → CSS components.
 > product-analyze skill renders its own HTML output — no dev skill dependency.
 > Every outcome ALWAYS includes all 6 dimension tabs. Populate each with evidence; use a brief "No findings" note only when genuinely empty.
 
----
-
 ## 6-Dimension Framework
-
 Every document covers a topic through **6 mandatory dimensions** (tabs). This ensures consistent coverage from problem context through actionable delivery.
 
 | Dimension | Tab Label | What it covers | Typical components |
@@ -21,7 +17,6 @@ Every document covers a topic through **6 mandatory dimensions** (tabs). This en
 | **Action** | Action | Roadmap, decisions, next steps, delivery phases, migration plan | `.timeline`, `.steps-list`, `.story-card`, `.score-table` |
 
 ### Mandatory Tab Order
-
 All outcomes use exactly these 6 tabs in this order:
 
 ```html
@@ -35,10 +30,7 @@ All outcomes use exactly these 6 tabs in this order:
 </nav>
 ```
 
----
-
 ## Rendering Rules
-
 product-analyze renders HTML directly using `DOCUMENT-TEMPLATE.html`:
 
 1. Determine use case type (Analysis, Proposal, Plan, Review)
@@ -50,14 +42,10 @@ product-analyze renders HTML directly using `DOCUMENT-TEMPLATE.html`:
 
 **Linear mode** (Light depth only): Omit `<nav class="tabs">` and `<section class="panel">` wrappers. Cards stack directly inside `<main class="wrap">` but still group by all 6 dimensions using `<h2>` headings.
 
----
-
 ## Mock-UI / Prototype Component
-
 Embed interactive HTML prototypes directly in the **Functional** tab. Use for any topic that involves user-facing screens or interactions.
 
 ### Pattern
-
 ```html
 <div class="card">
   <div class="card-header"><span>Mock-UI: [Screen Name]</span></div>
@@ -72,16 +60,13 @@ Embed interactive HTML prototypes directly in the **Functional** tab. Use for an
 ```
 
 ### Mock-UI Rules
-- Self-contained (no external dependencies beyond icon CDN already loaded)
-- Scoped styles (use `.mock-ui` prefix or inline styles to avoid leaking)
-- Interactive where useful (tabs, dropdowns, hover states via inline JS)
-- Realistic data (use plausible sample data, not "lorem ipsum")
-- Annotated (add `.ref-note` below the mock explaining key interactions)
-
----
+* Self-contained (no external dependencies beyond icon CDN already loaded)
+* Scoped styles (use `.mock-ui` prefix or inline styles to avoid leaking)
+* Interactive where useful (tabs, dropdowns, hover states via inline JS)
+* Realistic data (use plausible sample data, not "lorem ipsum")
+* Annotated (add `.ref-note` below the mock explaining key interactions)
 
 ## Depth Levels
-
 Each use case can be rendered at different depths. Depth determines mode:
 
 | Depth | Mode | When to use |
@@ -92,12 +77,9 @@ Each use case can be rendered at different depths. Depth determines mode:
 
 **Linear mode**: Omit `<nav class="tabs">` and `<section class="panel">` wrappers. Cards stack directly inside `<main class="wrap">`.
 
----
-
 ## Use Case → Sections Map
 
 ### 1. Analysis
-
 Understand current state, assess quality, identify gaps. Covers: as-is analysis, gap analysis, codebase review, tech debt assessment.
 
 **Depth guidance:**
@@ -144,10 +126,7 @@ Understand current state, assess quality, identify gaps. Covers: as-is analysis,
 | Value-Effort Matrix | `.matrix-2x2` | Assessment | Assessment |
 | Bridging Actions | `.timeline` (phased migration) | Action | Action |
 
----
-
 ### 2. Proposal
-
 Propose something new — from problem validation to full PRD. Covers: discovery, feature proposal, concept pitch, to-be proposal, PRD, design brief.
 
 **Depth guidance:**
@@ -196,10 +175,7 @@ Propose something new — from problem validation to full PRD. Covers: discovery
 | Success Metrics (target) | `.stats-grid` + `.metric-hl` | Business | Business |
 | Full Mock-UI Suite | Multiple `.mock-ui` per screen | Functional | Functional |
 
----
-
 ### 3. Plan
-
 Detail execution — from sprint brief to full migration plan. Covers: implementation plan, data migration plan, API/integration spec, sprint goal brief, implementation handoff.
 
 **Depth guidance:**
@@ -243,10 +219,7 @@ Detail execution — from sprint brief to full migration plan. Covers: implement
 | Performance Targets | `.stats-grid` or `.metric-hl` | Business | Business |
 | Reconciliation / Verification | `.checklist` (pass/fail per check) | Assessment | Assessment |
 
----
-
 ### 4. Review
-
 Audit and verify — security, launch readiness, compliance. Covers: security review, launch readiness checklist, performance audit.
 
 **Depth guidance:**
@@ -271,8 +244,6 @@ Audit and verify — security, launch readiness, compliance. Covers: security re
 | Remediation Plan | `.timeline` (phased fixes) | Action | Action | ✓ |
 | Quick Wins | `.steps-list` | Action | Action | |
 | Long-Term Improvements | `.callout-box` or `.ref-note` | Action | Action | |
-
----
 
 ## Component Quick Reference
 
@@ -305,5 +276,4 @@ Audit and verify — security, launch readiness, compliance. Covers: security re
 | `.mock-ui` | Embedded HTML prototype container | Interactive wireframes, screen mockups, UI prototypes |
 
 ### Design Brief (handoff to design skill)
-
 When the outcome is a design brief for the design skill, still use the 6-tab structure but focus content on Context (objective, users, brand) and Functional (screens, interactions, mock-UI).
