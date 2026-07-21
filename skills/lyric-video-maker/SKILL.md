@@ -55,7 +55,7 @@ Output: `transcript.json`
 Copy `examples/generate_lyric.py` to working directory, then run:
 
 ```bash
-python generate_lyric.py
+uv run python generate_lyric.py
 ```
 
 Aligns `transcript.json` with `lyric.md` via `difflib.SequenceMatcher` and builds the HyperFrames HTML composition.
@@ -76,7 +76,7 @@ Present `renders/output_lyric.mp4` to user.
 Copy `examples/generate_thumbnail.py`, update the song title constant, then run:
 
 ```bash
-python generate_thumbnail.py
+uv run python generate_thumbnail.py
 ```
 
 Present `thumbnail.png` to user.
