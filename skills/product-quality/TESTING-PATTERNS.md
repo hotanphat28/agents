@@ -1,11 +1,7 @@
 # Testing Patterns & Strategy
-
 Core testing foundations, principles, and best practices for all platforms and languages.
 
----
-
 ## 1. Testing Pyramid
-
 ```
          /  E2E  \          ← Few, slow, expensive, high confidence
         /----------\
@@ -22,12 +18,10 @@ Core testing foundations, principles, and best practices for all platforms and l
 | E2E | ~10% | Seconds-minutes | Full user flows | System works end-to-end |
 
 ### When to Violate the Pyramid
-- **CRUD apps** → heavier on integration (little business logic to unit test)
-- **Algorithmic code** → heavier on unit tests (pure functions, many edge cases)
-- **UI-heavy apps** → add visual regression layer
-- **Event-driven systems** → heavier on integration (async flows matter)
-
----
+* **CRUD apps** → heavier on integration (little business logic to unit test)
+* **Algorithmic code** → heavier on unit tests (pure functions, many edge cases)
+* **UI-heavy apps** → add visual regression layer
+* **Event-driven systems** → heavier on integration (async flows matter)
 
 ## 2. Unit Testing Principles
 
@@ -41,17 +35,17 @@ Core testing foundations, principles, and best practices for all platforms and l
 | **T**imely | Written alongside or before code | Not an afterthought |
 
 ### What to Unit Test
-- Business logic and calculations
-- State machines and decision trees
-- Data transformations and mappings
-- Validation rules
-- Edge cases and boundary conditions
+* Business logic and calculations
+* State machines and decision trees
+* Data transformations and mappings
+* Validation rules
+* Edge cases and boundary conditions
 
 ### What NOT to Unit Test
-- Framework code (getters/setters, constructors with no logic)
-- Third-party library internals
-- Configuration/wiring
-- Private methods directly (test through public interface)
+* Framework code (getters/setters, constructors with no logic)
+* Third-party library internals
+* Configuration/wiring
+* Private methods directly (test through public interface)
 
 ### Test Structure: Arrange-Act-Assert (AAA)
 ```
@@ -68,10 +62,7 @@ calculateInterest_negativeRate_throwsInvalidArgumentException
 formatCurrency_zeroAmount_returnsFormattedZero
 ```
 
----
-
 ## 3. Test Doubles
-
 | Type | Purpose | When to Use |
 |---|---|---|
 | **Stub** | Returns canned data | Need predictable responses from dependencies |
@@ -81,69 +72,65 @@ formatCurrency_zeroAmount_returnsFormattedZero
 | **Dummy** | Placeholder, never actually used | Fill required parameters that are irrelevant to test |
 
 ### Mocking Best Practices
-- **Mock at boundaries** — external services, databases, file systems, clocks
-- **Don't mock what you own** — if you wrote it, test it directly unless it's slow/stateful
-- **Prefer fakes over mocks for complex dependencies** — more realistic, less brittle
-- **Never mock value objects** — test with real instances
-- **Limit mocks to 1-2 per test** — more means your design has too many dependencies
-- **Verify behavior, not implementation** — mock assertions should test WHAT happened, not HOW
+* **Mock at boundaries** — external services, databases, file systems, clocks
+* **Don't mock what you own** — if you wrote it, test it directly unless it's slow/stateful
+* **Prefer fakes over mocks for complex dependencies** — more realistic, less brittle
+* **Never mock value objects** — test with real instances
+* **Limit mocks to 1-2 per test** — more means your design has too many dependencies
+* **Verify behavior, not implementation** — mock assertions should test WHAT happened, not HOW
 
 ### Dependency Injection for Testability
-- Inject dependencies through constructor (not created internally)
-- Use interfaces/abstractions at boundaries
-- Keep constructors simple — complex constructors = hard to test
-- Favor composition over inheritance for testability
-
----
+* Inject dependencies through constructor (not created internally)
+* Use interfaces/abstractions at boundaries
+* Keep constructors simple — complex constructors = hard to test
+* Favor composition over inheritance for testability
 
 ## 4. Integration Testing
 
 ### What Integration Tests Verify
-- API contracts (request/response format, status codes, headers)
-- Database queries work with real schemas (use test containers)
-- Message queue producers/consumers serialize/deserialize correctly
-- External service clients handle responses and errors properly
-- Authentication/authorization flows work end-to-end
+* API contracts (request/response format, status codes, headers)
+* Database queries work with real schemas (use test containers)
+* Message queue producers/consumers serialize/deserialize correctly
+* External service clients handle responses and errors properly
+* Authentication/authorization flows work end-to-end
 
 ### Test Containers Pattern
 Use real infrastructure in containers for integration tests:
-- PostgreSQL, MongoDB, Redis — real engines, ephemeral instances
-- Kafka, RabbitMQ — real brokers for event testing
-- Localstack — AWS service emulation
-- WireMock — HTTP API simulation with contract verification
+* PostgreSQL, MongoDB, Redis — real engines, ephemeral instances
+* Kafka, RabbitMQ — real brokers for event testing
+* Localstack — AWS service emulation
+* WireMock — HTTP API simulation with contract verification
 
 ### API Integration Test Checklist
-- [ ] Happy path returns correct status and body
-- [ ] Invalid input returns 400 with descriptive error
-- [ ] Missing auth returns 401
-- [ ] Insufficient permissions returns 403
-- [ ] Not found returns 404
-- [ ] Server error returns 500 with safe error message (no stack traces)
-- [ ] Pagination works (first page, last page, empty page)
-- [ ] Concurrency/idempotency handled (duplicate requests)
+* [ ] Happy path returns correct status and body
+* [ ] Invalid input returns 400 with descriptive error
+* [ ] Missing auth returns 401
+* [ ] Insufficient permissions returns 403
+* [ ] Not found returns 404
+* [ ] Server error returns 500 with safe error message (no stack traces)
+* [ ] Pagination works (first page, last page, empty page)
+* [ ] Concurrency/idempotency handled (duplicate requests)
 
 ### Database Integration Test Rules
-- Each test starts with a known state (truncate or rollback)
-- Use migrations to set up schema (same as production)
-- Test with realistic data volumes when performance matters
-- Verify cascading deletes, constraints, and indexes
-
----
+* Each test starts with a known state (truncate or rollback)
+* Use migrations to set up schema (same as production)
+* Test with realistic data volumes when performance matters
+* Verify cascading deletes, constraints, and indexes
 
 ## 5. End-to-End Testing
 
 ### What E2E Tests Verify
-- Critical user journeys work (registration, purchase, core workflow)
-- Cross-service communication works
-- UI renders and responds correctly
+* Critical user journeys work (registration, purchase, core workflow)
+* Cross-service communication works
+* UI renders and responds correctly
 
 ### E2E Best Practices
-- **Test user outcomes, not implementation** — "user can submit a loan application" not "button click triggers POST request"
-- **Minimize E2E count** — only critical paths; use lower layers for edge cases
-- **Use stable selectors** — `data-testid` attributes, not CSS classes or XPaths
-- **Handle async explicitly** — wait for elements/conditions, never use fixed sleeps
-- **Isolate test data** — each test creates its own data, cleans up after
-- **Retry flaky tests once, then fix** — flaky tests erode trust
+* **Test user outcomes, not implementation** — "user can submit a loan application" not "button click triggers POST request"
+* **Minimize E2E count** — only critical paths; use lower layers for edge cases
+* **Use stable selectors** — `data-testid` attributes, not CSS classes or XPaths
+* **Handle async explicitly** — wait for elements/conditions, never use fixed sleeps
+* **Isolate test data** — each test creates its own data, cleans up after
+* **Retry flaky tests once, then fix** — flaky tests erode trust
 
 ### Page Object Pattern (UI E2E)
 ```
@@ -154,8 +141,6 @@ LoginPage.submit()
 DashboardPage.assertWelcomeMessage("Hello, User")
 ```
 
----
-
 ## 6. Test-Driven Development (TDD)
 
 ### Red-Green-Refactor Cycle
@@ -164,17 +149,15 @@ DashboardPage.assertWelcomeMessage("Hello, User")
 3. **Refactor** — Clean up while keeping tests green
 
 ### When TDD Shines
-- Well-defined requirements with clear inputs/outputs
-- Business logic with edge cases
-- Bug fixes (write the failing test first, then fix)
-- API design (tests drive the interface)
+* Well-defined requirements with clear inputs/outputs
+* Business logic with edge cases
+* Bug fixes (write the failing test first, then fix)
+* API design (tests drive the interface)
 
 ### When TDD is Optional
-- Exploratory/prototyping work (write tests after discovery)
-- UI layout (visual regression tests instead)
-- Third-party integrations (integration tests are more valuable)
-
----
+* Exploratory/prototyping work (write tests after discovery)
+* UI layout (visual regression tests instead)
+* Third-party integrations (integration tests are more valuable)
 
 ## 7. Behavior-Driven Development (BDD)
 
@@ -198,13 +181,11 @@ Feature: Loan eligibility check
 ```
 
 ### BDD Best Practices
-- Write scenarios in domain language (not technical steps)
-- One behavior per scenario (not a multi-step flow)
-- Use backgrounds for shared preconditions
-- Scenario outlines for data-driven testing
-- Keep step definitions thin — delegate to page objects or service clients
-
----
+* Write scenarios in domain language (not technical steps)
+* One behavior per scenario (not a multi-step flow)
+* Use backgrounds for shared preconditions
+* Scenario outlines for data-driven testing
+* Keep step definitions thin — delegate to page objects or service clients
 
 ## 8. Contract Testing
 
@@ -215,9 +196,9 @@ When services communicate via APIs:
 3. **Broker** stores and versions contracts (e.g., Pact Broker)
 
 ### When to Use
-- Microservices with multiple consumers
-- API changes that could break unknown consumers
-- Async messaging (Kafka, RabbitMQ) — verify schema compatibility
+* Microservices with multiple consumers
+* API changes that could break unknown consumers
+* Async messaging (Kafka, RabbitMQ) — verify schema compatibility
 
 ### Schema Compatibility Rules (Avro/Protobuf)
 | Change | Backward Compatible? |
@@ -229,10 +210,7 @@ When services communicate via APIs:
 | Rename field | ❌ No |
 | Change field type | ❌ No |
 
----
-
 ## 9. Testing Anti-Patterns
-
 | Anti-Pattern | Problem | Fix |
 |---|---|---|
 | **Ice cream cone** | More E2E than unit tests | Push logic down, test at lowest possible layer |
@@ -244,8 +222,6 @@ When services communicate via APIs:
 | **Over-mocking** | Tests pass but system fails | Reduce mocks, increase integration coverage |
 | **God tests** | One test covers everything | One behavior per test, clear naming |
 | **Testing trivial code** | Noise, no value | Only test code with logic, decisions, or transformation |
-
----
 
 ## 10. Coverage Strategy
 
@@ -259,8 +235,8 @@ When services communicate via APIs:
 | Configuration/wiring | Not tested | Low value, high maintenance |
 
 ### Coverage Rules
-- **Coverage is a floor, not a ceiling** — 80% doesn't mean stop at 80%
-- **Uncovered code isn't necessarily wrong** — but it should be intentional
-- **Mutation testing > line coverage** — proves tests actually catch bugs
-- **Branch coverage > line coverage** — ensures all decision paths are tested
-- **Coverage gates in CI** — fail build if coverage drops below threshold
+* **Coverage is a floor, not a ceiling** — 80% doesn't mean stop at 80%
+* **Uncovered code isn't necessarily wrong** — but it should be intentional
+* **Mutation testing > line coverage** — proves tests actually catch bugs
+* **Branch coverage > line coverage** — ensures all decision paths are tested
+* **Coverage gates in CI** — fail build if coverage drops below threshold

@@ -1,8 +1,5 @@
 # Design Principles & Theory
-
 Core foundations, fundamentals, and best practices that every design decision should be grounded in.
-
----
 
 ## 1. Visual Hierarchy
 
@@ -15,7 +12,6 @@ Core foundations, fundamentals, and best practices that every design decision sh
 6. **Depth** — elevated elements (shadows) appear closer/more urgent
 
 ### Typography Hierarchy
-
 | Level | Use | Sizing Rule |
 |---|---|---|
 | Display | Hero headlines, landing pages | 48–72px (3–4.5rem) |
@@ -27,16 +23,14 @@ Core foundations, fundamentals, and best practices that every design decision sh
 | Small | Captions, metadata, hints | 12–14px (0.75–0.875rem) |
 
 **Scale ratios:**
-- Minor third (1.2) — compact UIs, data-heavy dashboards
-- Major third (1.25) — balanced, most apps
-- Perfect fourth (1.333) — editorial, marketing pages
-- Golden ratio (1.618) — dramatic, hero-heavy pages
+* Minor third (1.2) — compact UIs, data-heavy dashboards
+* Major third (1.25) — balanced, most apps
+* Perfect fourth (1.333) — editorial, marketing pages
+* Golden ratio (1.618) — dramatic, hero-heavy pages
 
 **Line height:** Body 1.5–1.6, headings 1.1–1.3. Tighter for large text, looser for small.
 
 **Measure (line length):** 45–75 characters for body text. Never exceed 80ch.
-
----
 
 ## 2. Spacing System
 
@@ -55,12 +49,10 @@ All spacing derives from an 8px base. Use multiples: 4, 8, 12, 16, 24, 32, 48, 6
 | `--space-4xl` | 96px | Hero padding, landing sections |
 
 ### Spacing Principles
-- **Proximity = relationship** — elements closer together are perceived as related
-- **Consistent rhythm** — use the same spacing token for the same relationship type
-- **Outer > inner** — container padding should always exceed internal element gaps
-- **Breathing room scales with viewport** — larger screens need proportionally more space
-
----
+* **Proximity = relationship** — elements closer together are perceived as related
+* **Consistent rhythm** — use the same spacing token for the same relationship type
+* **Outer > inner** — container padding should always exceed internal element gaps
+* **Breathing room scales with viewport** — larger screens need proportionally more space
 
 ## 3. Color Theory
 
@@ -91,16 +83,13 @@ All spacing derives from an 8px base. Use multiples: 4, 8, 12, 16, 24, 32, 48, 6
 | Focus indicators | 3:1 against adjacent colors |
 
 ### Dark Mode Color Principles
-- Don't simply invert — remap surfaces to dark neutrals (not pure black)
-- Reduce saturation of colors by 10-20% to avoid vibration on dark backgrounds
-- Elevation = lighter (not darker) on dark backgrounds
-- Test all semantic colors on dark surfaces for contrast compliance
-- Use `oklch()` or `hsl()` for predictable color manipulation
-
----
+* Don't simply invert — remap surfaces to dark neutrals (not pure black)
+* Reduce saturation of colors by 10-20% to avoid vibration on dark backgrounds
+* Elevation = lighter (not darker) on dark backgrounds
+* Test all semantic colors on dark surfaces for contrast compliance
+* Use `oklch()` or `hsl()` for predictable color manipulation
 
 ## 4. Gestalt Principles
-
 | Principle | Definition | UI Application |
 |---|---|---|
 | **Proximity** | Close elements are perceived as grouped | Form field + label spacing, card content grouping |
@@ -112,17 +101,14 @@ All spacing derives from an 8px base. Use multiples: 4, 8, 12, 16, 24, 32, 48, 6
 | **Uniform Connectedness** | Connected elements are related | Lines between flowchart steps, breadcrumb separators |
 
 ### Application Rules
-- Use proximity BEFORE borders — if spacing communicates the grouping, you don't need a line
-- Limit similarity variations — max 3 visual levels for any element type
-- Leverage figure/ground for focus — dim background when presenting modal content
-- Don't fight continuity — if users scan left-to-right, don't break the flow
-
----
+* Use proximity BEFORE borders — if spacing communicates the grouping, you don't need a line
+* Limit similarity variations — max 3 visual levels for any element type
+* Leverage figure/ground for focus — dim background when presenting modal content
+* Don't fight continuity — if users scan left-to-right, don't break the flow
 
 ## 5. Interaction Design Heuristics
 
 ### Nielsen's 10 Usability Heuristics (Applied)
-
 | # | Heuristic | Design Checkpoint |
 |---|---|---|
 | 1 | **Visibility of system status** | Loading states, progress bars, save confirmations, real-time validation |
@@ -138,30 +124,27 @@ All spacing derives from an 8px base. Use multiples: 4, 8, 12, 16, 24, 32, 48, 6
 
 ### Fitts's Law
 **Time to target = f(distance / size)**
-- Make primary actions large and close to the cursor's natural position
-- Place destructive actions far from constructive ones
-- Touch targets: minimum 44×44px (mobile), 32×32px (desktop)
-- Place frequent actions at screen edges/corners (infinite target area)
+* Make primary actions large and close to the cursor's natural position
+* Place destructive actions far from constructive ones
+* Touch targets: minimum 44×44px (mobile), 32×32px (desktop)
+* Place frequent actions at screen edges/corners (infinite target area)
 
 ### Hick's Law
 **Decision time increases with number of choices**
-- Limit options to 5-7 per group (chunk if more)
-- Progressive disclosure: show basics first, reveal advanced on demand
-- Highlight the recommended option to reduce decision paralysis
-- Use categorization to reduce perceived complexity
+* Limit options to 5-7 per group (chunk if more)
+* Progressive disclosure: show basics first, reveal advanced on demand
+* Highlight the recommended option to reduce decision paralysis
+* Use categorization to reduce perceived complexity
 
 ### Jakob's Law
 **Users spend most time on OTHER sites** — they expect your product to work like ones they already know.
-- Follow platform conventions (tabs, navigation, form patterns)
-- Innovate on content and value, not on interaction paradigms
-- When deviating from convention, the benefit must be overwhelming and obvious
-
----
+* Follow platform conventions (tabs, navigation, form patterns)
+* Innovate on content and value, not on interaction paradigms
+* When deviating from convention, the benefit must be overwhelming and obvious
 
 ## 6. Responsive Design Strategy
 
 ### Breakpoint System
-
 | Name | Min-width | Target |
 |---|---|---|
 | `xs` | 0 | Mobile portrait (320–479px) |
@@ -188,11 +171,9 @@ All spacing derives from an 8px base. Use multiples: 4, 8, 12, 16, 24, 32, 48, 6
 | Modals | Full-screen sheet | Centered modal | Centered modal or slide-over |
 
 ### Container Queries (Modern Approach)
-- Prefer container queries over media queries for components
-- Components should be viewport-agnostic — they respond to their container
-- Media queries for page layout; container queries for component layout
-
----
+* Prefer container queries over media queries for components
+* Components should be viewport-agnostic — they respond to their container
+* Media queries for page layout; container queries for component layout
 
 ## 7. Accessibility Beyond Compliance
 
@@ -205,12 +186,12 @@ All spacing derives from an 8px base. Use multiples: 4, 8, 12, 16, 24, 32, 48, 6
 | **Robust** | Works with assistive tech | Valid HTML, ARIA landmarks, tested with screen readers |
 
 ### Keyboard Navigation Pattern
-- **Tab order** follows visual layout (top-to-bottom, left-to-right)
-- **Focus indicators** are visible and have 3:1 contrast
-- **Skip links** for repetitive navigation
-- **Focus trapping** inside modals (tab cycles within, Escape closes)
-- **Arrow keys** for widget navigation (tabs, menus, radio groups)
-- **Enter/Space** for activation (buttons, links, toggles)
+* **Tab order** follows visual layout (top-to-bottom, left-to-right)
+* **Focus indicators** are visible and have 3:1 contrast
+* **Skip links** for repetitive navigation
+* **Focus trapping** inside modals (tab cycles within, Escape closes)
+* **Arrow keys** for widget navigation (tabs, menus, radio groups)
+* **Enter/Space** for activation (buttons, links, toggles)
 
 ### ARIA Usage Rules
 1. **Don't use ARIA if native HTML works** — `<button>` over `<div role="button">`
@@ -220,13 +201,11 @@ All spacing derives from an 8px base. Use multiples: 4, 8, 12, 16, 24, 32, 48, 6
 5. **Label all interactive elements** — `aria-label`, `aria-labelledby`, or visible `<label>`
 
 ### Inclusive Design Patterns
-- **Color is never the only indicator** — add icons, text, or patterns
-- **Motion**: respect `prefers-reduced-motion` — provide static alternatives
-- **Text resizing**: UI must work at 200% zoom without horizontal scrolling
-- **Touch targets**: 44×44px minimum with 8px gap between targets
-- **Error messages**: identify the field, describe the problem, suggest the fix
-
----
+* **Color is never the only indicator** — add icons, text, or patterns
+* **Motion**: respect `prefers-reduced-motion` — provide static alternatives
+* **Text resizing**: UI must work at 200% zoom without horizontal scrolling
+* **Touch targets**: 44×44px minimum with 8px gap between targets
+* **Error messages**: identify the field, describe the problem, suggest the fix
 
 ## 8. Component Design Principles
 
@@ -242,26 +221,24 @@ All spacing derives from an 8px base. Use multiples: 4, 8, 12, 16, 24, 32, 48, 6
 
 ### State Design Checklist
 Every interactive component must define:
-- [ ] **Default** — resting state
-- [ ] **Hover** — cursor interaction hint
-- [ ] **Focus** — keyboard navigation indicator
-- [ ] **Active/Pressed** — during interaction
-- [ ] **Disabled** — unavailable (explain why)
-- [ ] **Loading** — processing state
-- [ ] **Error** — validation failure
-- [ ] **Empty** — no content state
-- [ ] **Skeleton** — loading placeholder
+* [ ] **Default** — resting state
+* [ ] **Hover** — cursor interaction hint
+* [ ] **Focus** — keyboard navigation indicator
+* [ ] **Active/Pressed** — during interaction
+* [ ] **Disabled** — unavailable (explain why)
+* [ ] **Loading** — processing state
+* [ ] **Error** — validation failure
+* [ ] **Empty** — no content state
+* [ ] **Skeleton** — loading placeholder
 
 ### Design Token Architecture
 ```
 Global tokens → Alias tokens → Component tokens
 (--blue-500)   (--color-primary)  (--button-bg)
 ```
-- Global: raw values (colors, sizes, shadows)
-- Alias: semantic meaning (primary, surface, border)
-- Component: scoped application (button-bg, card-shadow)
-
----
+* Global: raw values (colors, sizes, shadows)
+* Alias: semantic meaning (primary, surface, border)
+* Component: scoped application (button-bg, card-shadow)
 
 ## 9. Design Critique Methodology
 
@@ -281,11 +258,11 @@ Global tokens → Alias tokens → Component tokens
 5. **Suggest, don't prescribe** — "Have you considered..." over "You should..."
 
 ### Quality Gate (Pre-Handoff)
-- [ ] Hierarchy is clear at arm's length (squint test)
-- [ ] Spacing is consistent and uses the grid
-- [ ] Colors pass contrast checks
-- [ ] All interactive states are designed
-- [ ] Responsive behavior is defined
-- [ ] Accessibility annotations are present
-- [ ] Edge cases (empty, error, loading, overflow) are handled
-- [ ] Design is achievable with current tech constraints
+* [ ] Hierarchy is clear at arm's length (squint test)
+* [ ] Spacing is consistent and uses the grid
+* [ ] Colors pass contrast checks
+* [ ] All interactive states are designed
+* [ ] Responsive behavior is defined
+* [ ] Accessibility annotations are present
+* [ ] Edge cases (empty, error, loading, overflow) are handled
+* [ ] Design is achievable with current tech constraints

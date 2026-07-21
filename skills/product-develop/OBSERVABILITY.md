@@ -1,11 +1,7 @@
 # Observability & Operational Excellence
-
 Structured logging, distributed tracing, metrics, health checks, and alerting patterns for production systems.
 
----
-
 ## 1. The Three Pillars of Observability
-
 | Pillar | What | Answers | Tools |
 |---|---|---|---|
 | **Logs** | Discrete events with context | "What happened?" | ELK, Loki, CloudWatch |
@@ -14,8 +10,6 @@ Structured logging, distributed tracing, metrics, health checks, and alerting pa
 
 ### The Missing Pillar: Events
 Structured domain events that capture business-meaningful occurrences. Not just errors — also "loan approved", "payment processed", "user upgraded".
-
----
 
 ## 2. Structured Logging
 
@@ -46,7 +40,6 @@ Every log entry must be machine-parseable:
 ```
 
 ### Log Levels
-
 | Level | When | Example |
 |---|---|---|
 | **TRACE** | Extremely detailed debugging (disabled in prod) | Method entry/exit, variable values |
@@ -57,13 +50,13 @@ Every log entry must be machine-parseable:
 | **FATAL** | System cannot continue | Database unreachable, out of memory |
 
 ### Logging Rules
-- **Always structured** — JSON in production, human-readable in development
-- **Always include correlation IDs** — traceId, correlationId, tenantId, userId
-- **Never log secrets** — passwords, tokens, API keys, PII (mask or omit)
-- **Log at boundaries** — incoming requests, outgoing calls, state transitions
-- **Include context** — entity IDs, amounts, operation names (not just "error occurred")
-- **Don't log for debugging** — use a debugger. Logs are for production operations.
-- **Rate-limit repetitive logs** — if the same error fires 1000x/sec, log the first + count
+* **Always structured** — JSON in production, human-readable in development
+* **Always include correlation IDs** — traceId, correlationId, tenantId, userId
+* **Never log secrets** — passwords, tokens, API keys, PII (mask or omit)
+* **Log at boundaries** — incoming requests, outgoing calls, state transitions
+* **Include context** — entity IDs, amounts, operation names (not just "error occurred")
+* **Don't log for debugging** — use a debugger. Logs are for production operations.
+* **Rate-limit repetitive logs** — if the same error fires 1000x/sec, log the first + count
 
 ### Sensitive Data Handling
 | Data Type | Action |
@@ -76,8 +69,6 @@ Every log entry must be machine-parseable:
 | Loan amounts, dates | OK to log (business context) |
 | Entity IDs | OK to log |
 
----
-
 ## 3. Distributed Tracing
 
 ### Core Concepts
@@ -89,12 +80,12 @@ Every log entry must be machine-parseable:
 | **Baggage** | Key-value pairs propagated with the trace (tenantId, userId) |
 
 ### What to Trace
-- All HTTP requests (inbound and outbound)
-- Database queries (with query type, duration, table)
-- Message queue publish/consume
-- Cache hits and misses
-- External API calls
-- Long-running business operations (multi-step workflows)
+* All HTTP requests (inbound and outbound)
+* Database queries (with query type, duration, table)
+* Message queue publish/consume
+* Cache hits and misses
+* External API calls
+* Long-running business operations (multi-step workflows)
 
 ### Span Attributes (Standard)
 ```
@@ -116,12 +107,10 @@ baggage: tenantId=acme,userId=42
 ```
 
 ### OpenTelemetry (Standard)
-- Use OpenTelemetry SDK for instrumentation (vendor-neutral)
-- Auto-instrumentation for HTTP, gRPC, database clients
-- Manual spans for business logic boundaries
-- Export to any backend: Jaeger, Zipkin, Datadog, Azure Monitor
-
----
+* Use OpenTelemetry SDK for instrumentation (vendor-neutral)
+* Auto-instrumentation for HTTP, gRPC, database clients
+* Manual spans for business logic boundaries
+* Export to any backend: Jaeger, Zipkin, Datadog, Azure Monitor
 
 ## 4. Metrics
 
@@ -135,15 +124,15 @@ baggage: tenantId=acme,userId=42
 
 ### RED Method (Request-focused)
 For every service:
-- **R**ate — requests per second
-- **E**rrors — errors per second
-- **D**uration — latency distribution (p50, p95, p99)
+* **R**ate — requests per second
+* **E**rrors — errors per second
+* **D**uration — latency distribution (p50, p95, p99)
 
 ### USE Method (Resource-focused)
 For every resource (CPU, memory, disk, network):
-- **U**tilization — % of capacity used
-- **S**aturation — queue length / backlog
-- **E**rrors — error count
+* **U**tilization — % of capacity used
+* **S**aturation — queue length / backlog
+* **E**rrors — error count
 
 ### Metric Types
 | Type | Use | Example |
@@ -154,13 +143,11 @@ For every resource (CPU, memory, disk, network):
 | **Summary** | Pre-calculated quantiles | Client-side latency percentiles |
 
 ### Business Metrics (Don't Forget These)
-- Loan applications submitted / hour
-- Approval rate (approved / total)
-- Average processing time (submission → decision)
-- Revenue per transaction
-- User activation / retention rates
-
----
+* Loan applications submitted / hour
+* Approval rate (approved / total)
+* Average processing time (submission → decision)
+* Revenue per transaction
+* User activation / retention rates
 
 ## 5. Health Checks
 
@@ -195,13 +182,11 @@ For every resource (CPU, memory, disk, network):
 ```
 
 ### Health Check Rules
-- Liveness should NEVER check external dependencies (or restarts cascade)
-- Readiness checks should have timeouts (2-5s max per dependency)
-- Cache dependency health independently (don't check on every request)
-- Include version in health response for deployment verification
-- Protect `/health/details` — internal network only, not public
-
----
+* Liveness should NEVER check external dependencies (or restarts cascade)
+* Readiness checks should have timeouts (2-5s max per dependency)
+* Cache dependency health independently (don't check on every request)
+* Include version in health response for deployment verification
+* Protect `/health/details` — internal network only, not public
 
 ## 6. Alerting Strategy
 
@@ -214,12 +199,12 @@ For every resource (CPU, memory, disk, network):
 | **Low (P4)** | Next sprint | Tech debt metric degraded, non-critical warning |
 
 ### Alerting Best Practices
-- **Alert on symptoms, not causes** — "users getting errors" not "CPU at 90%"
-- **Alert on SLO burn rate** — "at this rate, we'll breach SLO in 2 hours"
-- **Every alert must be actionable** — if you can't act on it, it's noise
-- **Include runbook link in every alert** — what to check, how to mitigate
-- **Set proper thresholds** — alert on sustained anomalies, not single spikes
-- **Avoid alert fatigue** — fewer, better alerts > many ignored alerts
+* **Alert on symptoms, not causes** — "users getting errors" not "CPU at 90%"
+* **Alert on SLO burn rate** — "at this rate, we'll breach SLO in 2 hours"
+* **Every alert must be actionable** — if you can't act on it, it's noise
+* **Include runbook link in every alert** — what to check, how to mitigate
+* **Set proper thresholds** — alert on sustained anomalies, not single spikes
+* **Avoid alert fatigue** — fewer, better alerts > many ignored alerts
 
 ### SLO-Based Alerting
 ```
@@ -227,11 +212,9 @@ SLI: 99.9% of requests complete in < 500ms
 Error budget: 0.1% = ~43 minutes/month of breaches
 
 Alert when:
-- 5% of error budget consumed in 1 hour (fast burn) → page
-- 10% of error budget consumed in 6 hours (slow burn) → ticket
+* 5% of error budget consumed in 1 hour (fast burn) → page
+* 10% of error budget consumed in 6 hours (slow burn) → ticket
 ```
-
----
 
 ## 7. Error Handling & Reporting
 
@@ -244,22 +227,20 @@ Alert when:
 | **System errors** | Circuit breaker, fallback | Alert immediately |
 
 ### Error Context (What to Capture)
-- Exception type and message
-- Stack trace (first occurrence, then deduplicate)
-- Request context (URL, method, user, tenant)
-- Correlation IDs (trace, request, session)
-- Input that caused the error (sanitized)
-- Retry count (if applicable)
-- Timestamp and service/instance
+* Exception type and message
+* Stack trace (first occurrence, then deduplicate)
+* Request context (URL, method, user, tenant)
+* Correlation IDs (trace, request, session)
+* Input that caused the error (sanitized)
+* Retry count (if applicable)
+* Timestamp and service/instance
 
 ### Error Reporting Rules
-- **Group by root cause** — don't create noise for the same underlying issue
-- **Track error rate, not just count** — 10 errors at 100 RPS is fine; 10 at 10 RPS is not
-- **First-seen / last-seen timestamps** — identify new vs. recurring issues
-- **Auto-resolve when recovered** — don't leave stale alerts open
-- **Link to deployment** — correlate new errors with recent deployments
-
----
+* **Group by root cause** — don't create noise for the same underlying issue
+* **Track error rate, not just count** — 10 errors at 100 RPS is fine; 10 at 10 RPS is not
+* **First-seen / last-seen timestamps** — identify new vs. recurring issues
+* **Auto-resolve when recovered** — don't leave stale alerts open
+* **Link to deployment** — correlate new errors with recent deployments
 
 ## 8. Operational Runbooks
 
@@ -281,26 +262,24 @@ Alert when:
 3. Look for [symptom] in [location]
 
 ## Mitigation
-- Immediate: [Quick fix to restore service]
-- Permanent: [Root cause fix]
+* Immediate: [Quick fix to restore service]
+* Permanent: [Root cause fix]
 
 ## Escalation
-- If not resolved in [time]: contact [team/person]
-- If data loss suspected: follow [incident process]
+* If not resolved in [time]: contact [team/person]
+* If data loss suspected: follow [incident process]
 ```
 
 ### Required Runbooks (Minimum)
-- Service won't start
-- High error rate
-- High latency
-- Database connection exhaustion
-- Disk space full
-- Certificate expiry
-- Dependency unreachable
-- Memory leak suspected
-- Deployment rollback procedure
-
----
+* Service won't start
+* High error rate
+* High latency
+* Database connection exhaustion
+* Disk space full
+* Certificate expiry
+* Dependency unreachable
+* Memory leak suspected
+* Deployment rollback procedure
 
 ## 9. Dashboard Design
 
@@ -316,8 +295,8 @@ Alert when:
 | **Business** | Domain-specific KPIs (applications/hour, etc.) |
 
 ### Dashboard Rules
-- **One dashboard per service** — don't mix concerns
-- **Show SLO compliance prominently** — remaining error budget
-- **Time-aligned graphs** — all panels share the same time range
-- **Annotations for deployments** — vertical lines on graphs at deploy time
-- **Sensible defaults** — last 6 hours, auto-refresh every 30s
+* **One dashboard per service** — don't mix concerns
+* **Show SLO compliance prominently** — remaining error budget
+* **Time-aligned graphs** — all panels share the same time range
+* **Annotations for deployments** — vertical lines on graphs at deploy time
+* **Sensible defaults** — last 6 hours, auto-refresh every 30s

@@ -1,29 +1,19 @@
 # hotanphat28 Theme
-
 > **Shared reference document.** Other skills load this file when they need hotanphat28's brand tokens, visual standards, and theme rules.
 
----
-
 ## Brand Identity
-
 | Attribute | Value |
 |-----------|-------|
 | Brand name | hotanphat28 |
 | Full name | hồ tấn phát |
 | Website | hotanphat.com |
 | Email | hello@hotanphat.com |
-| Social | [X](http://x.com/hotanphat28) · [YouTube](https://youtube.com/@hotanphat28) · [GitHub](https://github.com/hotanphat28) · [LinkedIn](https://linkedin.com/in/hotanphat28/) · [Pexels](https://www.pexels.com/@hotanphat28) |
-
-**Tagline variants:**
-- VI: "chạm đến sự tối giản"
-- EN: "to reach the simplicity"
+| Social | [X](http://x.com/hotanphat28) · [YouTube](https://youtube.com/@hotanphat28) · [TikTok](https://tiktok.com/@hotanphat28) · [GitHub](https://github.com/hotanphat28) · [LinkedIn](https://linkedin.com/in/hotanphat28/) · [Pexels](https://www.pexels.com/@hotanphat28) |
+| Tagline | chạm đến sự tối giản |
 
 **Brand personality:** Personal brand with premium, minimalist, luxury-meets-tech identity. Dark surfaces, gold accents, monospace data, generous whitespace. Every pixel earns its place.
 
----
-
 ## Color Palette
-
 | Role | Token | Value | Usage |
 |---|---|---|---|
 | Primary | `--color-gold` | `#FFC90E` | CTAs, key highlights, active states |
@@ -45,23 +35,20 @@
 | Neutral | `--status-neutral` | `#6B7280` | Neutral/disabled border, muted label |
 | Neutral Light | `--status-neutral-light` | `#1E1E1E` | Neutral background tint |
 
-**Color rules:**
+### Color rules
 - Background is always `#101010` — never white unless asked for a light mode
 - Gold (`#FFC90E`) is used *sparingly* — think punctuation, not paintbrush
 - Never use pure black `#000000` or pure white `#FFFFFF`
 - Borders should be barely visible — `1px solid #2A2A2A` is standard
 
----
-
 ## Typography
-
 | Role | Font | Usage |
 |---|---|---|
 | Display / Headings | `Space Grotesk` | H1–H4, nav labels, card titles |
 | Body / UI labels | `Space Grotesk` | Paragraphs, descriptions, form labels |
 | Data / Code / Mono | `Space Mono` | Numbers, metrics, timestamps, code, IDs |
 
-**Type scale (rem-based):**
+### Type scale (rem-based)
 - Display: 3rem / 700 weight / -0.03em letter-spacing
 - H1: 2rem / 700 weight / -0.02em
 - H2: 1.5rem / 600 weight / -0.01em
@@ -69,15 +56,12 @@
 - Body: 0.9375rem / 400 weight / 1.6 line-height
 - Caption / Label: 0.75rem / 500 weight / 0.04em letter-spacing / uppercase
 
-**Google Fonts:**
+### Google Fonts
 ```html
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 ```
 
----
-
 ## Spacing System
-
 8pt grid base. All spacing multiples of 8 (or 4 for micro-adjustments).
 
 | Token | Value | Use |
@@ -92,14 +76,10 @@
 | `--space-16` | 64px | Page-level vertical rhythm |
 | `--space-24` | 96px | Hero sections, generous breathing room |
 
----
-
 ## Component Theming
-
 Theme-specific color values for standard components. See design/dev skills for component patterns and anatomy.
 
 ### Buttons
-
 | Variant | Background | Color | Border | Hover |
 |---------|-----------|-------|--------|-------|
 | Primary | `#FFC90E` | `#101010` | none | bg `#D4A800` |
@@ -110,7 +90,6 @@ Theme-specific color values for standard components. See design/dev skills for c
 **Rule:** One primary button per primary action per view.
 
 ### Inputs
-
 | State | Border | Background | Color |
 |-------|--------|-----------|-------|
 | Default | `1px solid #2A2A2A` | `#1A1A1A` | `#F4F4F4` |
@@ -121,7 +100,6 @@ Theme-specific color values for standard components. See design/dev skills for c
 Label: `#F4F4F4` — Placeholder: `#888888`
 
 ### Cards
-
 | Token | Value |
 |---|---|
 | Background | `#1A1A1A` |
@@ -131,7 +109,6 @@ Label: `#F4F4F4` — Placeholder: `#888888`
 | Top highlight (optional) | `1px solid rgba(255,255,255,0.06)` |
 
 ### Tables
-
 | Part | Background | Color | Border |
 |------|-----------|-------|--------|
 | Header | `#222222` | `#F4F4F4` | — |
@@ -140,7 +117,6 @@ Label: `#F4F4F4` — Placeholder: `#888888`
 | Zebra (even) | `#1E1E1E` | — | — |
 
 ### Navigation
-
 | Element | Value |
 |---------|-------|
 | Sidebar bg | `#1A1A1A` |
@@ -151,15 +127,12 @@ Label: `#F4F4F4` — Placeholder: `#888888`
 | Breadcrumb | `#888888`, active `#FFC90E` |
 
 ### Other
-
 | Component | Token | Value |
 |-----------|-------|-------|
 | Modal overlay | background | `rgba(0,0,0,0.6)` |
 | Modal container | background | `#1A1A1A`, border `1px solid #2A2A2A` |
 | Tooltip | bg / text | `#222222` / `#F4F4F4` |
 | Status notifier | bg / border | `--status-*-light` / `1px solid --status-*` |
-
----
 
 ## Data Visualization
 
@@ -175,10 +148,7 @@ Label: `#F4F4F4` — Placeholder: `#888888`
 
 Always include chart title and axis labels.
 
----
-
 ## Screen Patterns
-
 | Screen | Background | Description |
 |--------|-----------|-------------|
 | Home / Portfolio | `#101010` | Full-page dark surface. Hero with gold accent headline, Space Grotesk display type, minimal CTA. Scroll reveals project cards on `#1A1A1A` surfaces. |
@@ -186,8 +156,6 @@ Always include chart title and axis labels.
 | Blog / Article | `#101010` | Dark reading surface. `#F4F4F4` body text, `#FFC90E` accent for links/highlights, `Space Mono` for code blocks. |
 | Login / Auth | `#101010` | Centered card on `#1A1A1A`. Gold primary CTA, minimal fields. Logo above form. |
 | Settings / Profile | `#101010` | Sectioned form layout. Cards on `#1A1A1A` with `#2A2A2A` dividers. |
-
----
 
 ## Default Patterns
 
@@ -200,10 +168,7 @@ Always include chart title and axis labels.
 | Glassmorphism | `background: rgba(26,26,26,0.8); backdrop-filter: blur(12px)` — overlays on image backgrounds |
 | Skeleton loading | `#2A2A2A` base with `#333333` shimmer |
 
----
-
 ## Logo
-
 The hotanphat28 logo is a golden circular emblem mark alongside "hồ tấn phát" in lowercase.
 
 | Variant | Usage | URL |
@@ -216,20 +181,15 @@ The hotanphat28 logo is a golden circular emblem mark alongside "hồ tấn phá
 - Scale proportionally — never distort
 - Minimum clear space: height of circular mark on all sides
 
----
-
 ## Favicon & OG Image
 
 ```html
 <link rel="icon" href="https://hotanphat.com/assets/images/logo/20251017_logo_hotanphat28_golden.png" type="image/png">
 ```
 
----
-
 ## Template Token Mapping
 
 ### CSS Custom Properties
-
 | Contract Token | Value |
 |---|---|
 | `--primary` | `#FFC90E` |
@@ -252,7 +212,6 @@ The hotanphat28 logo is a golden circular emblem mark alongside "hồ tấn phá
 | `--dark-shadow-lg` | `rgba(16, 16, 16, .22)` |
 
 ### HTML Template Variables
-
 | Variable | Value |
 |---|---|
 | `{{FAVICON_URL}}` | `https://hotanphat.com/assets/images/logo/20251017_logo_hotanphat28_golden.png` |
@@ -264,24 +223,15 @@ The hotanphat28 logo is a golden circular emblem mark alongside "hồ tấn phá
 | `{{TITLE_SUFFIX}}` | `hotanphat28` |
 | `{{LOGO_TEXT}}` | `hồ tấn phát` |
 
----
-
 ## Brand Voice & Tone
-
 **Personality:** Minimalist, intentional, premium. Every word earns its place — like every pixel.
 
 **Tone:** Quiet confidence. Technical but accessible. Concise, never verbose. Think: the calm expert who doesn't need to prove themselves.
 
----
-
 ## Theme Extras
-
 No additional theme-specific assets.
 
----
-
 ## Quick Reference
-
 ```
 Fonts:         Space Grotesk (headings + body) / Space Mono (data)
 Primary color: #FFC90E  (Gold)

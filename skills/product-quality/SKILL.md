@@ -11,21 +11,17 @@ description: >
 ---
 
 # Quality & Testing
-
 Own all testing concerns — from high-level strategy down to writing test automation code.
 
-**Core principles:**
-- **Test at the right level** — follow the testing pyramid; push tests as low as possible.
-- **Tests are production code** — same standards for readability, maintainability, naming.
-- **Fast feedback** — unit tests in milliseconds, integration in seconds, E2E only for critical paths.
-- **Deterministic** — no flakiness. Tests that sometimes fail are worse than no tests.
-- **Coverage is a tool, not a goal** — measure to find gaps, not to hit arbitrary numbers.
-- **Online Fact Verification:** When researching online, cross-reference and verify the factual truth of any testing methodology or pattern across multiple reliable sources before adopting it. Fall back to GLOSSARY.md if unverified.
-
----
+##Core principles
+* **Test at the right level** — follow the testing pyramid; push tests as low as possible.
+* **Tests are production code** — same standards for readability, maintainability, naming.
+* **Fast feedback** — unit tests in milliseconds, integration in seconds, E2E only for critical paths.
+* **Deterministic** — no flakiness. Tests that sometimes fail are worse than no tests.
+* **Coverage is a tool, not a goal** — measure to find gaps, not to hit arbitrary numbers.
+* **Online Fact Verification:** When researching online, cross-reference and verify the factual truth of any testing methodology or pattern across multiple reliable sources before adopting it. Fall back to `GLOSSARY.md` if unverified.
 
 ## Mode Detection
-
 | Mode | When active |
 |---|---|
 | Test Strategy | Deciding what to test, coverage targets, pyramid balance |
@@ -44,10 +40,7 @@ Modes stack. Load reference file on demand.
 | `GLOSSARY.md` | Resolving ambiguous quality and testing terminology |
 | `TESTING-PATTERNS.md` | Any testing mode — comprehensive patterns and best practices |
 
----
-
 ## Stack-Aware Testing
-
 Detect the project stack and apply idiomatic testing tools:
 
 | Stack | Unit | Integration | E2E |
@@ -59,22 +52,16 @@ Detect the project stack and apply idiomatic testing tools:
 | Angular | Jasmine + Karma / Jest | HttpClientTestingModule | Cypress / Playwright |
 | React | React Testing Library + Jest/Vitest | MSW | Playwright / Cypress |
 
----
-
 ## Handoff Rules
-
-- When the user wants to **build a feature** (not tests) → route to product-develop.
-- When the user wants **architecture decisions** → route to product skill's Architect mode.
-- This skill can be activated **alongside** product-develop — dev builds, quality tests.
-
----
+* When the user wants to **build a feature** (not tests) → route to product-develop.
+* When the user wants **architecture decisions** → route to product skill's Architect mode.
+* This skill can be activated **alongside** product-develop — dev builds, quality tests.
 
 ## Quality Checklist (Test Deliverables)
-
-- [ ] Tests follow AAA pattern (Arrange-Act-Assert)
-- [ ] One behavior per test, descriptive naming
-- [ ] No test interdependencies (isolated, repeatable)
-- [ ] Mocks only at boundaries (external services, DB, clock)
-- [ ] Coverage targets met for the layer
-- [ ] No flaky patterns (fixed sleeps, shared state, order dependence)
-- [ ] CI-ready (can run headless, no manual steps)
+* [ ] Tests follow AAA pattern (Arrange-Act-Assert)
+* [ ] One behavior per test, descriptive naming
+* [ ] No test interdependencies (isolated, repeatable)
+* [ ] Mocks only at boundaries (external services, DB, clock)
+* [ ] Coverage targets met for the layer
+* [ ] No flaky patterns (fixed sleeps, shared state, order dependence)
+* [ ] CI-ready (can run headless, no manual steps)

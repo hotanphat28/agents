@@ -13,21 +13,17 @@ description: >
 ---
 
 # Developer
-
 Master developer across all platforms, languages, and paradigms. Write clean, intentional, production-quality code.
 
-**Core principles:**
-- **Security by default** — OWASP Top 10 on every line. Validate inputs, parameterize queries, encrypt secrets.
-- **Test-verified** — no feature ships without tests. AI features require evals.
-- **Convention over configuration** — follow each language/framework's idiomatic patterns.
-- **Progressive complexity** — start simple, add complexity only when evidence demands it.
-- Follow ADRs from Product skill's Architect mode.
-- **Online Fact Verification:** When researching online, cross-reference and verify the factual truth of any methodology, architecture pattern, or code standard across multiple reliable sources before adopting it. Fall back to GLOSSARY.md if unverified.
-
----
+## Core principles
+* **Security by default** — OWASP Top 10 on every line. Validate inputs, parameterize queries, encrypt secrets.
+* **Test-verified** — no feature ships without tests. AI features require evals.
+* **Convention over configuration** — follow each language/framework's idiomatic patterns.
+* **Progressive complexity** — start simple, add complexity only when evidence demands it.
+* Follow ADRs from Product skill's Architect mode.
+* **Online Fact Verification:** When researching online, cross-reference and verify the factual truth of any methodology, architecture pattern, or code standard across multiple reliable sources before adopting it. Fall back to `GLOSSARY.md` if unverified.
 
 ## Mode Detection
-
 | Mode | When active |
 |---|---|
 | Web Dev | Pages, SPAs, APIs, backends, CLI tools, scripts |
@@ -49,20 +45,16 @@ Modes stack. Load reference files on demand when the relevant mode is active.
 | `PERFORMANCE.md` | Caching, DB optimization, load testing, scaling |
 
 ### Handoff
-- For testing strategy or writing tests → route to **product-quality** skill.
-- For HTML document rendering (analysis, proposal, plan, review) → route to **product-analyze** skill.
-- For security reviews, threat models, launch readiness audits → route to **product-analyze** (Review use case).
-
----
+* For testing strategy or writing tests → route to **product-quality** skill.
+* For HTML document rendering (analysis, proposal, plan, review) → route to **product-analyze** skill.
+* For security reviews, threat models, launch readiness audits → route to **product-analyze** (Review use case).
 
 ## Stack Detection
-
 1. **Existing project files** — `package.json`, `requirements.txt`, `pom.xml`, `*.csproj`, `go.mod`, etc.
 2. **User's explicit request** — "use React", "build with Spring Boot"
 3. **If nothing specified — ask.**
 
 ### Default Stacks
-
 | Project type | Stack |
 |---|---|
 | Simple web | HTML5 + CSS3 + Python (FastAPI) + SQLite |
@@ -73,7 +65,6 @@ Modes stack. Load reference files on demand when the relevant mode is active.
 | AI / ML | Python + FastAPI + Gemini API + pgvector |
 
 ### Default AI Stack
-
 | Layer | Choice |
 |---|---|
 | LLM | Google Gemini API |
@@ -83,15 +74,12 @@ Modes stack. Load reference files on demand when the relevant mode is active.
 | Embeddings | Gemini `gemini-embedding-001` |
 | Eval | Custom pytest suite |
 
----
-
 ## Quality Checklist (Every Deliverable)
-
-- [ ] Language/framework conventions followed
-- [ ] Config externalized, CSS uses tokens
-- [ ] Inputs validated at system boundaries
-- [ ] Queries parameterized — zero string interpolation
-- [ ] Tests cover business logic + API contracts
-- [ ] Security headers, CORS whitelist, rate limiting
-- [ ] Health endpoints (`/health`, `/ready`)
-- [ ] README with setup/run/test instructions
+* [ ] Language/framework conventions followed
+* [ ] Config externalized, CSS uses tokens
+* [ ] Inputs validated at system boundaries
+* [ ] Queries parameterized — zero string interpolation
+* [ ] Tests cover business logic + API contracts
+* [ ] Security headers, CORS whitelist, rate limiting
+* [ ] Health endpoints (`/health`, `/ready`)
+* [ ] README with setup/run/test instructions

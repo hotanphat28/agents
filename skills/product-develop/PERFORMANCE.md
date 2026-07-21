@@ -1,8 +1,5 @@
 # Performance Engineering
-
 Caching, lazy loading, database optimization, network efficiency, profiling, and performance budgets.
-
----
 
 ## 1. Performance Principles
 
@@ -29,8 +26,6 @@ Caching, lazy loading, database optimization, network efficiency, profiling, and
 | Page weight (total) | < 1.5MB | — |
 | JavaScript bundle | < 300KB gzipped | — |
 
----
-
 ## 2. Caching Strategy
 
 ### Cache Hierarchy (Closest to User → Source)
@@ -43,7 +38,6 @@ Caching, lazy loading, database optimization, network efficiency, profiling, and
 | **Database cache** | Query cache / buffer pool | Auto | Varies | Recent query results |
 
 ### Caching Patterns
-
 | Pattern | How | Use When |
 |---|---|---|
 | **Cache-aside** | App checks cache → miss → fetch from DB → populate cache | General purpose, most common |
@@ -61,13 +55,11 @@ Caching, lazy loading, database optimization, network efficiency, profiling, and
 | **Tag-based purge** | CDN: purge all pages tagged "product-catalog" |
 
 ### Cache Anti-Patterns
-- **Cache stampede** — many requests miss simultaneously → add jitter + lock
-- **Unbounded cache** — memory grows forever → set max size + eviction policy (LRU)
-- **Caching errors** — 500 responses cached → cache only successful responses
-- **Over-caching** — data that changes frequently → short TTL or event-driven
-- **Cache without metrics** — can't optimize what you don't measure → track hit rate
-
----
+* **Cache stampede** — many requests miss simultaneously → add jitter + lock
+* **Unbounded cache** — memory grows forever → set max size + eviction policy (LRU)
+* **Caching errors** — 500 responses cached → cache only successful responses
+* **Over-caching** — data that changes frequently → short TTL or event-driven
+* **Cache without metrics** — can't optimize what you don't measure → track hit rate
 
 ## 3. Database Performance
 
@@ -78,7 +70,6 @@ Caching, lazy loading, database optimization, network efficiency, profiling, and
 4. **Query faster** — read replicas, partitioning, materialized views
 
 ### Indexing Strategy
-
 | Index Type | Use Case | Trade-off |
 |---|---|---|
 | **B-tree** (default) | Equality, range, sorting, prefix search | Write overhead, storage |
@@ -90,11 +81,11 @@ Caching, lazy loading, database optimization, network efficiency, profiling, and
 | **Covering index** | Includes all needed columns | Index-only scan (no table lookup) |
 
 ### Index Rules
-- **Index columns in WHERE, JOIN, ORDER BY** — in that priority
-- **Composite index column order** — most selective column first (equality before range)
-- **Don't over-index** — each index slows writes and uses storage
-- **Monitor unused indexes** — drop them
-- **Index for your queries, not your schema** — analyze actual query patterns
+* **Index columns in WHERE, JOIN, ORDER BY** — in that priority
+* **Composite index column order** — most selective column first (equality before range)
+* **Don't over-index** — each index slows writes and uses storage
+* **Monitor unused indexes** — drop them
+* **Index for your queries, not your schema** — analyze actual query patterns
 
 ### N+1 Query Problem
 ```
@@ -107,7 +98,7 @@ Caching, lazy loading, database optimization, network efficiency, profiling, and
 | Setting | Guideline |
 |---|---|
 | Pool size | `(2 × CPU cores) + disk spindles` (PostgreSQL recommendation) |
-| Max connections | Total across all instances < DB max_connections - 20% headroom |
+| Max connections | Total across all instances < DB max_connections * 20% headroom |
 | Idle timeout | 5-10 minutes (don't hold connections indefinitely) |
 | Connection validation | Lightweight query on checkout (e.g., `SELECT 1`) |
 
@@ -122,8 +113,6 @@ Caching, lazy loading, database optimization, network efficiency, profiling, and
 | **Horizontal sharding** | Single table exceeds single-server capacity | High |
 | **CQRS** | Very different read/write patterns | High |
 
----
-
 ## 4. API Performance
 
 ### Pagination
@@ -134,11 +123,11 @@ Caching, lazy loading, database optimization, network efficiency, profiling, and
 | **Keyset** | Sorted datasets (by ID, date) | Fast, no offset skip, requires stable sort |
 
 ### Response Optimization
-- **Select only needed fields** — implement sparse fieldsets or GraphQL-style field selection
-- **Compress responses** — gzip/brotli (automatic in most frameworks)
-- **Paginate by default** — never return unbounded lists
-- **Use ETags** — return 304 Not Modified when data hasn't changed
-- **Batch endpoints** — allow fetching multiple resources in one request
+* **Select only needed fields** — implement sparse fieldsets or GraphQL-style field selection
+* **Compress responses** — gzip/brotli (automatic in most frameworks)
+* **Paginate by default** — never return unbounded lists
+* **Use ETags** — return 304 Not Modified when data hasn't changed
+* **Batch endpoints** — allow fetching multiple resources in one request
 
 ### Rate Limiting
 | Strategy | Use Case |
@@ -155,8 +144,6 @@ Request → Validate → Enqueue → Return 202 Accepted
               Background Worker → Process → Notify via webhook/SSE
 ```
 Use when: processing > 2s, result not needed immediately, can retry independently.
-
----
 
 ## 5. Frontend Performance
 
@@ -187,10 +174,10 @@ Use when: processing > 2s, result not needed immediately, can retry independentl
 | **PNG** | Transparency needed, exact pixel rendering |
 
 **Rules:**
-- Serve responsive images (`srcset` with multiple sizes)
-- Lazy load below-fold images (`loading="lazy"`)
-- Set explicit width/height to prevent CLS
-- Use CDN with automatic format conversion
+* Serve responsive images (`srcset` with multiple sizes)
+* Lazy load below-fold images (`loading="lazy"`)
+* Set explicit width/height to prevent CLS
+* Use CDN with automatic format conversion
 
 ### Web Vitals Optimization
 | Metric | Fix |
@@ -199,15 +186,13 @@ Use when: processing > 2s, result not needed immediately, can retry independentl
 | **FID/INP** | Break long tasks (>50ms), defer non-critical JS, use web workers |
 | **CLS** | Set image dimensions, no dynamic content insertion above fold, font-display: swap |
 
----
-
 ## 6. Network Optimization
 
 ### HTTP/2 and HTTP/3 Best Practices
-- **Multiplexing** — no need for domain sharding or sprite sheets
-- **Server push** — push critical CSS/JS with initial HTML (H2)
-- **Header compression** — HPACK reduces redundant header bytes
-- **Connection reuse** — single connection per origin
+* **Multiplexing** — no need for domain sharding or sprite sheets
+* **Server push** — push critical CSS/JS with initial HTML (H2)
+* **Header compression** — HPACK reduces redundant header bytes
+* **Connection reuse** — single connection per origin
 
 ### Payload Optimization
 | Technique | Savings |
@@ -219,20 +204,18 @@ Use when: processing > 2s, result not needed immediately, can retry independentl
 | GraphQL (precise queries) | Eliminates over-fetching |
 
 ### DNS and Connection
-- **DNS prefetch** — `<link rel="dns-prefetch" href="//api.example.com">`
-- **Preconnect** — `<link rel="preconnect" href="//cdn.example.com">`
-- **Keep-alive** — reuse TCP connections (default in HTTP/1.1+)
-- **Connection pooling** — limit concurrent connections per origin
-
----
+* **DNS prefetch** — `<link rel="dns-prefetch" href="//api.example.com">`
+* **Preconnect** — `<link rel="preconnect" href="//cdn.example.com">`
+* **Keep-alive** — reuse TCP connections (default in HTTP/1.1+)
+* **Connection pooling** — limit concurrent connections per origin
 
 ## 7. Profiling & Diagnosis
 
 ### When to Profile
-- Response time exceeds budget (p95 > 500ms)
-- CPU/memory usage unexpectedly high
-- Before and after optimization (prove impact)
-- Periodic production profiling (continuous profiling)
+* Response time exceeds budget (p95 > 500ms)
+* CPU/memory usage unexpectedly high
+* Before and after optimization (prove impact)
+* Periodic production profiling (continuous profiling)
 
 ### Profiling Approach
 1. **Reproduce** — identify the slow operation reliably
@@ -263,13 +246,11 @@ Use when: processing > 2s, result not needed immediately, can retry independentl
 | **Spike test** | Handle sudden traffic bursts | Rapid ramp-up/down |
 
 ### Load Test Rules
-- Test with realistic data (not empty responses)
-- Warm up caches before measuring
-- Test from outside your infrastructure (real network conditions)
-- Measure at percentiles (p50, p95, p99), not averages
-- Set pass/fail criteria before running
-
----
+* Test with realistic data (not empty responses)
+* Warm up caches before measuring
+* Test from outside your infrastructure (real network conditions)
+* Measure at percentiles (p50, p95, p99), not averages
+* Set pass/fail criteria before running
 
 ## 8. Performance Anti-Patterns
 
@@ -286,19 +267,17 @@ Use when: processing > 2s, result not needed immediately, can retry independentl
 | **Cache stampede** | All requests hit DB after cache expires | Jitter TTL, lock + refresh, refresh-ahead |
 | **Chatty microservices** | Too many inter-service calls for one operation | Aggregate endpoint, BFF pattern, denormalize |
 
----
-
 ## 9. Scalability Patterns
 
 ### Horizontal Scaling Readiness Checklist
-- [ ] Application is stateless (no local session, no local file storage)
-- [ ] Sessions stored externally (Redis, DB)
-- [ ] File uploads go to object storage (S3, Blob Storage)
-- [ ] Configuration externalized (env vars, config service)
-- [ ] Database connections pooled with limits
-- [ ] Background jobs use distributed queue (not in-process)
-- [ ] Health checks enable load balancer traffic management
-- [ ] Graceful shutdown handles in-flight requests
+* [ ] Application is stateless (no local session, no local file storage)
+* [ ] Sessions stored externally (Redis, DB)
+* [ ] File uploads go to object storage (S3, Blob Storage)
+* [ ] Configuration externalized (env vars, config service)
+* [ ] Database connections pooled with limits
+* [ ] Background jobs use distributed queue (not in-process)
+* [ ] Health checks enable load balancer traffic management
+* [ ] Graceful shutdown handles in-flight requests
 
 ### Backpressure
 When a system is overwhelmed:
@@ -310,8 +289,8 @@ When a system is overwhelmed:
 ### Circuit Breaker States
 ```
 Closed → (failures exceed threshold) → Open → (timeout expires) → Half-Open → (success) → Closed
-                                                                              → (failure) → Open
+                                                                                → (failure) → Open
 ```
-- **Closed**: Normal operation, count failures
-- **Open**: Fast-fail immediately, don't call downstream
-- **Half-Open**: Allow one probe request, decide based on result
+* **Closed**: Normal operation, count failures
+* **Open**: Fast-fail immediately, don't call downstream
+* **Half-Open**: Allow one probe request, decide based on result
