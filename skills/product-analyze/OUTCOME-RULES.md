@@ -58,10 +58,19 @@ One high-level paragraph — outcome and value focused. What and Why, not How.
 ## Acceptance criteria
 * Verifiable criteria that define "story complete". Outcome-based.
 
+### Business rules
+* Business rules and constraints that apply to this story.
+
+### Non-functional requirements
+* Performance, security, reliability, maintainability, usability, etc.
+
 ## How to test?
 * What to test and expected outcomes (happy path and edge cases)
 
-## Decisions
+## Assumptions (optional)
+* Assumptions made during analysis and design.
+
+## Decisions (optional)
 * Key decisions with rationale
 
 ## Dependencies (optional)
@@ -73,6 +82,22 @@ One high-level paragraph — outcome and value focused. What and Why, not How.
 ## Notes / Q&A (optional)
 * Additional notes and questions & answers.
 ```
+
+Consider checking content of a Story based on INVEST principles:
+* **Independent**: Can be developed and delivered independently of other stories.
+* **Negotiable**: Not a contract; can be changed or rewritten.
+* **Valuable**: Delivers value to the end user or customer.
+* **Estimable**: Can be estimated for size and complexity.
+* **Small**: Small enough to be completed in a single iteration.
+* **Testable**: Acceptance criteria can be verified through tests or demonstrations.
+
+Best practices for writing a Story:
+* Keep it short, simple and focused on a single outcome.
+* Focus on user value and business impact, not technical implementation.
+* One story should not cover multiple features or requirements.
+* Always include acceptance criteria that are clear, measurable and testable.
+* Collaborate with stakeholders to ensure the story meets their needs and expectations.
+* If it is a technical story, include context and rationale for the technical decision.
 
 ### Bug Template
 ```markdown
