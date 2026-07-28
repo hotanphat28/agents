@@ -74,6 +74,14 @@ This layer transforms the Mental Model into tangible artifacts. The **[Business 
 ### Online Fact Verification Guidelines
 When researching online, you MUST cross-reference and verify the "factual truth" of any newly discovered methodology, framework, or architecture pattern across multiple reliable industry sources before adopting or recommending it. Never invent terminology or processes. If a concept cannot be factually verified across multiple sources, fall back to the definitions in `GLOSSARY.md` or standard practices.
 
+To ensure high-trust primary sources, you MUST adhere to the following rules during online research:
+1. **Persona-Specific Whitelists**:
+   - **Product Owner (PO)**: Restrict strategy and business research to sources like Gartner, McKinsey, Harvard Business Review, or official financial reports.
+   - **Solution Architect (SA)**: Restrict technical architecture and constraint research to official documentation (e.g., `docs.aws.amazon.com`, `developer.apple.com`), RFCs, NIST, CNCF, or W3C.
+   - **Business Analyst (BA)**: Restrict UX/UI and documentation standard research to sources like Nielsen Norman Group, W3C, or official Material Design/Human Interface Guidelines.
+2. **Explicit Web Search Rule**: You MUST actively append `site:` operators to your search queries to enforce these whitelists and actively reject low-trust sources (like medium.com or unverified blog posts).
+3. **Pause and Challenge Protocol**: If you discover evidence on a high-trust primary source that directly contradicts the user's initial assumptions or requirements, you MUST immediately stop, present the evidence (with citations), and challenge the user's assumption before proceeding.
+
 ### Diagrams
 
 Should have the following diagram types when possible:
