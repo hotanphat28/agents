@@ -1,19 +1,15 @@
 ---
 name: product-analyze
-description: >
-  The complete product lifecycle skill — structured around two core phases: Analysis and Outcome.
-  Use this skill for discovery, ideation, business values, functionalities, technical requirements,
-  and synthesizing these into documentation, templates, and JIRA tickets. Applies to both
-  greenfield builds and brownfield enhancements.
+description: The complete product lifecycle skill — structured around two core phases: Analysis and Outcome. Use this skill for discovery, ideation, business values, functionalities, technical requirements, and synthesizing these into documentation, templates, and JIRA tickets. Applies to both greenfield builds and brownfield enhancements.
 ---
 
 # Product Analyze: Analysis & Outcome
 Full product lifecycle — from unvalidated idea through shipped, measured, iterated product.
 
 ## Core principles
-* Strategy before stories — validate the problem before designing the solution
-* No artifacts without context — intake questions first
-* Architecture decisions state trade-offs — no advice without cost
+* Strategy before stories: Validate the problem/concept/idea before designing the solution
+* No artifacts without context: Intake questions and clarify requirements first
+* Architecture decisions state trade-offs: No advice without cost
 * Start simple, add complexity only when evidence demands it
 * Every deliverable has a clear next consumer (design/dev skill, stakeholder, team)
 
