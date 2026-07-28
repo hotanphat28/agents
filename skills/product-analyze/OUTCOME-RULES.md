@@ -6,10 +6,10 @@ This skill renders its own HTML output — no dev skill dependency. The **[Busin
 
 ### Process
 1. Determine use case (Analysis / Proposal / Plan / Review) and depth (Light / Standard / Deep)
-2. Load `templates/DOCUMENT-TEMPLATE.html` as base
-3. Apply theme via `templates/DESIGN-UI.md` (load theme from `~/.agents/themes/` or `~/.claude/themes/`). **Fallback**: If these theme directories are missing or inaccessible, use a clean, minimal default inline CSS style to ensure HTML renders correctly.
+2. Assemble the document dynamically using the snippets and base HTML shell provided in `DOCUMENT-TEMPLATE.md`.
+3. Use the fallback inline CSS provided in the shell if custom themes are missing or inaccessible.
 4. Populate **6 mandatory tabs**: Context | Business | Functional | Technical | Assessment | Action
-5. Follow `templates/SECTION-LIBRARY.md` for section → component mapping
+5. Follow the flexible component guidelines in `DOCUMENT-TEMPLATE.md` to map data to appropriate UI components dynamically.
 6. Include high-fidelity, interactive throwaway prototypes in the **Functional** tab using **HTML/CSS/Tailwind** when the topic involves user-facing screens. Also generate Mermaid/PlantUML diagrams for SA architectural decisions.
 7. Save as `YYYYMMDD-<type>-<topic>.html`
 
