@@ -2,18 +2,21 @@
 This document contains all rules for synthesizing Analysis into concrete Deliverables (Documents, Architecture Decisions, and Jira Work Items).
 
 ## Document Rendering
-This skill renders its own HTML output — no dev skill dependency.
+This skill renders its own HTML output — no dev skill dependency. The **[Business Analyst]** persona handles all documentation and ticket synthesis.
 
 ### Process
 1. Determine use case (Analysis / Proposal / Plan / Review) and depth (Light / Standard / Deep)
 2. Load `templates/DOCUMENT-TEMPLATE.html` as base
-3. Apply theme via `templates/DESIGN-UI.md` (load theme from `~/.agents/themes/` or `~/.claude/themes/`)
+3. Apply theme via `templates/DESIGN-UI.md` (load theme from `~/.agents/themes/` or `~/.claude/themes/`). **Fallback**: If these theme directories are missing or inaccessible, use a clean, minimal default inline CSS style to ensure HTML renders correctly.
 4. Populate **6 mandatory tabs**: Context | Business | Functional | Technical | Assessment | Action
 5. Follow `templates/SECTION-LIBRARY.md` for section → component mapping
-6. Include mock-UI prototypes in **Functional** tab when topic involves user-facing screens
+6. Include high-fidelity, interactive throwaway prototypes in the **Functional** tab using **HTML/CSS/Tailwind** when the topic involves user-facing screens. Also generate Mermaid/PlantUML diagrams for SA architectural decisions.
 7. Save as `YYYYMMDD-<type>-<topic>.html`
 
 ## JIRA Conventions
+
+### Jira Refinement Safety Protocol
+**MANDATORY**: Before making any external API calls to create or update Jira tickets, the **[Business Analyst]** MUST output a Markdown preview of all proposed tickets for user approval.
 
 ### Title Patterns
 * Epic: `[Capability noun phrase]`
