@@ -14,7 +14,7 @@
 **Brand personality:** Personal brand with premium, minimalist, luxury-meets-tech identity. Dark surfaces, gold accents, monospace data, generous whitespace. Every pixel earns its place.
 
 ## Color Palette
-| Role | Token | Value | Usage |
+| Role | Token | Hex | Usage |
 |---|---|---|---|
 | Primary | `--color-gold` | `#FFC90E` | CTAs, key highlights, active states |
 | Surface 0 | `--color-black` | `#101010` | Page backgrounds, deepest surface |
@@ -48,6 +48,11 @@
 | Body / UI labels | `Space Grotesk` | Paragraphs, descriptions, form labels |
 | Data / Code / Mono | `Space Mono` | Numbers, metrics, timestamps, code, IDs |
 
+### Google Fonts
+```html
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+```
+
 ### Type scale (rem-based)
 - Display: 3rem / 700 weight / -0.03em letter-spacing
 - H1: 2rem / 700 weight / -0.02em
@@ -56,14 +61,10 @@
 - Body: 0.9375rem / 400 weight / 1.6 line-height
 - Caption / Label: 0.75rem / 500 weight / 0.04em letter-spacing / uppercase
 
-### Google Fonts
-```html
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-```
-
 ## Spacing System
 8pt grid base. All spacing multiples of 8 (or 4 for micro-adjustments).
 
+### Rem-Based Tokens
 | Token | Value | Use |
 |---|---|---|
 | `--space-1` | 4px | Micro: icon gap, tight inline padding |
@@ -135,7 +136,6 @@ Label: `#F4F4F4` — Placeholder: `#888888`
 | Status notifier | bg / border | `--status-*-light` / `1px solid --status-*` |
 
 ## Data Visualization
-
 | Element | Value |
 |---------|-------|
 | Chart background | `#1A1A1A` |
@@ -158,7 +158,6 @@ Always include chart title and axis labels.
 | Settings / Profile | `#101010` | Sectioned form layout. Cards on `#1A1A1A` with `#2A2A2A` dividers. |
 
 ## Default Patterns
-
 | Pattern | Value |
 |---------|-------|
 | Icons | Lucide (`lucide lucide-{name}`) |
