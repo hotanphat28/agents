@@ -12,10 +12,7 @@ Single-agent, multi-skill architecture. Skills auto-activate from context.
 │   │   ├── GLOSSARY.md
 │   │   ├── ARCHITECT.md
 │   │   ├── OUTCOME-RULES.md
-│   │   └── templates/
-│   │       ├── DOCUMENT-TEMPLATE.html
-│   │       ├── SECTION-LIBRARY.md
-│   │       └── DESIGN-UI.md
+│   │   └── DOCUMENT-TEMPLATE.md
 │   ├── product-design/       UI/UX, brand, design systems
 │   │   ├── SKILL.md
 │   │   ├── GLOSSARY.md

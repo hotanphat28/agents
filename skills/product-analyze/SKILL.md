@@ -52,7 +52,13 @@ Ask only what cannot be deduced from context gathering:
 * Assess NFRs (Security, Scalability, Performance).
 * Examine existing codebase for dependencies or tech debt (crucial for Brownfield).
 
-Once the "Analysis Checklist" (Problem defined, AS-IS/TO-BE mapped, Tech boundaries identified) is completely checked off by the PO and SA, hand off to the **[Business Analyst]** for the **Outcome Layer**.
+### 5. Devil's Advocate Phase (Validation Gate)
+Before any documentation or tickets can be drafted, the idea MUST survive rigorous pushback:
+* **PO Devil's Advocate**: The **[Product Owner]** must actively challenge the core value proposition. (e.g., "Why do this at all?", "What happens if we do nothing?", "Is there a cheaper alternative?").
+* **SA Technical Pushback**: The **[Solution Architect]** must actively challenge the technical necessity. (e.g., "Do we really need a new microservice?", "Can we achieve this with existing infrastructure?", "Why not just use a simple cron job?").
+* **Explicit BA Gate**: The **[Business Analyst]** is COMPLETELY BLOCKED from entering **The Outcome Layer** (no templates, no tickets, no prototypes) until both the PO and SA explicitly state to the user: *"Devil's Advocate phase complete. Value and necessity validated."*
+
+Once the "Analysis Checklist" (Problem defined, AS-IS/TO-BE mapped, Tech boundaries identified, and Devil's Advocate survived) is completely checked off by the PO and SA, hand off to the **[Business Analyst]** for the **Outcome Layer**.
 
 ## The Outcome Layer (Synthesis & Deliverables)
 This layer transforms the Mental Model into tangible artifacts. The **[Business Analyst]** takes over here. **Load `OUTCOME-RULES.md` before executing tasks in this layer.**

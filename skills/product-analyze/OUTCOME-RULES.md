@@ -13,6 +13,13 @@ This skill renders its own HTML output — no dev skill dependency. The **[Busin
 6. Include high-fidelity, interactive throwaway prototypes in the **Functional** tab using **HTML/CSS/Tailwind** when the topic involves user-facing screens. Also generate Mermaid/PlantUML diagrams for SA architectural decisions.
 7. Save as `YYYYMMDD-<type>-<topic>.html`
 
+### Final Review Gate
+After the **[Business Analyst]** drafts the outcomes, the **[Product Owner]** and **[Solution Architect]** MUST conduct a rigorous review before finalization:
+- **Completeness**: Are all edge cases, rules, and NFRs covered?
+- **Conciseness**: Is the document free of bloat and unnecessary complexity?
+- **Comprehensiveness**: Does this artifact fully solve the validated problem from the Analysis phase?
+*The documents or tickets cannot be considered final until they pass this gate.*
+
 ## JIRA Conventions
 
 ### Jira Refinement Safety Protocol
