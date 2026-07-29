@@ -23,7 +23,7 @@ Single-agent, multi-skill architecture. Skills auto-activate from context.
 │   │   ├── AI-ENGINEERING.md
 │   │   ├── OBSERVABILITY.md
 │   │   └── PERFORMANCE.md
-│   ├── product-quality/      Testing strategy + automation code
+│   ├── product-quality/      Testing strategy, automation code, security testing
 │   │   ├── SKILL.md
 │   │   ├── GLOSSARY.md
 │   │   └── TESTING-PATTERNS.md
@@ -44,7 +44,7 @@ Single-agent, multi-skill architecture. Skills auto-activate from context.
 | product-analyze | analysis, roadmap, PRD, stories, ADR, report, proposal, plan, security review |
 | product-design | wireframe, prototype, UI, brand, design system, theme |
 | product-develop | build, implement, code, fix, refactor, deploy |
-| product-quality | test, coverage, TDD, BDD, test automation |
+| product-quality | test, coverage, TDD, BDD, test automation, security testing, vulnerabilities |
 | mentor-* | "Hey [Name]", coaching, goals, habits, wealth |
 | lyric-video-maker | lyric video, music video with synced text |
 | podcast-video-maker | podcast video, kinetic typography, audio clip reel |

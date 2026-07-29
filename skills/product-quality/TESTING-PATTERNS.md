@@ -240,3 +240,32 @@ When services communicate via APIs:
 * **Mutation testing > line coverage** — proves tests actually catch bugs
 * **Branch coverage > line coverage** — ensures all decision paths are tested
 * **Coverage gates in CI** — fail build if coverage drops below threshold
+
+## 11. Security Testing
+
+Security testing is a first-class citizen of software quality. It ensures that the application is resilient against vulnerabilities and attacks.
+
+### Static Application Security Testing (SAST)
+* **What it is**: "White-box" testing that analyzes source code, bytecode, or binaries for security vulnerabilities without executing the code.
+* **When to use**: Run on every commit or PR. It's the earliest form of security testing (Shift-Left).
+* **What it finds**: SQL injection, Cross-Site Scripting (XSS), buffer overflows, hardcoded secrets.
+
+### Dynamic Application Security Testing (DAST)
+* **What it is**: "Black-box" testing that interacts with the running application from the outside, just like an attacker would.
+* **When to use**: Run in a staging/QA environment during or after the deployment pipeline.
+* **What it finds**: Authentication issues, server configuration errors, runtime vulnerabilities that SAST misses.
+
+### Dependency Scanning (SCA)
+* **What it is**: Software Composition Analysis (SCA) identifies third-party libraries and frameworks used in the application and checks them against vulnerability databases (like CVEs).
+* **When to use**: Part of the CI/CD pipeline and scheduled periodically on the default branch.
+* **What it finds**: Outdated packages, transitive vulnerabilities, malicious packages.
+
+### Secret Scanning
+* **What it is**: Scans code repositories for exposed credentials, API keys, and tokens.
+* **When to use**: Pre-commit hooks, CI pipelines, and continuous repository scanning.
+* **What it finds**: Hardcoded passwords, AWS keys, GitHub tokens, database credentials.
+
+### Integration Best Practices
+* **Shift-Left**: Integrate SAST and secret scanning locally (IDE or pre-commit) to catch issues before they reach the repository.
+* **Fail the Build**: Treat critical/high security vulnerabilities just like failing unit tests—they should block the deployment.
+* **Regular Updates**: Keep dependency scanning tools updated with the latest CVE databases.

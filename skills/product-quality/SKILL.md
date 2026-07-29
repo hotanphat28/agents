@@ -2,12 +2,12 @@
 name: product-quality
 description: >
   Software testing and quality assurance skill — owns all testing from strategy to automation code.
-  Covers testing pyramid, unit/integration/E2E testing, TDD, BDD, contract testing, test doubles,
+  Covers testing pyramid, unit/integration/E2E testing, TDD, BDD, contract testing, security testing (SAST/DAST, dependency scanning), test doubles,
   coverage strategy, quality gates, and test anti-patterns. Writes test code directly (not just advises).
   Supports all languages and frameworks. Activate when the user asks to write tests, define test strategy,
-  set coverage targets, implement test automation, debug flaky tests, design E2E suites, or anything
-  related to testing patterns and software quality verification. Even if the user just says "test this"
-  or "add tests" — this skill handles it.
+  set coverage targets, implement test automation, debug flaky tests, design E2E suites, scan for vulnerabilities, or anything
+  related to testing patterns and software quality verification. Even if the user just says "test this",
+  "add tests", or "check for security flaws" — this skill handles it.
 ---
 
 # Quality & Testing
@@ -31,6 +31,7 @@ Own all testing concerns — from high-level strategy down to writing test autom
 | TDD / BDD | Red-green-refactor, Gherkin scenarios, behavior specs |
 | Test Automation | CI test pipelines, coverage gates, mutation testing setup |
 | Test Debugging | Fixing flaky tests, diagnosing failures, test isolation issues |
+| Security Testing | SAST/DAST setup, dependency/secret scanning, vulnerability remediation |
 
 Modes stack. Load reference file on demand.
 
@@ -43,14 +44,14 @@ Modes stack. Load reference file on demand.
 ## Stack-Aware Testing
 Detect the project stack and apply idiomatic testing tools:
 
-| Stack | Unit | Integration | E2E |
-|---|---|---|---|
-| TypeScript/Node | Jest / Vitest | Supertest + Testcontainers | Playwright / Cypress |
-| Python | pytest | pytest + httpx + Testcontainers | Playwright |
-| Java/Spring | JUnit 5 + Mockito | Spring Boot Test + Testcontainers | Selenium / Playwright |
-| C# / .NET | xUnit / NUnit + Moq | WebApplicationFactory + Testcontainers | Playwright |
-| Angular | Jasmine + Karma / Jest | HttpClientTestingModule | Cypress / Playwright |
-| React | React Testing Library + Jest/Vitest | MSW | Playwright / Cypress |
+| Stack | Unit | Integration | E2E | Security |
+|---|---|---|---|---|
+| TypeScript/Node | Jest / Vitest | Supertest + Testcontainers | Playwright / Cypress | ESLint, Snyk, ZAP |
+| Python | pytest | pytest + httpx + Testcontainers | Playwright | Bandit, Trivy, ZAP |
+| Java/Spring | JUnit 5 + Mockito | Spring Boot Test + Testcontainers | Selenium / Playwright | SonarQube, Snyk, ZAP |
+| C# / .NET | xUnit / NUnit + Moq | WebApplicationFactory + Testcontainers | Playwright | SonarQube, Snyk, ZAP |
+| Angular | Jasmine + Karma / Jest | HttpClientTestingModule | Cypress / Playwright | ESLint, Snyk, ZAP |
+| React | React Testing Library + Jest/Vitest | MSW | Playwright / Cypress | ESLint, Snyk, ZAP |
 
 ## Handoff Rules
 * When the user wants to **build a feature** (not tests) → route to product-develop.
@@ -64,4 +65,6 @@ Detect the project stack and apply idiomatic testing tools:
 * [ ] Mocks only at boundaries (external services, DB, clock)
 * [ ] Coverage targets met for the layer
 * [ ] No flaky patterns (fixed sleeps, shared state, order dependence)
+* [ ] Dependencies and codebase scanned for vulnerabilities (SAST/SCA)
+* [ ] No exposed secrets or hardcoded credentials
 * [ ] CI-ready (can run headless, no manual steps)

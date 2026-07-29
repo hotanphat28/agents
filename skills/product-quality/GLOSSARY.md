@@ -22,3 +22,10 @@ This document provides a single source of truth for terminology used within the 
 * **Testcontainers**: A library that provides lightweight, throwaway instances of common databases, Selenium web browsers, or anything else that can run in a Docker container, used for integration testing.
 * **Playwright**: A framework for Web Testing and Automation. It allows testing Chromium, Firefox and WebKit with a single API.
 * **Cypress**: A next generation front end testing tool built for the modern web, executing tests directly inside the browser.
+
+## Security Testing
+* **SAST (Static Application Security Testing)**: A methodology that analyzes source code to find security vulnerabilities without executing the program.
+* **DAST (Dynamic Application Security Testing)**: A methodology that interacts with a running application from the outside to find vulnerabilities.
+* **SCA (Software Composition Analysis)**: Also known as Dependency Scanning; the process of automating visibility into open source software use for the purpose of risk management, security and license compliance.
+* **Secret Scanning**: The process of automatically scanning source code repositories for exposed credentials, API keys, tokens, and passwords.
+* **OWASP ZAP**: An open-source web application security scanner intended to be used by both those new to application security as well as professional penetration testers.
