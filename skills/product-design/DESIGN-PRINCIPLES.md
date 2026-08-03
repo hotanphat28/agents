@@ -82,12 +82,12 @@ All spacing derives from an 8px base. Use multiples: 4, 8, 12, 16, 24, 32, 48, 6
 | UI components & graphical objects | 3:1 |
 | Focus indicators | 3:1 against adjacent colors |
 
-### Dark Mode Color Principles
-* Don't simply invert — remap surfaces to dark neutrals (not pure black)
-* Reduce saturation of colors by 10-20% to avoid vibration on dark backgrounds
-* Elevation = lighter (not darker) on dark backgrounds
-* Test all semantic colors on dark surfaces for contrast compliance
-* Use `oklch()` or `hsl()` for predictable color manipulation
+### Strict Dark Mode Color Principles
+* **Absolute Elevation Mapping**: Surfaces must map to specific dark neutrals based on elevation (e.g., Base = `#121212`, Surface = `#1E1E1E`, Elevated = `#2C2C2C`). Never use pure black (`#000000`) for surfaces.
+* **Desaturation Mandate**: Primary brand colors must shift from the 500-600 range (light mode) to the 200-300 range (dark mode) to prevent eye strain and vibration.
+* **Text Opacity Scaling**: Pure white (`#FFFFFF`) is banned for text. Use opacity layers over the dark surface: High Emphasis (87%), Medium Emphasis (60%), Disabled (38%).
+* Elevation = lighter (not darker) on dark backgrounds.
+* Use `oklch()` or `hsl()` for predictable color manipulation.
 
 ## 4. Gestalt Principles
 | Principle | Definition | UI Application |
@@ -200,11 +200,13 @@ All spacing derives from an 8px base. Use multiples: 4, 8, 12, 16, 24, 32, 48, 6
 4. **Live regions** for dynamic content — `aria-live="polite"` for non-urgent updates
 5. **Label all interactive elements** — `aria-label`, `aria-labelledby`, or visible `<label>`
 
-### Inclusive Design Patterns
-* **Color is never the only indicator** — add icons, text, or patterns
+### Strict Inclusive Design Patterns
+* **Target Level Flexibility**: Default to WCAG 2.2 AA. For government, healthcare, or high-compliance apps, explicitly enforce WCAG 2.2 AAA (7:1 contrast).
+* **Color Blindness Protocol**: Color must NEVER be the only indicator. Mandatory use of shapes, text labels, or distinct patterns alongside color (e.g., status indicators must have an icon).
+* **Zero-Exception Touch Targets**: Enforce a strict 44×44px minimum for *all* interactive elements on mobile. No exceptions for tight layouts. 8px minimum gap between targets.
+* **Screen Reader Mandates**: All icon-only buttons MUST have an explicitly defined `aria-label` or `sr-only` text span in the design specs.
 * **Motion**: respect `prefers-reduced-motion` — provide static alternatives
 * **Text resizing**: UI must work at 200% zoom without horizontal scrolling
-* **Touch targets**: 44×44px minimum with 8px gap between targets
 * **Error messages**: identify the field, describe the problem, suggest the fix
 
 ## 8. Component Design Principles

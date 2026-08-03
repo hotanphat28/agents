@@ -154,7 +154,7 @@ Factual description of what is broken
 
 ## Sequence diagram(s)
 
-## Domain model / Component diagram(s)
+## Domain model (Bounded Contexts, Aggregates) / Component diagram(s)
 
 ## Technical changes
 |Components|Changes|JIRA Tickets|

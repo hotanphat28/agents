@@ -7,22 +7,23 @@ Single-agent, multi-skill architecture. Skills auto-activate from context.
 ```
 .agents/
 ├── skills/
-│   ├── product-analyze/      Analysis & Outcome engine (self-renders HTML docs)
+│   ├── product-analyze/      Analysis & Outcome engine (DDD, Architecture, HTML docs)
 │   │   ├── SKILL.md
 │   │   ├── GLOSSARY.md
 │   │   ├── ARCHITECT.md
 │   │   ├── OUTCOME-RULES.md
 │   │   └── DOCUMENT-TEMPLATE.md
-│   ├── product-design/       UI/UX, brand, design systems
+│   ├── product-design/       UI/UX, brand, design systems (Strict Dark Mode & A11y)
 │   │   ├── SKILL.md
 │   │   ├── GLOSSARY.md
 │   │   └── DESIGN-PRINCIPLES.md
-│   ├── product-develop/      Implementation (all languages/platforms)
+│   ├── product-develop/      Implementation (enforces SOLID, DI, Repository patterns)
 │   │   ├── SKILL.md
 │   │   ├── GLOSSARY.md
 │   │   ├── AI-ENGINEERING.md
 │   │   ├── OBSERVABILITY.md
-│   │   └── PERFORMANCE.md
+│   │   ├── PERFORMANCE.md
+│   │   └── DESIGN-PATTERNS.md
 │   ├── product-quality/      Testing strategy, automation code, security testing
 │   │   ├── SKILL.md
 │   │   ├── GLOSSARY.md

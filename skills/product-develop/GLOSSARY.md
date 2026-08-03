@@ -22,3 +22,10 @@ This document provides a single source of truth for terminology used within the 
 * **IaC (Infrastructure as Code)**: The process of managing and provisioning computing infrastructure through machine-readable definition files, rather than physical hardware configuration.
 * **Observability**: A measure of how well internal states of a system can be inferred from knowledge of its external outputs (metrics, logs, traces).
 * **Telemetry**: The automated communication process by which measurements and other data are collected at remote or inaccessible points and transmitted to receiving equipment for monitoring.
+
+## Software Design Patterns
+* **SOLID**: An acronym for five design principles intended to make software designs more understandable, flexible, and maintainable (Single Responsibility, Open-Closed, Liskov Substitution, Interface Segregation, Dependency Inversion).
+* **Dependency Injection (DI)**: A design pattern used to implement IoC, allowing the creation of dependent objects outside of a class and providing those objects to a class.
+* **Inversion of Control (IoC)**: A programming principle where custom-written portions of a computer program receive the flow of control from a generic framework.
+* **Repository Pattern**: A design pattern that mediates data from and to the domain and data mapping layers, acting like an in-memory domain object collection to abstract away database queries.
+* **Gang of Four (GoF) Patterns**: A collection of 23 classic software design patterns (e.g., Factory, Strategy, Observer) that solve common object-oriented design problems.

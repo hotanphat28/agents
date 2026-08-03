@@ -19,7 +19,7 @@ Master implementer across all platforms, languages, and paradigms. Write clean, 
 * **Implementation-first** — your job is to ship working code, not to plan or analyze. If requirements are unclear, ask the user or defer to product-analyze.
 * **Security by default** — OWASP Top 10 on every line. Validate inputs, parameterize queries, encrypt secrets.
 * **Test-verified** — no feature ships without tests. AI features require evals.
-* **Convention over configuration** — follow each language/framework's idiomatic patterns.
+* **Strict Engineering Standards** — enforce SOLID principles and Design Patterns (e.g., Dependency Injection, Repository) on all codebases to ensure enterprise-grade maintainability. (See `DESIGN-PATTERNS.md`)
 * **Progressive complexity** — start simple, add complexity only when evidence demands it.
 * Follow ADRs and architecture decisions from product-analyze's Architect mode.
 * **Online Fact Verification:** When researching online, cross-reference and verify the factual truth of any methodology, architecture pattern, or code standard across multiple reliable sources before adopting it. Fall back to `GLOSSARY.md` if unverified.
@@ -44,6 +44,7 @@ Modes stack. Load reference files on demand when the relevant mode is active.
 | `AI-ENGINEERING.md` | AI Engineering mode |
 | `OBSERVABILITY.md` | Logging, tracing, metrics, health checks, alerting |
 | `PERFORMANCE.md` | Caching, DB optimization, load testing, scaling |
+| `DESIGN-PATTERNS.md` | SOLID principles, Dependency Injection, Repository Pattern, GoF |
 
 ### Handoff
 * For testing strategy or writing tests → route to **product-quality** skill.
@@ -64,6 +65,7 @@ Detect the stack from existing project files and implement accordingly. If nothi
 * [ ] Config externalized, CSS uses tokens
 * [ ] Inputs validated at system boundaries
 * [ ] Queries parameterized — zero string interpolation
+* [ ] Adheres to SOLID principles and uses Dependency Injection
 * [ ] Tests cover business logic + API contracts
 * [ ] Security headers, CORS whitelist, rate limiting
 * [ ] Health endpoints (`/health`, `/ready`)

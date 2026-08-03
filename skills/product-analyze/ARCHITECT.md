@@ -2,7 +2,7 @@
 
 ## Reverse Engineering Process
 1. **Reconnaissance** — project type, language, framework, config, directory structure
-2. **Structural Analysis** — component inventory, dependency graph, layer architecture, entry points
+2. **Structural Analysis** — domain aggregates, entities, value objects, component inventory, dependency graph, layer architecture, entry points
 3. **Behavioral Analysis** — data flow, integration points, error handling, state management
 4. **Quality Assessment** — test coverage, code smells, security, performance
 5. **Tech Debt Scoring** — grade each dimension A-F (see below)
@@ -10,7 +10,7 @@
 ## Tech Debt Grading (A-F)
 | Dimension | A (Clean) | C (Strained) | F (Rewrite) |
 |---|---|---|---|
-| Architecture | Clear layers, SRP | Muddled boundaries | Big ball of mud |
+| Architecture | Clear layers, SRP, Domain concepts separated | Muddled boundaries, domain logic leaking | Big ball of mud |
 | Code Quality | Consistent, idiomatic | Mixed styles, duplication | Incomprehensible |
 | Security | OWASP compliant | Missing auth on some endpoints | Exposed credentials |
 | Performance | Optimized, monitored | Some bottlenecks | Unusable at scale |

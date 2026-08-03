@@ -97,7 +97,9 @@ Don't just "share for feedback" — guide the reviewer:
 Before handoff, verify:
 * [ ] Visual hierarchy reads correctly (squint test — most important elements stand out)
 * [ ] Spacing is consistent (follows the 8pt grid)
-* [ ] Color contrast passes WCAG AA (4.5:1 text, 3:1 UI elements)
+* [ ] Color contrast passes target WCAG level (AA default, AAA for strict compliance)
+* [ ] Color Blindness check passed (information survives if converted to grayscale)
+* [ ] Dark Mode contrast and desaturation verified
 * [ ] All interactive states defined (hover, focus, active, disabled, error)
 * [ ] Touch targets ≥ 44×44px on mobile
 * [ ] Typography scale is consistent (no arbitrary sizes)
@@ -139,7 +141,7 @@ For Akkuro/Fyndoo app screens, pair the akkuro theme with the matching layout te
 
 ## Output Contract
 Provide deliverables appropriate to mode:
-1. **UI/UX**: Screen inventory, component inventory, token summary, interaction/state inventory, responsive notes, a11y notes
+1. **UI/UX**: Screen inventory, component inventory, token summary (explicitly detailing Light and Dark variants), interaction/state inventory, responsive notes, strict a11y specs
 2. **Brand**: Logo package (all variants), brand guidelines, application examples
 3. **Design System**: Token dictionary, component library, pattern library, documentation
 4. **Icons**: Icon inventory, grid spec, style guide

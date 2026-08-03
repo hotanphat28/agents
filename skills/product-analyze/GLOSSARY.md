@@ -59,3 +59,12 @@ This document provides a single source of truth for terminology used within the 
 * **CI/CD (Continuous Integration / Continuous Deployment)**: The practice of automating the building, testing, and deployment of code changes to reduce manual effort and improve delivery speed.
 * **IaC (Infrastructure as Code)**: The process of managing and provisioning computing infrastructure through machine-readable definition files, rather than physical hardware configuration or interactive configuration tools.
 * **UAT (User Acceptance Testing)**: The final phase of software testing in which actual software users test the software to make sure it can handle required tasks in real-world scenarios.
+
+## Domain-Driven Design (DDD)
+
+* **Domain-Driven Design (DDD)**: An approach to software development that centers the development on programming a model that has a deep understanding of the processes and rules of a domain.
+* **Ubiquitous Language**: A common, rigorous language built up by the team and domain experts to connect all the activities of the team with the software. It ensures developers and business stakeholders speak the exact same language.
+* **Bounded Context**: A central pattern in DDD. It is the boundary within a domain where a particular domain model applies (e.g., "Sales" context vs "Shipping" context). Inside the boundary, all terms have a specific and unambiguous meaning.
+* **Aggregate**: A cluster of domain objects that can be treated as a single unit for data changes. Every aggregate has a root and a boundary.
+* **Entity**: An object that is not defined by its attributes, but rather by a thread of continuity and its identity (e.g., a User or an Order).
+* **Value Object**: An object that contains attributes but has no conceptual identity (e.g., a Money object or a Color). They should be treated as immutable.

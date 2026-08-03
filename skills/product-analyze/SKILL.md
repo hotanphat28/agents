@@ -82,6 +82,7 @@ This forces clarity on who, what, and how you'll know it worked.
 * **Cost of Inaction:** What happens if we do nothing? (Quantify where possible: lost revenue, churn rate, support cost)
 
 ### 4. Functional & Logic Analysis
+* **Ubiquitous Language**: Identify and agree on domain terminology with stakeholders to ensure the code and docs use the exact same language.
 * Map the AS-IS state vs TO-BE state (Gap Analysis).
 * Define core business rules, journey maps, and edge cases.
 * Identify constraints (Timeline, budget, compliance).
@@ -89,7 +90,7 @@ This forces clarity on who, what, and how you'll know it worked.
 
 ### 5. Technical Context (Lightweight Architect Scan)
 * **Autonomous Codebase Exploration**: The **[Solution Architect]** must proactively use tools to explore the project directory, analyze dependencies, and map out the architecture.
-* Define system boundaries and external integrations.
+* Identify **Bounded Contexts** to define explicit system boundaries and external integrations.
 * Assess NFRs (Security, Scalability, Performance).
 * Examine existing codebase for dependencies or tech debt (crucial for Brownfield).
 
