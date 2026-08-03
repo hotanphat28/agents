@@ -14,6 +14,7 @@ Full product lifecycle — from unvalidated idea through shipped, measured, iter
 * **Branching Playbooks**:
   * *Greenfield (New Idea)*: PO focuses on Market Fit/JTBD; SA focuses on Technology Selection.
   * *Brownfield (Enhancement)*: PO focuses on ROI/Metrics; SA focuses on Constraints, Integration, and Tech Debt.
+* **Human-Centred Design (HCD)**: Every analysis starts and ends with the people who use the product. Desirability (do users want it?) carries equal weight to viability (does it make business sense?) and feasibility (can we build it?). Use the Double Diamond — diverge to explore the problem space, converge to define it, diverge to explore solutions, converge to deliver.
 * Strategy before stories: Validate the problem/concept/idea before designing the solution
 * No artifacts without context: Intake questions and clarify requirements first
 * Architecture decisions state trade-offs: No advice without cost. SA must present at least two viable alternatives with explicit costs (time, complexity, financial) and ask the user to choose before drafting an ADR.
@@ -35,30 +36,84 @@ This layer builds a comprehensive "Mental Model" across multiple dimensions befo
 * **Auto-Fetch**: Ask the user for URLs to existing Jira tickets or documentation. Proactively use web browsing or related skills to fetch and ingest this data before analysis begins.
 * **Graceful Degradation**: If the user provides incomplete context or refuses to provide source material, warn them that only theoretical analysis can be provided, then proceed with generic/high-level analysis.
 
-### 2. Business Discovery (Ideation & Value)
-Ask only what cannot be deduced from context gathering:
-* **Lifecycle:** Greenfield (new) or Brownfield (enhancement)?
-* **Problem & User:** Core problem and primary persona?
-* **Strategy & Success:** OKRs, North Star Metric, GTM strategy, Revenue/Retention?
+### 2. User & Problem Discovery (Human-Centred Design)
+Start with the people, not the system. Run these practical activities:
 
-### 3. Functional & Logic Analysis
+#### Empathy Mapping (10 min exercise)
+Fill out this template for each primary persona:
+| Quadrant | Prompt |
+|---|---|
+| **Says** | Direct quotes or paraphrases from user interviews, support tickets, feedback |
+| **Thinks** | What occupies their mind? What worries them? What are their unspoken goals? |
+| **Does** | Observable actions, workarounds, current steps they take |
+| **Feels** | Emotional state — frustrated, anxious, confident, overwhelmed? |
+| **Pain points** | Top 3 frustrations with the current experience |
+| **Gains** | What would delight them? What does "success" look like for them? |
+
+If no real user data exists yet, explicitly mark the empathy map as **assumption-based** and recommend validation methods (user interviews, survey, observation session).
+
+#### "How Might We" Framing
+Convert each pain point into a "How Might We" (HMW) question to open solution space:
+* Pain point: "Users abandon the form at step 3" → HMW: "How might we reduce friction in the application process so users complete it in one sitting?"
+* Generate 3-5 HMW questions per persona. These become the design brief for ideation.
+
+#### User Journey Mapping
+Map the end-to-end experience (not just the system flow):
+1. **Stages**: Awareness → Consideration → Onboarding → Usage → Support → Renewal/Exit
+2. **For each stage**: what the user does, thinks, feels, and what touchpoints they interact with
+3. **Identify moments of truth**: where the experience breaks or delights
+4. **Mark pain points and opportunities** directly on the journey
+
+### 3. Business Discovery (Value & Strategy)
+Ask only what cannot be deduced from context gathering. Use these practical methods:
+
+#### Problem Framing (Hypothesis Template)
+Write down the core hypothesis before diving into solutions:
+> "We believe that **[target persona]** has a problem with **[pain point]** when trying to **[job-to-be-done]**. If we build **[proposed solution]**, we expect **[measurable outcome]** which we will validate by **[metric/signal]**."
+
+This forces clarity on who, what, and how you'll know it worked.
+
+#### Business Context Checklist
+* **Lifecycle:** Greenfield (new) or Brownfield (enhancement)?
+* **Problem & User:** Core problem and primary persona? (Pull from empathy map above)
+* **JTBD:** What job is the user hiring this product/feature to do?
+* **Success Criteria:** What OKR or North Star Metric does this serve? How will you measure success in 30/60/90 days?
+* **Stakeholder Map:** Who has decision power, who is impacted, who needs to be informed?
+* **Cost of Inaction:** What happens if we do nothing? (Quantify where possible: lost revenue, churn rate, support cost)
+
+### 4. Functional & Logic Analysis
 * Map the AS-IS state vs TO-BE state (Gap Analysis).
 * Define core business rules, journey maps, and edge cases.
 * Identify constraints (Timeline, budget, compliance).
+* **Assumption Mapping**: List every assumption the team is making. Rank each by (1) how critical it is if wrong, and (2) how much evidence supports it. High-risk, low-evidence assumptions become research priorities or spike candidates.
 
-### 4. Technical Context (Lightweight Architect Scan)
+### 5. Technical Context (Lightweight Architect Scan)
 * **Autonomous Codebase Exploration**: The **[Solution Architect]** must proactively use tools to explore the project directory, analyze dependencies, and map out the architecture.
 * Define system boundaries and external integrations.
 * Assess NFRs (Security, Scalability, Performance).
 * Examine existing codebase for dependencies or tech debt (crucial for Brownfield).
 
-### 5. Devil's Advocate Phase (Validation Gate)
-Before any documentation or tickets can be drafted, the idea MUST survive rigorous pushback:
-* **PO Devil's Advocate**: The **[Product Owner]** must actively challenge the core value proposition. (e.g., "Why do this at all?", "What happens if we do nothing?", "Is there a cheaper alternative?").
-* **SA Technical Pushback**: The **[Solution Architect]** must actively challenge the technical necessity. (e.g., "Do we really need a new microservice?", "Can we achieve this with existing infrastructure?", "Why not just use a simple cron job?").
-* **Explicit BA Gate**: The **[Business Analyst]** is COMPLETELY BLOCKED from entering **The Outcome Layer** (no templates, no tickets, no prototypes) until both the PO and SA explicitly state to the user: *"Devil's Advocate phase complete. Value and necessity validated."*
+### 6. Validation Gate (Desirability × Viability × Feasibility)
+Before any documentation or tickets can be drafted, the idea must survive three lenses of scrutiny:
 
-Once the "Analysis Checklist" (Problem defined, AS-IS/TO-BE mapped, Tech boundaries identified, and Devil's Advocate survived) is completely checked off by the PO and SA, hand off to the **[Business Analyst]** for the **Outcome Layer**.
+#### Desirability Check (BA leads)
+* "Do real users actually want this?" — point to evidence (user quotes, data, empathy maps). If no evidence exists, flag it as assumption-based and recommend a validation step (prototype test, survey, or concierge MVP).
+* "Does the user journey improve meaningfully? Where exactly?"
+* "Are we solving the most painful problem, or just the most obvious one?"
+
+#### Viability Check (PO leads)
+* "Why do this at all? What happens if we don't?"
+* "Is there a cheaper or simpler alternative that delivers 80% of the value?"
+* "Does the ROI justify the investment in the next 6-12 months?"
+
+#### Feasibility Check (SA leads)
+* "Can we build this with our current stack and team capacity?"
+* "Do we really need a new service, or can existing infrastructure handle it?"
+* "What's the simplest architecture that solves the validated problem?"
+
+The **[Business Analyst]** is blocked from entering **The Outcome Layer** until all three checks are explicitly passed. Each persona states: *"[Desirability/Viability/Feasibility] validated — [one-sentence rationale]."*
+
+If a check fails, the team loops back to the relevant discovery step (user research for desirability, business case for viability, spike for feasibility).
 
 ## The Outcome Layer (Synthesis & Deliverables)
 This layer transforms the Mental Model into tangible artifacts. The **[Business Analyst]** takes over here. **Load `OUTCOME-RULES.md` before executing tasks in this layer.**
@@ -112,3 +167,10 @@ All diagrams MUST apply and match the theme used for the HTML documents (e.g., m
 | `GLOSSARY.md` | Resolving ambiguous product, agile, or architecture terminology | Use standard industry definitions |
 | `OUTCOME-RULES.md` | Writing work items, updating Jira, or rendering HTML templates | Use standard Jira/Agile formatting |
 | `ARCHITECT.md` | Detailed tech debt grading matrices and migration sequences | Use standard architecture best practices |
+
+## Handoff Rules
+* When the analysis produces UI prototypes (Functional tab) → hand off to **product-design** to evolve into production-ready designs.
+* When architecture decisions and stories are finalized → hand off to **product-develop** for implementation.
+* When implementation is complete → hand off to **product-quality** for test strategy and automation.
+* When the user asks to **build or code something directly** (not analyze) → route to **product-develop**.
+* When the user asks to **design screens or visuals** (not analyze) → route to **product-design**.

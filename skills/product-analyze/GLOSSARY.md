@@ -4,6 +4,9 @@ This document provides a single source of truth for terminology used within the 
 
 ## Frameworks
 
+* **Human-Centred Design (HCD)**: A design and management framework that develops solutions by involving the human perspective in all steps of the problem-solving process. Rooted in empathy, it ensures products are desirable, viable, and feasible. Closely related to Design Thinking.
+* **Double Diamond**: A design process model with four phases — Discover (diverge to explore the problem), Define (converge to frame the right problem), Develop (diverge to explore solutions), Deliver (converge to ship the right solution). Prevents jumping to solutions before understanding the problem.
+* **Desirability × Viability × Feasibility (DVF)**: The three-lens validation model from IDEO/Stanford d.school. A solution must pass all three: users want it (desirability), the business can sustain it (viability), and the team can build it (feasibility).
 * **Wardley Map**: A business strategy framework that visualizes the evolution of components (from genesis to commodity) against user needs, helping determine what to build vs. buy.
 * **JTBD (Jobs To Be Done)**: A framework for understanding customer behavior that focuses on the "job" a customer is hiring a product to do, rather than the customer's demographic profile.
 * **OKRs (Objectives and Key Results)**: A goal-setting framework that defines qualitative, aspirational Objectives and pairs them with quantitative, measurable Key Results.
@@ -11,12 +14,16 @@ This document provides a single source of truth for terminology used within the 
 
 ## Methods
 
+* **Empathy Map**: A collaborative tool that captures what a user Says, Thinks, Does, and Feels to build shared understanding of user needs. Used at the start of any HCD process to ground decisions in real user behaviour.
+* **"How Might We" (HMW)**: A framing technique that turns pain points into open-ended opportunity questions (e.g., "How might we reduce onboarding friction?"). Opens solution space without prescribing answers.
+* **Assumption Mapping**: A prioritization technique where assumptions are plotted on a 2×2 matrix of criticality (how bad if wrong) vs. evidence (how confident). High-risk, low-evidence assumptions become research or spike priorities.
 * **Lean Canvas**: A 1-page business plan template that helps deconstruct a business idea into its key assumptions (e.g., Problem, Solution, Key Metrics, Value Proposition).
 * **Event Storming**: A workshop-based method to quickly find out what is happening in the domain of a software program, focusing on domain events (sticky notes) rather than data structures.
 * **Impact Mapping**: A strategic planning technique that visually connects business goals (Why) to actors (Who), impacts (How), and deliverables (What).
 * **Story Mapping**: A technique to visualize the product backlog in two dimensions: user journey (horizontal) and release slices/priority (vertical).
 * **C4 Model**: An "abstraction-first" approach to software architecture diagramming consisting of Context, Container, Component, and Code diagrams.
 * **Strangler Fig Pattern**: A software migration pattern where a legacy system is gradually replaced by a new system by intercepting traffic at the edge and routing it to the new system, feature by feature, until the old system can be safely decommissioned.
+* **User Journey Map**: A visualization of the end-to-end experience a user has with a product, mapping their actions, thoughts, emotions, and touchpoints across each stage. Used to identify pain points and moments of truth.
 
 ## Documents & Artifacts
 

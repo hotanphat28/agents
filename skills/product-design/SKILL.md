@@ -18,6 +18,12 @@ Master designer across all disciplines, platforms, and visual styles. Produce wo
 
 **Reference:** `DESIGN-PRINCIPLES.md` (core design rules) and `GLOSSARY.md` (domain terminology). Load on demand.
 
+## Role in the Skill Chain
+This skill works standalone or as part of a multi-skill flow:
+* **From product-analyze**: Receives throwaway HTML/Tailwind prototypes (from the Functional tab) and evolves them into production-ready designs. Treat these prototypes as *intent sketches* — they show layout and content structure, but need real visual design (hierarchy, spacing, tokens, states, responsive behavior).
+* **To product-develop**: Hands off finalized design specs (screens, components, tokens, states) for coded implementation.
+* **Standalone**: Works directly when the user asks for design work without prior analysis.
+
 ## Core Principles
 * **Intentional** — every element earns its place
 * **Style-versatile** — match aesthetic to brief (minimalist → brutalist → organic)
@@ -48,6 +54,54 @@ Modes stack. Detect from context.
 3. **Design** — execute using mode-appropriate methods
 4. **Validate** — share key deliverables for feedback before polish
 5. **Verify** — hierarchy, spacing, color, typography, contrast, states, scalability
+
+### Step 1: Brief (Practical Interview)
+Fill this canvas from the user's input (ask what's missing):
+
+| Dimension | Question | Example answer |
+|---|---|---|
+| **What** | What are we designing? (screen, flow, system, brand) | "A dashboard showing loan portfolio overview" |
+| **Who** | Who uses this? Role, tech literacy, frequency of use | "Case handlers, daily, intermediate skill" |
+| **Where** | Platform, device, context of use | "Desktop web, embedded in Akkuro shell" |
+| **Why** | What problem does this solve or what outcome does it enable? | "Reduce time to assess loan health from 10min to 30sec" |
+| **Constraints** | Existing brand, design system, components, accessibility needs | "Must use Akkuro design system, WCAG AA" |
+| **Maturity** | Greenfield or enhancement? What exists already? | "Enhancement — adding a tab to existing screen" |
+
+If the user provides a vague brief (e.g., "design a login page"), probe for **Who** and **Why** before proceeding — those two dimensions shape every design decision.
+
+### Step 2: Direction (Style Exploration)
+Before any pixel work, establish the visual direction:
+
+1. **Collect reference signals** — Ask: "Show me 2-3 examples of designs you like (or describe the feeling you want)." Screenshots, URLs, or adjectives all work.
+2. **Define the mood** — Pick 3 adjectives that describe the target feel (e.g., "professional, calm, modern" or "bold, playful, energetic").
+3. **Propose a direction** — Present a brief style note covering: color mood, typography choice, density level (compact/balanced/spacious), visual weight (light/medium/heavy).
+4. **Get explicit sign-off** — "Does this direction feel right before I detail it out?" Don't proceed to full design without this.
+
+For ambiguous cases, present 2 contrasting directions (e.g., "Option A: minimal and airy" vs. "Option B: dense and data-forward") and let the user choose.
+
+### Step 3: Design (Execution)
+Execute using mode-appropriate methods. Core technique for all modes:
+* **Structure first** — layout, grid, content zones. No colors or polish yet.
+* **Content real** — use realistic data/copy, never lorem ipsum for client-visible work.
+* **States complete** — every interactive element has: default, hover, active, disabled, error, loading, empty states.
+* **Responsive considered** — at minimum note how it adapts at mobile and desktop breakpoints.
+
+### Step 4: Validate (Structured Feedback)
+Don't just "share for feedback" — guide the reviewer:
+
+1. **Frame the review** — Tell the reviewer what to focus on: "I'd like feedback on the information hierarchy and whether the most important data is prominent enough."
+2. **Ask specific questions** — e.g., "Is the primary action obvious?", "Does the layout feel cluttered or balanced?", "Any data missing for your workflow?"
+3. **Separate cosmetic from structural** — Structural feedback (layout, flow, missing elements) gets addressed now. Cosmetic feedback (color tweaks, font size adjustments) gets batched for polish.
+
+### Step 5: Verify (Design QA Checklist)
+Before handoff, verify:
+* [ ] Visual hierarchy reads correctly (squint test — most important elements stand out)
+* [ ] Spacing is consistent (follows the 8pt grid)
+* [ ] Color contrast passes WCAG AA (4.5:1 text, 3:1 UI elements)
+* [ ] All interactive states defined (hover, focus, active, disabled, error)
+* [ ] Touch targets ≥ 44×44px on mobile
+* [ ] Typography scale is consistent (no arbitrary sizes)
+* [ ] Component naming matches design system conventions
 
 ### Greenfield
 Full discovery → define design language → core screens first → expand → document decisions
@@ -99,4 +153,4 @@ Provide deliverables appropriate to mode:
 5. **Platform adaptation**: How UI adapts across PC, console, mobile
 6. **Accessibility spec**: Colorblind, subtitle, motor accessibility features
 
-**Handoff**: Pass design deliverables to dev skill for coded implementation.
+**Handoff**: Pass design deliverables to product-develop for coded implementation. For requirements gathering or analysis → route to product-analyze. For testing the implemented design → route to product-quality.
