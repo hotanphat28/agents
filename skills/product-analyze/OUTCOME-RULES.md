@@ -62,6 +62,8 @@ What this epic delivers and why (value proposition). No implementation details.
 ## Context
 > As a [role], I want [feature], so that [benefit].
 
+Why this story is needed, what problem it solves, and how it fits into the larger epic or initiative. Include any relevant background information, con`straints, or dependencies.
+
 ## Description
 One high-level paragraph — outcome and value focused. What and Why, not How.
 
