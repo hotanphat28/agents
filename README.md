@@ -28,8 +28,6 @@ Single-agent, multi-skill architecture. Skills auto-activate from context.
 │   │   ├── SKILL.md
 │   │   ├── GLOSSARY.md
 │   │   └── TESTING-PATTERNS.md
-│   ├── mentor-feynman/       Richard Feynman persona
-│   ├── mentor-james/         James Clear persona
 │   ├── mentor-naval/         Naval Ravikant persona
 │   ├── mentor-tony/          Tony Robbins persona + goals template
 │   ├── lyric-video-maker/    HyperFrames lyric videos
@@ -49,17 +47,3 @@ Single-agent, multi-skill architecture. Skills auto-activate from context.
 | mentor-* | "Hey [Name]", coaching, goals, habits, wealth |
 | lyric-video-maker | lyric video, music video with synced text |
 | podcast-video-maker | podcast video, kinetic typography, audio clip reel |
-
-## Flows
-
-1. **Full Feature** — analyze → design → develop → quality
-2. **Document** — analyze (self-renders 6-tab HTML)
-3. **UI Redesign** — design → develop
-4. **Architecture** — analyze (Outcome layer) → develop
-5. **Security Review** — analyze (Review use case)
-6. **Goals** — mentor → develop (render goals.html)
-7. **Tickets** — analyze (Outcome layer)
-8. **Mentoring** — mentor-*
-9. **App Prototyping** — design + develop
-10. **API Schema** — retrieve-lending-schema
-11. **Testing** — quality
