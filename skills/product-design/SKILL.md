@@ -1,28 +1,18 @@
 ---
 name: product-design
-description: >
-  Universal design skill — creates anything visual from scratch or evolves existing designs.
-  Covers UI/UX (web + mobile + responsive), brand identity (logo, visual identity, brand guidelines),
-  design systems (tokens, components, documentation), icon & illustration systems, game UI/UX design,
-  and marketing/presentation design. Supports all design styles — minimalist, brutalist, corporate, playful, luxury, editorial, retro,
-  futuristic, organic. Guarantees accessibility (WCAG 2.2 AA), platform conventions (iOS HIG, Material 3),
-  and production-ready handoff. Activate for design direction, wireframe, prototype, redesign, logo, brand,
-  design system, icon set, illustration style, theme, or any visual design task.
-  For coded implementation, hand off to dev skill.
+description: Create visual designs, UI/UX, brand identity, and design systems.
+disable-model-invocation: true
 ---
 
 # Designer
-Master designer across all disciplines, platforms, and visual styles. Produce work that is intentional, aesthetically excellent, and rooted in solid design principles.
 
 **Default tool: Pencil.dev** (via MCP tools for `.pen` files). Tool-agnostic — can also produce specs for Figma, Sketch, or written specs.
 
 **Reference:** `DESIGN-PRINCIPLES.md` (core design rules) and `GLOSSARY.md` (domain terminology). Load on demand.
 
 ## Role in the Skill Chain
-This skill works standalone or as part of a multi-skill flow:
-* **From product-analyze**: Receives throwaway HTML/Tailwind prototypes (from the Functional tab) and evolves them into production-ready designs. Treat these prototypes as *intent sketches* — they show layout and content structure, but need real visual design (hierarchy, spacing, tokens, states, responsive behavior).
-* **To product-develop**: Hands off finalized design specs (screens, components, tokens, states) for coded implementation.
-* **Standalone**: Works directly when the user asks for design work without prior analysis.
+* **From product-analyze**: Receive throwaway HTML/Tailwind prototypes and evolve them into production-ready designs. Treat these prototypes as *intent sketches*.
+* **To product-develop**: Hand off finalized design specs (screens, components, tokens, states) for coded implementation.
 
 ## Core Principles
 * **Intentional** — every element earns its place
@@ -82,7 +72,7 @@ For ambiguous cases, present 2 contrasting directions (e.g., "Option A: minimal 
 ### Step 3: Design (Execution)
 Execute using mode-appropriate methods. Core technique for all modes:
 * **Structure first** — layout, grid, content zones. No colors or polish yet.
-* **Content real** — use realistic data/copy, never lorem ipsum for client-visible work.
+* **Content real** — use realistic data/copy for client-visible work.
 * **States complete** — every interactive element has: default, hover, active, disabled, error, loading, empty states.
 * **Responsive considered** — at minimum note how it adapts at mobile and desktop breakpoints.
 
@@ -137,7 +127,7 @@ For Akkuro/Fyndoo app screens, pair the akkuro theme with the matching layout te
 3. Build structure first → fill content zones → screenshot and verify
 4. `mcp_pencil_snapshot_layout` with `problemsOnly: true`
 
-**Rules:** Name every frame/layer descriptively. Group in parent frames. Use `fill_container` for responsive. Never guess node IDs. One frame per state.
+**Rules:** Name every frame/layer descriptively. Group in parent frames. Use `fill_container` for responsive. Determine exact node IDs before modifying. One frame per state.
 
 ## Output Contract
 Provide deliverables appropriate to mode:

@@ -1,23 +1,16 @@
 ---
 name: product-quality
-description: >
-  Software testing and quality assurance skill — owns all testing from strategy to automation code.
-  Covers testing pyramid, unit/integration/E2E testing, TDD, BDD, contract testing, security testing (SAST/DAST, dependency scanning), test doubles,
-  coverage strategy, quality gates, and test anti-patterns. Writes test code directly (not just advises).
-  Supports all languages and frameworks. Activate when the user asks to write tests, define test strategy,
-  set coverage targets, implement test automation, debug flaky tests, design E2E suites, scan for vulnerabilities, or anything
-  related to testing patterns and software quality verification. Even if the user just says "test this",
-  "add tests", or "check for security flaws" — this skill handles it.
+description: Define test strategy, write test automation, and verify software quality.
+disable-model-invocation: true
 ---
 
 # Quality & Testing
-Own all testing concerns — from high-level strategy down to writing test automation code.
 
 ##Core principles
 * **Test at the right level** — follow the testing pyramid; push tests as low as possible.
 * **Tests are production code** — same standards for readability, maintainability, naming.
 * **Fast feedback** — unit tests in milliseconds, integration in seconds, E2E only for critical paths.
-* **Deterministic** — no flakiness. Tests that sometimes fail are worse than no tests.
+* **Deterministic** — ensure tests are deterministic. Tests that sometimes fail are worse than no tests.
 * **Coverage is a tool, not a goal** — measure to find gaps, not to hit arbitrary numbers.
 * **Online Fact Verification:** When researching online, cross-reference and verify the factual truth of any testing methodology or pattern across multiple reliable sources before adopting it. Fall back to `GLOSSARY.md` if unverified.
 
@@ -65,7 +58,7 @@ Detect the project stack and apply idiomatic testing tools:
 * [ ] No test interdependencies (isolated, repeatable)
 * [ ] Mocks only at boundaries (external services, DB, clock)
 * [ ] Coverage targets met for the layer
-* [ ] No flaky patterns (fixed sleeps, shared state, order dependence)
+* [ ] Avoid flaky patterns by using explicit waits, isolated state, and order independence
 * [ ] Dependencies and codebase scanned for vulnerabilities (SAST/SCA)
 * [ ] No exposed secrets or hardcoded credentials
 * [ ] CI-ready (can run headless, no manual steps)
@@ -105,7 +98,7 @@ A flaky test (passes sometimes, fails sometimes) is worse than no test — it er
 2. **Check for these common causes:**
    * **Shared mutable state** — tests writing to the same DB/file/variable without cleanup → isolate with fresh state per test
    * **Time dependency** — test uses `DateTime.Now` or real clocks → inject a fake clock
-   * **Race condition** — async operations not properly awaited → add explicit waits/assertions on state, never `Thread.Sleep`
+   * **Race condition** — async operations not properly awaited → add explicit waits/assertions on state instead of fixed sleeps
    * **Order dependency** — test passes only when run after another test → find and remove the hidden setup
    * **External service** — real HTTP calls in tests → mock the boundary
 3. **Fix the root cause** — Don't just add retries. Retries hide the problem; they don't fix it.

@@ -1,5 +1,4 @@
 # Glossary of Terms
-This document provides a single source of truth for terminology used within the `product-develop` skill, ensuring context accuracy and preventing hallucinations.
 
 ## Architecture & APIs
 * **REST (Representational State Transfer)**: An architectural style for designing networked applications based on stateless, client-server communication, usually over HTTP.

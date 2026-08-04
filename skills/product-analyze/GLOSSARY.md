@@ -1,7 +1,5 @@
 # Glossary of Terms
 
-This document provides a single source of truth for terminology used within the `product-analyze` skill, ensuring context accuracy and preventing hallucinations.
-
 ## Frameworks
 
 * **Human-Centred Design (HCD)**: A design and management framework that develops solutions by involving the human perspective in all steps of the problem-solving process. Rooted in empathy, it ensures products are desirable, viable, and feasible. Closely related to Design Thinking.

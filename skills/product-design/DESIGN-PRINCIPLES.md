@@ -1,5 +1,4 @@
 # Design Principles & Theory
-Core foundations, fundamentals, and best practices that every design decision should be grounded in.
 
 ## 1. Visual Hierarchy
 

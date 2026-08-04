@@ -1,5 +1,4 @@
 # Glossary of Terms
-This document provides a single source of truth for terminology used within the `product-quality` skill, ensuring context accuracy and preventing hallucinations.
 
 ## Testing Strategies
 * **Testing Pyramid**: A framework that dictates you should have a large number of fast, isolated Unit Tests at the bottom, fewer Integration Tests in the middle, and a very small number of brittle E2E (UI) tests at the top.

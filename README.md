@@ -1,6 +1,6 @@
 # .agents — Personal AI Skill System
 
-Single-agent, multi-skill architecture. Skills auto-activate from context.
+Single-agent, multi-skill architecture. Skills are user-invoked for precise control and focus.
 
 ## Structure
 
@@ -37,9 +37,9 @@ Single-agent, multi-skill architecture. Skills auto-activate from context.
     └── hotanphat28/          Personal brand theme
 ```
 
-## Skill Routing
+## Skill Invocation
 
-| Skill | Activates on |
+| Skill | Suggested Use Cases |
 |---|---|
 | product-analyze | analysis, roadmap, PRD, stories, ADR, report, proposal, plan, security review |
 | product-design | wireframe, prototype, UI, brand, design system, theme |

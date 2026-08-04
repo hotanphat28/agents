@@ -1,8 +1,6 @@
 # Outcome Rules
-This document contains all rules for synthesizing Analysis into concrete Deliverables (Documents, Architecture Decisions, and Jira Work Items).
 
 ## Document Rendering
-This skill renders its own HTML output — no dev skill dependency. The **[Business Analyst]** persona handles all documentation and ticket synthesis.
 
 ### Process
 1. Determine use case (Analysis / Proposal / Plan / Review) and depth (Light / Standard / Deep)
@@ -23,7 +21,7 @@ After the **[Business Analyst]** drafts the outcomes, the **[Product Owner]** an
 ## JIRA Conventions
 
 ### Jira Refinement Safety Protocol
-**MANDATORY**: Before making any external API calls to create or update Jira tickets, the **[Business Analyst]** MUST output a Markdown preview of all proposed tickets for user approval.
+Preview all proposed tickets in Markdown for user approval before making external API calls.
 
 ### Title Patterns
 * Epic: `[Capability noun phrase]`
@@ -32,10 +30,10 @@ After the **[Business Analyst]** drafts the outcomes, the **[Product Owner]** an
 * Task: `[Imperative action]`
 * Sub-task: `[Verb] [specific action]` (Always include "Update changelog")
 
-*Rules:* Max 80 chars. No ticket IDs. Start with capital letter. No trailing period.
+*Rules:* Max 80 chars. Omit ticket IDs. Start with capital letter. Omit trailing periods.
 
 ### Text Formatting
-JIRA Cloud uses Atlassian Document Format (ADF) rendered via Markdown. Wiki markup is NOT supported.
+Use only Atlassian Document Format (ADF) rendered via Markdown.
 * Use standard markdown for bold, italic, code blocks, lists.
 * Semantic Styling: Use **bold** for entities/components, ***bold+italic*** for APIs/topics, `code` for fields/variables.
 * Links: Use full browse URLs (e.g., `[PROJ-123](https://[instance].atlassian.net/browse/PROJ-123)`).
@@ -48,7 +46,7 @@ JIRA Cloud uses Atlassian Document Format (ADF) rendered via Markdown. Wiki mark
 Business context, link to parent initiative or OKR.
 
 ## Description
-What this epic delivers and why (value proposition). No implementation details.
+Describe only value proposition and outcomes.
 
 ## Acceptance criteria
 * Verifiable criteria that define "epic complete". Outcome-based.
@@ -65,7 +63,7 @@ What this epic delivers and why (value proposition). No implementation details.
 Why this story is needed, what problem it solves, and how it fits into the larger epic or initiative. Include any relevant background information, con`straints, or dependencies.
 
 ## Description
-One high-level paragraph — outcome and value focused. What and Why, not How.
+Describe only value proposition and outcomes in one paragraph.
 
 ## Acceptance criteria
 * Verifiable criteria that define "story complete". Outcome-based.

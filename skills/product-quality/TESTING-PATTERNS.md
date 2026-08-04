@@ -1,5 +1,4 @@
 # Testing Patterns & Strategy
-Core testing foundations, principles, and best practices for all platforms and languages.
 
 ## 1. Testing Pyramid
 ```

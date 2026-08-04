@@ -1,5 +1,4 @@
 # Glossary of Terms
-This document provides a single source of truth for terminology used within the `product-design` skill, ensuring context accuracy and preventing hallucinations.
 
 ## Styles & Principles
 * **Brutalism**: A digital design style characterized by a raw, unpolished, and intentionally stark aesthetic, often featuring bold typography, clashing colors, and lack of refined spacing.

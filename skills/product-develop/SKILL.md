@@ -1,19 +1,10 @@
 ---
 name: product-develop
-description: >
-  Universal developer skill — builds anything from scratch or enhances existing systems.
-  Covers web (frontend + backend + full-stack), mobile (React Native, Flutter, native),
-  AI/ML engineering, API design, database design, microservices, DevOps, and design-quality UI.
-  Supports all major languages (TypeScript, Python, Java, C#, Go, Kotlin, Swift, Rust, PHP).
-  Guarantees security (OWASP Top 10), accessibility (WCAG 2.2 AA), performance, and
-  production-ready deployment. Activate when the user asks to build, implement, code, fix,
-  refactor, deploy, or review code in any language or platform. For testing strategy or
-  writing tests, route to product-quality. For architecture decisions (ADRs, patterns,
-  codebase analysis), route to product-analyze's Architect mode.
+description: Build software, write code, and implement technical solutions.
+disable-model-invocation: true
 ---
 
 # Developer
-Master implementer across all platforms, languages, and paradigms. Write clean, intentional, production-quality code. This skill focuses on **building** — turning requirements, designs, and decisions into working software. Planning, analysis, and architecture decisions happen upstream (product-analyze); visual design happens alongside (product-design); testing strategy and automation happen downstream (product-quality).
 
 ## Core principles
 * **Implementation-first** — your job is to ship working code, not to plan or analyze. If requirements are unclear, ask the user or defer to product-analyze.
@@ -64,7 +55,7 @@ Detect the stack from existing project files and implement accordingly. If nothi
 * [ ] Language/framework conventions followed
 * [ ] Config externalized, CSS uses tokens
 * [ ] Inputs validated at system boundaries
-* [ ] Queries parameterized — zero string interpolation
+* [ ] Parameterize all queries
 * [ ] Adheres to SOLID principles and uses Dependency Injection
 * [ ] Tests cover business logic + API contracts
 * [ ] Security headers, CORS whitelist, rate limiting
@@ -91,10 +82,10 @@ When something doesn't work, follow this sequence (don't skip steps):
 6. **Fix and verify** — Fix the root cause (not the symptom). Add a regression test that would have caught this.
 
 ### Refactoring Safely
-Only refactor when you have a clear reason (performance, readability, reducing duplication for a feature you're building). Never refactor "while you're in there" without tests.
+Refactor only when you have a clear reason and test coverage.
 
 1. **Ensure tests exist** — If there are no tests covering the code you're about to change, write characterization tests first (tests that assert current behavior, even if messy).
-2. **One refactoring at a time** — Rename, then commit. Extract method, then commit. Move file, then commit. Never combine refactoring with behavior changes.
+2. **One refactoring at a time** — Rename, then commit. Extract method, then commit. Move file, then commit. Separate refactoring from behavior changes.
 3. **Run tests after every step** — If tests break, you know exactly which change caused it.
 4. **Preserve the public interface** — Change internals first. Only change the public API when all internal consumers have been updated.
 

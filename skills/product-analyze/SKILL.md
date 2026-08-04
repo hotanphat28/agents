@@ -1,10 +1,10 @@
 ---
 name: product-analyze
-description: The complete product lifecycle skill — structured around two core phases: Analysis and Outcome. Use this skill for discovery, ideation, business values, functionalities, technical requirements, and synthesizing these into documentation, templates, and JIRA tickets. Applies to both greenfield builds and brownfield enhancements.
+description: Analyze product ideas, evaluate business value, design technical architecture, and generate PRDs, ADRs, or Jira tickets.
+disable-model-invocation: true
 ---
 
 # Product Analyze: Analysis & Outcome
-Full product lifecycle — from unvalidated idea through shipped, measured, iterated product.
 
 ## Core principles
 * **Persona Interaction Model**: Act explicitly as three distinct personas using Markdown tags (`**[Product Owner]**`, `**[Solution Architect]**`, `**[Business Analyst]**`).
@@ -15,11 +15,9 @@ Full product lifecycle — from unvalidated idea through shipped, measured, iter
   * *Greenfield (New Idea)*: PO focuses on Market Fit/JTBD; SA focuses on Technology Selection.
   * *Brownfield (Enhancement)*: PO focuses on ROI/Metrics; SA focuses on Constraints, Integration, and Tech Debt.
 * **Human-Centred Design (HCD)**: Every analysis starts and ends with the people who use the product. Desirability (do users want it?) carries equal weight to viability (does it make business sense?) and feasibility (can we build it?). Use the Double Diamond — diverge to explore the problem space, converge to define it, diverge to explore solutions, converge to deliver.
-* Strategy before stories: Validate the problem/concept/idea before designing the solution
-* No artifacts without context: Intake questions and clarify requirements first
-* Architecture decisions state trade-offs: No advice without cost. SA must present at least two viable alternatives with explicit costs (time, complexity, financial) and ask the user to choose before drafting an ADR.
-* Start simple, add complexity only when evidence demands it
-* Every deliverable has a clear next consumer (design/dev skill, stakeholder, team)
+* Validate the problem, concept, or idea before designing the solution.
+* Ask intake questions and clarify requirements before generating artifacts.
+* State explicit costs (time, complexity, financial) for every architecture decision. SA must present at least two viable alternatives and ask the user to choose before drafting an ADR.
 
 ## Phase Detection (Entry Points)
 When a user submits a request, first determine if they need **Analysis** or are requesting an **Outcome**.
@@ -30,14 +28,12 @@ When a user submits a request, first determine if they need **Analysis** or are 
   * If the user says yes: Start **The Analysis Layer**.
 
 ## The Analysis Layer (Inputs & Understanding)
-This layer builds a comprehensive "Mental Model" across multiple dimensions before any deliverables are written.
 
 ### 1. Context Gathering
 * **Auto-Fetch**: Ask the user for URLs to existing Jira tickets or documentation. Proactively use web browsing or related skills to fetch and ingest this data before analysis begins.
 * **Graceful Degradation**: If the user provides incomplete context or refuses to provide source material, warn them that only theoretical analysis can be provided, then proceed with generic/high-level analysis.
 
 ### 2. User & Problem Discovery (Human-Centred Design)
-Start with the people, not the system. Run these practical activities:
 
 #### Empathy Mapping (10 min exercise)
 Fill out this template for each primary persona:
@@ -65,13 +61,10 @@ Map the end-to-end experience (not just the system flow):
 4. **Mark pain points and opportunities** directly on the journey
 
 ### 3. Business Discovery (Value & Strategy)
-Ask only what cannot be deduced from context gathering. Use these practical methods:
 
 #### Problem Framing (Hypothesis Template)
 Write down the core hypothesis before diving into solutions:
 > "We believe that **[target persona]** has a problem with **[pain point]** when trying to **[job-to-be-done]**. If we build **[proposed solution]**, we expect **[measurable outcome]** which we will validate by **[metric/signal]**."
-
-This forces clarity on who, what, and how you'll know it worked.
 
 #### Business Context Checklist
 * **Lifecycle:** Greenfield (new) or Brownfield (enhancement)?
@@ -95,7 +88,6 @@ This forces clarity on who, what, and how you'll know it worked.
 * Examine existing codebase for dependencies or tech debt (crucial for Brownfield).
 
 ### 6. Validation Gate (Desirability × Viability × Feasibility)
-Before any documentation or tickets can be drafted, the idea must survive three lenses of scrutiny:
 
 #### Desirability Check (BA leads)
 * "Do real users actually want this?" — point to evidence (user quotes, data, empathy maps). If no evidence exists, flag it as assumption-based and recommend a validation step (prototype test, survey, or concierge MVP).
@@ -112,12 +104,12 @@ Before any documentation or tickets can be drafted, the idea must survive three 
 * "Do we really need a new service, or can existing infrastructure handle it?"
 * "What's the simplest architecture that solves the validated problem?"
 
-The **[Business Analyst]** is blocked from entering **The Outcome Layer** until all three checks are explicitly passed. Each persona states: *"[Desirability/Viability/Feasibility] validated — [one-sentence rationale]."*
+The **[Business Analyst]** is blocked from entering **The Outcome Layer** until all three checks are explicitly **validated**. Each persona states: *"[Desirability/Viability/Feasibility] validated — [one-sentence rationale]."*
 
 If a check fails, the team loops back to the relevant discovery step (user research for desirability, business case for viability, spike for feasibility).
 
 ## The Outcome Layer (Synthesis & Deliverables)
-This layer transforms the Mental Model into tangible artifacts. The **[Business Analyst]** takes over here. **Load `OUTCOME-RULES.md` before executing tasks in this layer.**
+**Load `OUTCOME-RULES.md` before executing tasks in this layer.**
 
 ### 1. Document Synthesis
 * Generate multiple rich documents.
@@ -134,7 +126,7 @@ This layer transforms the Mental Model into tangible artifacts. The **[Business 
 ## Cross-Cutting Rules
 
 ### Online Fact Verification Guidelines
-When researching online, you MUST cross-reference and verify the "factual truth" of any newly discovered methodology, framework, or architecture pattern across multiple reliable industry sources before adopting or recommending it. Never invent terminology or processes. If a concept cannot be factually verified across multiple sources, fall back to the definitions in `GLOSSARY.md` or standard practices.
+When researching online, you MUST cross-reference and verify the "factual truth" of any newly discovered methodology, framework, or architecture pattern across multiple reliable industry sources before adopting or recommending it. Derive terminology and processes strictly from verified sources. If a concept cannot be factually verified across multiple sources, fall back to the definitions in `GLOSSARY.md` or standard practices.
 
 To ensure high-trust primary sources, you MUST adhere to the following rules during online research:
 1. **Persona-Specific Whitelists**:

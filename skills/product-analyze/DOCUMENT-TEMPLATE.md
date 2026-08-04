@@ -1,8 +1,5 @@
 # Document Template Library
 
-This file contains the base HTML shell and component snippets for generating product documentation. 
-The **[Business Analyst]** persona uses these snippets to dynamically assemble output documents.
-
 ## General Guidance
 All generated documents MUST follow a 6-dimension tabbed structure to ensure consistent coverage, unless specifically generating a 'Light' mode document (linear, no tabs).
 1. **Context**: Problem/vision, scope, stakeholders, personas.
