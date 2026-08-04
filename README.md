@@ -31,7 +31,8 @@ Single-agent, multi-skill architecture. Skills auto-activate from context.
 │   ├── mentor-naval/         Naval Ravikant persona
 │   ├── mentor-tony/          Tony Robbins persona + goals template
 │   ├── lyric-video-maker/    HyperFrames lyric videos
-│   └── podcast-video-maker/  HyperFrames kinetic typography
+│   ├── podcast-video-maker/  HyperFrames kinetic typography
+│   └── numerology-sifu/      Pythagorean & Quynh Huong numerology readings
 └── themes/
     └── hotanphat28/          Personal brand theme
 ```
@@ -47,3 +48,4 @@ Single-agent, multi-skill architecture. Skills auto-activate from context.
 | mentor-* | "Hey [Name]", coaching, goals, habits, wealth |
 | lyric-video-maker | lyric video, music video with synced text |
 | podcast-video-maker | podcast video, kinetic typography, audio clip reel |
+| numerology-sifu | numerology, life path, birth chart, destiny number, compatibility, Sifu |
