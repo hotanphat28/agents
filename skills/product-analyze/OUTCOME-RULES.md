@@ -68,28 +68,34 @@ Describe only value proposition and outcomes in one paragraph.
 ## Acceptance criteria
 * Verifiable criteria that define "story complete". Outcome-based.
 
-### Business rules
-* Business rules and constraints that apply to this story.
+### Functional specifications (optional, add if the story needs logic or rules)
+* Functional design, logic, and rules that must be followed to meet the acceptance criteria.
 
-### Non-functional requirements
+### Technical specifications (optional, add if the story is too technical)
+* Technical design, architecture, and implementation details that must be followed to meet the acceptance criteria.
+
+### Non-functional requirements (optional, add if needed)
 * Performance, security, reliability, maintainability, usability, etc.
+
+## Out of scope
+* Explicitly excluded items.
 
 ## How to test?
 * What to test and expected outcomes (happy path and edge cases)
 
-## Assumptions (optional)
+## Assumptions (optional, add if needed)
 * Assumptions made during analysis and design.
 
-## Decisions (optional)
+## Decisions (optional, add if needed)
 * Key decisions with rationale
 
-## Dependencies (optional)
+## Dependencies (optional, add if needed)
 * External dependencies and potential risks
 
-## Risks / Impacts (optional)
+## Risks / Impacts (optional, add if needed)
 * Potential risks and impacts on other systems or teams
 
-## Notes / Q&A (optional)
+## Notes / Q&A (optional, add if needed)
 * Additional notes and questions & answers.
 ```
 
