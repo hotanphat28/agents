@@ -32,7 +32,10 @@ Single-agent, multi-skill architecture. Skills are user-invoked for precise cont
 │   ├── mentor-tony/          Tony Robbins persona + goals template
 │   ├── lyric-video-maker/    HyperFrames lyric videos
 │   ├── podcast-video-maker/  HyperFrames kinetic typography
-│   └── numerology-sifu/      Pythagorean & Quynh Huong numerology readings
+│   ├── numerology-sifu/      Pythagorean & Quynh Huong numerology readings
+│   │   ├── SKILL.md
+│   │   ├── PYTHAGOREAN-RULES.md
+│   │   └── evals/
 └── themes/
     └── hotanphat28/          Personal brand theme
 ```

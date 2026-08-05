@@ -1,0 +1,22 @@
+[
+  {"query": "hey, my life feels like a mess right now. i was born on 1993-02-14 and my name is Sarah Lee. what does my life path say about my current situation?", "should_trigger": true},
+  {"query": "can you draw my birth chart grid? date is 1988-12-05", "should_trigger": true},
+  {"query": "my partner (1990-07-22) and i (1991-03-10) keep arguing. what is our stress number?", "should_trigger": true},
+  {"query": "i want to know my destiny number.", "should_trigger": true},
+  {"query": "do a numerology reading for me, Nguyen Thi B, born 2000-01-01", "should_trigger": true},
+  {"query": "what are the 4 pinnacles for a person born on 1985-06-30?", "should_trigger": true},
+  {"query": "xem giúp mình thần số học theo kiểu Quỳnh Hương nhé, mình sinh ngày 1995-10-10", "should_trigger": true},
+  {"query": "i have the 1-5-9 arrow, what does it mean?", "should_trigger": true},
+  {"query": "is my soul urge number compatible with my boyfriend's?", "should_trigger": true},
+  {"query": "calculate my personal year for 2024. i was born 1982-04-18", "should_trigger": true},
+  {"query": "what is the pythagorean theorem formula?", "should_trigger": false},
+  {"query": "i need help calculating my taxes for last year, my birth date is 1990-01-01", "should_trigger": false},
+  {"query": "what does the number 7 mean in python programming?", "should_trigger": false},
+  {"query": "can you draw a 3x3 grid using matplotlib?", "should_trigger": false},
+  {"query": "read my horoscope for today, i'm an aries.", "should_trigger": false},
+  {"query": "how do i calculate the sum of an array in javascript?", "should_trigger": false},
+  {"query": "is there an arrow pointing right in this image?", "should_trigger": false},
+  {"query": "what's the best path to become a software engineer?", "should_trigger": false},
+  {"query": "i want to name my baby, what are popular names in 2024?", "should_trigger": false},
+  {"query": "do you know the stress testing tools for a nodejs server?", "should_trigger": false}
+]

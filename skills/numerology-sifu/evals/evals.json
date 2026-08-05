@@ -1,0 +1,26 @@
+{
+  "skill_name": "numerology-sifu",
+  "evals": [
+    {
+      "id": 1,
+      "eval_name": "standard-reading-valid-date",
+      "prompt": "I want a numerology reading. My name is Nguyen Van A and my birth date is 1990-05-15.",
+      "expected_output": "The Sifu should output a summary table with Life Path 3, Attitude 11/2 (or 2), Day of Birth 6. It should display the 3x3 grid and the Arrows of Individuality (e.g., Willpower 4-5-6), and a disclaimer about free will. It should NOT output the full reading immediately, but ask what to explore.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "eval_name": "ambiguous-date-validation",
+      "prompt": "Can you give me a reading? I was born on May 12, 1985.",
+      "expected_output": "The Sifu MUST pause and ask the user to clarify the date in the exact YYYY-MM-DD format before doing any calculations.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "eval_name": "relationship-compatibility",
+      "prompt": "I am John Doe born 1980-01-20 and my partner is Jane Doe born 1982-11-04. Are we compatible?",
+      "expected_output": "The Sifu should calculate the charts for both. It MUST calculate the Stress Number (Attitude of John - Attitude of Jane) and provide insights based on their intersecting arrows and life paths.",
+      "files": []
+    }
+  ]
+}
