@@ -112,6 +112,31 @@ Use this shell as the foundation for the document. Insert the generated content 
 </div>
 ```
 
+### Concept Architecture Card
+```html
+<div class="card">
+    <h3 style="margin-top: 0; margin-bottom: 16px; font-size: 20px;">Concept Architecture</h3>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="padding: 16px; border-left: 4px solid var(--primary); background: #FAFAFA; border-radius: 0 var(--radius) var(--radius) 0;">
+            <strong style="color: var(--bg-dark); display: block; margin-bottom: 4px;">Foundation (The Why)</strong>
+            <span style="color: var(--muted); font-size: 14px;">{{VALUE_PROP_AND_HYPOTHESIS}}</span>
+        </div>
+        <div style="padding: 16px; border-left: 4px solid #10B981; background: #FAFAFA; border-radius: 0 var(--radius) var(--radius) 0;">
+            <strong style="color: var(--bg-dark); display: block; margin-bottom: 4px;">Framework (The What)</strong>
+            <span style="color: var(--muted); font-size: 14px;">{{DOMAIN_MODELS_AND_ENTITIES}}</span>
+        </div>
+        <div style="padding: 16px; border-left: 4px solid #F59E0B; background: #FAFAFA; border-radius: 0 var(--radius) var(--radius) 0;">
+            <strong style="color: var(--bg-dark); display: block; margin-bottom: 4px;">Plumbing & Wiring (Logic & Flow)</strong>
+            <span style="color: var(--muted); font-size: 14px;">{{BUSINESS_RULES_AND_JOURNEYS}}</span>
+        </div>
+        <div style="padding: 16px; border-left: 4px solid #8B5CF6; background: #FAFAFA; border-radius: 0 var(--radius) var(--radius) 0;">
+            <strong style="color: var(--bg-dark); display: block; margin-bottom: 4px;">Facade & Interior (The Experience)</strong>
+            <span style="color: var(--muted); font-size: 14px;">{{UI_UX_AND_TOUCHPOINTS}}</span>
+        </div>
+    </div>
+</div>
+```
+
 ### Reference Table
 ```html
 <table class="ref-table">

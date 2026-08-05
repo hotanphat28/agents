@@ -7,7 +7,7 @@ Single-agent, multi-skill architecture. Skills are user-invoked for precise cont
 ```
 .agents/
 ├── skills/
-│   ├── product-analyze/      Analysis & Outcome engine (DDD, Architecture, HTML docs)
+│   ├── product-analyze/      Analysis & Outcome engine (Concept Architecture, DDD, HTML docs)
 │   │   ├── SKILL.md
 │   │   ├── GLOSSARY.md
 │   │   ├── ARCHITECT.md
@@ -44,7 +44,7 @@ Single-agent, multi-skill architecture. Skills are user-invoked for precise cont
 
 | Skill | Suggested Use Cases |
 |---|---|
-| product-analyze | analysis, roadmap, PRD, stories, ADR, report, proposal, plan, security review |
+| product-analyze | analysis, concept architecture, roadmap, PRD, stories, ADR, report, proposal, plan, security review |
 | product-design | wireframe, prototype, UI, brand, design system, theme |
 | product-develop | build, implement, code, fix, refactor, deploy |
 | product-quality | test, coverage, TDD, BDD, test automation, security testing, vulnerabilities |

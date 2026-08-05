@@ -75,6 +75,11 @@ Write down the core hypothesis before diving into solutions:
 * **Cost of Inaction:** What happens if we do nothing? (Quantify where possible: lost revenue, churn rate, support cost)
 
 ### 4. Functional & Logic Analysis
+* **Concept Architecture Mapping**: Unify the PO, SA, and BA analysis into a cohesive structure using the Architectural Metaphor:
+  * **Foundation**: The "Why" (Value prop, Core Hypothesis).
+  * **Framework**: The "What" (Domain Models, Core Entities).
+  * **Plumbing & Wiring**: The "Logic" & "Flow" (Business rules, Integrations, Edge cases).
+  * **Facade & Interior**: The "Experience" (UI/UX, Touchpoints).
 * **Ubiquitous Language**: Identify and agree on domain terminology with stakeholders to ensure the code and docs use the exact same language.
 * Map the AS-IS state vs TO-BE state (Gap Analysis).
 * Define core business rules, journey maps, and edge cases.

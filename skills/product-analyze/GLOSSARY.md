@@ -12,6 +12,11 @@
 
 ## Methods
 
+* **Concept Architecture Mapping**: A structural methodology that treats a product concept like constructing a building, ensuring alignment across strategy, technology, and design. It divides a concept into four layers:
+  * **Foundation**: The "Why" (Value proposition, Core Hypothesis, JTBD). Owned by Product Owner.
+  * **Framework**: The "What" (Domain Models, Bounded Contexts, Core Entities). Owned by Solution Architect.
+  * **Plumbing & Wiring**: The "Logic & Flow" (Business rules, State transitions, Edge cases, Integrations). Owned jointly by SA and BA.
+  * **Facade & Interior**: The "Experience" (UI/UX Mockups, Empathy Mapping, Touchpoints). Owned by Business Analyst.
 * **Empathy Map**: A collaborative tool that captures what a user Says, Thinks, Does, and Feels to build shared understanding of user needs. Used at the start of any HCD process to ground decisions in real user behaviour.
 * **"How Might We" (HMW)**: A framing technique that turns pain points into open-ended opportunity questions (e.g., "How might we reduce onboarding friction?"). Opens solution space without prescribing answers.
 * **Assumption Mapping**: A prioritization technique where assumptions are plotted on a 2×2 matrix of criticality (how bad if wrong) vs. evidence (how confident). High-risk, low-evidence assumptions become research or spike priorities.
