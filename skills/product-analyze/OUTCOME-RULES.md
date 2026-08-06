@@ -41,21 +41,6 @@ Use only Atlassian Document Format (ADF) rendered via Markdown.
 
 ## Work Item Templates
 
-### Epic Template
-```markdown
-## Context
-Business context, link to parent initiative or OKR.
-
-## Description
-Describe only value proposition and outcomes.
-
-## Acceptance criteria
-* Verifiable criteria that define "epic complete". Outcome-based.
-
-## Out of scope
-* Explicitly excluded items.
-```
-
 ### Initiative Template
 ```markdown
 ## Context
@@ -65,7 +50,7 @@ Strategic theme or OKR this initiative rolls up to, and why it matters now.
 The problem or opportunity, and the expected business outcome.
 
 ## Scope & requirements
-* High-level capabilities or epics this initiative covers.
+High-level capabilities or epics this initiative covers.
 
 ## Acceptance criteria
 * Verifiable criteria that define "initiative complete". Outcome-based.
@@ -80,12 +65,27 @@ The problem or opportunity, and the expected business outcome.
 Target start/end or milestone dates, and key dependencies.
 ```
 
+### Epic Template
+```markdown
+## Context
+Why this epic is needed, what problem it solves, and how it fits into the larger initiative. Include any relevant background information, constraints, or dependencies.
+
+## Description
+Describe only value proposition and outcomes.
+
+## Acceptance criteria
+* Verifiable criteria that define "epic complete". Outcome-based.
+
+## Out of scope
+* Explicitly excluded items.
+```
+
 ### Story Template
 ```markdown
 ## Context
 > As a [role], I want [feature], so that [benefit].
 
-Why this story is needed, what problem it solves, and how it fits into the larger epic or initiative. Include any relevant background information, con`straints, or dependencies.
+Why this story is needed, what problem it solves, and how it fits into the larger epic. Include any relevant background information, constraints, or dependencies.
 
 ## Description
 Describe only value proposition and outcomes in one paragraph.
@@ -106,7 +106,7 @@ Describe only value proposition and outcomes in one paragraph.
 * Explicitly excluded items.
 
 ## How to test?
-* What to test and expected outcomes (happy path and edge cases)
+* What to test and expected outcomes (happy path and edge cases). Should be clear, measurable, and testable. Should be step-by-step instructions for QA or developers to verify the story is complete and meets the acceptance criteria.
 
 ## Assumptions (optional, add if needed)
 * Assumptions made during analysis and design.
@@ -160,36 +160,48 @@ Factual description of what is broken
 ### Design Doc Template
 ```markdown
 ## Decisions log
+Log of decisions made during design, with links to supporting discussions or tickets. Accordion-style collapsible sections are preferred for each decision, with a summary line and a "Details" section for the rationale, alternatives considered, and any supporting diagrams or links.
 
 ## Meeting notes
+List of all meettings, workshops, or design reviews that contributed to the design doc. Include date, attendees, and a link to the meeting notes or recording. Accordion-style collapsible sections are preferred for each meeting, with a summary line and a "Details" section for the notes or recording link.
 
-## Notes / Q&A
+## Q&A
+List of Q&A sessions or discussions that contributed to the design doc. Include date, attendees, and a link to the Q&A notes or recording. Accordion-style collapsible sections are preferred for each Q&A, with a summary line and a "Details" section for the notes or recording link.
 
 ## Context and scope
+Why and what this design doc is needed, what problem it solves, and how it fits into the larger initiative. Include any relevant background information, constraints, or dependencies.
 
-### In scope - Acceptance criteria
+### In scope (Acceptance criteria)
+* Explicitly included items, with rationale for why they are in scope. Include acceptance criteria that are clear, measurable, and testable.
 
 ### Out of scope
+* Explicitly excluded items, with rationale for why they are out of scope.
 
 ## Customer journey
 
 ### Happy flow
+Step by step description of the happy flow, including any relevant screenshots, mockups, or diagrams. Include expected behavior and any known workarounds.
 
 ### Edge cases
+Step by step description of the edge case, including any relevant screenshots, mockups, or diagrams. Include expected behavior and any known workarounds.
 
-## Workflow
+## Workflow diagram
+User can decide what diagram format to use (Draw.io, Mermaid, etc.) and whether to embed or attach the diagram. Match the page's diagram style to any theme the team already uses for the product.
 
-## System content diagram
+## System context diagram
+User can decide what diagram format to use (Draw.io, Mermaid, etc.) and whether to embed or attach the diagram. Match the page's diagram style to any theme the team already uses for the product.
 
 ## Sequence diagram(s)
+User can decide what diagram format to use (Draw.io, Mermaid, etc.) and whether to embed or attach the diagram. Match the page's diagram style to any theme the team already uses for the product.
 
 ## Domain model (Bounded Contexts, Aggregates) / Component diagram(s)
+User can decide what diagram format to use (Draw.io, Mermaid, etc.) and whether to embed or attach the diagram. Match the page's diagram style to any theme the team already uses for the product.
 
 ## Technical changes
-|Components|Changes|JIRA Tickets|
+| Components | Changes | JIRA Tickets |
 |---|---|---|
-|	|	|	|
+|  |  |  |
 
 ## Known risks and mitigations
-
+List of known risks and mitigations, with rationale for why they are risks and how they will be mitigated. Include any relevant screenshots, mockups, or diagrams. Accordion-style collapsible sections are preferred for each risk, with a summary line and a "Details" section for the mitigation plan and any supporting diagrams or links.
 ```
