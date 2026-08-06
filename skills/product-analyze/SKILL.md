@@ -125,7 +125,7 @@ If a check fails, the team loops back to the relevant discovery step (user resea
 * Identify target-state patterns (e.g., Strangler Fig, Event-Driven) and migration sequences.
 
 ### 3. Work Item Execution
-* Slice functional analysis into Epics, Stories, Bugs, or Tasks.
+* Slice functional analysis into Initiatives, Epics, Stories, Bugs, or Tasks.
 * Strictly follow the Jira Refinement Safety Protocol and state machine (defined in `OUTCOME-RULES.md`).
 
 ## Cross-Cutting Rules

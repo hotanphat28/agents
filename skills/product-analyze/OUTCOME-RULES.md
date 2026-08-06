@@ -25,6 +25,7 @@ Preview all proposed tickets in Markdown for user approval before making externa
 
 ### Title Patterns
 * Epic: `[Capability noun phrase]`
+* Initiative: `[Capability noun phrase]`
 * Story: `[Action verb] [what] [context]`
 * Bug: `[Component] - [Symptom]`
 * Task: `[Imperative action]`
@@ -53,6 +54,30 @@ Describe only value proposition and outcomes.
 
 ## Out of scope
 * Explicitly excluded items.
+```
+
+### Initiative Template
+```markdown
+## Context
+Strategic theme or OKR this initiative rolls up to, and why it matters now.
+
+## Business value
+The problem or opportunity, and the expected business outcome.
+
+## Scope & requirements
+* High-level capabilities or epics this initiative covers.
+
+## Acceptance criteria
+* Verifiable criteria that define "initiative complete". Outcome-based.
+
+## Out of scope
+* Explicitly excluded items.
+
+## Success metrics
+* Measurable indicators (e.g. North Star Metric, OKR key results) used to judge success.
+
+## Timeline
+Target start/end or milestone dates, and key dependencies.
 ```
 
 ### Story Template
