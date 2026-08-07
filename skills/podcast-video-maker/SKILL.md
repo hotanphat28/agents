@@ -6,6 +6,9 @@ description: Author a "podcast"-style audio-driven kinetic typography video in H
 # Podcast Video Maker
 This skill defines the architecture and workflow for building a **Podcast Video** — an audio-driven HyperFrames composition featuring kinetic typography (subtitles that slam/drift in sync with the audio), a running timer, and ambient background visuals, without relying on actual video footage.
 
+## IMPORTANT: Bypass Planning Mode
+When invoked to build or modify a podcast video, **DO NOT create an implementation plan**. The workflow is standardized enough that you should simply execute the task, build the composition, and present the final walkthrough directly without waiting for user approval.
+
 ## Core Architectural Rules
 When authoring a podcast video, you must **strictly** follow these rules to ensure the composition captures correctly in headless preview and rendering engines:
 
@@ -29,6 +32,15 @@ tl.to(timerObj, {
 }, 0);
 ```
 
+### Kinetic Typography & Safe Timings
+When animating short chunks of text (e.g., 3-5 words) that may have very short durations (e.g., under 0.6 seconds), standard fixed durations (like `0.4s` enter) will cause negative durations or overlapping GSAP tweens.
+Always calculate safe durations based on the chunk's actual duration:
+```javascript
+const enterDur = Math.min(0.4, duration * 0.4);
+const exitDur = Math.min(0.2, duration * 0.2);
+const driftDur = duration - enterDur - exitDur;
+```
+
 ### Visibility Animation Ban
 * Do *NOT* animate `visibility: hidden` to `visible` (in CSS or GSAP `tl.set`). The headless screenshot engine struggles with `visibility` toggles during rapid seeking, causing elements to remain permanently invisible in the final render.
 * Use `opacity: 0` in CSS, and animate/set `opacity: 1` when the element should appear.
@@ -44,12 +56,6 @@ if (window.self === window.top) { // Not inside an iframe
 }
 ```
 
-## Reference Implementation
-A perfect reference implementation is provided in the `examples/` directory:
-
-* `examples/index.html` - The core composition featuring the ambient background, global overlays, timer dummy tween, and synchronous GSAP initialization.
-* `examples/captions.js` - The synchronous global variable assignment pattern for bilingual subtitle data.
-
 ## Execution Workflow
 When tasked with building a podcast video, execute the following steps precisely:
 
@@ -58,7 +64,8 @@ Run `npx hyperframes init <name> --example blank` to set up the base project dir
 
 ### Step 2: Setup Assets and Data
 1. Ensure the primary audio file is placed in the workspace (e.g., `assets/audio.mp3`).
-2. Structure the subtitle data as a global `window.CAPTIONS` array and write it to `captions.js`. Ensure it includes bilingual translations (e.g., Vietnamese/English) line-by-line as requested by the user, preserving the timestamps. Ensure `captions.js` is loaded synchronously in the HTML.
+2. Transcribe the audio. **Always use word-level timestamps** (e.g., `--word_timestamps True` if using whisper) and chunk the output into small bite-sized groups (3-5 words max). This is crucial to prevent massive blocks of text from overflowing the kinetic typography layout.
+3. Structure the subtitle data as a global `window.CAPTIONS` array and write it to `captions.js`. Ensure it includes bilingual translations (e.g., Vietnamese/English). Ensure translations are natural and contextual, not rigid machine translations of isolated 5-word chunks. Ensure `captions.js` is loaded synchronously in the HTML.
 
 ### Step 3: Profanity Filter
 Review the `captions.js` text and censor any profanity to ensure the content is safe for social media publishing.
@@ -66,7 +73,7 @@ Review the `captions.js` text and censor any profanity to ensure the content is 
 ### Step 4: Build Composition
 Build the kinetic typography and ambient background in `index.html`.
 
-* **Crucial:** Apply all the **Core Architectural Rules** from above (Synchronous Timeline, Dummy Timer Tween, Opacity instead of Visibility).
+* **Crucial:** Apply all the **Core Architectural Rules** from above (Synchronous Timeline, Dummy Timer Tween, Safe GSAP Timings, Opacity instead of Visibility).
 * Ensure the `captions.js` is loaded synchronously before your timeline script.
 * Build the CSS, layout, and GSAP animations.
 
