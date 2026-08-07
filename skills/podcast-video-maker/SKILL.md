@@ -7,21 +7,19 @@ description: Author a "podcast"-style audio-driven kinetic typography video in H
 This skill defines the architecture and workflow for building a **Podcast Video** — an audio-driven HyperFrames composition featuring kinetic typography (subtitles that slam/drift in sync with the audio), a running timer, and ambient background visuals, without relying on actual video footage.
 
 ## IMPORTANT: Bypass Planning Mode
-When invoked to build or modify a podcast video, **DO NOT create an implementation plan**. The workflow is standardized enough that you should simply execute the task, build the composition, and present the final walkthrough directly without waiting for user approval.
+When invoked to build or modify a podcast video, execute the task directly. Build the composition and present the final walkthrough directly without waiting for user approval.
 
 ## Core Architectural Rules
-When authoring a podcast video, you must **strictly** follow these rules to ensure the composition captures correctly in headless preview and rendering engines:
+Follow these rules to ensure the composition captures correctly in headless preview and rendering engines:
 
-### Synchronous Timeline Registration
-* Do *NOT* use `window.addEventListener("load")` or `composition-ready` to trigger timeline building. The HyperFrames engine may fire its interception events before the browser completes parsing, causing the timeline registration to silently fail.
-* Build the timeline and execute `window.__timelines["main"] = tl` **synchronously** at the very bottom of your `<script>` tag.
-* Ensure all subtitle data is loaded synchronously (e.g., `<script src="captions.js"></script>`).
-* Do *NOT* use `await fetch("captions.json")`, as it defers timeline construction and breaks the engine.
+### Video Dimensions
+You must **always** build the video as a **long-form horizontal video (1920x1080)**. Do not generate vertical (9:16) podcast clips. Set the root composition dimensions to `1920x1080` (e.g., `width: 1920px; height: 1080px;` and `data-width="1920" data-height="1080"`).
 
-### Robust Timer Implementation (Dummy Tween)
-The HyperFrames capture engine scrubs the timeline (`tl.seek()`) rather than letting the global clock tick normally. Relying on an `onUpdate` callback attached directly to the main timeline configuration will fail and leave the timer frozen.
+### Synchronous Timeline
+Build the timeline and execute `window.__timelines["main"] = tl` **synchronously** at the very bottom of your `<script>` tag. The HyperFrames engine fires its interception events quickly; async triggers will cause the timeline registration to silently fail. Load all subtitle data synchronously (e.g., `<script src="captions.js"></script>`). Rely on synchronous loading instead of deferred construction like `await fetch()`.
 
-Create a dummy object `const timerObj = { t: 0 }` and tween it explicitly on the timeline:
+### Dummy Tween Timer
+The HyperFrames capture engine scrubs the timeline (`tl.seek()`) rather than letting the global clock tick normally. An `onUpdate` callback attached directly to the main timeline configuration will leave the timer frozen. Create a dummy object `const timerObj = { t: 0 }` and tween it explicitly on the timeline:
 
 ```javascript
 tl.to(timerObj, {
@@ -32,21 +30,19 @@ tl.to(timerObj, {
 }, 0);
 ```
 
-### Kinetic Typography & Safe Timings
-When animating short chunks of text (e.g., 3-5 words) that may have very short durations (e.g., under 0.6 seconds), standard fixed durations (like `0.4s` enter) will cause negative durations or overlapping GSAP tweens.
-Always calculate safe durations based on the chunk's actual duration:
+### Safe Kinetic Timings
+Standard fixed durations (like `0.4s` enter) will cause negative durations or overlapping GSAP tweens when animating short chunks of text. Calculate safe durations based on the chunk's actual duration:
 ```javascript
 const enterDur = Math.min(0.4, duration * 0.4);
 const exitDur = Math.min(0.2, duration * 0.2);
 const driftDur = duration - enterDur - exitDur;
 ```
 
-### Visibility Animation Ban
-* Do *NOT* animate `visibility: hidden` to `visible` (in CSS or GSAP `tl.set`). The headless screenshot engine struggles with `visibility` toggles during rapid seeking, causing elements to remain permanently invisible in the final render.
-* Use `opacity: 0` in CSS, and animate/set `opacity: 1` when the element should appear.
+### Opacity for Visibility
+Use `opacity: 0` to hide elements, and animate/set `opacity: 1` when they should appear. The headless screenshot engine struggles with visibility toggles during rapid seeking.
 
 ### Direct Browser Fallback
-Since the `window.__hyperframes` API is only injected by the preview server or CLI renderer, include a fallback block at the end of `initAnimation()`. This ensures the timeline auto-plays if the user opens the HTML file directly in their browser:
+Since the `window.__hyperframes` API is only injected by the preview server or CLI renderer, include a fallback block at the end of `initAnimation()` to ensure the timeline auto-plays if the user opens the HTML file directly in their browser:
 
 ```javascript
 if (window.self === window.top) { // Not inside an iframe
@@ -64,8 +60,16 @@ Run `npx hyperframes init <name> --example blank` to set up the base project dir
 
 ### Step 2: Setup Assets and Data
 1. Ensure the primary audio file is placed in the workspace (e.g., `assets/audio.mp3`).
-2. Transcribe the audio. **Always use word-level timestamps** (e.g., `--word_timestamps True` if using whisper) and chunk the output into small bite-sized groups (3-5 words max). This is crucial to prevent massive blocks of text from overflowing the kinetic typography layout.
-3. Structure the subtitle data as a global `window.CAPTIONS` array and write it to `captions.js`. Ensure it includes bilingual translations (e.g., Vietnamese/English). Ensure translations are natural and contextual, not rigid machine translations of isolated 5-word chunks. Ensure `captions.js` is loaded synchronously in the HTML.
+2. Transcribe the audio using **word-level timestamps** and chunk the output into small bite-sized groups (3-5 words max) to prevent text overflow.
+3. Identify the main language of the audio (support is limited to English and Vietnamese). Transcribe the main language first, then translate the captions to the other language. Ensure translations are natural and contextual, not rigid machine translations of isolated chunks.
+4. Structure the subtitle data as a global `window.CAPTIONS` array in `captions.js`, using explicit keys for both languages:
+```javascript
+window.CAPTIONS = [
+  { textEN: "Hello world", textVN: "Chào thế giới", duration: 2.5 },
+  // ...
+];
+```
+5. Load `captions.js` synchronously in the HTML.
 
 ### Step 3: Profanity Filter
 Review the `captions.js` text and censor any profanity to ensure the content is safe for social media publishing.
@@ -73,14 +77,13 @@ Review the `captions.js` text and censor any profanity to ensure the content is 
 ### Step 4: Build Composition
 Build the kinetic typography and ambient background in `index.html`.
 
-* **Crucial:** Apply all the **Core Architectural Rules** from above (Synchronous Timeline, Dummy Timer Tween, Safe GSAP Timings, Opacity instead of Visibility).
-* Ensure the `captions.js` is loaded synchronously before your timeline script.
-* Build the CSS, layout, and GSAP animations.
+1. **Styling Bilingual Captions:** Apply distinct visual hierarchies to the languages. Vietnamese text must **always** be styled with a larger golden appearance (e.g., `font-size: 1.5em; color: #FFC90E;`), while English text must **always** be white and smaller (e.g., `font-size: 1em; color: #FFFFFF;`).
+2. Build the CSS, layout, and GSAP animations using the safe opacity and timing rules defined above.
 
 ### Step 5: Lint and Preview
 1. Run `npx hyperframes@latest lint` (if applicable) or verify the timeline locally.
 2. Run `npx hyperframes preview` to open preview mode.
 
 ### Step 6: Clean Up and Generate Social Media Description
-* Clean up not used folders and files after completed redering (user will request rendering manually)
+* Clean up unused folders and files after completed rendering (user will request rendering manually).
 * After cleaning up, generate highly concise, YouTube-optimized Titles and Descriptions (in both English and Vietnamese) based on the context of the podcast video. Present this to the user.
