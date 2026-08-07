@@ -1,9 +1,14 @@
 import json
 import re
 import difflib
+import unicodedata
+
+def strip_accents(s):
+    return ''.join(c for c in unicodedata.normalize('NFD', s)
+                   if unicodedata.category(c) != 'Mn')
 
 def clean_word(w):
-    return re.sub(r'[^\w\s]', '', w).lower().strip()
+    return re.sub(r'[^\w\s]', '', strip_accents(w)).lower().strip()
 
 with open("assets/lyric.md", "r", encoding="utf-8") as f:
     lines = [l.strip() for l in f.read().splitlines() if l.strip() and not l.startswith('[') and not l.startswith('#')]
@@ -32,29 +37,46 @@ for tag, i1, i2, j1, j2 in matcher.get_opcodes():
             if line_timings[line_idx]["end"] is None or t_end > line_timings[line_idx]["end"]:
                 line_timings[line_idx]["end"] = t_end
 
-# Interpolate missing lines backwards
-for i in range(len(lines)-2, -1, -1):
-    if line_timings[i]["start"] is None and line_timings[i+1]["start"] is not None:
-        line_timings[i]["end"] = line_timings[i+1]["start"] - 0.2
-        line_timings[i]["start"] = max(0, line_timings[i]["end"] - 3.0)
+# Interpolate unmatched lines using blocks
+unmatched_blocks = []
+current_block = []
+num_lines = len(lines)
+for i in range(num_lines):
+    if line_timings[i]['start'] is None:
+        current_block.append(i)
+    else:
+        if current_block:
+            unmatched_blocks.append(current_block)
+            current_block = []
+if current_block:
+    unmatched_blocks.append(current_block)
 
-# Interpolate missing lines forwards
-for i in range(1, len(lines)):
-    if line_timings[i]["start"] is None and line_timings[i-1]["end"] is not None:
-        line_timings[i]["start"] = line_timings[i-1]["end"] + 0.2
-        line_timings[i]["end"] = line_timings[i]["start"] + 3.0
-
-if line_timings[0]["start"] is None:
-    line_timings[0]["start"], line_timings[0]["end"] = 0, 3.0
+for block in unmatched_blocks:
+    first_idx = block[0]
+    last_idx = block[-1]
+    
+    t_start = 0 if first_idx == 0 else (line_timings[first_idx - 1]['end'] or line_timings[first_idx - 1]['start'] + 3.0)
+    t_end = t_start + len(block) * 3.0 if last_idx == num_lines - 1 else line_timings[last_idx + 1]['start']
+    
+    if t_end < t_start: t_end = t_start
+    
+    gap = t_end - t_start
+    dur = gap / len(block)
+    if dur > 4.0: dur = 4.0 # Cap duration
+    
+    for k, idx in enumerate(block):
+        line_timings[idx]['start'] = t_start + k * dur
+        line_timings[idx]['end'] = line_timings[idx]['start'] + dur
 
 aligned_lines = [{'text': al['text'], 'start': al['start'], 'end': al['end']} for al in line_timings.values()]
 
 for i in range(1, len(aligned_lines)):
-    if aligned_lines[i]['start'] < aligned_lines[i-1]['end']:
-        aligned_lines[i-1]['end'] = aligned_lines[i]['start'] - 0.1
-    if aligned_lines[i]['start'] < aligned_lines[i-1]['start']:
+    if aligned_lines[i]['start'] <= aligned_lines[i-1]['start']:
         aligned_lines[i]['start'] = aligned_lines[i-1]['start'] + 0.1
-        aligned_lines[i]['end'] = max(aligned_lines[i]['start'] + 0.1, aligned_lines[i]['end'])
+    if aligned_lines[i-1]['end'] > aligned_lines[i]['start']:
+        aligned_lines[i-1]['end'] = aligned_lines[i]['start']
+    if aligned_lines[i]['end'] <= aligned_lines[i]['start']:
+        aligned_lines[i]['end'] = aligned_lines[i]['start'] + 0.1
 
 duration = transcript[-1]['end'] + 5 if transcript else 200
 
@@ -131,16 +153,18 @@ for i, al in enumerate(aligned_lines):
         words[-1] = f"<em>{words[-1]}</em>"
     formatted_text = " ".join(words)
     
+    dur = min(0.4, max(0.05, (end - start) / 3))
+    
     lyrics_html += f'        <div id="{line_id}" class="lyric-line">{formatted_text}</div>\n'
     
-    lyrics_gsap += f'      tl.fromTo("#{line_id}", {{ opacity: 0, scale: 0.95, y: 20 }}, {{ opacity: 1, scale: 1, y: 0, duration: 0.8, ease: "power2.out" }}, {start:.2f});\n'
-    lyrics_gsap += f'      tl.to("#{line_id}", {{ opacity: 0, scale: 1.05, y: -20, duration: 0.8, ease: "power2.in" }}, {end:.2f});\n'
+    lyrics_gsap += f'      tl.fromTo("#{line_id}", {{ opacity: 0, scale: 0.95, y: 20 }}, {{ opacity: 1, scale: 1, y: 0, duration: {dur:.2f}, ease: "power2.out", overwrite: "auto" }}, {start:.2f});\n'
+    lyrics_gsap += f'      tl.to("#{line_id}", {{ opacity: 0, scale: 1.05, y: -20, duration: {dur:.2f}, ease: "power2.in", overwrite: "auto" }}, {end - dur:.2f});\n'
 
 repeat_album = int(duration / 6)
 
 final_html = html_template.replace("{DURATION}", f"{duration:.2f}") \
     .replace("{COVER_IMAGE}", "cover.png") \
-    .replace("{SONG_FILE}", "song.mp3") \
+    .replace("{SONG_FILE}", "song.wav") \
     .replace("{LYRICS_HTML}", lyrics_html) \
     .replace("{LYRICS_GSAP}", lyrics_gsap) \
     .replace("{REPEAT_ALBUM}", str(repeat_album))
