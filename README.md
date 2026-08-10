@@ -36,8 +36,10 @@ Single-agent, multi-skill architecture. Skills are user-invoked for precise cont
 │   │   ├── SKILL.md
 │   │   ├── PYTHAGOREAN-RULES.md
 │   │   └── evals/
+├── design-system/
+│   └── hotanphat28/          Personal brand design system specifications (DESIGN.md)
 └── themes/
-    └── hotanphat28/          Personal brand theme
+    └── hotanphat28.md        Personal brand theme
 ```
 
 ## Skill Invocation
