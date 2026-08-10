@@ -1,6 +1,6 @@
 ---
 name: product-analyze
-description: Analyze product ideas, evaluate business value, design technical architecture, and generate PRDs, ADRs, or Jira tickets.
+description: Use this skill whenever a user wants to explore a new feature, analyze a product idea, evaluate business value, or write Jira tickets, PRDs, or ADRs. Always trigger this for product management and architecture tasks.
 disable-model-invocation: true
 ---
 
@@ -81,10 +81,10 @@ Write down the core hypothesis before diving into solutions:
   * **Plumbing & Wiring**: The "Logic" & "Flow" (Business rules, Integrations, Edge cases).
   * **Facade & Interior**: The "Experience" (UI/UX, Touchpoints).
 * **Ubiquitous Language**: Identify and agree on domain terminology with stakeholders to ensure the code and docs use the exact same language.
-* Map the AS-IS state vs TO-BE state (Gap Analysis).
-* Define core business rules, journey maps, and edge cases.
-* Identify constraints (Timeline, budget, compliance).
-* **Assumption Mapping**: List every assumption the team is making. Rank each by (1) how critical it is if wrong, and (2) how much evidence supports it. High-risk, low-evidence assumptions become research priorities or spike candidates.
+* **Gap Analysis**: Output a summary comparing the AS-IS state vs TO-BE state.
+* **Business Logic Specification**: Produce a bulleted list containing at least 3 explicit core business rules and 2 edge cases.
+* **Constraint Mapping**: Output a specific list of constraints (Timeline, budget, compliance).
+* **Assumption Mapping**: Output a ranked list of every assumption the team is making (ranked by criticality if wrong and evidence). High-risk, low-evidence assumptions become research priorities or spike candidates.
 
 ### 5. Technical Context (Lightweight Architect Scan)
 * **Autonomous Codebase Exploration**: The **[Solution Architect]** must proactively use tools to explore the project directory, analyze dependencies, and map out the architecture.
@@ -150,11 +150,13 @@ Should have the following diagram types when possible:
 * **Component Diagrams** for system architecture and dependencies
 * **Domain Models** for data structures and relationships
 
-#### Hierarchy (in order of preference)
+#### Prefer list
 1. SVG embedded within HTML
-2. Draw.io (if MCP server is available)
-3. Mermaid
-4. PlantUML
+2. PlantUML
+
+#### Per request of user
+1. Draw.io
+2. Mermaid
 
 #### Theming
 All diagrams MUST apply and match the theme used for the HTML documents (e.g., matching colors and fonts).

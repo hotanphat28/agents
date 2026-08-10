@@ -31,7 +31,7 @@ Preview all proposed tickets in Markdown for user approval before making externa
 * Task: `[Imperative action]`
 * Sub-task: `[Verb] [specific action]` (Always include "Update changelog")
 
-*Rules:* Max 80 chars. Omit ticket IDs. Start with capital letter. Omit trailing periods.
+*Rules:* Limit titles to 80 characters. Keep titles free of ticket IDs and trailing periods. Begin titles with a capital letter.
 
 ### Text Formatting
 Use only Atlassian Document Format (ADF) rendered via Markdown.
@@ -124,13 +124,13 @@ Describe only value proposition and outcomes in one paragraph.
 * Additional notes and questions & answers.
 ```
 
-Consider checking content of a Story based on INVEST principles:
-* **Independent**: Can be developed and delivered independently of other stories.
-* **Negotiable**: Not a contract; can be changed or rewritten.
-* **Valuable**: Delivers value to the end user or customer.
-* **Estimable**: Can be estimated for size and complexity.
-* **Small**: Small enough to be completed in a single iteration.
-* **Testable**: Acceptance criteria can be verified through tests or demonstrations.
+Apply INVEST principles when drafting a Story:
+* **Independent**: Ensure the story can be developed and delivered without waiting on other stories.
+* **Negotiable**: Frame requirements as goals to be solved rather than strict contracts.
+* **Valuable**: Explicitly state the value delivered to the end user or customer.
+* **Estimable**: Provide enough clarity for the team to estimate size and complexity.
+* **Small**: Keep the scope small enough to complete in a single iteration.
+* **Testable**: Write acceptance criteria that can be explicitly verified through tests or demonstrations.
 
 Best practices for writing a Story:
 * Keep it short, simple and focused on a single outcome.
