@@ -4,7 +4,7 @@
 All generated documents MUST follow a 6-dimension tabbed structure to ensure consistent coverage, unless specifically generating a 'Light' mode document (linear, no tabs).
 1. **Context**: Problem/vision, scope, stakeholders, personas.
 2. **Business**: Impact, metrics, cost-benefit, OKRs.
-3. **Functional**: User flows, requirements, mock-UI prototypes, stories.
+3. **Functional**: User flows, requirements, prototype handoff briefs, stories.
 4. **Technical**: Architecture diagrams, data model, APIs, NFRs.
 5. **Assessment**: Findings, scorecard, risks, tech debt.
 6. **Action**: Roadmap, next steps, migration plan, decisions.
@@ -155,16 +155,19 @@ Use this shell as the foundation for the document. Insert the generated content 
 </table>
 ```
 
-### Mock-UI / Prototype Container
+### Prototype Handoff Brief Container
 ```html
 <div class="card">
-    <h3 style="margin-top: 0;">Mock-UI: {{SCREEN_NAME}}</h3>
+    <h3 style="margin-top: 0;">Prototype Handoff Brief: {{SCREEN_NAME}}</h3>
     <div class="mock-ui">
-        <!-- Use inline styles or Tailwind CSS utility classes (if you include a Tailwind CDN in the head) for the prototype -->
-        <div style="padding: 24px; background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid var(--border);">
-            <h4 style="margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 12px;">{{MOCK_COMPONENT_NAME}}</h4>
-            <!-- Mock inputs, buttons, structural layouts go here -->
-        </div>
+        <!-- This is a written brief for product-develop to build — do NOT render the actual UI here -->
+        <p><strong>Purpose:</strong> {{SCREEN_PURPOSE}}</p>
+        <p><strong>States:</strong> {{STATES_LIST}} (e.g., empty, loading, populated, error)</p>
+        <p><strong>Interactions / JS behavior:</strong> {{INTERACTION_BEHAVIOR}} (what happens on click, submit, hover, validation, etc. — precise enough to build without further clarification)</p>
+        <p><strong>Inputs & validation:</strong> {{INPUTS_AND_VALIDATION}}</p>
+        <p><strong>Data shape:</strong> {{DATA_SHAPE}}</p>
+        <p><strong>Edge cases:</strong> {{EDGE_CASES}}</p>
+        <p><strong>Layout notes:</strong> {{ROUGH_LAYOUT_NOTES}} (optional — bullet list of regions/hierarchy, not a built mockup)</p>
     </div>
 </div>
 ```

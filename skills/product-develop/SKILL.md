@@ -41,7 +41,8 @@ Modes stack. Load reference files on demand when the relevant mode is active.
 * For testing strategy or writing tests → route to **product-quality** skill.
 * For HTML document rendering (analysis, proposal, plan, review) → route to **product-analyze** skill.
 * For security reviews, threat models, launch readiness audits → route to **product-analyze** (Review use case).
-* For visual design, wireframes, design direction, or expanding prototypes → route to **product-design** skill.
+* Receiving a **Prototype Handoff Brief** (Functional tab) from **product-analyze** → build the interactive throwaway prototype here (see "Building an Interactive Prototype from a Handoff Brief" below), after its Alignment Gate has passed.
+* For visual design, wireframes, design direction, or evolving a throwaway prototype into a production-ready design → route to **product-design** skill.
 * For architecture decisions (new service, DB choice, major tech selection) → route to **product-analyze** (Architect mode). Small implementation choices (which library, which pattern within the chosen stack) stay here.
 
 ## Stack Detection
@@ -88,6 +89,15 @@ Refactor only when you have a clear reason and test coverage.
 2. **One refactoring at a time** — Rename, then commit. Extract method, then commit. Move file, then commit. Separate refactoring from behavior changes.
 3. **Run tests after every step** — If tests break, you know exactly which change caused it.
 4. **Preserve the public interface** — Change internals first. Only change the public API when all internal consumers have been updated.
+
+### Building an Interactive Prototype from a Handoff Brief
+Use this when **product-analyze** hands off a Prototype Handoff Brief (Functional tab: screens, states, interactions, inputs/validation, data shape, edge cases).
+
+1. **Read the brief** — every screen, state, interaction, and edge case it lists.
+2. **Alignment Gate (mandatory, before writing code)** — list every open question, ambiguity, gap, or concern about the brief (missing states, unclear interaction, conflicting rule, unspecified data shape, etc.) and present them to the user directly. Keep iterating — ask, get answers, ask follow-ups — until the user explicitly confirms alignment. Never start building on assumptions.
+3. **Build** — implement the throwaway prototype as self-contained HTML/CSS/JS (no build step, no framework unless requested), with real interaction logic: click handlers, form validation, state transitions, conditional rendering — covering every state and edge case in the brief.
+4. **Scope check** — this is a throwaway prototype, not production code; skip tests/security hardening/persistence unless the user asks to promote it.
+5. **Handoff onward** — evolving it into a production-ready, on-brand design → route to **product-design**. Turning it into real product code → continue here with proper architecture, tests, and security.
 
 ### Code Review Mindset
 When reviewing (or self-reviewing before submitting):

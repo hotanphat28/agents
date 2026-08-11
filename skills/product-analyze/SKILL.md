@@ -119,6 +119,8 @@ If a check fails, the team loops back to the relevant discovery step (user resea
 ### 1. Document Synthesis
 * Generate multiple rich documents.
 * Follow the self-contained HTML rendering process (defined in `OUTCOME-RULES.md`) to apply templates and themes.
+* **Prototype Handoff Brief**: When the topic involves user-facing screens, the **[Business Analyst]** does NOT build the prototype. Instead, write a Prototype Handoff Brief in the Functional tab — per screen: purpose, states, interactions/JS behavior (what happens on click/submit/hover/validation), inputs & validation rules, data shape, and edge cases — detailed enough for a developer to build without further clarification.
+* **Alignment Gate**: Before handing the brief to **product-develop**, surface every open question, ambiguity, gap, or conflicting requirement about the screens/interactions as a direct list to the user. Keep iterating — ask, get answers, ask follow-ups — until the user explicitly confirms alignment. Never hand off silently on assumptions.
 
 ### 2. Architecture Decisions
 * Synthesize technical context into ADRs and architectural diagrams.
@@ -145,18 +147,20 @@ To ensure high-trust primary sources, you MUST adhere to the following rules dur
 
 Should have the following diagram types when possible:
 
+* **BPMN Diagrams** for business process flows and decision points
+* **Flowcharts** for system flows and edge cases
 * **Context Diagrams** for system boundaries and external integrations
-* **Sequence Diagrams** for core business flows and edge cases
 * **Component Diagrams** for system architecture and dependencies
+* **Sequence Diagrams** for core business flows and edge cases
 * **Domain Models** for data structures and relationships
 
 #### Prefer list
-1. SVG embedded within HTML
-2. PlantUML
+1. PlantUML rendered in HTML
+2. SVG embedded in HTML
 
 #### Per request of user
-1. Draw.io
-2. Mermaid
+1. Draw.io rendered in HTML
+2. Mermaid rendered in HTML
 
 #### Theming
 All diagrams MUST apply and match the theme used for the HTML documents (e.g., matching colors and fonts).
@@ -169,7 +173,7 @@ All diagrams MUST apply and match the theme used for the HTML documents (e.g., m
 | `ARCHITECT.md` | Detailed tech debt grading matrices and migration sequences | Use standard architecture best practices |
 
 ## Handoff Rules
-* When the analysis produces UI prototypes (Functional tab) → hand off to **product-design** to evolve into production-ready designs.
+* When the analysis produces a **Prototype Handoff Brief** (Functional tab) → hand off to **product-develop** to build the interactive throwaway prototype (HTML/CSS/JS, with real interaction logic) once the Alignment Gate has passed. Route to **product-design** only when the user wants that prototype evolved into a production-ready, on-brand design.
 * When architecture decisions and stories are finalized → hand off to **product-develop** for implementation.
 * When implementation is complete → hand off to **product-quality** for test strategy and automation.
 * When the user asks to **build or code something directly** (not analyze) → route to **product-develop**.

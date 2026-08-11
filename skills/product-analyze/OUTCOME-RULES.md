@@ -8,7 +8,7 @@
 3. Use the fallback inline CSS provided in the shell if custom themes are missing or inaccessible.
 4. Populate **6 mandatory tabs**: Context | Business | Functional | Technical | Assessment | Action
 5. Follow the flexible component guidelines in `DOCUMENT-TEMPLATE.md` to map data to appropriate UI components dynamically.
-6. Include high-fidelity, interactive throwaway prototypes in the **Functional** tab using **HTML/CSS/Tailwind** when the topic involves user-facing screens. Also generate Mermaid/PlantUML diagrams for SA architectural decisions.
+6. For user-facing screens, do NOT build the prototype here — write a **Prototype Handoff Brief** in the **Functional** tab (per screen: purpose, states, interactions/JS behavior, inputs & validation, data shape, edge cases) and hand off to **product-develop** to build the interactive throwaway prototype. Also generate Mermaid/PlantUML diagrams for SA architectural decisions.
 7. Save as `YYYYMMDD-<type>-<topic>.html`
 
 ### Final Review Gate
@@ -18,25 +18,26 @@ After the **[Business Analyst]** drafts the outcomes, the **[Product Owner]** an
 - **Comprehensiveness**: Does this artifact fully solve the validated problem from the Analysis phase?
 *The documents or tickets cannot be considered final until they pass this gate.*
 
+### Prototype Alignment Gate
+When a Prototype Handoff Brief exists, it cannot be handed to **product-develop** until the **[Business Analyst]** has surfaced every open question, ambiguity, or conflicting requirement about the screens/interactions directly to the user and the user has explicitly confirmed alignment. Never build or hand off on assumptions.
+
 ## JIRA Conventions
 
 ### Jira Refinement Safety Protocol
 Preview all proposed tickets in Markdown for user approval before making external API calls.
 
 ### Title Patterns
-* Epic: `[Capability noun phrase]`
 * Initiative: `[Capability noun phrase]`
+* Epic: `[Capability noun phrase]`
 * Story: `[Action verb] [what] [context]`
 * Bug: `[Component] - [Symptom]`
-* Task: `[Imperative action]`
-* Sub-task: `[Verb] [specific action]` (Always include "Update changelog")
 
 *Rules:* Limit titles to 80 characters. Keep titles free of ticket IDs and trailing periods. Begin titles with a capital letter.
 
 ### Text Formatting
 Use only Atlassian Document Format (ADF) rendered via Markdown.
 * Use standard markdown for bold, italic, code blocks, lists.
-* Semantic Styling: Use **bold** for entities/components, ***bold+italic*** for APIs/topics, `code` for fields/variables.
+* Semantic Styling: Use **bold** for entities/components, **_bold+italic_** for APIs/topics, `code` for fields/variables, and ```code blocks``` for code snippets.
 * Links: Use full browse URLs (e.g., `[PROJ-123](https://[instance].atlassian.net/browse/PROJ-123)`).
 
 ## Work Item Templates
@@ -44,22 +45,22 @@ Use only Atlassian Document Format (ADF) rendered via Markdown.
 ### Initiative Template
 ```markdown
 ## Context
-Strategic theme or OKR this initiative rolls up to, and why it matters now.
+Strategic theme or OKR this initiative rolls up to, and why it matters now in one or two paragraphs.
 
 ## Business value
-The problem or opportunity, and the expected business outcome.
+The problem or opportunity, and the expected business outcome in list one-liner format.
 
 ## Scope & requirements
-High-level capabilities or epics this initiative covers.
+High-level capabilities or epics this initiative covers in list one-liner format.
 
 ## Acceptance criteria
-* Verifiable criteria that define "initiative complete". Outcome-based.
+Verifiable criteria that define "initiative complete". Outcome-based. In list one-liner format.
 
 ## Out of scope
-* Explicitly excluded items.
+Explicitly excluded items. In list one-liner format.
 
 ## Success metrics
-* Measurable indicators (e.g. North Star Metric, OKR key results) used to judge success.
+Measurable indicators (e.g. North Star Metric, OKR key results) used to judge success in list one-liner format.
 
 ## Timeline
 Target start/end or milestone dates, and key dependencies.
@@ -68,16 +69,16 @@ Target start/end or milestone dates, and key dependencies.
 ### Epic Template
 ```markdown
 ## Context
-Why this epic is needed, what problem it solves, and how it fits into the larger initiative. Include any relevant background information, constraints, or dependencies.
+Why this epic is needed, what problem it solves, and how it fits into the larger initiative. Include any relevant background information, constraints, or dependencies. One or two paragraphs.
 
 ## Description
 Describe only value proposition and outcomes.
 
 ## Acceptance criteria
-* Verifiable criteria that define "epic complete". Outcome-based.
+Verifiable criteria that define "epic complete". Outcome-based. In list one-liner format.
 
 ## Out of scope
-* Explicitly excluded items.
+Explicitly excluded items. In list one-liner format.
 ```
 
 ### Story Template
@@ -85,13 +86,13 @@ Describe only value proposition and outcomes.
 ## Context
 > As a [role], I want [feature], so that [benefit].
 
-Why this story is needed, what problem it solves, and how it fits into the larger epic. Include any relevant background information, constraints, or dependencies.
+Why this story is needed, what problem it solves, and how it fits into the larger epic. Include any relevant background information, constraints, or dependencies. One or two paragraphs.
 
 ## Description
 Describe only value proposition and outcomes in one paragraph.
 
 ## Acceptance criteria
-* Verifiable criteria that define "story complete". Outcome-based.
+Verifiable criteria that define "story complete". Outcome-based. In list one-liner format.
 
 ### Functional specifications (optional, add if the story needs logic or rules)
 * Functional design, logic, and rules that must be followed to meet the acceptance criteria.
@@ -103,10 +104,10 @@ Describe only value proposition and outcomes in one paragraph.
 * Performance, security, reliability, maintainability, usability, etc.
 
 ## Out of scope
-* Explicitly excluded items.
+Explicitly excluded items. In list one-liner format.
 
 ## How to test?
-* What to test and expected outcomes (happy path and edge cases). Should be clear, measurable, and testable. Should be step-by-step instructions for QA or developers to verify the story is complete and meets the acceptance criteria.
+What to test and expected outcomes (happy path and edge cases). Should be clear, measurable, and testable. Should be step-by-step instructions for QA or developers to verify the story is complete and meets the acceptance criteria.
 
 ## Assumptions (optional, add if needed)
 * Assumptions made during analysis and design.
@@ -140,6 +141,14 @@ Best practices for writing a Story:
 * Collaborate with stakeholders to ensure the story meets their needs and expectations.
 * If it is a technical story, include context and rationale for the technical decision.
 
+Always add the following sub-tasks to a Story:
+* Create test cases
+* Execute test cases
+* Create or update UnitTests
+* Review
+* Merge
+* Demo
+
 ### Bug Template
 ```markdown
 ## Description
@@ -149,8 +158,11 @@ Factual description of what is broken
 1. Step 1
 2. Step 2
 
-## Actual result vs Expected result
-[What happens] vs [What should happen]
+## Actual result
+What happens
+
+## Expected result
+What should happen
 
 ## Environment & Severity
 * Browser/OS/Version
@@ -160,10 +172,14 @@ Factual description of what is broken
 ### Design Doc Template
 ```markdown
 ## Decisions log
-Log of decisions made during design, with links to supporting discussions or tickets. Accordion-style collapsible sections are preferred for each decision, with a summary line and a "Details" section for the rationale, alternatives considered, and any supporting diagrams or links.
+| Date | Who joined? | Decision(s) | JIRA ticket(s) |
+|---|---|---|---|
+|	|   |   |   |
 
 ## Meeting notes
-List of all meettings, workshops, or design reviews that contributed to the design doc. Include date, attendees, and a link to the meeting notes or recording. Accordion-style collapsible sections are preferred for each meeting, with a summary line and a "Details" section for the notes or recording link.
+List of meeting notes which can expand or collapse. Include date, attendees, and a link to the notes or recording. Accordion-style collapsible sections are preferred for each meeting, with a summary line and a "Details" section for the notes or recording link.
+
+YYYY-MM-DD: [Meeting title] - [Attendees]
 
 ## Q&A
 List of Q&A sessions or discussions that contributed to the design doc. Include date, attendees, and a link to the Q&A notes or recording. Accordion-style collapsible sections are preferred for each Q&A, with a summary line and a "Details" section for the notes or recording link.
@@ -172,10 +188,10 @@ List of Q&A sessions or discussions that contributed to the design doc. Include 
 Why and what this design doc is needed, what problem it solves, and how it fits into the larger initiative. Include any relevant background information, constraints, or dependencies.
 
 ### In scope (Acceptance criteria)
-* Explicitly included items, with rationale for why they are in scope. Include acceptance criteria that are clear, measurable, and testable.
+Explicitly included items, with rationale for why they are in scope. Include acceptance criteria that are clear, measurable, and testable. In list one-liner format.
 
 ### Out of scope
-* Explicitly excluded items, with rationale for why they are out of scope.
+Explicitly excluded items, with rationale for why they are out of scope. In list one-liner format.
 
 ## Customer journey
 
@@ -185,22 +201,25 @@ Step by step description of the happy flow, including any relevant screenshots, 
 ### Edge cases
 Step by step description of the edge case, including any relevant screenshots, mockups, or diagrams. Include expected behavior and any known workarounds.
 
-## Workflow diagram
+## Workflow / Flowchart / BPMN diagram
 User can decide what diagram format to use (Draw.io, Mermaid, etc.) and whether to embed or attach the diagram. Match the page's diagram style to any theme the team already uses for the product.
 
 ## System context diagram
 User can decide what diagram format to use (Draw.io, Mermaid, etc.) and whether to embed or attach the diagram. Match the page's diagram style to any theme the team already uses for the product.
 
-## Sequence diagram(s)
+## Sequence diagram
 User can decide what diagram format to use (Draw.io, Mermaid, etc.) and whether to embed or attach the diagram. Match the page's diagram style to any theme the team already uses for the product.
 
-## Domain model (Bounded Contexts, Aggregates) / Component diagram(s)
+## Component diagram
+User can decide what diagram format to use (Draw.io, Mermaid, etc.) and whether to embed or attach the diagram. Match the page's diagram style to any theme the team already uses for the product.
+
+## Domain model diagram
 User can decide what diagram format to use (Draw.io, Mermaid, etc.) and whether to embed or attach the diagram. Match the page's diagram style to any theme the team already uses for the product.
 
 ## Technical changes
 | Components | Changes | JIRA Tickets |
 |---|---|---|
-|  |  |  |
+|   |   |   |
 
 ## Known risks and mitigations
 List of known risks and mitigations, with rationale for why they are risks and how they will be mitigated. Include any relevant screenshots, mockups, or diagrams. Accordion-style collapsible sections are preferred for each risk, with a summary line and a "Details" section for the mitigation plan and any supporting diagrams or links.
