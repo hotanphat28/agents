@@ -158,8 +158,8 @@ Use `/diagram-design` to generate diagrams. if `/diagram-design` is not availabl
 
 1. SVG embedded in HTML
 2. PlantUML rendered in HTML
-3. Draw.io rendered in HTML
-4. Mermaid rendered in HTML
+
+If a digram is generated in a seprated html file, ask for exporting it into SVG or PNG using `/diagram-design`.
 
 #### Theming
 All diagrams MUST apply and match the theme used for the HTML documents (e.g., matching colors and fonts).
