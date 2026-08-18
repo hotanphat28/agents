@@ -60,8 +60,8 @@ Run `npx hyperframes init <name> --example blank` to set up the base project dir
 
 ### Step 2: Setup Assets and Data
 1. Ensure the primary audio file is placed in the workspace (e.g., `assets/audio.mp3`).
-2. Transcribe the audio using **word-level timestamps** and chunk the output into small bite-sized groups (3-5 words max) to prevent text overflow.
-3. Identify the main language of the audio (support is limited to English and Vietnamese). Transcribe the main language first, then translate the captions to the other language. Ensure translations are natural and contextual, not rigid machine translations of isolated chunks.
+2. Transcribe the audio and group the output into **full sentences** rather than short chunks to make translation checking easier.
+3. Identify the main language of the audio (support is limited to English and Vietnamese). Transcribe the main language first, then translate the captions to the other language. Ensure translations are natural and contextual.
 4. Structure the subtitle data as a global `window.CAPTIONS` array in `captions.js`, using explicit keys for both languages:
 ```javascript
 window.CAPTIONS = [
@@ -75,10 +75,12 @@ window.CAPTIONS = [
 Review the `captions.js` text and censor any profanity to ensure the content is safe for social media publishing.
 
 ### Step 4: Build Composition
-Build the kinetic typography and ambient background in `index.html`.
+Build the kinetic typography and ambient background in `index.html`, ensuring it perfectly matches the established podcast brand aesthetic.
 
-1. **Styling Bilingual Captions:** Apply distinct visual hierarchies to the languages. Vietnamese text must **always** be styled with a larger golden appearance (e.g., `font-size: 1.5em; color: #FFC90E;`), while English text must **always** be white and smaller (e.g., `font-size: 1em; color: #FFFFFF;`).
-2. Build the CSS, layout, and GSAP animations using the safe opacity and timing rules defined above.
+1. **Fonts & Background:** Use `Space Grotesk` and `Space Mono` fonts. Set the background to dark `#101010` and include a subtle yellow radial glow (`.ambient-glow`) alongside an animated noise grid (`.ambient-noise`).
+2. **Global Overlays:** Include a top `.metadata-bar` containing `[ REC ]`, the episode title (e.g., `EP.09 — TITLE`), and a tabular monospace timer (`00:00:00:00`). Include the `.podcast-logo` (`hồ tấn phát` with a yellow circle) in the bottom right corner.
+3. **Styling Bilingual Captions:** Vietnamese text must be styled as large, bold, uppercase, and golden (`#FFC90E`) using `Space Grotesk`. English text must be smaller, monospace, uppercase, and muted white (`#A0A0A0`) using `Space Mono`.
+4. **GSAP Animations:** Captions should enter using a "Kinetic Slam" animation (e.g., slamming in from `scale: 3, rotation: -2` to `scale: 1, rotation: 0`), drift slowly, and exit using the safe opacity and timing rules defined above.
 
 ### Step 5: Lint and Preview
 1. Run `npx hyperframes@latest lint` (if applicable) or verify the timeline locally.
