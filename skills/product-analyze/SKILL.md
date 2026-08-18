@@ -154,13 +154,12 @@ Should have the following diagram types when possible:
 * **Sequence Diagrams** for core business flows and edge cases
 * **Domain Models** for data structures and relationships
 
-#### Prefer list
-1. PlantUML rendered in HTML
-2. SVG embedded in HTML
+Use `/diagram-design` to generate diagrams. if `/diagram-design` is not available ask the user to select one of the following list:
 
-#### Per request of user
-1. Draw.io rendered in HTML
-2. Mermaid rendered in HTML
+1. SVG embedded in HTML
+2. PlantUML rendered in HTML
+3. Draw.io rendered in HTML
+4. Mermaid rendered in HTML
 
 #### Theming
 All diagrams MUST apply and match the theme used for the HTML documents (e.g., matching colors and fonts).
