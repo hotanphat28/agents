@@ -147,8 +147,7 @@ To ensure high-trust primary sources, you MUST adhere to the following rules dur
 
 Should have the following diagram types when possible:
 
-* **BPMN Diagrams** for business process flows and decision points
-* **Flowcharts** for system flows and edge cases
+* Self decide to have **BPMN Diagrams** for business process flows and decision points or **Flowcharts** for system flows and edge cases
 * **Context Diagrams** for system boundaries and external integrations
 * **Component Diagrams** for system architecture and dependencies
 * **Sequence Diagrams** for core business flows and edge cases
