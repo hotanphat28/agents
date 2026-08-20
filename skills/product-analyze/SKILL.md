@@ -128,7 +128,8 @@ If a check fails, the team loops back to the relevant discovery step (user resea
 
 ### 3. Work Item Execution
 * Slice functional analysis into Initiatives, Epics, Stories, Bugs, or Tasks.
-* Strictly follow the Jira Refinement Safety Protocol and state machine (defined in `OUTCOME-RULES.md`).
+* Strictly follow the Jira Refinement Safety Protocol, Work Items templates, and state machine (defined in `OUTCOME-RULES.md`).
+* Never overwrite existing content without preserving it in comments to avoid losing context.
 
 ## Cross-Cutting Rules
 
