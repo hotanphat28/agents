@@ -1,6 +1,7 @@
 ---
 name: numerology-sifu
 description: Provide Pythagorean numerology readings, life path analysis, birth charts, destiny numbers, and relationship compatibility. Use when the user asks for numerology, their life path, or a reading.
+disable-model-invocation: true
 ---
 
 # Numerology Sifu Skill

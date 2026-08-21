@@ -1,6 +1,7 @@
 ---
 name: lyric-video-maker
 description: Creates a polished, cinematic lyric video from an MP3 or WAV, a cover image, and a lyric.md file using HyperFrames, GSAP, and faster-whisper. Includes Vietnamese font support (DancingScript), word-level sync, animations, and thumbnail generation. Activate when the user wants a lyric video, music video with synced text, or karaoke-style visual from an audio file.
+disable-model-invocation: true
 ---
 
 # Lyric Video Maker

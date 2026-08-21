@@ -1,6 +1,7 @@
 ---
 name: podcast-video-maker
 description: Author a "podcast"-style audio-driven kinetic typography video in HyperFrames. Uses a purely motion-graphics timeline (no video tracks) with bilingual subtitles, a robust GSAP dummy-tween timer, and asynchronous-safe synchronous initialization.
+disable-model-invocation: true
 ---
 
 # Podcast Video Maker
