@@ -5,14 +5,14 @@ import sys
 
 def get_asset_file(extensions, default):
     for ext in extensions:
-        files = glob.glob(f"assets/*{ext}")
+        files = glob.glob(f"../assets/*{ext}")
         if files:
             return os.path.basename(files[0])
     return default
 
-audio_file = get_asset_file(['.mp3', '.wav', '.m4a'], "song.mp3")
+audio_file = f"../assets/{get_asset_file(['.mp3', '.wav', '.m4a'], 'song.mp3')}"
 cover_file = get_asset_file(['.png', '.jpg', '.jpeg', '.webp'], "cover.png")
-with open("assets/lyric.md", "r", encoding="utf-8") as f:
+with open("../assets/lyric.md", "r", encoding="utf-8") as f:
     lines = [l.strip() for l in f.read().splitlines() if l.strip() and not l.startswith('[') and not l.startswith('#')]
 
 with open("aligned.json", "r", encoding="utf-8") as f:
@@ -71,7 +71,7 @@ html_template = """<!doctype html>
       @font-face {
         font-family: 'Dancing Script';
         font-style: normal; font-weight: 600; font-display: swap;
-        src: url(assets/DancingScript-SemiBold.ttf) format('truetype');
+        src: url(../assets/DancingScript-SemiBold.ttf) format('truetype');
       }
       * { margin: 0; padding: 0; box-sizing: border-box; }
       html, body { width: 1920px; height: 1080px; overflow: hidden; background: #000; font-family: 'Dancing Script', sans-serif; }
@@ -102,11 +102,11 @@ html_template = """<!doctype html>
   <body>
     <div id="root" data-composition-id="main" data-start="0" data-duration="{DURATION}" data-width="1920" data-height="1080">
       <div id="videoFrame">
-        <img id="bg-blur" src="assets/{COVER_IMAGE}" style="width: 100%; height: 100%; object-fit: cover; filter: blur(40px) brightness(0.3); position: absolute; top: 0; left: 0; transform: scale(1.1);" />
+        <img id="bg-blur" src="../assets/{COVER_IMAGE}" style="width: 100%; height: 100%; object-fit: cover; filter: blur(40px) brightness(0.3); position: absolute; top: 0; left: 0; transform: scale(1.1);" />
       </div>
-      <audio id="stageAudio" class="clip" data-start="0.00" data-duration="{DURATION}" data-track-index="2" preload="auto" src="assets/{SONG_FILE}"></audio>
+      <audio id="stageAudio" class="clip" data-start="0.00" data-duration="{DURATION}" data-track-index="2" preload="auto" src="{SONG_FILE}"></audio>
       <div id="overlay"></div><div class="vignette"></div>
-      <div class="album-art-container"><img class="album-art" src="assets/{COVER_IMAGE}" /></div>
+      <div class="album-art-container"><img class="album-art" src="../assets/{COVER_IMAGE}" /></div>
       <div class="lyric-container">
 {LYRICS_HTML}      </div>
     </div>

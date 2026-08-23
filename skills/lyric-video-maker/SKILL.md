@@ -25,18 +25,25 @@ Ensure the target directory contains:
 
 ### 1. Setup Assets
 
-Create `assets/` folder containing:
+Ensure the parent directory has an `assets/` folder containing:
 - Audio file
 - Cover image
 - `DancingScript-SemiBold.ttf` font (ask user if not present)
 - `lyric.md`
+
+Create a `lyric/` directory and enter it:
+
+```bash
+mkdir -p lyric
+cd lyric
+```
 
 ### 2. Extract Vocals
 
 Isolate vocals to prevent transcription hallucinations from background music:
 
 ```bash
-uvx --with numpy demucs --two-stems=vocals assets/*.{mp3,wav,m4a}
+uvx --with numpy demucs --two-stems=vocals ../assets/*.{mp3,wav,m4a}
 ```
 
 Output: `separated/htdemucs/song/vocals.wav`
@@ -46,8 +53,8 @@ Output: `separated/htdemucs/song/vocals.wav`
 Extract text and run `stable-ts` forced alignment:
 
 ```bash
-grep -v "^\[" assets/lyric.md | grep -v "^#" | grep -v "^$" > assets/lyric.txt
-uvx --with stable-ts stable-ts separated/htdemucs/*/vocals.wav -o aligned.json --align assets/lyric.txt --language vi --model large-v3
+grep -v "^\[" ../assets/lyric.md | grep -v "^#" | grep -v "^$" > lyric.txt
+uvx --with stable-ts stable-ts separated/htdemucs/*/vocals.wav -o aligned.json --align lyric.txt --language vi --model large-v3
 ```
 
 Output: `aligned.json`
@@ -88,5 +95,5 @@ Present `thumbnail.png` to user.
 After user approves final output:
 
 ```bash
-rm -rf separated/ aligned.json assets/lyric.txt generate_lyric.py generate_thumbnail.py thumbnail.html
+rm -rf separated/ aligned.json lyric.txt generate_lyric.py generate_thumbnail.py thumbnail.html
 ```
