@@ -1,6 +1,15 @@
 import os
 import subprocess
+import glob
 
+def get_asset_file(extensions, default):
+    for ext in extensions:
+        files = glob.glob(f"assets/*{ext}")
+        if files:
+            return os.path.basename(files[0])
+    return default
+
+cover_file = get_asset_file(['.png', '.jpg', '.jpeg', '.webp'], "cover.png")
 html_template = """<!doctype html>
 <html lang="en">
   <head>
@@ -47,13 +56,13 @@ html_template = """<!doctype html>
   <body>
     <div id="root" data-composition-id="main" data-start="0" data-duration="1" data-width="1920" data-height="1080">
       <div id="videoFrame">
-        <img id="bg-blur" src="assets/cover.png" style="width: 100%; height: 100%; object-fit: cover; filter: blur(40px) brightness(0.3); position: absolute; top: 0; left: 0; transform: scale(1.1);" />
+        <img id="bg-blur" src="assets/{COVER_IMAGE}" style="width: 100%; height: 100%; object-fit: cover; filter: blur(40px) brightness(0.3); position: absolute; top: 0; left: 0; transform: scale(1.1);" />
       </div>
       
       <div id="overlay"></div><div class="vignette"></div>
       
       <div class="album-art-container">
-        <img class="album-art" src="assets/cover.png" />
+        <img class="album-art" src="assets/{COVER_IMAGE}" />
       </div>
 
       <div class="lyrics-container">
@@ -65,7 +74,7 @@ html_template = """<!doctype html>
 """
 
 with open("thumbnail.html", "w", encoding="utf-8") as f:
-    f.write(html_template)
+    f.write(html_template.replace("{COVER_IMAGE}", cover_file))
 
 if os.path.exists("index.html"):
     os.rename("index.html", "index.html.bak")

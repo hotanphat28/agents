@@ -1,74 +1,57 @@
 import json
-import re
-import difflib
-import unicodedata
+import glob
+import os
+import sys
 
-def strip_accents(s):
-    return ''.join(c for c in unicodedata.normalize('NFD', s)
-                   if unicodedata.category(c) != 'Mn')
+def get_asset_file(extensions, default):
+    for ext in extensions:
+        files = glob.glob(f"assets/*{ext}")
+        if files:
+            return os.path.basename(files[0])
+    return default
 
-def clean_word(w):
-    return re.sub(r'[^\w\s]', '', strip_accents(w)).lower().strip()
-
+audio_file = get_asset_file(['.mp3', '.wav', '.m4a'], "song.mp3")
+cover_file = get_asset_file(['.png', '.jpg', '.jpeg', '.webp'], "cover.png")
 with open("assets/lyric.md", "r", encoding="utf-8") as f:
     lines = [l.strip() for l in f.read().splitlines() if l.strip() and not l.startswith('[') and not l.startswith('#')]
 
-with open("transcript.json", "r", encoding="utf-8") as f:
-    transcript = json.load(f)
+with open("aligned.json", "r", encoding="utf-8") as f:
+    data = json.load(f)
 
-t_words = [clean_word(t['word']) for t in transcript]
-l_words = []
-for line_idx, line in enumerate(lines):
-    for w in line.split():
-        cw = clean_word(w)
-        if cw: l_words.append({"word": cw, "line_idx": line_idx})
+transcript_words = []
+for segment in data.get("segments", []):
+    for word_info in segment.get("words", []):
+        word = word_info.get("word", "").strip()
+        start = word_info.get("start", 0.0)
+        end = word_info.get("end", 0.0)
+        if word:
+            transcript_words.append({"word": word, "start": start, "end": end})
 
-matcher = difflib.SequenceMatcher(None, [lw['word'] for lw in l_words], t_words)
-line_timings = {i: {"start": None, "end": None, "text": lines[i]} for i in range(len(lines))}
+aligned_lines = []
+word_idx = 0
+duration = 0
 
-for tag, i1, i2, j1, j2 in matcher.get_opcodes():
-    if tag == 'equal':
-        for k in range(i2 - i1):
-            line_idx = l_words[i1 + k]['line_idx']
-            t_start = transcript[j1 + k]['start']
-            t_end = transcript[j1 + k]['end']
-            if line_timings[line_idx]["start"] is None or t_start < line_timings[line_idx]["start"]:
-                line_timings[line_idx]["start"] = t_start
-            if line_timings[line_idx]["end"] is None or t_end > line_timings[line_idx]["end"]:
-                line_timings[line_idx]["end"] = t_end
-
-# Interpolate unmatched lines using blocks
-unmatched_blocks = []
-current_block = []
-num_lines = len(lines)
-for i in range(num_lines):
-    if line_timings[i]['start'] is None:
-        current_block.append(i)
+for line in lines:
+    line_words = line.split()
+    line_count = len(line_words)
+    if line_count == 0:
+        continue
+    
+    current_words = transcript_words[word_idx:word_idx+line_count]
+    
+    if current_words:
+        start_time = current_words[0]['start']
+        end_time = current_words[-1]['end']
+        duration = max(duration, end_time)
+        aligned_lines.append({'text': line, 'start': start_time, 'end': end_time})
     else:
-        if current_block:
-            unmatched_blocks.append(current_block)
-            current_block = []
-if current_block:
-    unmatched_blocks.append(current_block)
+        # Fallback if mismatch
+        aligned_lines.append({'text': line, 'start': duration, 'end': duration + 2})
+        duration += 2
+        
+    word_idx += line_count
 
-for block in unmatched_blocks:
-    first_idx = block[0]
-    last_idx = block[-1]
-    
-    t_start = 0 if first_idx == 0 else (line_timings[first_idx - 1]['end'] or line_timings[first_idx - 1]['start'] + 3.0)
-    t_end = t_start + len(block) * 3.0 if last_idx == num_lines - 1 else line_timings[last_idx + 1]['start']
-    
-    if t_end < t_start: t_end = t_start
-    
-    gap = t_end - t_start
-    dur = gap / len(block)
-    if dur > 4.0: dur = 4.0 # Cap duration
-    
-    for k, idx in enumerate(block):
-        line_timings[idx]['start'] = t_start + k * dur
-        line_timings[idx]['end'] = line_timings[idx]['start'] + dur
-
-aligned_lines = [{'text': al['text'], 'start': al['start'], 'end': al['end']} for al in line_timings.values()]
+duration += 5
 
 for i in range(1, len(aligned_lines)):
     if aligned_lines[i]['start'] <= aligned_lines[i-1]['start']:
@@ -77,8 +60,6 @@ for i in range(1, len(aligned_lines)):
         aligned_lines[i-1]['end'] = aligned_lines[i]['start']
     if aligned_lines[i]['end'] <= aligned_lines[i]['start']:
         aligned_lines[i]['end'] = aligned_lines[i]['start'] + 0.1
-
-duration = transcript[-1]['end'] + 5 if transcript else 200
 
 html_template = """<!doctype html>
 <html lang="en">
@@ -163,8 +144,8 @@ for i, al in enumerate(aligned_lines):
 repeat_album = int(duration / 6)
 
 final_html = html_template.replace("{DURATION}", f"{duration:.2f}") \
-    .replace("{COVER_IMAGE}", "cover.png") \
-    .replace("{SONG_FILE}", "song.wav") \
+    .replace("{COVER_IMAGE}", cover_file) \
+    .replace("{SONG_FILE}", audio_file) \
     .replace("{LYRICS_HTML}", lyrics_html) \
     .replace("{LYRICS_GSAP}", lyrics_gsap) \
     .replace("{REPEAT_ALBUM}", str(repeat_album))
