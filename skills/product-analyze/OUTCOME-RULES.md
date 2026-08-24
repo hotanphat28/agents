@@ -40,6 +40,11 @@ Use only Atlassian Document Format (ADF) rendered via Markdown.
 * Semantic Styling: Use **bold** for entities/components, **_bold+italic_** for APIs/topics, `code` for fields/variables, and ```code blocks``` for code snippets.
 * Links: Use full browse URLs (e.g., `[PROJ-123](https://[instance].atlassian.net/browse/PROJ-123)`).
 
+### Rich Media & Attachments (MCP Protocol)
+When populating Jira or Confluence via an MCP, you CANNOT use local file paths for images (`![alt](/local/path.png)`). Atlassian servers cannot access your local filesystem. You must:
+1. **Upload First:** Use the MCP's attachment tool to upload the local image/diagram to the specific Jira ticket or Confluence page.
+2. **Embed Second:** Once uploaded, embed the image using Atlassian's required syntax referencing the uploaded file (e.g., `!filename.png!` for Jira markup, or the appropriate ADF attachment node), NOT the local file path.
+
 ## Work Item Templates
 
 ### Initiative Template
