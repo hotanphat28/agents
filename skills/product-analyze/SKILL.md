@@ -170,6 +170,7 @@ All diagrams MUST apply and match the theme used for the HTML documents (e.g., m
 | `GLOSSARY.md` | Resolving ambiguous product, agile, or architecture terminology | Use standard industry definitions |
 | `OUTCOME-RULES.md` | Writing work items, updating Jira, or rendering HTML templates | Use standard Jira/Agile formatting |
 | `ARCHITECT.md` | Detailed tech debt grading matrices and migration sequences | Use standard architecture best practices |
+| `AI-ANALYSIS.md` | Analyzing features that involve AI, LLMs, or Machine Learning | Use standard software analysis |
 
 ## Handoff Rules
 * When the analysis produces a **Prototype Handoff Brief** (Functional tab) → hand off to **product-develop** to build the interactive throwaway prototype (HTML/CSS/JS, with real interaction logic) once the Alignment Gate has passed. Route to **product-design** only when the user wants that prototype evolved into a production-ready, on-brand design.
