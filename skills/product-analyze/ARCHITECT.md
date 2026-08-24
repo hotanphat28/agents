@@ -21,6 +21,9 @@
 
 **Overall grade:** Weighted average. Architecture and Security weighted 2x.
 
+## Target Architecture Principles
+* **Clean Architecture**: When defining TO-BE states or designing new services, prefer **Clean Architecture** to isolate the domain from infrastructure (dependencies point inward).
+
 ## ADR Template
 ```markdown
 ## ADR-[N]: [Descriptive Title]

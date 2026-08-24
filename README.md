@@ -7,7 +7,7 @@ Single-agent, multi-skill architecture. Skills are user-invoked for precise cont
 ```
 .agents/
 ├── skills/
-│   ├── product-analyze/      Analysis & Outcome engine (Concept Architecture, DDD, HTML docs)
+│   ├── product-analyze/      Analysis & Outcome engine (Concept Architecture, DDD, Clean Architecture, HTML docs)
 │   │   ├── SKILL.md
 │   │   ├── GLOSSARY.md
 │   │   ├── ARCHITECT.md
