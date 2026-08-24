@@ -129,7 +129,7 @@ If a check fails, the team loops back to the relevant discovery step (user resea
 ### 3. Work Item Execution
 * Slice functional analysis into Initiatives, Epics, Stories, Bugs, or Tasks.
 * Strictly follow the Jira Refinement Safety Protocol, Work Items templates, and state machine (defined in `OUTCOME-RULES.md`).
-* Never overwrite existing content without preserving it in comments to avoid losing context.
+* When updating content, if existing content move them to comment first to avoid losing context.
 
 ## Cross-Cutting Rules
 
@@ -159,7 +159,7 @@ Use `/diagram-design` to generate diagrams. if `/diagram-design` is not availabl
 1. SVG embedded in HTML
 2. PlantUML rendered in HTML
 
-If a digram is generated in a seprated html file, ask for exporting it into SVG or PNG using `/diagram-design`.
+After digram is generated in a seprated html file, automate exporting it into SVG `/diagram-design`.
 
 #### Theming
 All diagrams MUST apply and match the theme used for the HTML documents (e.g., matching colors and fonts).

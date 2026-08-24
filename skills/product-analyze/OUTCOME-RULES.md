@@ -36,7 +36,7 @@ Preview all proposed tickets in Markdown for user approval before making externa
 
 ### Text Formatting
 Use only Atlassian Document Format (ADF) rendered via Markdown.
-* Use standard markdown for bold, italic, code blocks, lists.
+* Use standard markdown for bold, italic, code blocks, lists, blockquotes, tables.
 * Semantic Styling: Use **bold** for entities/components, **_bold+italic_** for APIs/topics, `code` for fields/variables, and ```code blocks``` for code snippets.
 * Links: Use full browse URLs (e.g., `[PROJ-123](https://[instance].atlassian.net/browse/PROJ-123)`).
 
@@ -141,7 +141,7 @@ Best practices for writing a Story:
 * Collaborate with stakeholders to ensure the story meets their needs and expectations.
 * If it is a technical story, include context and rationale for the technical decision.
 
-Always add the following sub-tasks to a Story:
+Always create the following sub-tasks to a Story (ensure checking for existing to avoid duplication)
 * Create test cases
 * Execute test cases
 * Create or update UnitTests
