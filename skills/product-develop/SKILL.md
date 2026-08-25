@@ -9,11 +9,12 @@ disable-model-invocation: true
 ## Core principles
 * **Implementation-first** — your job is to ship working code, not to plan or analyze. If requirements are unclear, ask the user or defer to product-analyze.
 * **Security by default** — OWASP Top 10 on every line. Validate inputs, parameterize queries, encrypt secrets.
-* **Test-verified** — no feature ships without tests. AI features require evals.
-* **Strict Engineering Standards** — enforce SOLID principles and Design Patterns (e.g., Dependency Injection, Repository) on all codebases to ensure enterprise-grade maintainability. (See `DESIGN-PATTERNS.md`)
+* **Test-Driven Development (TDD)** — Start every implementation by writing a failing unit test. Use the Red-Green-Refactor loop natively. AI features require evals.
+* **Strict Engineering Standards** — enforce SOLID principles and Design Patterns (e.g., Dependency Injection, Repository) on all codebases. (See `DESIGN-PATTERNS.md` for DI, Repository, and Unit Testing rules).
 * **Progressive complexity** — start simple, add complexity only when evidence demands it.
 * Follow ADRs and architecture decisions from product-analyze's Architect mode.
-* **Online Fact Verification:** When researching online, cross-reference and verify the factual truth of any methodology, architecture pattern, or code standard across multiple reliable sources before adopting it. Fall back to `GLOSSARY.md` if unverified.
+* **Online Fact Verification:** When researching, cross-reference reliable sources. Restrict architecture/constraint research to official docs, RFCs, NIST, CNCF, or W3C using 'site:' operators. Use the Pause and Challenge Protocol if evidence contradicts assumptions.
+
 
 ## Mode Detection
 | Mode | When active |
@@ -31,14 +32,14 @@ Modes stack. Load reference files on demand when the relevant mode is active.
 ### Reference Index
 | Reference | When to load |
 |---|---|
-| `GLOSSARY.md` | Resolving ambiguous development terminology |
+
 | `AI-ENGINEERING.md` | AI Engineering mode |
 | `OBSERVABILITY.md` | Logging, tracing, metrics, health checks, alerting |
 | `PERFORMANCE.md` | Caching, DB optimization, load testing, scaling |
 | `DESIGN-PATTERNS.md` | SOLID principles, Dependency Injection, Repository Pattern, GoF |
 
 ### Handoff
-* For testing strategy or writing tests → route to **product-quality** skill.
+* For End-to-End (E2E), Integration test automation, or testing strategy → route to **product-quality** skill. Unit tests must be written natively here via TDD.
 * For HTML document rendering (analysis, proposal, plan, review) → route to **product-analyze** skill.
 * For security reviews, threat models, launch readiness audits → route to **product-analyze** (Review use case).
 * Receiving a **Prototype Handoff Brief** (Functional tab) from **product-analyze** → build the interactive throwaway prototype here (see "Building an Interactive Prototype from a Handoff Brief" below), after its Alignment Gate has passed.
@@ -64,6 +65,12 @@ Detect the stack from existing project files and implement accordingly. If nothi
 * [ ] README with setup/run/test instructions
 
 ## Practical Workflows
+
+### Tactical DDD & TDD Workflow
+1. **Model the Domain**: Translate domain models from `product-analyze` into code (Aggregates, Value Objects, Entities, Repositories).
+2. **Red**: Write a failing unit test for the domain logic or feature.
+3. **Green**: Implement the simplest code to make the test pass.
+4. **Refactor**: Clean up the code while tests remain green. Repeat for each behavior.
 
 ### How to Start Building (Step-by-Step)
 1. **Understand before coding** — Read the existing codebase (entry points, data flow, naming conventions). If unfamiliar, explore directory structure, dependency graph, and config files first.

@@ -6,9 +6,9 @@ disable-model-invocation: true
 
 # Designer
 
-**Default tool: Pencil.dev** (via MCP tools for `.pen` files). Tool-agnostic — can also produce specs for Figma, Sketch, or written specs.
+**Default tool: Pencil.dev** (a specialized visual design and prototyping tool used natively within this ecosystem for creating UI layouts via `.pen` files). Tool-agnostic — can also produce specs for Figma, Sketch, or written specs.
 
-**Reference:** `DESIGN-PRINCIPLES.md` (core design rules) and `GLOSSARY.md` (domain terminology). Load on demand.
+**Reference:** `DESIGN-PRINCIPLES.md` (core design rules). Load on demand.
 
 ## Role in the Skill Chain
 * **From product-analyze**: Receive throwaway HTML/Tailwind prototypes and evolve them into production-ready designs. Treat these prototypes as *intent sketches*.
@@ -21,7 +21,8 @@ disable-model-invocation: true
 * **Accessible** — WCAG 2.2 AA is the floor
 * **System-thinking** — one-off decisions become reusable patterns
 * Follow brand guidelines and ADRs from product skill
-* **Online Fact Verification:** When researching online, cross-reference and verify the factual truth of any methodology, design pattern, or standard across multiple reliable sources before adopting it. Fall back to `GLOSSARY.md` if unverified.
+* **Online Fact Verification:** When researching, cross-reference reliable sources. Restrict UX/UI research to sources like NN/g, W3C, or official guidelines using 'site:' operators. Use the Pause and Challenge Protocol if evidence contradicts assumptions.
+
 
 ## Mode Detection
 | Mode | When active |
