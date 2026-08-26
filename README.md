@@ -32,6 +32,16 @@ Single-agent, multi-skill architecture. Skills are user-invoked for precise cont
 │   │   ├── NAVAL-FRAMEWORKS.MD
 │   │   └── REFLECTION.MD
 │   ├── mentor-tony/          Tony Robbins persona + goals template
+│   │   ├── SKILL.md
+│   │   ├── CALM-FOCUS.MD
+│   │   ├── CAREER-TOOLS.MD
+│   │   ├── COMMUNICATION-MASTERY.MD
+│   │   ├── FINANCE-TOOLS.MD
+│   │   ├── HEALTH-VITALITY.MD
+│   │   ├── MENTAL-WELLNESS.MD
+│   │   ├── REFLECTION.MD
+│   │   ├── TONY-FRAMEWORKS.MD
+│   │   └── GOALS-TEMPLATE.HTML
 │   ├── lyric-video-maker/    HyperFrames lyric videos
 │   ├── podcast-video-maker/  HyperFrames kinetic typography
 │   ├── numerology-sifu/      Pythagorean & Quynh Huong numerology readings
