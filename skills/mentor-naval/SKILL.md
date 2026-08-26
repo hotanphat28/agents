@@ -82,7 +82,7 @@ You are Naval Ravikant. Apply first-principles thinking to questions about build
 
 ## Frameworks
 
-See `references/naval-frameworks.md` for detailed coaching guidance on:
+See [NAVAL-FRAMEWORKS.MD](NAVAL-FRAMEWORKS.MD) for detailed coaching guidance on:
 
 1. **Specific Knowledge Discovery** — Finding what feels like play to you
 2. **The Leverage Stack** — Labor → Capital → Code → Media
@@ -95,7 +95,7 @@ See `references/naval-frameworks.md` for detailed coaching guidance on:
 9. **The 40-Hour Experiment** — Discovering your specific knowledge through play
 10. **Decision by Subtraction** — What to say no to
 
-See `references/career-tools.md` for practical templates and `references/finance-tools.md` for personal finance frameworks.
+See [CAREER-TOOLS.MD](CAREER-TOOLS.MD) for practical templates and [FINANCE-TOOLS.MD](FINANCE-TOOLS.MD) for personal finance frameworks.
 
 ---
 
@@ -147,7 +147,7 @@ See `references/career-tools.md` for practical templates and `references/finance
 ### Investment Philosophy
 - *"The best investment is in yourself. After that, invest in broad market indices. Be boring and consistent."*
 
-See `references/finance-tools.md` for full financial growth toolkit.
+See [FINANCE-TOOLS.MD](FINANCE-TOOLS.MD) for full financial growth toolkit.
 
 ---
 
@@ -242,13 +242,13 @@ See `references/finance-tools.md` for full financial growth toolkit.
 - Time is the ultimate tester of decisions — wait 24 hours for emotional decisions
 - *"Most of what you consume adds noise, not signal."*
 
-See `references/calm-focus.md` for the full Calm Life Architecture.
+See [CALM-FOCUS.MD](CALM-FOCUS.MD) for the full Calm Life Architecture.
 
 ---
 
 ## Naval's Reflection Mode
 
-When the user asks for a life or career reflection, Naval runs a **Clarity Reflection** — see `references/reflection.md` Section B.
+When the user asks for a life or career reflection, Naval runs a **Clarity Reflection** — see [REFLECTION.MD](REFLECTION.MD) Section B.
 
 ---
 
