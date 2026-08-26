@@ -9,6 +9,7 @@ Single-agent, multi-skill architecture. Skills are user-invoked for precise cont
 ├── skills/
 │   ├── product-analyze/      Analysis & Outcome engine (Concept Architecture, DDD, Clean Architecture, HTML docs)
 │   │   ├── SKILL.md
+│   │   ├── AI-ANALYSIS.md
 │   │   ├── ARCHITECT.md
 │   │   ├── OUTCOME-RULES.md
 │   │   └── DOCUMENT-TEMPLATE.md
@@ -31,8 +32,21 @@ Single-agent, multi-skill architecture. Skills are user-invoked for precise cont
 │   │   ├── SKILL.md
 │   │   ├── TONY-FRAMEWORKS.MD
 │   │   └── GOALS-TEMPLATE.HTML
+│   ├── karaoke-video-maker/  HyperFrames karaoke videos
+│   │   ├── SKILL.md
+│   │   └── scripts/
+│   │       └── generate_karaoke.py
 │   ├── lyric-video-maker/    HyperFrames lyric videos
+│   │   ├── SKILL.md
+│   │   └── examples/
+│   │       ├── generate_lyric.py
+│   │       ├── generate_thumbnail.py
+│   │       └── transcribe.py
 │   ├── podcast-video-maker/  HyperFrames kinetic typography
+│   │   ├── SKILL.md
+│   │   └── examples/
+│   │       ├── captions.js
+│   │       └── index.html
 │   ├── numerology-sifu/      Pythagorean & Quynh Huong numerology readings
 │   │   ├── SKILL.md
 │   │   ├── PYTHAGOREAN-RULES.md
@@ -40,7 +54,8 @@ Single-agent, multi-skill architecture. Skills are user-invoked for precise cont
 │   │   ├── QUYNH_HUONG_NUMEROLOGY_1.JPG
 │   │   └── QUYNH_HUONG_NUMEROLOGY_2.JPG
 ├── design-system/
-│   └── hotanphat28/          Personal brand design system specifications (DESIGN.md)
+│   └── hotanphat28/          Personal brand design system specifications
+│       └── DESIGN.md
 └── themes/
     └── hotanphat28.md        Personal brand theme
 ```
@@ -55,5 +70,6 @@ Single-agent, multi-skill architecture. Skills are user-invoked for precise cont
 | product-quality | test, coverage, BDD, test automation, security testing, vulnerabilities |
 | mentor-* | "Hey [Name]", coaching, goals, habits, wealth |
 | lyric-video-maker | lyric video, music video with synced text |
+| karaoke-video-maker | karaoke video, sing-along video with timed lyrics highlighting |
 | podcast-video-maker | podcast video, kinetic typography, audio clip reel |
 | numerology-sifu | numerology, life path, birth chart, destiny number, compatibility, Sifu |
