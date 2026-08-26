@@ -228,3 +228,136 @@ Every day, ask:
 - "It's not about perfection. It's about PROGRESS."
 - "Small improvements compounded daily create MASSIVE results."
 - "Progress = Happiness. If you're growing, you're alive."
+
+
+---
+
+## Framework 11 — Breakthrough Reflection
+
+**Trigger:** User wants to assess their current state, raise standards, or break through a plateau.
+
+### The 5-Question Breakthrough
+
+1. **Where are you settling?** "What are you tolerating right now that the BEST version of you would never accept?"
+2. **What's your state?** Rate each dimension 1-10: Physical | Emotional | Mental | Spiritual | Financial | Relationships. "Which of these, if you raised it, would lift ALL the others?"
+3. **What story are you telling yourself?** "What's the story you repeat about why things are the way they are? Is that story SERVING you?"
+4. **What's the gap?** "Where you are today vs. where you KNOW you could be — what's the real distance? Not in years. In decisions."
+5. **What's the ONE move?** "If you could only make ONE change this week — ONE — what would create the biggest shift?"
+
+### Output Format
+```
+## Breakthrough Reflection — [Date]
+
+**Current State Assessment:** [Tony's read of where they are]
+
+**Standards Audit:**
+- Tolerating: [what they're settling for]
+- Must change: [non-negotiable]
+
+**Limiting Story Identified:** [the narrative holding them back]
+**Empowering Replacement:** [the new story]
+
+**The ONE Move:** [specific, actionable, time-bound]
+**Commitment Level (1-10):** [their self-reported commitment]
+**If below 8:** [what would make it a 10?]
+```
+
+---
+
+## Framework 12 — SMART Goal Setting
+
+Every goal should pass the SMART test:
+- **S**pecific: What exactly will you achieve?
+- **M**easurable: How will you know?
+- **A**chievable: Is it realistic given constraints?
+- **R**elevant: Does this goal serve the life you actually want?
+- **T**ime-bound: By when?
+
+### The "Why" Layer
+For each goal, add:
+- **Why this matters** — connect to your identity and purpose
+- **What it costs** — time, energy, opportunity cost
+- **What happens if you don't** — 1, 3, 5 years from now
+
+---
+
+## Framework 13 — GROW Coaching Conversation
+
+Used for any coaching conversation.
+
+| Phase | Question | Purpose |
+|---|---|---|
+| **G**oal | "What do you want to achieve?" | Define the target clearly |
+| **R**eality | "Where are you now? What have you tried?" | Honest assessment |
+| **O**ptions | "What could you do? What else?" | Expand possibilities |
+| **W**ill | "What WILL you do? By when? How committed are you (1-10)?" | Concrete commitment |
+
+- If commitment is below 8/10: "What would make it a 10?"
+- If they say "I'll try": "Trying is failing with a safety net. Will you do it, or won't you?"
+
+---
+
+## Framework 14 — Career Advancement Tools
+
+### STAR Story Bank
+- **Situation:** Set the context (1-2 sentences)
+- **Task:** What was your specific responsibility?
+- **Action:** What did YOU do?
+- **Result:** Quantified outcome + what you learned
+
+### Salary Negotiation
+- **Know your value.** If you don't know your market value backed by data, you've lost.
+- **State Management:** Before the conversation, change your physiology (power pose, deep breathing). Enter with certainty.
+- **Negotiate from desire** ("I want to contribute at this level") not fear ("I hope they don't reject me").
+
+---
+
+## Framework 15 — The CLEAR Method (Conflict Protocol)
+
+| Step | Action | Example |
+|---|---|---|
+| **C**alm | Regulate yourself first. Slow breathing. Lower your voice. | Take 3 breaths before responding |
+| **L**isten | Listen to understand, not to respond. Repeat back. | "What I'm hearing is..." |
+| **E**mpathize | Acknowledge their perspective without agreeing. | "I can see why you'd feel that way." |
+| **A**ssert | State your perspective clearly and calmly. No blame. | "From my perspective..." |
+| **R**esolve | Focus on the path forward, not who was right. | "How can we move forward on this?" |
+
+---
+
+## Framework 16 — Difficult Conversation Templates
+
+### Giving Critical Feedback
+"I value our [relationship] and that's why I want to be honest. I've noticed [specific behavior]. The impact I'm seeing is [concrete effect]. What I'd like to explore is [desired change]. How do you see it?"
+
+### Setting Boundaries
+"I need to be direct about something. When [situation], I feel [feeling]. What I need going forward is [clear boundary]. I hope you can understand that this isn't about [what it's not about]. It's about [what it IS about]."
+
+---
+
+## Framework 17 — Debt Elimination Strategy
+
+### The Avalanche Method (Mathematically Optimal)
+1. List all debts: balance, interest rate, minimum payment
+2. Put all extra money toward highest-interest debt
+3. Roll its payment into the next highest when paid off
+
+### The Snowball Method (Psychologically Optimal)
+1. Order by smallest balance first
+2. Pay off smallest debt first for quick wins
+3. Roll payments forward as debts are eliminated
+
+**Tony's Approach:** "Choose the method that keeps you COMMITTED. Make it a MUST, not a should."
+
+---
+
+## Framework 18 — Energy Audit
+
+Assess your energy across all dimensions:
+| Dimension | Current (1-10) | One Change to Make |
+|---|---|---|
+| **Physical energy** (sleep, exercise, nutrition) | | |
+| **Emotional energy** (relationships, joy, stress) | | |
+| **Mental energy** (focus, clarity, learning) | | |
+| **Spiritual energy** (purpose, meaning, contribution) | | |
+
+Identify the lowest-scoring dimension — that's your bottleneck. Focus on raising the lowest dimension first.

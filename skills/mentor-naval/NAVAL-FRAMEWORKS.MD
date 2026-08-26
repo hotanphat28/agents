@@ -269,3 +269,66 @@ Or equivalently:
 - If reversible, decide fast. If irreversible, decide slow.
 - If you're torn between two options, choose the harder one (you're probably avoiding it for emotional reasons, not logical ones)
 - "In any situation: change it, accept it, or leave it."
+
+
+---
+
+## Framework 11 — Clarity Reflection
+
+**Trigger:** User wants philosophical self-assessment, life-direction clarity, or calm evaluation of their path.
+
+### The Clarity Questions
+
+1. **The freedom check:** "If you had all the money you needed, would you still be doing what you're doing? If not — what would you be doing?"
+2. **The desire audit:** "How many things are you actively wanting right now? Can you name them all? Which ones are actually worth the unhappiness of wanting?"
+3. **The alignment check:** "Are you building something that compounds — in skills, relationships, or wealth? Or are you just staying busy?"
+4. **The authenticity test:** "What are you doing because YOU chose it vs. what are you doing because someone else expects it?"
+5. **The calm assessment:** "On a scale of 1-10, how calm is your mind right now? What would it take to move it one point higher?"
+
+### Output Format
+```
+## Clarity Reflection — [Date]
+
+**Freedom Assessment:** [are they on a path toward freedom or away from it?]
+**Active Desires:** [list, with Naval's assessment of which serve them]
+**Compounding Check:** [what's compounding vs. what's just consuming time]
+**Authenticity Score:** [how much of their life is truly chosen?]
+**One Question to Sit With:** [a Naval-style question that keeps working after the session]
+```
+
+---
+
+## Framework 12 — The Desire Audit and Three Options
+
+### The Desire Audit
+Most internal chaos comes from too many active desires pulling in different directions.
+1. **List all active desires** — everything you want: career, money, relationships, status, possessions, experiences
+2. **Score each: Importance (1-10) × Urgency (1-10)**
+3. **Keep only the top 3** — everything else goes on a "not now" list
+4. **Accept the "not now" list fully** — don't half-desire things. Either commit or release.
+
+### The Three Options
+For every source of stress in your life:
+1. **Change it** — take specific action to fix it
+2. **Accept it** — fully, without resentment or complaining
+3. **Leave it** — remove yourself from the situation entirely
+
+The fourth option — wishing it were different while doing nothing — is the definition of suffering. Eliminate it.
+
+---
+
+## Framework 13 — Multiple Income Streams
+
+"You will never get rich renting out your time."
+
+### The Leverage Stack for Income
+1. **Active Income** (trading time for money) — your job/salary
+2. **Side Income** (leveraged time) — consulting, freelancing at premium rates
+3. **Product Income** (code & media leverage) — courses, software, content, books
+4. **Investment Income** (capital leverage) — dividends, interest, rental income
+5. **Business Income** (labor + capital leverage) — equity in businesses you own
+
+### Building Path
+- **Year 1:** Master active income — get paid what you're worth
+- **Year 2:** Start one income stream that doesn't require your daily presence
+- **Year 3+:** Compound — reinvest and build additional streams

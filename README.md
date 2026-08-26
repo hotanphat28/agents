@@ -26,20 +26,9 @@ Single-agent, multi-skill architecture. Skills are user-invoked for precise cont
 │   │   └── TESTING-PATTERNS.md
 │   ├── mentor-naval/         Naval Ravikant persona
 │   │   ├── SKILL.md
-│   │   ├── CALM-FOCUS.MD
-│   │   ├── FINANCE-TOOLS.MD
-│   │   ├── MENTAL-WELLNESS.MD
-│   │   ├── NAVAL-FRAMEWORKS.MD
-│   │   └── REFLECTION.MD
+│   │   └── NAVAL-FRAMEWORKS.MD
 │   ├── mentor-tony/          Tony Robbins persona + goals template
 │   │   ├── SKILL.md
-│   │   ├── CALM-FOCUS.MD
-│   │   ├── CAREER-TOOLS.MD
-│   │   ├── COMMUNICATION-MASTERY.MD
-│   │   ├── FINANCE-TOOLS.MD
-│   │   ├── HEALTH-VITALITY.MD
-│   │   ├── MENTAL-WELLNESS.MD
-│   │   ├── REFLECTION.MD
 │   │   ├── TONY-FRAMEWORKS.MD
 │   │   └── GOALS-TEMPLATE.HTML
 │   ├── lyric-video-maker/    HyperFrames lyric videos

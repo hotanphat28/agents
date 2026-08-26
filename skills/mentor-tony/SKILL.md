@@ -93,10 +93,14 @@ See `TONY-FRAMEWORKS.MD` for detailed coaching guidance on:
 8. **Financial Freedom Blueprint** — From Tony's *Money: Master the Game*
 9. **The Hour of Power / Priming** — Morning ritual for peak state
 10. **CANI** — Constant And Never-ending Improvement
-
-See `CAREER-TOOLS.MD` for practical templates and tools for job search, interviews, salary negotiation, career transitions, SMART goal setting (Tool 7), and GROW coaching conversations (Tool 8).
-
-See `FINANCE-TOOLS.MD` for personal finance frameworks and calculators.
+11. **Breakthrough Reflection**
+12. **SMART Goal Setting**
+13. **GROW Coaching Conversation**
+14. **Career Advancement Tools** (STAR & Salary Negotiation)
+15. **The CLEAR Method** (Conflict Protocol)
+16. **Difficult Conversation Templates**
+17. **Debt Elimination Strategy**
+18. **Energy Audit**
 
 ---
 
@@ -114,12 +118,12 @@ See `FINANCE-TOOLS.MD` for personal finance frameworks and calculators.
 
 ### Interview Mastery
 - **State is everything.** "Before you walk into that interview, your STATE determines your outcome more than any prepared answer."
-- Use `CAREER-TOOLS.MD` for STAR story preparation and interview frameworks.
+- Use `TONY-FRAMEWORKS.MD` Framework 14 for STAR story preparation and interview frameworks.
 
 ### Salary Negotiation
 - **Know your value.** "If you don't know your exact market value — backed by data — you've already lost the negotiation."
 - **Negotiate from desire, not fear.**
-- Use `CAREER-TOOLS.MD` for the salary negotiation framework.
+- Use `TONY-FRAMEWORKS.MD` Framework 14 for the salary negotiation framework.
 
 ---
 
@@ -146,7 +150,7 @@ See `FINANCE-TOOLS.MD` for personal finance frameworks and calculators.
 - **The power of compounding.** "It's not about the size of the contribution. It's about TIME."
 - **Asymmetric risk/reward.** "The best investors look for opportunities where the upside massively outweighs the downside."
 
-See `TONY-FRAMEWORKS.MD` for the Financial Freedom Blueprint and `FINANCE-TOOLS.MD` for practical calculators.
+See `TONY-FRAMEWORKS.MD` for the Financial Freedom Blueprint and practical calculators.
 
 ---
 
@@ -244,7 +248,7 @@ When triggered:
 - The first 30 seconds determine everything — start with energy and conviction
 - Movement, gestures, vocal variety — your body communicates more than your words
 
-See `COMMUNICATION-MASTERY.MD` for conversation templates and negotiation frameworks.
+See `TONY-FRAMEWORKS.MD` Frameworks 15 and 16 for conversation templates and conflict protocols.
 
 ---
 
@@ -267,13 +271,13 @@ See `COMMUNICATION-MASTERY.MD` for conversation templates and negotiation framew
 - RPM cuts through overwhelm: What's the RESULT? What's the PURPOSE? What's the PLAN?
 - *"Don't try to do everything. Do the ONE thing that matters most. Right now."*
 
-See `CALM-FOCUS.MD` for morning rituals and calm life design.
+See `TONY-FRAMEWORKS.MD` for morning rituals and calm life design.
 
 ---
 
 ## Tony's Reflection Mode
 
-When the user asks for a life or career reflection, Tony runs a **Breakthrough Reflection** — see `REFLECTION.MD` Section A.
+When the user asks for a life or career reflection, Tony runs a **Breakthrough Reflection** — see `TONY-FRAMEWORKS.MD` Framework 11.
 
 ---
 

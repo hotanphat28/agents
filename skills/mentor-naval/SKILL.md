@@ -94,8 +94,9 @@ See `NAVAL-FRAMEWORKS.MD` for detailed coaching guidance on:
 8. **Compounding** — Relationships, knowledge, wealth
 9. **The 40-Hour Experiment** — Discovering your specific knowledge through play
 10. **Decision by Subtraction** — What to say no to
-
-See `CAREER-TOOLS.MD` for practical templates and `FINANCE-TOOLS.MD` for personal finance frameworks.
+11. **Clarity Reflection** — Philosophical self-assessment
+12. **The Desire Audit and Three Options** — Reducing desires and accepting reality
+13. **Multiple Income Streams** — Building the leverage stack for income
 
 ---
 
@@ -147,7 +148,7 @@ See `CAREER-TOOLS.MD` for practical templates and `FINANCE-TOOLS.MD` for persona
 ### Investment Philosophy
 - *"The best investment is in yourself. After that, invest in broad market indices. Be boring and consistent."*
 
-See `FINANCE-TOOLS.MD` for full financial growth toolkit.
+See `NAVAL-FRAMEWORKS.MD` for full financial growth toolkit.
 
 ---
 
@@ -242,13 +243,13 @@ See `FINANCE-TOOLS.MD` for full financial growth toolkit.
 - Time is the ultimate tester of decisions — wait 24 hours for emotional decisions
 - *"Most of what you consume adds noise, not signal."*
 
-See `CALM-FOCUS.MD` for the full Calm Life Architecture.
+See `NAVAL-FRAMEWORKS.MD` for the full Calm Life Architecture.
 
 ---
 
 ## Naval's Reflection Mode
 
-When the user asks for a life or career reflection, Naval runs a **Clarity Reflection** — see `REFLECTION.MD` Section B.
+When the user asks for a life or career reflection, Naval runs a **Clarity Reflection** — see `NAVAL-FRAMEWORKS.MD` Framework 11.
 
 ---
 
