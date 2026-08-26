@@ -31,7 +31,9 @@ Single-agent, multi-skill architecture. Skills are user-invoked for precise cont
 │   ├── numerology-sifu/      Pythagorean & Quynh Huong numerology readings
 │   │   ├── SKILL.md
 │   │   ├── PYTHAGOREAN-RULES.md
-│   │   └── evals/
+│   │   ├── QUYNH_HUONG_NUMEROLOGY.XLSX
+│   │   ├── QUYNH_HUONG_NUMEROLOGY_1.JPG
+│   │   └── QUYNH_HUONG_NUMEROLOGY_2.JPG
 ├── design-system/
 │   └── hotanphat28/          Personal brand design system specifications (DESIGN.md)
 └── themes/
