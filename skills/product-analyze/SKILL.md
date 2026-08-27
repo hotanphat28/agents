@@ -111,7 +111,10 @@ Write down the core hypothesis before diving into solutions:
 * "Do we really need a new service, or can existing infrastructure handle it?"
 * "What's the simplest architecture that solves the validated problem?"
 
-The **[Business Analyst]** is blocked from entering **The Outcome Layer** until all three checks are explicitly **validated**. Each persona states: *"[Desirability/Viability/Feasibility] validated — [one-sentence rationale]."*
+#### Inversion Check (all personas)
+Invert the question before validating: *"What would guarantee this fails catastrophically?"* Each persona lists the top failure modes for their lens (e.g. no adoption, wrong ROI assumption, infra can't scale). These become the seed of the Risks / Impacts section in the Outcome Layer, not an afterthought brainstorm.
+
+The **[Business Analyst]** is blocked from entering **The Outcome Layer** until all three checks are explicitly **validated**. Each persona states: *"[Desirability/Viability/Feasibility] validated — [one-sentence rationale]"* AND *"Considered the opposite — [one-sentence reason this could be wrong, and why it's outweighed]."*
 
 If a check fails, the team loops back to the relevant discovery step (user research for desirability, business case for viability, spike for feasibility).
 
