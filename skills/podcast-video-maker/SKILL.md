@@ -42,16 +42,20 @@ const driftDur = duration - enterDur - exitDur;
 ### Opacity for Visibility
 Use `opacity: 0` to hide elements, and animate/set `opacity: 1` when they should appear. The headless screenshot engine struggles with visibility toggles during rapid seeking.
 
-### Direct Browser Fallback
-Since the `window.__hyperframes` API is only injected by the preview server or CLI renderer, include a fallback block at the end of `initAnimation()` to ensure the timeline auto-plays if the user opens the HTML file directly in their browser:
+### Direct Browser Fallback & Media Ownership
+Since the `window.__hyperframes` API is only injected by the preview server or CLI renderer, you must rely on the engine's built-in media management.
+1. Add `data-start="0"` and `data-duration="<duration>"` to the `<audio>` element so Hyperframes manages its playback deterministically.
+2. If providing a direct browser fallback (`if (window.self === window.top)`), do NOT imperatively call `aud.play()` inside the script, as newer HyperFrames engines enforce strict timeline media ownership and will throw a compilation/lint error. 
 
 ```javascript
 if (window.self === window.top) { // Not inside an iframe
   window.__timelines["main"].play();
-  const aud = document.getElementById('aud-main');
-  if (aud) aud.play().catch(e => console.log("Autoplay blocked:", e));
+  // Do NOT add aud.play() here to avoid 'imperative_media_control' lint errors
 }
 ```
+
+### GSAP Infinite Repeat Lint Errors
+Do not use `repeat: -1` (infinite loops) in GSAP animations (such as a blinking `[ REC ]` dot), as HyperFrames requires finite durations for deterministic seeking. Instead, calculate a large but finite repeat count: `repeat: Math.ceil(duration / 0.5)`.
 
 ## Execution Workflow
 When tasked with building a podcast video, execute the following steps precisely:
@@ -61,16 +65,17 @@ Run `npx hyperframes init <name> --example blank` to set up the base project dir
 
 ### Step 2: Setup Assets and Data
 1. Ensure the primary audio file is placed in the workspace (e.g., `assets/audio.mp3`).
-2. Transcribe the audio and group the output into **full sentences** rather than short chunks to make translation checking easier.
-3. Identify the main language of the audio (support is limited to English and Vietnamese). Transcribe the main language first, then translate the captions to the other language. Ensure translations are natural and contextual.
-4. Structure the subtitle data as a global `window.CAPTIONS` array in `captions.js`, using explicit keys for both languages:
+2. Transcribe the audio. You **must** extract word-level timestamps (e.g., using Whisper with `--word_timestamps True`) and run a script to group the words into perfectly complete sentences based on punctuation (`.` `?` `!`). Do not rely on default chunking, as it will break sentences across boundaries.
+3. Identify the main language of the audio (support is limited to English and Vietnamese). Transcribe the main language first, then translate the full sentences to the other language. Ensure translations are natural and contextual.
+4. Structure the subtitle data as a global `window.CAPTIONS` array in `captions.js`. You must include an explicit absolute `start` timestamp in addition to `duration` so that subtitles do not drift during audio silences:
 ```javascript
 window.CAPTIONS = [
-  { textEN: "Hello world", textVN: "Chào thế giới", duration: 2.5 },
+  { start: 0.000, duration: 2.500, textEN: "Hello world.", textVN: "Chào thế giới." },
   // ...
 ];
 ```
-5. Load `captions.js` synchronously in the HTML.
+5. In your `index.html` GSAP loop, use `const startTime = cap.start || 0;` rather than continuously accumulating `duration`, to account for silences between sentences.
+6. Load `captions.js` synchronously in the HTML.
 
 ### Step 3: Profanity Filter
 Review the `captions.js` text and censor any profanity to ensure the content is safe for social media publishing.
