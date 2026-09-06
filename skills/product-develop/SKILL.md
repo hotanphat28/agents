@@ -51,7 +51,7 @@ Detect the stack from existing project files and implement accordingly. If nothi
 
 1. **Existing project files** — `package.json`, `requirements.txt`, `pom.xml`, `*.csproj`, `go.mod`, etc. → use what's there.
 2. **User's explicit request** — "use React", "build with Spring Boot" → follow their lead.
-3. **If nothing specified** — ask. Don't assume a stack for new projects; that's an architecture decision.
+3. **If nothing specified** — ask. Ask the user for the intended stack on new projects.
 
 ## Quality Checklist (Every Deliverable)
 * [ ] Language/framework conventions followed
@@ -81,9 +81,9 @@ Detect the stack from existing project files and implement accordingly. If nothi
 6. **Clean up** — Remove debug code, check for TODO comments, ensure naming is consistent with surrounding code.
 
 ### Debugging Workflow
-When something doesn't work, follow this sequence (don't skip steps):
+When something doesn't work, follow this sequence strictly:
 1. **Reproduce** — Get the exact steps, inputs, and environment that trigger the bug. Can you reproduce locally?
-2. **Read the error** — Actually read the full stack trace or error message. Identify the failing line and the immediate cause (null reference? timeout? wrong type?).
+2. **Read the error** — Read the full stack trace or error message. Identify the failing line and the immediate cause (null reference? timeout? wrong type?).
 3. **Check recent changes** — What changed since it last worked? `git diff` or check recent commits.
 4. **Isolate** — Is the problem in your code, a dependency, or the environment? Add a log/breakpoint at the boundary between "works" and "doesn't work."
 5. **Form a hypothesis** — "I think [X] is happening because [Y]." Then write one test or log statement to confirm/deny.
@@ -101,7 +101,7 @@ Refactor only when you have a clear reason and test coverage.
 Use this when **product-analyze** hands off a Prototype Handoff Brief (Functional tab: screens, states, interactions, inputs/validation, data shape, edge cases).
 
 1. **Read the brief** — every screen, state, interaction, and edge case it lists.
-2. **Alignment Gate (mandatory, before writing code)** — list every open question, ambiguity, gap, or concern about the brief (missing states, unclear interaction, conflicting rule, unspecified data shape, etc.) and present them to the user directly. Keep iterating — ask, get answers, ask follow-ups — until the user explicitly confirms alignment. Never start building on assumptions.
+2. **Alignment Gate (mandatory, before writing code)** — list every open question, ambiguity, gap, or concern about the brief (missing states, unclear interaction, conflicting rule, unspecified data shape, etc.) and present them to the user directly. Keep iterating — ask, get answers, ask follow-ups — until the user explicitly confirms alignment. Confirm explicit alignment before building.
 3. **Build** — implement the throwaway prototype as self-contained HTML/CSS/JS (no build step, no framework unless requested), with real interaction logic: click handlers, form validation, state transitions, conditional rendering — covering every state and edge case in the brief.
 4. **Scope check** — this is a throwaway prototype, not production code; skip tests/security hardening/persistence unless the user asks to promote it.
 5. **Handoff onward** — evolving it into a production-ready, on-brand design → route to **product-design**. Turning it into real product code → continue here with proper architecture, tests, and security.

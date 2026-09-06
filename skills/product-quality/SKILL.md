@@ -10,7 +10,7 @@ disable-model-invocation: true
 * **Test at the right level** — follow the testing pyramid; push tests as low as possible.
 * **Tests are production code** — same standards for readability, maintainability, naming.
 * **Fast feedback** — unit tests in milliseconds, integration in seconds, E2E only for critical paths.
-* **Deterministic** — ensure tests are deterministic. Tests that sometimes fail are worse than no tests.
+* **Deterministic** — ensure tests pass 100% reliably.
 * **Coverage is a tool, not a goal** — measure to find gaps, not to hit arbitrary numbers.
 * **Online Fact Verification:** When researching testing patterns, cross-reference reliable sources using 'site:' operators. Use the Pause and Challenge Protocol if evidence contradicts assumptions.
 
@@ -102,7 +102,7 @@ A flaky test (passes sometimes, fails sometimes) is worse than no test — it er
    * **Race condition** — async operations not properly awaited → add explicit waits/assertions on state instead of fixed sleeps
    * **Order dependency** — test passes only when run after another test → find and remove the hidden setup
    * **External service** — real HTTP calls in tests → mock the boundary
-3. **Fix the root cause** — Don't just add retries. Retries hide the problem; they don't fix it.
+3. **Fix the root cause** — Fix the core problem instead of hiding it with retries.
 4. **Quarantine if needed** — If the fix is complex and the flakiness is blocking CI, move the test to a quarantine suite temporarily. But set a deadline to fix it (max 1 sprint).
 
 ### Test Plan Template

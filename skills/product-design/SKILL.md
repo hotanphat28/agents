@@ -42,7 +42,7 @@ Modes stack. Detect from context.
 ## Process
 1. **Brief** — extract What, Who, Where, Why, Constraints, Maturity (greenfield vs. enhancement)
 2. **Direction** — commit to aesthetic style + tone before any pixel work
-3. **Design** — execute using mode-appropriate methods
+3. **Design** — execute structural foundations first
 4. **Validate** — share key deliverables for feedback before polish
 5. **Verify** — hierarchy, spacing, color, typography, contrast, states, scalability
 
@@ -72,13 +72,13 @@ For ambiguous cases, present 2 contrasting directions (e.g., "Option A: minimal 
 
 ### Step 3: Design (Execution)
 Execute using mode-appropriate methods. Core technique for all modes:
-* **Structure first** — layout, grid, content zones. No colors or polish yet.
+* **Structure first** — layout, grid, content zones. Keep structures unstyled until validated.
 * **Content real** — use realistic data/copy for client-visible work.
 * **States complete** — every interactive element has: default, hover, active, disabled, error, loading, empty states.
 * **Responsive considered** — at minimum note how it adapts at mobile and desktop breakpoints.
 
 ### Step 4: Validate (Structured Feedback)
-Don't just "share for feedback" — guide the reviewer:
+Guide the reviewer with specific questions when sharing for feedback:
 
 1. **Frame the review** — Tell the reviewer what to focus on: "I'd like feedback on the information hierarchy and whether the most important data is prominent enough."
 2. **Ask specific questions** — e.g., "Is the primary action obvious?", "Does the layout feel cluttered or balanced?", "Any data missing for your workflow?"

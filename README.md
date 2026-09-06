@@ -64,7 +64,7 @@ Single-agent, multi-skill architecture. Skills are user-invoked for precise cont
 
 | Skill | Suggested Use Cases |
 |---|---|
-| product-analyze | analysis, concept architecture, roadmap, PRD, stories, ADR, report, proposal, plan, security review |
+| product-analyze | analysis, concept architecture, roadmap, PRD, stories, ADR, report, proposal, plan, security review, code-shape sketches |
 | product-design | wireframe, prototype, UI, brand, design system, theme |
 | product-develop | build, implement, code, fix, refactor, deploy, TDD, unit test |
 | product-quality | test, coverage, BDD, test automation, security testing, vulnerabilities |

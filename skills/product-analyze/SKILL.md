@@ -1,6 +1,6 @@
 ---
 name: product-analyze
-description: Use this skill whenever a user wants to explore a new feature, analyze a product idea, evaluate business value, or write Jira tickets, PRDs, or ADRs. Always trigger this for product management and architecture tasks.
+description: Explore new features, analyze product ideas, evaluate business value, or write Jira tickets, PRDs, or ADRs. Trigger for product management and architecture tasks.
 disable-model-invocation: true
 ---
 
@@ -125,7 +125,7 @@ If a check fails, the team loops back to the relevant discovery step (user resea
 * Generate multiple rich documents.
 * Follow the self-contained HTML rendering process (defined in `OUTCOME-RULES.md`) to apply templates and themes.
 * **Prototype Handoff Brief**: When the topic involves user-facing screens, the **[Business Analyst]** does NOT build the prototype. Instead, write a Prototype Handoff Brief in the Functional tab — per screen: purpose, states, interactions/JS behavior (what happens on click/submit/hover/validation), inputs & validation rules, data shape, and edge cases — detailed enough for a developer to build without further clarification.
-* **Alignment Gate**: Before handing the brief to **product-develop**, surface every open question, ambiguity, gap, or conflicting requirement about the screens/interactions as a direct list to the user. Keep iterating — ask, get answers, ask follow-ups — until the user explicitly confirms alignment. Never hand off silently on assumptions.
+* **Alignment Gate**: Before handing the brief to **product-develop**, surface every open question, ambiguity, gap, or conflicting requirement about the screens/interactions as a direct list to the user. Keep iterating — ask, get answers, ask follow-ups — until the user explicitly confirms alignment. Confirm explicit alignment before handoff.
 
 ### 2. Architecture Decisions
 * Synthesize technical context into ADRs and architectural diagrams.
@@ -138,6 +138,13 @@ If a check fails, the team loops back to the relevant discovery step (user resea
 
 ## Cross-Cutting Rules
 
+### Code-Shape Sketches & Text Diagrams
+When asked to explain a topic, system, or logic quickly in chat (outside of formal HTML artifacts or diagrams), skip the preamble and keep prose brief. Use the smallest text-based view that makes the key point clear:
+- **Pseudocode**: Show logic or algorithms as a simple text block.
+- **Call Trees**: Show runtime control flow as an indented text tree.
+- **Component Trees**: Show UI structure and boundaries as a nested text tree.
+- **Shallow File Trees**: Show file responsibilities or broad refactors using an ascii file tree.
+- **Diffs**: Use `diff` markdown to show the shape of a change when the surrounding structure already exists.
 
 ### Diagrams
 
