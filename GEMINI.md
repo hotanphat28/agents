@@ -20,5 +20,5 @@
 * Pattern:
   * `YYYYMMDD-<type>-<topic>` = creation date (e.g., 20240101) and type of file (e.g., `mui` for mock ui, `ss` for screenshot, `sequence` for sequence diagram, `flow` for flow chart, `arch` for architecture diagram, `doc` for document, `report` for report, `analysis` for analysis report) and topic (e.g., `user-onboarding`, `checkout-flow`, `pricing-page`).
   * If a file with the same date already exists, add a suffix `-v1`, `-v2`, etc. after `YYYYMMDD` to avoid overwriting.
-  * If the file is about a diagram, no need for the `YYYYMMDD-` prefix — just use `<type>-<topic>` format (e.g., `sequence-user-onboarding`, `flow-checkout`, `arch-payments`).
+  * If the file is about a diagram, no need for the `YYYYMMDD-` prefix - just use `<type>-<topic>` format (e.g., `sequence-user-onboarding`, `flow-checkout`, `arch-payments`).
     * If a diagram is exported to SVG or PNG, the file name should be `YYYYMMDD-<type>-<topic>.ext` (e.g., `20240101-sequence-user-onboarding.svg`), same same-date-overwrite rule applies.
