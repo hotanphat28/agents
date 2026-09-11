@@ -156,12 +156,25 @@ Should have the following diagram types when possible:
 * **Sequence Diagrams** for core business flows and edge cases
 * **Domain Models** for data structures and relationships
 
-Use `/diagram-design` to generate diagrams. if `/diagram-design` is not available ask the user to select one of the following list:
+Default tool: use `/diagram-design` to generate diagrams. If `/diagram-design` is not available, ask the user to select one of the following list:
 
 1. SVG embedded in HTML
 2. PlantUML rendered in HTML
 
-After digram is generated in a seprated html file, automate exporting it into SVG `/diagram-design`.
+After a diagram is generated in a separate html file, automate exporting it into SVG via `/diagram-design`.
+
+This default covers BPMN/Flowchart, **all Sequence diagrams**, and Domain Model diagrams — even though `archify` also has a Sequence type, do not use it for this skill's Sequence diagrams; it is reserved solely for the AS-IS/TO-BE case below.
+
+#### AS-IS vs TO-BE Architecture Comparison (Gap Analysis)
+
+When the Gap Analysis step (Functional & Logic Analysis, item 4) covers **Context** or **Component** diagrams **and** the lifecycle is Brownfield (a real codebase exists to trace), use `archify` instead of `/diagram-design` so the comparison is evidence-backed and diffable:
+
+1. Trace the current codebase to produce an evidence-backed AS-IS architecture JSON (nodes cite `SRC n` file/line at the current commit).
+2. Author the TO-BE architecture JSON by hand from the analysis (no code evidence required — it does not exist yet).
+3. Run `node bin/archify.mjs compare architecture as-is.json to-be.json delta.html --json` to render the Before / Delta / After comparison with explicit added, removed, changed, and moved facts.
+4. Embed or link the resulting `delta.html` in the Architecture Decisions tab instead of two separate static diagrams.
+
+For **Greenfield** concepts (no existing codebase to trace) there is no AS-IS state, so stay on `/diagram-design` for the Context/Component diagram of the proposed TO-BE only.
 
 #### Theming
 All diagrams MUST apply and match the theme used for the HTML documents (e.g., matching colors and fonts).
