@@ -30,7 +30,7 @@ When a user submits a request, first determine if they need **Analysis** or are 
   * If the user says yes: Start **The Analysis Layer**.
 
 ## The Analysis Layer (Inputs & Understanding)
-**Load `DISCOVERY-METHODS.md` for the templates and question banks referenced in steps 2, 3, and 6 below.**
+**Load `DISCOVERY-METHODS.md` for the templates and question banks referenced in steps 2, 3, 4, and 6 below.**
 
 ### 1. Context Gathering
 * **Auto-Fetch**: Ask the user for URLs to existing Jira tickets or documentation. Proactively use web browsing or related skills to fetch and ingest this data before analysis begins.
@@ -40,9 +40,10 @@ When a user submits a request, first determine if they need **Analysis** or are 
 Build an empathy map per primary persona, reframe each pain point as a "How Might We" question, then map the end-to-end user journey (stages, touchpoints, moments of truth, pain points/opportunities) — not just the system flow. See `DISCOVERY-METHODS.md` for the empathy map template, HMW examples, and journey mapping steps.
 
 ### 3. Business Discovery (Value & Strategy)
-Write the core hypothesis before proposing solutions, then work through the Business Context Checklist (lifecycle, problem/user, JTBD, success criteria, stakeholder map, cost of inaction). See `DISCOVERY-METHODS.md` for the hypothesis template and full checklist.
+Write the core hypothesis before proposing solutions, then work through the Business Context Checklist (lifecycle, problem/user, JTBD, success criteria, stakeholder map, cost of inaction). See `DISCOVERY-METHODS.md` for the hypothesis template and full checklist. If quantitative prioritization is explicitly requested for Epics or Initiatives, calculate WSJF.
 
 ### 4. Functional & Logic Analysis
+* **User Story Mapping**: Map the user journey backbone to prioritized functional tasks to bridge the gap between user experience and execution slices. See `DISCOVERY-METHODS.md` for the story mapping template.
 * **Concept Architecture Mapping**: Unify the PO, SA, and BA analysis into the four layers defined under Custom Ecosystem Terms below (Foundation, Framework, Plumbing & Wiring, Facade & Interior).
 * **Ubiquitous Language**: Identify and agree on domain terminology with stakeholders to ensure the code and docs use the exact same language.
 * **Gap Analysis**: Output a summary comparing the AS-IS state vs TO-BE state.

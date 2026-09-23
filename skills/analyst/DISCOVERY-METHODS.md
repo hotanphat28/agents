@@ -1,6 +1,6 @@
 # Discovery Methods
 
-Reference for **The Analysis Layer** steps 2, 3, and 6 in `SKILL.md` — templates and question banks pulled out of the main flow so the step list stays short. Load this when actually running one of those steps; the step names and order stay in `SKILL.md`.
+Reference for **The Analysis Layer** steps 2, 3, 4, and 6 in `SKILL.md` — templates and question banks pulled out of the main flow so the step list stays short. Load this when actually running one of those steps; the step names and order stay in `SKILL.md`.
 
 ## Step 2 — User & Problem Discovery (Human-Centred Design)
 
@@ -42,6 +42,29 @@ Write down the core hypothesis before diving into solutions:
 * **Success Criteria:** What OKR or North Star Metric does this serve? How will you measure success in 30/60/90 days?
 * **Stakeholder Map:** Who has decision power, who is impacted, who needs to be informed?
 * **Cost of Inaction:** What happens if we do nothing? (Quantify where possible: lost revenue, churn rate, support cost)
+
+### OKR Drafting Template (If Missing)
+If the user does not have a clearly defined OKR for this initiative, the Product Owner persona MUST help them draft one:
+* **Objective**: A qualitative, inspirational statement of what you want to achieve (e.g., "Provide a frictionless onboarding experience").
+* **Key Results (3-5 max)**: Quantitative metrics that measure if the objective was met. Must follow the format: "Increase/Decrease [metric] from X to Y." (e.g., "Decrease onboarding drop-off rate from 40% to 15%").
+
+### WSJF (Weighted Shortest Job First) — *On-Demand Reference*
+Use this framework **only when explicitly requested** to rank competing Epics or Initiatives quantitatively. 
+* **Cost of Delay (CoD)** = User/Business Value + Time Criticality + Risk Reduction/Opportunity Enablement (using Fibonacci scale: 1, 2, 3, 5, 8, 13, 20).
+* **Job Size** = Estimated effort/complexity (using Fibonacci scale).
+* **WSJF Score** = Cost of Delay / Job Size. Highest score wins.
+
+## Step 4 — Functional & Logic Analysis (Mapping)
+
+### User Story Mapping
+Translate the User Journey into actionable execution slices:
+1. **The Backbone (Activities)**: High-level chronological steps the user takes to achieve a goal (from left to right).
+2. **The Body (Tasks/Stories)**: Specific actions or features required to complete each activity (placed vertically below the backbone, prioritized top to bottom).
+3. **Slicing (Releases & MoSCoW)**: Draw horizontal lines across the map to group tasks into meaningful releases. Apply the **MoSCoW framework** to label these slices:
+   * **Must Have** (Slice 1 / MVP): Non-negotiable for the release.
+   * **Should Have** (Slice 2): Important but not strictly necessary for launch.
+   * **Could Have** (Slice 3): Nice to have if time permits.
+   * **Won't Have** (Excluded): Explicitly out of scope for now.
 
 ## Step 6 — Validation Gate question bank
 
