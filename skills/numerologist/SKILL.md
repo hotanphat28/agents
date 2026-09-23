@@ -1,7 +1,8 @@
 ---
-name: numerology-sifu
-description: Provide Pythagorean numerology readings, life path analysis, birth charts, destiny numbers, and relationship compatibility. Use when the user asks for numerology, their life path, or a reading.
+name: numerologist
+description: Provide Pythagorean numerology readings, life path analysis, birth charts, destiny numbers, and relationship compatibility.
 disable-model-invocation: true
+version: 1.0.0
 ---
 
 # Numerology Sifu Skill

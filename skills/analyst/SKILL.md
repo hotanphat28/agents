@@ -1,7 +1,8 @@
 ---
-name: product-analyze
-description: Explore new features, analyze product ideas, evaluate business value, or write Jira tickets, PRDs, or ADRs. Trigger for product management and architecture tasks.
+name: analyst
+description: Product analysis and outcome engine for product management and architecture - discovery, business value, PRDs, ADRs, and Jira/Confluence work items.
 disable-model-invocation: true
+version: 1.0.0
 ---
 
 # Product Analyze: Analysis & Outcome
@@ -29,58 +30,20 @@ When a user submits a request, first determine if they need **Analysis** or are 
   * If the user says yes: Start **The Analysis Layer**.
 
 ## The Analysis Layer (Inputs & Understanding)
+**Load `DISCOVERY-METHODS.md` for the templates and question banks referenced in steps 2, 3, and 6 below.**
 
 ### 1. Context Gathering
 * **Auto-Fetch**: Ask the user for URLs to existing Jira tickets or documentation. Proactively use web browsing or related skills to fetch and ingest this data before analysis begins.
 * **Graceful Degradation**: If the user provides incomplete context or refuses to provide source material, warn them that only theoretical analysis can be provided, then proceed with generic/high-level analysis.
 
 ### 2. User & Problem Discovery (Human-Centred Design)
-
-#### Empathy Mapping (10 min exercise)
-Fill out this template for each primary persona:
-| Quadrant | Prompt |
-|---|---|
-| **Says** | Direct quotes or paraphrases from user interviews, support tickets, feedback |
-| **Thinks** | What occupies their mind? What worries them? What are their unspoken goals? |
-| **Does** | Observable actions, workarounds, current steps they take |
-| **Feels** | Emotional state — frustrated, anxious, confident, overwhelmed? |
-| **Pain points** | Top 3 frustrations with the current experience |
-| **Gains** | What would delight them? What does "success" look like for them? |
-
-If no real user data exists yet, explicitly mark the empathy map as **assumption-based** and recommend validation methods (user interviews, survey, observation session).
-
-#### "How Might We" Framing
-Convert each pain point into a "How Might We" (HMW) question to open solution space:
-* Pain point: "Users abandon the form at step 3" → HMW: "How might we reduce friction in the application process so users complete it in one sitting?"
-* Generate 3-5 HMW questions per persona. These become the design brief for ideation.
-
-#### User Journey Mapping
-Map the end-to-end experience (not just the system flow):
-1. **Stages**: Awareness → Consideration → Onboarding → Usage → Support → Renewal/Exit
-2. **For each stage**: what the user does, thinks, feels, and what touchpoints they interact with
-3. **Identify moments of truth**: where the experience breaks or delights
-4. **Mark pain points and opportunities** directly on the journey
+Build an empathy map per primary persona, reframe each pain point as a "How Might We" question, then map the end-to-end user journey (stages, touchpoints, moments of truth, pain points/opportunities) — not just the system flow. See `DISCOVERY-METHODS.md` for the empathy map template, HMW examples, and journey mapping steps.
 
 ### 3. Business Discovery (Value & Strategy)
-
-#### Problem Framing (Hypothesis Template)
-Write down the core hypothesis before diving into solutions:
-> "We believe that **[target persona]** has a problem with **[pain point]** when trying to **[job-to-be-done]**. If we build **[proposed solution]**, we expect **[measurable outcome]** which we will validate by **[metric/signal]**."
-
-#### Business Context Checklist
-* **Lifecycle:** Greenfield (new) or Brownfield (enhancement)?
-* **Problem & User:** Core problem and primary persona? (Pull from empathy map above)
-* **JTBD:** What job is the user hiring this product/feature to do?
-* **Success Criteria:** What OKR or North Star Metric does this serve? How will you measure success in 30/60/90 days?
-* **Stakeholder Map:** Who has decision power, who is impacted, who needs to be informed?
-* **Cost of Inaction:** What happens if we do nothing? (Quantify where possible: lost revenue, churn rate, support cost)
+Write the core hypothesis before proposing solutions, then work through the Business Context Checklist (lifecycle, problem/user, JTBD, success criteria, stakeholder map, cost of inaction). See `DISCOVERY-METHODS.md` for the hypothesis template and full checklist.
 
 ### 4. Functional & Logic Analysis
-* **Concept Architecture Mapping**: Unify the PO, SA, and BA analysis into a cohesive structure using the Architectural Metaphor:
-  * **Foundation**: The "Why" (Value prop, Core Hypothesis).
-  * **Framework**: The "What" (Domain Models, Core Entities).
-  * **Plumbing & Wiring**: The "Logic" & "Flow" (Business rules, Integrations, Edge cases).
-  * **Facade & Interior**: The "Experience" (UI/UX, Touchpoints).
+* **Concept Architecture Mapping**: Unify the PO, SA, and BA analysis into the four layers defined under Custom Ecosystem Terms below (Foundation, Framework, Plumbing & Wiring, Facade & Interior).
 * **Ubiquitous Language**: Identify and agree on domain terminology with stakeholders to ensure the code and docs use the exact same language.
 * **Gap Analysis**: Output a summary comparing the AS-IS state vs TO-BE state.
 * **Behavior-Driven Development (BDD)**: The BA must write acceptance criteria as **plain text behavioral specifications** (clear descriptive behavior without rigid Given/When/Then formatting) to serve as the unified source of truth for development and testing. Every acceptance criterion must have a clear behavioral outcome.
@@ -95,24 +58,7 @@ Write down the core hypothesis before diving into solutions:
 * Examine existing codebase for dependencies or tech debt (crucial for Brownfield).
 
 ### 6. Validation Gate (Desirability × Viability × Feasibility)
-
-#### Desirability Check (BA leads)
-* "Do real users actually want this?" — point to evidence (user quotes, data, empathy maps). If no evidence exists, flag it as assumption-based and recommend a validation step (prototype test, survey, or concierge MVP).
-* "Does the user journey improve meaningfully? Where exactly?"
-* "Are we solving the most painful problem, or just the most obvious one?"
-
-#### Viability Check (PO leads)
-* "Why do this at all? What happens if we don't?"
-* "Is there a cheaper or simpler alternative that delivers 80% of the value?"
-* "Does the ROI justify the investment in the next 6-12 months?"
-
-#### Feasibility Check (SA leads)
-* "Can we build this with our current stack and team capacity?"
-* "Do we really need a new service, or can existing infrastructure handle it?"
-* "What's the simplest architecture that solves the validated problem?"
-
-#### Inversion Check (all personas)
-Invert the question before validating: *"What would guarantee this fails catastrophically?"* Each persona lists the top failure modes for their lens (e.g. no adoption, wrong ROI assumption, infra can't scale). These become the seed of the Risks / Impacts section in the Outcome Layer, not an afterthought brainstorm.
+Run the Desirability Check (BA leads), Viability Check (PO leads), Feasibility Check (SA leads), and an Inversion Check (all personas). See `DISCOVERY-METHODS.md` for the question bank for each check.
 
 The **[Business Analyst]** is blocked from entering **The Outcome Layer** until all three checks are explicitly **validated**. Each persona states: *"[Desirability/Viability/Feasibility] validated — [one-sentence rationale]"* AND *"Considered the opposite — [one-sentence reason this could be wrong, and why it's outweighed]."*
 
@@ -125,16 +71,16 @@ If a check fails, the team loops back to the relevant discovery step (user resea
 * Generate multiple rich documents.
 * Follow the self-contained HTML rendering process (defined in `OUTCOME-RULES.md`) to apply templates and themes.
 * **Prototype Handoff Brief**: When the topic involves user-facing screens, the **[Business Analyst]** does NOT build the prototype. Instead, write a Prototype Handoff Brief in the Functional tab — per screen: purpose, states, interactions/JS behavior (what happens on click/submit/hover/validation), inputs & validation rules, data shape, and edge cases — detailed enough for a developer to build without further clarification.
-* **Alignment Gate**: Before handing the brief to **product-develop**, surface every open question, ambiguity, gap, or conflicting requirement about the screens/interactions as a direct list to the user. Keep iterating — ask, get answers, ask follow-ups — until the user explicitly confirms alignment. Confirm explicit alignment before handoff.
+* **Alignment Gate**: Before handing the brief to **builder**, surface every open question, ambiguity, gap, or conflicting requirement about the screens/interactions as a direct list to the user. Keep iterating — ask, get answers, ask follow-ups — until the user explicitly confirms alignment. Confirm explicit alignment before handoff.
 
 ### 2. Architecture Decisions
 * Synthesize technical context into ADRs and architectural diagrams.
 * Identify target-state patterns (e.g., Strangler Fig, Event-Driven) and migration sequences.
 
 ### 3. Work Item Execution
-* Slice functional analysis into Initiatives, Epics, Stories, Bugs, or Tasks.
-* Strictly follow the Jira Refinement Safety Protocol, Work Items templates, and state machine (defined in `OUTCOME-RULES.md`).
-* When updating content, if existing content move them to comment first to avoid losing context.
+* Slice functional analysis into Initiatives, Epics, Stories, Bugs, or Design Docs.
+* Delegate the actual drafting to the matching model-invoked skill — `write-initiative`, `write-epic`, `write-story`, `write-bug`, or `write-design-doc` — passing along the relevant business value/OKR, requirements, BDD acceptance criteria, and diagrams as intake context. See `OUTCOME-RULES.md` for the full delegation table.
+* Do not draft tickets or pages directly from this skill; each write-* skill owns its own template, formatting, approval gate, and MCP execution.
 
 ## Cross-Cutting Rules
 
@@ -182,7 +128,7 @@ All diagrams MUST apply and match the theme used for the HTML documents (e.g., m
 ## Reference Index
 | Reference | When to load | Fallback if missing |
 |---|---|---|
-
+| `DISCOVERY-METHODS.md` | Running Analysis Layer steps 2, 3, or 6 (discovery templates, hypothesis template, validation question banks) | Use standard HCD/discovery best practices |
 | `OUTCOME-RULES.md` | Writing work items, updating Jira, or rendering HTML templates | Use standard Jira/Agile formatting |
 | `ARCHITECT.md` | Detailed tech debt grading matrices and migration sequences | Use standard architecture best practices |
 | `AI-ANALYSIS.md` | Analyzing features that involve AI, LLMs, or Machine Learning | Use standard software analysis |
@@ -201,8 +147,8 @@ To ensure high-trust primary sources, you MUST adhere to the following rules:
 3. **Pause and Challenge Protocol**: If you discover evidence on a high-trust source that contradicts the user's initial assumptions, you MUST immediately stop, present the evidence, and challenge the user before proceeding.
 
 ## Handoff Rules
-* When the analysis produces a **Prototype Handoff Brief** (Functional tab) → hand off to **product-develop** to build the interactive throwaway prototype (HTML/CSS/JS, with real interaction logic) once the Alignment Gate has passed. Route to **product-design** only when the user wants that prototype evolved into a production-ready, on-brand design.
-* When architecture decisions and stories are finalized → hand off to **product-develop** for implementation.
-* When implementation is complete → hand off to **product-quality** for test strategy and automation.
-* When the user asks to **build or code something directly** (not analyze) → route to **product-develop**.
-* When the user asks to **design screens or visuals** (not analyze) → route to **product-design**.
+* When the analysis produces a **Prototype Handoff Brief** (Functional tab) → hand off to **builder** to build the interactive throwaway prototype (HTML/CSS/JS, with real interaction logic) once the Alignment Gate has passed. Route to **designer** only when the user wants that prototype evolved into a production-ready, on-brand design.
+* When architecture decisions and stories are finalized → hand off to **builder** for implementation.
+* When implementation is complete → hand off to **inspector** for test strategy and automation.
+* When the user asks to **build or code something directly** (not analyze) → route to **builder**.
+* When the user asks to **design screens or visuals** (not analyze) → route to **designer**.

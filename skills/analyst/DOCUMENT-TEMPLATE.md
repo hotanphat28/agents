@@ -160,7 +160,7 @@ Use this shell as the foundation for the document. Insert the generated content 
 <div class="card">
     <h3 style="margin-top: 0;">Prototype Handoff Brief: {{SCREEN_NAME}}</h3>
     <div class="mock-ui">
-        <!-- This is a written brief for product-develop to build — do NOT render the actual UI here -->
+        <!-- This is a written brief for builder to build — do NOT render the actual UI here -->
         <p><strong>Purpose:</strong> {{SCREEN_PURPOSE}}</p>
         <p><strong>States:</strong> {{STATES_LIST}} (e.g., empty, loading, populated, error)</p>
         <p><strong>Interactions / JS behavior:</strong> {{INTERACTION_BEHAVIOR}} (what happens on click, submit, hover, validation, etc. — precise enough to build without further clarification)</p>

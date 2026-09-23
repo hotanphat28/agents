@@ -1,7 +1,8 @@
 ---
-name: karaoke-video-maker
+name: maker-karaoke-video
 description: Generate high-quality karaoke videos with hyperframes, featuring 2-line layout, vocal extraction, perfect word-level timing, GSAP countdown, and stroke/fill typography.
 disable-model-invocation: true
+version: 1.0.0
 ---
 
 # Karaoke Video Maker

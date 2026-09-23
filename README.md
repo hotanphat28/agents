@@ -7,47 +7,49 @@ Single-agent, multi-skill architecture. Skills are user-invoked for precise cont
 ```
 .agents/
 ├── skills/
-│   ├── product-analyze/      Analysis & Outcome engine (Concept Architecture, DDD, Clean Architecture, HTML docs)
+│   ├── JIRA-FORMATTING.md    Shared Jira formatting/attachments reference (write-story/bug/epic/initiative)
+│   ├── analyst/              Analysis & Outcome engine (Concept Architecture, DDD, Clean Architecture, HTML docs)
 │   │   ├── SKILL.md
 │   │   ├── AI-ANALYSIS.md
 │   │   ├── ARCHITECT.md
+│   │   ├── DISCOVERY-METHODS.md
 │   │   ├── OUTCOME-RULES.md
 │   │   └── DOCUMENT-TEMPLATE.md
-│   ├── product-design/       UI/UX, brand, design systems (Strict Dark Mode & A11y)
+│   ├── designer/              UI/UX, brand, design systems (Strict Dark Mode & A11y)
 │   │   ├── SKILL.md
 │   │   └── DESIGN-PRINCIPLES.md
-│   ├── product-develop/      Implementation (enforces SOLID, DI, Repository patterns)
+│   ├── builder/               Implementation (enforces SOLID, DI, Repository patterns)
 │   │   ├── SKILL.md
 │   │   ├── AI-ENGINEERING.md
 │   │   ├── OBSERVABILITY.md
 │   │   ├── PERFORMANCE.md
 │   │   └── DESIGN-PATTERNS.md
-│   ├── product-quality/      Testing strategy, automation code, security testing
+│   ├── inspector/             Testing strategy, automation code, security testing
 │   │   ├── SKILL.md
 │   │   └── TESTING-PATTERNS.md
-│   ├── mentor-naval/         Naval Ravikant persona
+│   ├── naval/                 Naval Ravikant persona
 │   │   ├── SKILL.md
 │   │   └── NAVAL-FRAMEWORKS.MD
-│   ├── mentor-tony/          Tony Robbins persona + goals template
+│   ├── tony/                  Tony Robbins persona + goals template
 │   │   ├── SKILL.md
 │   │   ├── TONY-FRAMEWORKS.MD
 │   │   └── GOALS-TEMPLATE.HTML
-│   ├── karaoke-video-maker/  HyperFrames karaoke videos
+│   ├── maker-karaoke-video/   HyperFrames karaoke videos
 │   │   ├── SKILL.md
 │   │   └── scripts/
 │   │       └── generate_karaoke.py
-│   ├── lyric-video-maker/    HyperFrames lyric videos
+│   ├── maker-lyric-video/     HyperFrames lyric videos
 │   │   ├── SKILL.md
 │   │   └── examples/
 │   │       ├── generate_lyric.py
 │   │       ├── generate_thumbnail.py
 │   │       └── transcribe.py
-│   ├── podcast-video-maker/  HyperFrames kinetic typography
+│   ├── maker-podcast-video/   HyperFrames kinetic typography
 │   │   ├── SKILL.md
 │   │   └── examples/
 │   │       ├── captions.js
 │   │       └── index.html
-│   ├── numerology-sifu/      Pythagorean & Quynh Huong numerology readings
+│   ├── numerologist/          Pythagorean & Quynh Huong numerology readings
 │   │   ├── SKILL.md
 │   │   ├── PYTHAGOREAN-RULES.md
 │   │   ├── QUYNH_HUONG_NUMEROLOGY.XLSX
@@ -64,12 +66,12 @@ Single-agent, multi-skill architecture. Skills are user-invoked for precise cont
 
 | Skill | Suggested Use Cases |
 |---|---|
-| product-analyze | analysis, concept architecture, roadmap, PRD, stories, ADR, report, proposal, plan, security review, code-shape sketches |
-| product-design | wireframe, prototype, UI, brand, design system, theme |
-| product-develop | build, implement, code, fix, refactor, deploy, TDD, unit test |
-| product-quality | test, coverage, BDD, test automation, security testing, vulnerabilities |
-| mentor-* | "Hey [Name]", coaching, goals, habits, wealth |
-| lyric-video-maker | lyric video, music video with synced text |
-| karaoke-video-maker | karaoke video, sing-along video with timed lyrics highlighting |
-| podcast-video-maker | podcast video, kinetic typography, audio clip reel |
-| numerology-sifu | numerology, life path, birth chart, destiny number, compatibility, Sifu |
+| analyst | analysis, concept architecture, roadmap, PRD, stories, ADR, report, proposal, plan, security review, code-shape sketches |
+| designer | wireframe, prototype, UI, brand, design system, theme |
+| builder | build, implement, code, fix, refactor, deploy, TDD, unit test |
+| inspector | test, coverage, BDD, test automation, security testing, vulnerabilities |
+| naval / tony | "Hey [Name]", coaching, goals, habits, wealth |
+| maker-lyric-video | lyric video, music video with synced text |
+| maker-karaoke-video | karaoke video, sing-along video with timed lyrics highlighting |
+| maker-podcast-video | podcast video, kinetic typography, audio clip reel |
+| numerologist | numerology, life path, birth chart, destiny number, compatibility, Sifu |

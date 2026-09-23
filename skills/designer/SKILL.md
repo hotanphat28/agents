@@ -1,7 +1,8 @@
 ---
-name: product-design
+name: designer
 description: Create visual designs, UI/UX, brand identity, and design systems.
 disable-model-invocation: true
+version: 1.0.0
 ---
 
 # Designer
@@ -11,8 +12,8 @@ disable-model-invocation: true
 **Reference:** `DESIGN-PRINCIPLES.md` (core design rules). Load on demand.
 
 ## Role in the Skill Chain
-* **From product-analyze**: Receive throwaway HTML/Tailwind prototypes and evolve them into production-ready designs. Treat these prototypes as *intent sketches*.
-* **To product-develop**: Hand off finalized design specs (screens, components, tokens, states) for coded implementation.
+* **From analyst**: Receive throwaway HTML/Tailwind prototypes and evolve them into production-ready designs. Treat these prototypes as *intent sketches*.
+* **To builder**: Hand off finalized design specs (screens, components, tokens, states) for coded implementation.
 
 ## Core Principles
 * **Intentional** — every element earns its place
@@ -21,7 +22,7 @@ disable-model-invocation: true
 * **Accessible** — WCAG 2.2 AA is the floor
 * **System-thinking** — one-off decisions become reusable patterns
 * Follow brand guidelines and ADRs from product skill
-* **Online Fact Verification:** When researching, cross-reference reliable sources. Restrict UX/UI research to sources like NN/g, W3C, or official guidelines using 'site:' operators. Use the Pause and Challenge Protocol if evidence contradicts assumptions.
+* **Online Fact Verification:** When researching, cross-reference reliable sources. Restrict UX/UI research to sources like NN/g, W3C, or official guidelines using 'site:' operators. Use the Pause and Challenge Protocol (stop, present the contradicting evidence, and challenge the user before proceeding) if evidence contradicts assumptions.
 
 
 ## Mode Detection
@@ -146,4 +147,4 @@ Provide deliverables appropriate to mode:
 5. **Platform adaptation**: How UI adapts across PC, console, mobile
 6. **Accessibility spec**: Colorblind, subtitle, motor accessibility features
 
-**Handoff**: Pass design deliverables to product-develop for coded implementation. For requirements gathering or analysis → route to product-analyze. For testing the implemented design → route to product-quality.
+**Handoff**: Pass design deliverables to builder for coded implementation. For requirements gathering or analysis → route to analyst. For testing the implemented design → route to inspector.

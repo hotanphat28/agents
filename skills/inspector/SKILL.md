@@ -1,25 +1,25 @@
 ---
-name: product-quality
+name: inspector
 description: Define test strategy, write test automation, and verify software quality.
 disable-model-invocation: true
+version: 1.0.0
 ---
 
 # Quality & Testing
 
-##Core principles
+## Core principles
 * **Test at the right level** — follow the testing pyramid; push tests as low as possible.
 * **Tests are production code** — same standards for readability, maintainability, naming.
 * **Fast feedback** — unit tests in milliseconds, integration in seconds, E2E only for critical paths.
 * **Deterministic** — ensure tests pass 100% reliably.
 * **Coverage is a tool, not a goal** — measure to find gaps, not to hit arbitrary numbers.
-* **Online Fact Verification:** When researching testing patterns, cross-reference reliable sources using 'site:' operators. Use the Pause and Challenge Protocol if evidence contradicts assumptions.
+* **Online Fact Verification:** When researching testing patterns, cross-reference reliable sources using 'site:' operators. Use the Pause and Challenge Protocol (stop, present the contradicting evidence, and challenge the user before proceeding) if evidence contradicts assumptions.
 
 
 ## Mode Detection
 | Mode | When active |
 |---|---|
 | Test Strategy | Deciding what to test, coverage targets, pyramid balance |
-
 | Integration Testing | API tests, DB tests, test containers, contract testing |
 | E2E Testing | User flow tests, Page Object pattern, browser automation |
 | BDD Automation | Automating plain text behavioral specs into E2E and Integration tests |
@@ -32,7 +32,6 @@ Modes stack. Load reference file on demand.
 ### Reference Index
 | Reference | When to load |
 |---|---|
-
 | `TESTING-PATTERNS.md` | Any testing mode — comprehensive patterns and best practices |
 
 ## Stack-Aware Testing
@@ -48,10 +47,10 @@ Detect the project stack and apply idiomatic testing tools:
 | React | React Testing Library + Jest/Vitest | MSW | Playwright / Cypress | ESLint, Snyk, ZAP |
 
 ## Handoff Rules
-* When the user wants to **build a feature or write unit tests via TDD** → route to product-develop.
-* When the user wants **architecture decisions** or **analysis** → route to product-analyze.
-* When the user wants **design work** → route to product-design.
-* This skill can be activated **alongside** product-develop — dev builds, quality verifies. Quality ensures what product-develop ships actually works correctly.
+* When the user wants to **build a feature or write unit tests via TDD** → route to builder.
+* When the user wants **architecture decisions** or **analysis** → route to analyst.
+* When the user wants **design work** → route to designer.
+* This skill can be activated **alongside** builder — dev builds, quality verifies. Quality ensures what builder ships actually works correctly.
 
 ## Quality Checklist (Test Deliverables)
 * [ ] Tests follow AAA pattern (Arrange-Act-Assert)
@@ -67,11 +66,11 @@ Detect the project stack and apply idiomatic testing tools:
 ## Practical Workflows
 
 ### How to Test a New Feature (Step-by-Step)
-1. **Pull the Behavioral Specs (BDD)** — Read the plain text behavioral specifications from `product-analyze`. Each behavior becomes an automated test (Integration or E2E). If the behavior is vague, ask for clarification.
+1. **Pull the Behavioral Specs (BDD)** — Read the plain text behavioral specifications from `analyst`. Each behavior becomes an automated test (Integration or E2E). If the behavior is vague, ask for clarification.
 2. **Identify the testing layers** — Ask: "Where does the logic live?"
    * Data access or external service calls → integration tests
    * User-facing flow across multiple components → E2E (only for critical paths)
-   * *(Note: Unit testing is handled natively by `product-develop` during TDD)*
+   * *(Note: Unit testing is handled natively by `builder` during TDD)*
 3. **Write the first test** — Start with the happy path at the lowest possible layer. Use this template:
    ```
    test("[method/feature]_[scenario]_[expected outcome]")
