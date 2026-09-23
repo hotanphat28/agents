@@ -8,7 +8,7 @@ Single-agent, multi-skill architecture. Skills are user-invoked for precise cont
 .agents/
 ├── skills/
 │   ├── JIRA-FORMATTING.md    Shared Jira formatting/attachments reference (write-story/bug/epic/initiative)
-│   ├── analyst/              Analysis & Outcome engine (Concept Architecture, DDD, Clean Architecture, HTML docs)
+│   ├── analyst/              Analysis & Outcome engine (Concept Architecture, Story Mapping, OKRs, DDD, Clean Architecture, HTML docs)
 │   │   ├── SKILL.md
 │   │   ├── AI-ANALYSIS.md
 │   │   ├── ARCHITECT.md
@@ -66,7 +66,7 @@ Single-agent, multi-skill architecture. Skills are user-invoked for precise cont
 
 | Skill | Suggested Use Cases |
 |---|---|
-| analyst | analysis, concept architecture, roadmap, PRD, stories, ADR, report, proposal, plan, security review, code-shape sketches |
+| analyst | analysis, concept architecture, story mapping, OKRs, roadmap, PRD, stories, ADR, report, proposal, plan, security review, code-shape sketches |
 | designer | wireframe, prototype, UI, brand, design system, theme |
 | builder | build, implement, code, fix, refactor, deploy, TDD, unit test |
 | inspector | test, coverage, BDD, test automation, security testing, vulnerabilities |
