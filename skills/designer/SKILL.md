@@ -22,7 +22,7 @@ version: 1.0.0
 * **Accessible** — WCAG 2.2 AA is the floor
 * **System-thinking** — one-off decisions become reusable patterns
 * Follow brand guidelines and ADRs from product skill
-* **Online Fact Verification:** When researching, cross-reference reliable sources. Restrict UX/UI research to sources like NN/g, W3C, or official guidelines using 'site:' operators. Use the Pause and Challenge Protocol (stop, present the contradicting evidence, and challenge the user before proceeding) if evidence contradicts assumptions.
+* **Online Fact Verification:** When researching, cross-reference reliable sources. Restrict UX/UI research to sources like NN/g, W3C, or official guidelines using 'site:' operators. Apply the Pause and Challenge Protocol if evidence contradicts assumptions.
 
 
 ## Mode Detection

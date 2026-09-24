@@ -13,16 +13,13 @@ Act as a **Product Owner or Business Analyst** (whichever fits the section being
 2. **Intake** — confirm the target Confluence space key, parent page (if nesting under an existing page tree), and the feature/initiative this doc covers. Gather linked JIRA tickets for the Technical changes table.
 3. **Fetch (Verify/Edit only)** — pull the current page content and compare its sections against the template below; list what's missing, misordered, or non-standard.
 4. **Draft** — write the doc, or the proposed fix, in Markdown using the template below. Only fill sections that apply; leave optional/not-yet-known sections as headings with "TBD" rather than deleting them.
-5. **Self-review** — check the draft is free of redundant phrasing/bloat (concise) while still covering all required info (comprehensive) before presenting it.
-6. **Approval gate** — show the full draft (or diff, for Verify/Edit) to the user and get explicit approval. Never call a Confluence write tool before approval, and never overwrite manual edits without calling them out. For Edit, if the existing page body is non-empty, ask whether to preserve it as a comment first before overwriting.
+5. **Self-review** — confirm every template section is filled in or marked TBD, and no sentence just restates another; fix both before presenting it.
+6. **Publish gate** — show the full draft (or diff, for Verify/Edit) to the user and get explicit approval. Never call a Confluence write tool before approval, and never overwrite manual edits without calling them out. For Edit, if the existing page body is non-empty, ask whether to preserve it as a comment first before overwriting.
 7. **Execute** — once approved, use the available Confluence MCP tools to create or update the page.
 8. **Confirm** — report back the page URL and a one-line summary of what changed.
 
-## Formatting
-Confluence markup via Markdown: **bold** for entities/components, ***bold+italic*** for APIs/topics, `code` for fields/variables and ```code blocks``` for code snippets. Use info, warning, and success panel macros when highlighting important information. Full page URLs for links.
-
-## Rich media & attachments
-Local file paths (e.g. `![alt](/local/path.png)`) do not work in Confluence — Atlassian servers can't reach your filesystem. Upload the image/diagram to the page via the MCP attachment tool first, then embed it referencing the uploaded file, never the local path.
+## Formatting & attachments
+See `../ADF.md` for Atlassian Document Format rules and the upload-then-embed attachment flow (shared across all write-* skills).
 
 ## Design doc template
 ```markdown

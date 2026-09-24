@@ -7,7 +7,7 @@ Single-agent, multi-skill architecture. Skills are user-invoked for precise cont
 ```
 .agents/
 ├── skills/
-│   ├── JIRA-FORMATTING.md    Shared Jira formatting/attachments reference (write-story/bug/epic/initiative)
+│   ├── ADF.md                Shared Atlassian Document Format reference (write-story/bug/epic/initiative/design-doc)
 │   ├── analyst/              Analysis & Outcome engine (Concept Architecture, Story Mapping, OKRs, DDD, Clean Architecture, HTML docs)
 │   │   ├── SKILL.md
 │   │   ├── AI-ANALYSIS.md

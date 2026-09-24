@@ -13,8 +13,8 @@ Act as a **Product Owner**: focus on business value, strategic alignment, and ou
 2. **Intake** — confirm the target JIRA project key and the business value/OKR this ties to. Ask for a parent Initiative link if one exists.
 3. **Fetch (Verify/Edit only)** — pull the current ticket content and compare its sections against the template below; list what's missing, misordered, or non-standard.
 4. **Draft** — write the ticket, or the proposed fix, in Markdown using the template below.
-5. **Self-review** — check the draft is free of redundant phrasing/bloat (concise) while still covering all required info (comprehensive) before presenting it.
-6. **Approval gate** — show the full draft (or diff, for Verify/Edit) to the user and get explicit approval. Never call a JIRA write tool before approval, and never push a change to an already-published ticket without a fresh preview + approval. For Edit, if the existing description is non-empty, ask whether to post it as a comment first before overwriting.
+5. **Self-review** — confirm every required section is filled in and no sentence just restates another; fix both before presenting it.
+6. **Publish gate** — show the full draft (or diff, for Verify/Edit) to the user and get explicit approval. Never call a JIRA write tool before approval, and never push a change to an already-published ticket without a fresh preview + approval. For Edit, if the existing description is non-empty, ask whether to post it as a comment first before overwriting.
 7. **Execute** — once approved, use the available JIRA MCP tools to create or update the ticket (and link it to a parent Initiative if one was given).
 8. **Confirm** — report back the ticket key/URL and a one-line summary of what changed.
 
@@ -22,7 +22,7 @@ Act as a **Product Owner**: focus on business value, strategic alignment, and ou
 `[Capability noun phrase]`. Max 80 chars, start with a capital letter, no trailing period, omit ticket IDs.
 
 ## Formatting & attachments
-See `../JIRA-FORMATTING.md` for Atlassian Document Format rules and the upload-then-embed attachment flow (shared across all JIRA write-* skills).
+See `../ADF.md` for Atlassian Document Format rules and the upload-then-embed attachment flow (shared across all write-* skills).
 
 ## Epic template
 ```markdown

@@ -14,7 +14,7 @@ version: 1.0.0
 * **Strict Engineering Standards** — enforce SOLID principles and Design Patterns (e.g., Dependency Injection, Repository) on all codebases. (See `DESIGN-PATTERNS.md` for DI, Repository, and Unit Testing rules).
 * **Progressive complexity** — start simple, add complexity only when evidence demands it.
 * Follow ADRs and architecture decisions from analyst's Architect mode.
-* **Online Fact Verification:** When researching, cross-reference reliable sources. Restrict architecture/constraint research to official docs, RFCs, NIST, CNCF, or W3C using 'site:' operators. Use the Pause and Challenge Protocol (stop, present the contradicting evidence, and challenge the user before proceeding) if evidence contradicts assumptions.
+* **Online Fact Verification:** When researching, cross-reference reliable sources. Restrict architecture/constraint research to official docs, RFCs, NIST, CNCF, or W3C using 'site:' operators. Apply the Pause and Challenge Protocol if evidence contradicts assumptions.
 
 
 ## Mode Detection

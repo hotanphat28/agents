@@ -13,7 +13,7 @@ version: 1.0.0
 * **Fast feedback** — unit tests in milliseconds, integration in seconds, E2E only for critical paths.
 * **Deterministic** — ensure tests pass 100% reliably.
 * **Coverage is a tool, not a goal** — measure to find gaps, not to hit arbitrary numbers.
-* **Online Fact Verification:** When researching testing patterns, cross-reference reliable sources using 'site:' operators. Use the Pause and Challenge Protocol (stop, present the contradicting evidence, and challenge the user before proceeding) if evidence contradicts assumptions.
+* **Online Fact Verification:** When researching testing patterns, cross-reference reliable sources using 'site:' operators. Apply the Pause and Challenge Protocol if evidence contradicts assumptions.
 
 
 ## Mode Detection
