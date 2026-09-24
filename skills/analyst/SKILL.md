@@ -117,9 +117,9 @@ This default covers BPMN/Flowchart, **all Sequence diagrams**, and Domain Model 
 When the Gap Analysis step (Functional & Logic Analysis, item 4) covers **Context** or **Component** diagrams **and** the lifecycle is Brownfield (a real codebase exists to trace), use `archify` instead of `/diagram-design` so the comparison is evidence-backed and diffable:
 
 1. Trace the current codebase to produce an evidence-backed AS-IS architecture JSON (nodes cite `SRC n` file/line at the current commit).
-2. Author the TO-BE architecture JSON by hand from the analysis (no code evidence required — it does not exist yet).
-3. Run `node bin/archify.mjs compare architecture as-is.json to-be.json delta.html --json` to render the Before / Delta / After comparison with explicit added, removed, changed, and moved facts.
-4. Embed or link the resulting `delta.html` in the Architecture Decisions tab instead of two separate static diagrams.
+2. Author the TO-BE architecture JSON by hand from the analysis (no code evidence required — it does not exist yet), reusing the same component ids as the AS-IS snapshot where the component still exists — archify's `compare` requires at least one shared component id to prove both snapshots describe the same system.
+3. Use archify's `compare` command for the `architecture` type to render the Before / Delta / After comparison (`compare` isn't documented in archify's own `SKILL.md` — locate the installed archify skill first, then check its `bin/archify.mjs` usage banner for exact syntax).
+4. Embed or link the resulting HTML in the **Technical** tab (see `DOCUMENT-TEMPLATE.md` Tab → Component Mapping) instead of two separate static diagrams. There is no separate "Architecture Decisions" tab — only the 6 mandated tabs exist.
 
 For **Greenfield** concepts (no existing codebase to trace) there is no AS-IS state, so stay on `/diagram-design` for the Context/Component diagram of the proposed TO-BE only.
 

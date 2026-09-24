@@ -3,11 +3,14 @@
 ## Document Rendering
 
 ### Process
-1. Determine use case (Analysis / Proposal / Plan / Review) and depth (Light / Standard / Deep)
+1. Determine use case (Analysis / Proposal / Plan / Review) and depth:
+   * **Light** — quick note or single-screen ask. Linear, no tabs (per `DOCUMENT-TEMPLATE.md` General Guidance). Only the Generic Card / Reference Table components that directly answer the ask.
+   * **Standard** (default) — full 6-tab structure. Exactly the rows in `DOCUMENT-TEMPLATE.md`'s Tab → Component Mapping that have content from the Analysis Layer; skip a row entirely if that analysis step wasn't run, don't invent placeholder content for it.
+   * **Deep** — full 6-tab structure plus every optional/conditional component that applies (ADRs, Prototype Handoff Briefs, AS-IS/TO-BE `delta.html`, Concept Architecture Card) even when only partially filled, so reviewers see the full shape of the analysis.
 2. Assemble the document dynamically using the snippets and base HTML shell provided in `DOCUMENT-TEMPLATE.md`.
 3. Use the fallback inline CSS provided in the shell if custom themes are missing or inaccessible.
 4. Populate **6 mandatory tabs**: Context | Business | Functional | Technical | Assessment | Action
-5. Follow the flexible component guidelines in `DOCUMENT-TEMPLATE.md` to map data to appropriate UI components dynamically.
+5. Follow the fixed Tab → Component Mapping in `DOCUMENT-TEMPLATE.md` to place each piece of data in its assigned tab and order — do not improvise placement.
 6. For user-facing screens, do NOT build the prototype here — write a **Prototype Handoff Brief** in the **Functional** tab (per screen: purpose, states, interactions/JS behavior, inputs & validation, data shape, edge cases) and hand off to **builder** to build the interactive throwaway prototype. Also generate Mermaid/PlantUML diagrams for SA architectural decisions.
 7. Save as `YYYYMMDD-<type>-<topic>.html`
 

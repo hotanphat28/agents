@@ -9,7 +9,28 @@ All generated documents MUST follow a 6-dimension tabbed structure to ensure con
 5. **Assessment**: Findings, scorecard, risks, tech debt.
 6. **Action**: Roadmap, next steps, migration plan, decisions.
 
-Dynamically choose the most appropriate components (from the snippets below) to represent the data in each tab.
+## Tab → Component Mapping (fixed, do not reorder)
+Assign analysis output to tabs using this table, in the listed top-to-bottom order. This is the single source of truth for placement — only fall back to freely "choosing" a component for content that genuinely fits none of these rows.
+
+| Tab | Content (in order) | Component |
+|---|---|---|
+| Context | Problem/vision, scope | Generic Card |
+| Context | Concept Architecture Mapping (4 layers) | Concept Architecture Card |
+| Context | Personas, empathy map, stakeholders | Generic Card (one per persona/stakeholder group) |
+| Business | Hypothesis, OKRs/metrics | Generic Card |
+| Business | Cost-benefit, WSJF (if calculated) | Reference Table |
+| Functional | User journey map, user story map | Diagram Container or Generic Card |
+| Functional | Requirements, BDD acceptance criteria, business rules/edge cases | Generic Card or Reference Table |
+| Functional | Prototype Handoff Brief (per screen) | Prototype Handoff Brief Container |
+| Technical | Bounded contexts, NFRs, ubiquitous language glossary | Generic Card or Reference Table |
+| Technical | Architecture/Context/Component/Sequence/Domain Model diagrams, AS-IS/TO-BE `delta.html` | Diagram Container |
+| Technical | ADRs | ADR / Collapsible Details (fields per `ARCHITECT.md` ADR Template) |
+| Assessment | Gap analysis (AS-IS vs TO-BE summary), tech debt grades | Generic Card or Reference Table |
+| Assessment | Constraint mapping, assumption mapping, risks | Reference Table |
+| Assessment | Validation Gate rationale (Desirability/Viability/Feasibility) | Generic Card |
+| Action | Roadmap, migration plan, next steps, decisions | Generic Card or Reference Table |
+
+Use this fixed order and tab assignment on every run so the same analysis inputs always produce the same document layout.
 
 ## 1. Base HTML Shell
 Use this shell as the foundation for the document. Insert the generated content inside `<main class="wrap">`.
@@ -184,14 +205,19 @@ Use this shell as the foundation for the document. Insert the generated content 
 ```
 
 ### ADR / Collapsible Details
+Fields must match `ARCHITECT.md`'s ADR Template exactly (Status, Date, Deciders, Context, Decision, Rationale, Alternatives Considered, Consequences) — do not use a shortened field set.
 ```html
 <details>
     <summary>ADR-{{ID}}: {{DECISION_TITLE}}</summary>
     <div style="padding-top: 16px; font-size: 14px;">
+        <p><strong>Status:</strong> {{STATUS}}</p>
+        <p><strong>Date:</strong> {{DATE}}</p>
+        <p><strong>Deciders:</strong> {{DECIDERS}}</p>
         <p><strong>Context:</strong> {{CONTEXT}}</p>
         <p><strong>Decision:</strong> {{DECISION}}</p>
         <p><strong>Rationale:</strong> {{RATIONALE}}</p>
         <p><strong>Alternatives Considered:</strong> {{ALTERNATIVES}}</p>
+        <p><strong>Consequences:</strong> {{CONSEQUENCES}}</p>
     </div>
 </details>
 ```
