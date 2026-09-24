@@ -13,10 +13,9 @@
 
 ### Final Review Gate
 After the **[Business Analyst]** drafts the outcomes, the **[Product Owner]** and **[Solution Architect]** MUST conduct a rigorous review before finalization:
-- **Completeness**: Are all edge cases, rules, and NFRs covered?
-- **Conciseness**: Is the document free of bloat and unnecessary complexity?
-- **Comprehensiveness**: Does this artifact fully solve the validated problem from the Analysis phase?
-- **Trim pass**: Actively cut the lowest-value ~20% (restated context, redundant caveats, over-explained obvious points) before delivering — comprehensive means nothing important is missing, not that everything considered must be shown.
+* **Completeness**: Are all edge cases, rules, and NFRs covered?
+* **Conciseness & trim pass**: apply the global `Response depth` rule (`ai-operating-system.instructions.md` / `GEMINI.md`: comprehensive but concise, cut the lowest-value ~20%), not restated here.
+* **Comprehensiveness**: Does this artifact fully solve the validated problem from the Analysis phase?
 *The documents or tickets cannot be considered final until they pass this gate.*
 
 ### Prototype Alignment Gate
