@@ -109,19 +109,21 @@ Design skill owns what tokens must exist. Dev skill owns how they render to CSS.
 ### Theme Selection
 | Signal | Theme | Path |
 |---|---|---|
-| Work, Akkuro, Fyndoo, lending | akkuro | `~/.claude/themes/akkuro.md` |
-| Topicus, corporate, parent company | topicus | `~/.claude/themes/topicus.md` |
-| Personal, htp28, my brand | hotanphat28 | `~/.agents/themes/hotanphat28.md` |
+| Work, Akkuro, Fyndoo, lending | akkuro | `~/.claude/design-system/akkuro/DESIGN.md` |
+| Topicus, corporate, parent company | topicus | `~/.claude/design-system/topicus/DESIGN.md` |
+| Personal, htp28, my brand | hotanphat28 | `~/.agents/design-system/hotanphat28/DESIGN.md` |
 | Ambiguous | Ask user | — |
+
+Paths are the expected location, not a guarantee. Before loading, confirm the file exists; if not, glob `**/design-system/<brand>/DESIGN.md` under both `~/.agents/` and `~/.claude/`. If still not found, ask the user for the correct location instead of assuming defaults or fabricating tokens.
 
 ### Required Brand Tokens
 Every theme must provide: `--primary`, `--primary-dark`, `--primary-pale`, `--bg-dark`, `--bg-dark-mid`, `--bg-dark-deep`, `--bg-warm`, `--accent`, `--font-display`, `--font-body`, `--font-mono`.
 
-### Status Colors (Universal — Never Themed)
+### Status Colors (Universal, Never Themed)
 `--status-success` (#22A861), `--status-warning` (#E5A00D), `--status-error` (#DC3545), `--status-info` (#3B82F6), `--status-neutral` (#6B7280).
 
 ### Pairing Themes with Akkuro App Layouts
-For Akkuro/Fyndoo app screens, pair the akkuro theme with the matching layout template from `~/.claude/templates/akkuro-app-layouts/` and design system from `~/.claude/themes/akkuro-design-systems/`. Match by app name (e.g., "atlanta" → `atlanta-layout.html` + `atlanta.md`).
+For Akkuro/Fyndoo app screens, pair the akkuro theme with the matching layout template from `~/.claude/templates/akkuro-app-layouts/` and the design system at `~/.claude/design-system/akkuro/DESIGN.md`. Match by app name (e.g., "atlanta" → `atlanta-layout.html`).
 
 ## Pencil.dev Workflow
 1. `mcp_pencil_get_editor_state` → `mcp_pencil_get_guidelines` → `mcp_pencil_batch_get`

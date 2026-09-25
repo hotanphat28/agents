@@ -56,10 +56,8 @@ Single-agent, multi-skill architecture. Skills are user-invoked for precise cont
 │   │   ├── QUYNH_HUONG_NUMEROLOGY_1.JPG
 │   │   └── QUYNH_HUONG_NUMEROLOGY_2.JPG
 ├── design-system/
-│   └── hotanphat28/          Personal brand design system specifications
+│   └── hotanphat28/          Personal brand design system (single source of truth for brand tokens)
 │       └── DESIGN.md
-└── themes/
-    └── hotanphat28.md        Personal brand theme
 ```
 
 ## Skill Invocation

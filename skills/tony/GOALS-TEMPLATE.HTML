@@ -17,20 +17,13 @@
   ║                                                                         ║
   ║  Theming:                                                               ║
   ║  • Ships with NEUTRAL defaults (blue tones, Inter font).               ║
-  ║  • When user specifies a theme (e.g. "use akkuro theme"), load         ║
-  ║    .agents/references/<scope>/theme.md and apply tokens to :root.      ║
-  ║  ┌──────────┬──────────────┬──────────────┬──────────────┐              ║
-  ║  │ Token    │ akkuro       │ htp28        │ topicus      │              ║
-  ║  ├──────────┼──────────────┼──────────────┼──────────────┤              ║
-  ║  │ primary  │ #008071      │ #FFC90E      │ #f8e800      │              ║
-  ║  │ prim-dk  │ #004D44      │ #D4A800      │ #C6B900      │              ║
-  ║  │ prim-pl  │ #E0F5E6      │ #3A3520      │ #FFFDE0      │              ║
-  ║  │ bg-dark  │ #1A2419      │ #101010      │ #242f36      │              ║
-  ║  │ accent   │ #73C088      │ #FFC90E      │ #f8e800      │              ║
-  ║  │ display  │ Poppins      │ Space Grotesk│ sans-serif   │              ║
-  ║  │ body     │ Poppins      │ Space Grotesk│ sans-serif   │              ║
-  ║  │ mono     │ DM Mono      │ Space Mono   │ monospace    │              ║
-  ║  └──────────┴──────────────┴──────────────┴──────────────┘              ║
+  ║  • When user specifies a theme (e.g. "use akkuro theme"), load the     ║
+  ║    matching design-system/<brand>/DESIGN.md (akkuro/topicus under      ║
+  ║    ~/.claude/design-system/, hotanphat28 under ~/.agents/design-system/)║
+  ║    and apply its --* Template Token Mapping tokens to :root. Don't      ║
+  ║    hardcode token values here, DESIGN.md is the single source of truth.║
+  ║  • If that path doesn't exist, glob for design-system/<brand>/DESIGN.md║
+  ║    under both roots; if still missing, ask the user, don't guess.      ║
   ║                                                                         ║
   ║  Template variables:                                                    ║
   ║    {{PAGE_TITLE}}       – Browser tab title                             ║

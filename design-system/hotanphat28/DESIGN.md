@@ -136,3 +136,84 @@ The background is *always* `#101010`. It is a dark-mode first design system.
 - **Motion:** `150ms ease` for micro-interactions, `250ms ease` for panels, `350ms ease` for page-level transitions.
 - **Glassmorphism:** `background: rgba(26,26,26,0.8); backdrop-filter: blur(12px)` — strictly for overlays on image backgrounds.
 - **Logo Usage:** Never invert the golden logo mark. Scale proportionally without distortion. Minimum clear space equals the height of the circular mark.
+
+## 10. Brand Identity & Contact
+| Attribute | Value |
+|-----------|-------|
+| Website | hotanphat.com |
+| Email | hello@hotanphat.com |
+| Social | [X](http://x.com/hotanphat28) · [YouTube](https://youtube.com/@hotanphat28) · [TikTok](https://tiktok.com/@hotanphat28) · [GitHub](https://github.com/hotanphat28) · [LinkedIn](https://linkedin.com/in/hotanphat28/) · [Pexels](https://www.pexels.com/@hotanphat28) |
+
+## 11. Typography Assets
+### Google Fonts
+```html
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+```
+
+## 12. Extended Component Theming
+
+### Tables
+| Part | Background | Color | Border |
+|------|-----------|-------|--------|
+| Header | `#222222` | `#F4F4F4` | — |
+| Row | `#1A1A1A` | `#F4F4F4` | bottom `1px solid #2A2A2A` |
+| Row hover | `#222222` | — | — |
+| Zebra (even) | `#1E1E1E` | — | — |
+
+### Other
+| Component | Token | Value |
+|-----------|-------|-------|
+| Modal overlay | background | `rgba(0,0,0,0.6)` |
+| Modal container | background | `#1A1A1A`, border `1px solid #2A2A2A` |
+| Tooltip | bg / text | `#222222` / `#F4F4F4` |
+| Status notifier | bg / border | `--status-*-light` / `1px solid --status-*` |
+
+## 13. Screen Patterns
+| Screen | Background | Description |
+|--------|-----------|-------------|
+| Home / Portfolio | `#101010` | Full-page dark surface. Hero with gold accent headline, Space Grotesk display type, minimal CTA. Scroll reveals project cards on `#1A1A1A` surfaces. |
+| Dashboard | Sidebar `#1A1A1A` / Content `#101010` | App shell with sidebar nav, gold active state. Content cards on `#1A1A1A`. |
+| Blog / Article | `#101010` | Dark reading surface. `#F4F4F4` body text, `#FFC90E` accent for links/highlights, `Space Mono` for code blocks. |
+| Login / Auth | `#101010` | Centered card on `#1A1A1A`. Gold primary CTA, minimal fields. Logo above form. |
+| Settings / Profile | `#101010` | Sectioned form layout. Cards on `#1A1A1A` with `#2A2A2A` dividers. |
+
+## 14. Logo & Favicon
+The hotanphat28 logo is a golden circular emblem mark alongside "hồ tấn phát" in lowercase.
+
+| Variant | Usage | URL |
+|---------|-------|-----|
+| Golden logo (full) | Light or dark surfaces, favicon, all sizes | `https://hotanphat.com/assets/images/logo/20251017_logo_hotanphat28_golden.png` |
+
+```html
+<link rel="icon" href="https://hotanphat.com/assets/images/logo/20251017_logo_hotanphat28_golden.png" type="image/png">
+```
+
+## 15. Template Token Mapping
+
+### HTML Template Variables
+| Variable | Value |
+|---|---|
+| `{{FAVICON_URL}}` | `https://hotanphat.com/assets/images/logo/20251017_logo_hotanphat28_golden.png` |
+| `{{FONT_IMPORT_URL}}` | `https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap` |
+| `{{ICON_CDN_URL}}` | `https://unpkg.com/lucide-static@latest/font/lucide.min.css` |
+| `{{BRAND_MARK}}` | `HP` |
+| `{{BRAND_NAME}}` | `hotanphat28` |
+| `{{BRAND_SUFFIX}}` | ` ` |
+| `{{TITLE_SUFFIX}}` | `hotanphat28` |
+| `{{LOGO_TEXT}}` | `hồ tấn phát` |
+
+## 16. Brand Voice & Tone
+Minimalist, intentional, premium, every word earns its place, like every pixel. Quiet confidence. Technical but accessible. Concise, never verbose. Think: the calm expert who doesn't need to prove themselves.
+
+## 17. Quick Reference
+```
+Fonts:         Space Grotesk (headings + body) / Space Mono (data)
+Primary color: #FFC90E  (Gold)
+Primary hover: #D4A800
+Surface bg:    #101010  (Near-black)
+Card bg:       #1A1A1A
+Raised bg:     #222222
+Text primary:  #F4F4F4
+Text muted:    #888888
+Border:        #2A2A2A
+```
