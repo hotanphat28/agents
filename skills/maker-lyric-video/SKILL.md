@@ -39,28 +39,11 @@ mkdir -p lyric
 cd lyric
 ```
 
-### 2. Extract Vocals
+### 2. Vocal Extraction & Word-Level Alignment
 
-Isolate vocals to prevent transcription hallucinations from background music:
+Follow [Vocal Extraction & Word-Level Alignment](../VOCAL-ALIGNMENT.md) steps 1-3 from inside `lyric/`. Output: `aligned.json`.
 
-```bash
-uvx --with numpy demucs --two-stems=vocals ../assets/*.{mp3,wav,m4a}
-```
-
-Output: `separated/htdemucs/song/vocals.wav`
-
-### 3. Align (Word-Level Timestamps)
-
-Extract text and run `stable-ts` forced alignment:
-
-```bash
-grep -v "^\[" ../assets/lyric.md | grep -v "^#" | grep -v "^$" > lyric.txt
-uvx --with stable-ts stable-ts separated/htdemucs/*/vocals.wav -o aligned.json --align lyric.txt --language vi --model large-v3
-```
-
-Output: `aligned.json`
-
-### 4. Align and Generate HTML
+### 3. Align and Generate HTML
 
 Copy `examples/generate_lyric.py` to working directory, then run:
 
@@ -72,7 +55,7 @@ Parses `aligned.json` and builds the HyperFrames HTML composition with 100% accu
 
 Output: `index.html`
 
-### 5. Lint and Render
+### 4. Lint and Render
 
 ```bash
 npx hyperframes@latest lint
@@ -81,7 +64,7 @@ mkdir -p renders && npx hyperframes@latest render -o renders/output_lyric.mp4 --
 
 Present `renders/output_lyric.mp4` to user.
 
-### 6. Generate Thumbnail
+### 5. Generate Thumbnail
 
 Copy `examples/generate_thumbnail.py`, update the song title constant, then run:
 
@@ -91,7 +74,7 @@ uv run python generate_thumbnail.py
 
 Present `thumbnail.png` to user.
 
-### 7. Clean Up
+### 6. Clean Up
 
 After user approves final output:
 

@@ -38,7 +38,7 @@ Always attach source metadata (file, page, section, date) to chunks. Always cite
 * High-stakes actions require human confirmation
 
 ## Eval Protocol (Non-Negotiable)
-Every AI feature ships with an eval. No exceptions.
+Every AI feature ships with an eval.
 
 1. **Golden dataset**: 20-50 test cases (happy path + edge cases + adversarial)
 2. **Run on every change**: prompt edits, model upgrades, pipeline changes

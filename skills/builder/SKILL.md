@@ -1,6 +1,6 @@
 ---
 name: builder
-description: Build software, write code, and implement technical solutions.
+description: Build and ship software - implementation, debugging, and code review.
 disable-model-invocation: true
 version: 1.0.0
 ---

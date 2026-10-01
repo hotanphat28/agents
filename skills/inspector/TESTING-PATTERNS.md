@@ -3,7 +3,7 @@
 This document outlines the strict quality and testing rules for the ecosystem.
 
 ## 1. Test Strategy Rules
-* **Testing Pyramid Exceptions**:
+* **Testing Strategy by App Type**:
   * **CRUD apps** → heavier on integration (little business logic to unit test).
   * **Algorithmic code** → heavier on unit tests (pure functions, many edge cases).
   * **UI-heavy apps** → add visual regression layer.

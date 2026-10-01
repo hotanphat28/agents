@@ -43,3 +43,9 @@ Swap the emoji/label for the intent: `ℹ️ Note`, `⚠️ Warning`, `✅ Succe
 
 ## Rich media & attachments
 Local file paths (e.g. `![alt](/local/path.png)`) do not work in Jira or Confluence, Atlassian servers can't reach your filesystem. Upload the image/diagram/screenshot via the MCP attachment tool first, then embed it using the attachment syntax (e.g. `!filename.png!`), never the local path.
+
+## Pre-publish checklist (run during Self-review, before the Publish gate)
+* Plain CommonMark only — no wiki markup (`h2.`, `{quote}`) or panel macros (`{panel:...}`, `> [!WARNING]`) leaked into the draft.
+* No checkbox syntax (`- [ ]`) anywhere, including acceptance criteria — plain bullets only.
+* Every image/diagram/screenshot is uploaded via the MCP attachment tool and embedded with attachment syntax, never a local file path.
+* Every link uses the full browse URL, not a relative or local path.

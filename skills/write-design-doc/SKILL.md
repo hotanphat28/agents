@@ -13,7 +13,7 @@ Act as a **Product Owner or Business Analyst** (whichever fits the section being
 2. **Intake** — confirm the target Confluence space key, parent page (if nesting under an existing page tree), and the feature/initiative this doc covers. Gather linked JIRA tickets for the Technical changes table.
 3. **Fetch (Verify/Edit only)** — pull the current page content and compare its sections against the template below; list what's missing, misordered, or non-standard.
 4. **Draft** — write the doc, or the proposed fix, in Markdown using the template below. Only fill sections that apply; leave optional/not-yet-known sections as headings with "TBD" rather than deleting them.
-5. **Self-review** — confirm every template section is filled in or marked TBD, and no sentence just restates another; fix both before presenting it.
+5. **Self-review** — confirm every template section is filled in or marked TBD, and no sentence just restates another, and run the Pre-publish checklist in `../ADF.md`; fix any gaps before presenting it.
 6. **Publish gate** — show the full draft (or diff, for Verify/Edit) to the user and get explicit approval. Never call a Confluence write tool before approval, and never overwrite manual edits without calling them out. For Edit, if the existing page body is non-empty, ask whether to preserve it as a comment first before overwriting.
 7. **Execute** — once approved, use the available Confluence MCP tools to create or update the page.
 8. **Confirm** — report back the page URL and a one-line summary of what changed.
@@ -61,13 +61,13 @@ Diagram content — see **Diagrams** rule below for format/theming.
 ## Flowchart / BPMN diagram
 Diagram content — see **Diagrams** rule below for format/theming.
 
-## System context diagram
+## Data flow diagram
 Diagram content — see **Diagrams** rule below for format/theming.
 
 ## Sequence diagram
 Diagram content — see **Diagrams** rule below for format/theming.
 
-## Component diagram
+## Component diagram (optional, include if architecture complexity warrants it)
 Diagram content — see **Diagrams** rule below for format/theming.
 
 ## Domain model diagram
@@ -83,7 +83,7 @@ Collapsible entry per risk: summary line + mitigation plan, with supporting diag
 ```
 
 ## Diagrams
-Prefer the `diagram-design` skill (explicit mention required) for every diagram type in the template (Workflow/Flowchart/BPMN, System context, Sequence, Component, Domain model). If `diagram-design` is not available, ask the user to select one of the following list:
+Prefer the `diagram-design` skill (explicit mention required) for every diagram type in the template (Workflow/Flowchart/BPMN, Data flow, Sequence, Domain model, Component if applicable). If `diagram-design` is not available, ask the user to select one of the following list:
 1. SVG embedded in HTML
 2. PlantUML rendered in HTML
 

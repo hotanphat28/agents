@@ -23,7 +23,7 @@ Assign analysis output to tabs using this table, in the listed top-to-bottom ord
 | Functional | Requirements, BDD acceptance criteria, business rules/edge cases | Generic Card or Reference Table |
 | Functional | Prototype Handoff Brief (per screen) | Prototype Handoff Brief Container |
 | Technical | Bounded contexts, NFRs, ubiquitous language glossary | Generic Card or Reference Table |
-| Technical | Architecture/Context/Component/Sequence/Domain Model diagrams, AS-IS/TO-BE `delta.html` | Diagram Container |
+| Technical | Flowchart/BPMN, Data Flow, Sequence, Domain Model diagrams, Component diagram (optional), AS-IS/TO-BE `delta.html` | Diagram Container |
 | Technical | ADRs | ADR / Collapsible Details (fields per `ARCHITECT.md` ADR Template) |
 | Assessment | Gap analysis (AS-IS vs TO-BE summary), tech debt grades | Generic Card or Reference Table |
 | Assessment | Constraint mapping, assumption mapping, risks | Reference Table |

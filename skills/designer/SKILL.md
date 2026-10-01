@@ -12,7 +12,7 @@ version: 1.0.0
 **Reference:** `DESIGN-PRINCIPLES.md` (core design rules). Load on demand.
 
 ## Role in the Skill Chain
-* **From analyst**: Receive throwaway HTML/Tailwind prototypes and evolve them into production-ready designs. Treat these prototypes as *intent sketches*.
+* **From builder**: Receive throwaway HTML/CSS/JS prototypes (built from analyst's Prototype Handoff Brief) and evolve them into production-ready designs. Treat these prototypes as *intent sketches*.
 * **To builder**: Hand off finalized design specs (screens, components, tokens, states) for coded implementation.
 
 ## Core Principles

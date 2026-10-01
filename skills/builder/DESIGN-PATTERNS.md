@@ -3,12 +3,12 @@
 This document outlines the strict engineering standards and testing rules required when writing structural code.
 
 ## 1. Dependency Injection (DI)
-* **Strict Prohibition:** Hardcoding dependencies via the `new` keyword (or equivalent) inside business logic is strictly prohibited.
+* **No manual instantiation:** Hardcoding dependencies via the `new` keyword (or equivalent) inside business logic is an anti-pattern.
 * **Constructor Injection:** Inject all required dependencies through the class constructor. 
 * **Configuration Injection:** Externalized configurations (database URIs, API keys) must also be injected, never accessed globally.
 
 ## 2. The Repository Pattern
-* **Strict Prohibition:** Directly querying the database from business logic (services/controllers) is an anti-pattern.
+* **No direct queries:** Querying the database directly from business logic (services/controllers) is an anti-pattern.
 * **Abstract Data Access:** All data access must be abstracted behind a Repository interface.
 * **Domain Focus:** The Repository should act like an in-memory collection of domain objects. It takes and returns domain entities, not database rows.
 

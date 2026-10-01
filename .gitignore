@@ -44,3 +44,5 @@ temp/
 
 # Antigravity Agents Workspace
 .agents/
+
+.skill-lock.json

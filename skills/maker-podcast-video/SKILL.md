@@ -68,14 +68,14 @@ Run `npx hyperframes init <name> --example blank` to set up the base project dir
 1. Ensure the primary audio file is placed in the workspace (e.g., `assets/audio.mp3`).
 2. Transcribe the audio. You **must** extract word-level timestamps (e.g., using Whisper with `--word_timestamps True`) and run a script to group the words into perfectly complete sentences based on punctuation (`.` `?` `!`). Do not rely on default chunking, as it will break sentences across boundaries.
 3. Identify the main language of the audio (support is limited to English and Vietnamese). Transcribe the main language first, then translate the full sentences to the other language. Ensure translations are natural and contextual.
-4. Structure the subtitle data as a global `window.CAPTIONS` array in `captions.js`. You must include an explicit absolute `start` timestamp in addition to `duration` so that subtitles do not drift during audio silences:
+4. Structure the subtitle data as a global `window.CAPTIONS` array in `captions.js`. Use explicit absolute `start` and `end` timestamps (not `duration`) so subtitles never drift during audio silences:
 ```javascript
 window.CAPTIONS = [
-  { start: 0.000, duration: 2.500, textEN: "Hello world.", textVN: "Chào thế giới." },
+  { start: 0.24, end: 3.99, en: "Hello world.", vi: "Chào thế giới." },
   // ...
 ];
 ```
-5. In your `index.html` GSAP loop, use `const startTime = cap.start || 0;` rather than continuously accumulating `duration`, to account for silences between sentences.
+5. In your `index.html` GSAP loop, derive each caption's duration as `cap.end - cap.start` and its position as `cap.start` — never accumulate durations across captions.
 6. Load `captions.js` synchronously in the HTML.
 
 ### Step 3: Profanity Filter

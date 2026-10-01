@@ -25,29 +25,16 @@ project-folder/
    mkdir -p karaoke
    cd karaoke
    ```
-3. **Vocal Extraction**: Run `demucs` to isolate the vocals and generate the instrumental track. (We use `uvx` to ensure proper environments per user rules).
+3. **Vocal Extraction & Word-Level Alignment**: follow [Vocal Extraction & Word-Level Alignment](../VOCAL-ALIGNMENT.md) steps 1-3 from inside `karaoke/`.
+4. **Copy Generator Script**: Copy the Python generator script from the skill's `scripts` directory to the `karaoke/` directory:
    ```bash
-   uvx --with numpy demucs --two-stems=vocals ../assets/*.wav
+   cp ~/.agents/skills/maker-karaoke-video/scripts/generate_karaoke.py .
    ```
-   *(Adjust `.wav` to `.mp3` if needed)*
-4. **Clean Lyrics**: The `lyric.md` file often contains timestamps or headers. Clean it to a plain text file inside `karaoke/`:
-   ```bash
-   grep -v "^\[" ../assets/lyric.md | grep -v "^#" | grep -v "^$" > lyric.txt
-   ```
-5. **Word-Level Alignment**: Use `stable-ts` to align the isolated vocals with the cleaned lyrics.
-   ```bash
-   uvx --with stable-ts stable-ts separated/htdemucs/*/vocals.wav -o aligned.json --align lyric.txt --language vi --model large-v3
-   ```
-   *(Note: Adjust the wildcard to match the demucs output folder name).*
-6. **Copy Generator Script**: Copy the Python generator script from the skill's `scripts` directory to the `karaoke/` directory (replace `<skill-dir>` with the actual path to this skill):
-   ```bash
-   cp <skill-dir>/scripts/generate_karaoke.py .
-   ```
-7. **Generate HTML**: Run the script to generate `index.html`.
+5. **Generate HTML**: Run the script to generate `index.html`.
    ```bash
    uv run python generate_karaoke.py
    ```
-8. **Render**: Use `hyperframes` to lint and render the final video.
+6. **Render**: Use `hyperframes` to lint and render the final video.
    ```bash
    npx hyperframes@latest lint
    npx hyperframes@latest render -o renders/output_karaoke.mp4 --fps 30 --quality high --crf 18

@@ -49,7 +49,7 @@ If the user does not have a clearly defined OKR for this initiative, the Product
 * **Key Results (3-5 max)**: Quantitative metrics that measure if the objective was met. Must follow the format: "Increase/Decrease [metric] from X to Y." (e.g., "Decrease onboarding drop-off rate from 40% to 15%").
 
 ### WSJF (Weighted Shortest Job First) — *On-Demand Reference*
-Use this framework **only when explicitly requested** to rank competing Epics or Initiatives quantitatively. 
+Use WSJF to quantitatively rank competing Epics or Initiatives. 
 * **Cost of Delay (CoD)** = User/Business Value + Time Criticality + Risk Reduction/Opportunity Enablement (using Fibonacci scale: 1, 2, 3, 5, 8, 13, 20).
 * **Job Size** = Estimated effort/complexity (using Fibonacci scale).
 * **WSJF Score** = Cost of Delay / Job Size. Highest score wins.

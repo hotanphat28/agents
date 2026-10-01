@@ -16,6 +16,7 @@ version: 1.0.0
 * **Branching Playbooks**:
   * *Greenfield (New Idea)*: PO focuses on Market Fit/JTBD; SA focuses on Technology Selection.
   * *Brownfield (Enhancement)*: PO focuses on ROI/Metrics; SA focuses on Constraints, Integration, and Tech Debt.
+  * See **Lifecycle Sequencing** below for *who leads when* within each playbook — focus area alone doesn't fix execution order.
 * **Human-Centred Design (HCD)**: Every analysis starts and ends with the people who use the product. Desirability (do users want it?) carries equal weight to viability (does it make business sense?) and feasibility (can we build it?). Use the Double Diamond — diverge to explore the problem space, converge to define it, diverge to explore solutions, converge to deliver.
 * Validate the problem, concept, or idea before designing the solution.
 * Ask intake questions and clarify requirements before generating artifacts.
@@ -28,6 +29,13 @@ When a user submits a request, first determine if they need **Analysis** or are 
 * **Outcome Request:** "Format this text into an Epic", "Generate a PRD for this idea", "Write the ADR for this". -> **STOP and Ask:** "Do you want to run through the Analysis phase first to gather business and technical context, or should I jump straight to generating the outcome?"
   * If the user says skip/no: Jump directly to **The Outcome Layer**.
   * If the user says yes: Start **The Analysis Layer**.
+
+## Lifecycle Sequencing (Who Leads, When)
+First Principle: PO always establishes the *What*/*Why* first — no one can architect or detail a problem that isn't yet defined as worth solving. Within **The Analysis Layer** below, run personas in this order per lifecycle (step numbers refer to the layer's numbered steps):
+
+* **Greenfield (New Feature, 0→1):** PO anchors first (steps 2-3 — business case, target audience, market gap) → SA gates second as a reality check (run step 5 as a *lightweight* feasibility scan here — confirm whether the concept needs a new service/integration or not) → BA details third (step 4 in full — user stories, data mappings, 5W1H edge cases). Do not let step 4's detailed artifacts (BDD, business rules, edge cases) run to completion until the SA has confirmed feasibility.
+* **Brownfield (Enhancement, 1→N):** PO + BA co-lead as diagnosticians (steps 2-4 together — PO sets the strategic goal/metric, BA brings the 80/20 data on exactly which step causes the friction) → SA operates last as the surgeon (step 5 — assess how to inject the fix into the existing codebase without breaking current dependencies), gated on the diagnosis being complete.
+* **Anti-patterns (sequencing inversion check):** SA leading first on a Greenfield item -> "Resume-Driven Development" (an elegant, over-engineered system solving a problem no customer validated). BA leading first on either lifecycle -> process paralysis (meticulous tickets mapping current-state workflow with no strategic *why*). If either pattern is detected mid-flow, stop and re-anchor on the PO's business case before continuing.
 
 ## The Analysis Layer (Inputs & Understanding)
 **Load `DISCOVERY-METHODS.md` for the templates and question banks referenced in steps 2, 3, 4, and 6 below.**
@@ -43,6 +51,7 @@ Build an empathy map per primary persona, reframe each pain point as a "How Migh
 Write the core hypothesis before proposing solutions, then work through the Business Context Checklist (lifecycle, problem/user, JTBD, success criteria, stakeholder map, cost of inaction). See `DISCOVERY-METHODS.md` for the hypothesis template and full checklist. If quantitative prioritization is explicitly requested for Epics or Initiatives, calculate WSJF.
 
 ### 4. Functional & Logic Analysis
+*Greenfield: do not run this step to completion until step 5's lightweight feasibility gate has passed (see Lifecycle Sequencing). Brownfield: run together with steps 2-3 as PO+BA co-lead diagnosis.*
 * **User Story Mapping**: Map the user journey backbone to prioritized functional tasks to bridge the gap between user experience and execution slices. See `DISCOVERY-METHODS.md` for the story mapping template.
 * **Concept Architecture Mapping**: Unify the PO, SA, and BA analysis into the four layers defined under Custom Ecosystem Terms below (Foundation, Framework, Plumbing & Wiring, Facade & Interior).
 * **Ubiquitous Language**: Identify and agree on domain terminology with stakeholders to ensure the code and docs use the exact same language.
@@ -53,6 +62,7 @@ Write the core hypothesis before proposing solutions, then work through the Busi
 * **Assumption Mapping**: Output a ranked list of every assumption the team is making (ranked by criticality if wrong and evidence). High-risk, low-evidence assumptions become research priorities or spike candidates.
 
 ### 5. Technical Context (Lightweight Architect Scan)
+*Greenfield: run this as an early feasibility gate before step 4's detailed artifacts proceed. Brownfield: run this last, after steps 2-4's diagnosis is complete (see Lifecycle Sequencing).*
 * **Autonomous Codebase Exploration**: The **[Solution Architect]** must proactively use tools to explore the project directory, analyze dependencies, and map out the architecture.
 * Identify **Bounded Contexts** to define explicit system boundaries and external integrations.
 * Assess NFRs (Security, Scalability, Performance).
@@ -94,37 +104,7 @@ When asked to explain a topic, system, or logic quickly in chat (outside of form
 - **Diffs**: Use `diff` markdown to show the shape of a change when the surrounding structure already exists.
 
 ### Diagrams
-
-Should have the following diagram types when possible:
-
-* Self decide to have **BPMN Diagrams** for business process flows and decision points or **Flowcharts** for system flows and edge cases
-* **Context Diagrams** for system boundaries and external integrations
-* **Component Diagrams** for system architecture and dependencies
-* **Sequence Diagrams** for core business flows and edge cases
-* **Domain Models** for data structures and relationships
-
-Default tool: use `/diagram-design` to generate diagrams. If `/diagram-design` is not available, ask the user to select one of the following list:
-
-1. SVG embedded in HTML
-2. PlantUML rendered in HTML
-
-After a diagram is generated in a separate html file, automate exporting it into SVG via `/diagram-design`.
-
-This default covers BPMN/Flowchart, **all Sequence diagrams**, and Domain Model diagrams — even though `archify` also has a Sequence type, do not use it for this skill's Sequence diagrams; it is reserved solely for the AS-IS/TO-BE case below.
-
-#### AS-IS vs TO-BE Architecture Comparison (Gap Analysis)
-
-When the Gap Analysis step (Functional & Logic Analysis, item 4) covers **Context** or **Component** diagrams **and** the lifecycle is Brownfield (a real codebase exists to trace), use `archify` instead of `/diagram-design` so the comparison is evidence-backed and diffable:
-
-1. Trace the current codebase to produce an evidence-backed AS-IS architecture JSON (nodes cite `SRC n` file/line at the current commit).
-2. Author the TO-BE architecture JSON by hand from the analysis (no code evidence required — it does not exist yet), reusing the same component ids as the AS-IS snapshot where the component still exists — archify's `compare` requires at least one shared component id to prove both snapshots describe the same system.
-3. Use archify's `compare` command for the `architecture` type to render the Before / Delta / After comparison (`compare` isn't documented in archify's own `SKILL.md` — locate the installed archify skill first, then check its `bin/archify.mjs` usage banner for exact syntax).
-4. Embed or link the resulting HTML in the **Technical** tab (see `DOCUMENT-TEMPLATE.md` Tab → Component Mapping) instead of two separate static diagrams. There is no separate "Architecture Decisions" tab — only the 6 mandated tabs exist.
-
-For **Greenfield** concepts (no existing codebase to trace) there is no AS-IS state, so stay on `/diagram-design` for the Context/Component diagram of the proposed TO-BE only.
-
-#### Theming
-All diagrams MUST apply and match the theme used for the HTML documents (e.g., matching colors and fonts).
+See [`DIAGRAMS.md`](DIAGRAMS.md) for the default diagram set, the AS-IS/TO-BE archify workflow, and theming rules.
 
 ## Reference Index
 | Reference | When to load | Fallback if missing |
@@ -133,6 +113,7 @@ All diagrams MUST apply and match the theme used for the HTML documents (e.g., m
 | `OUTCOME-RULES.md` | Writing work items, updating Jira, or rendering HTML templates | Use standard Jira/Agile formatting |
 | `ARCHITECT.md` | Detailed tech debt grading matrices and migration sequences | Use standard architecture best practices |
 | `AI-ANALYSIS.md` | Analyzing features that involve AI, LLMs, or Machine Learning | Use standard software analysis |
+| `DIAGRAMS.md` | Producing any diagram deliverable (default set, AS-IS/TO-BE comparison, theming) | Use standard diagramming best practices |
 
 ## Custom Ecosystem Terms
 * **Concept Architecture Mapping**: A structural methodology that treats a product concept like constructing a building, ensuring alignment across strategy, technology, and design. It divides a concept into four layers: Foundation (The Why), Framework (The What), Plumbing & Wiring (Logic & Flow), and Facade & Interior (The Experience).

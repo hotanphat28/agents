@@ -12,11 +12,13 @@ Act as a **Business Analyst**: focus on detailed, testable requirements for a si
 1. **Mode** — confirm what's needed: **Verify** (check an existing ticket against the template), **Create** (draft a new ticket), or **Edit** (update an existing ticket).
 2. **Intake** — confirm the target JIRA project key and gather the who/what/why. Ask for a parent Epic link if one exists.
 3. **Fetch (Verify/Edit only)** — pull the current ticket content and compare its sections against the template below; list what's missing, misordered, or non-standard.
-4. **Draft** — write the ticket, or the proposed fix, in Markdown using the template below.
-5. **Self-review** — confirm every required section is filled in and no sentence just restates another; fix both before presenting it.
+4. **Draft** — write the ticket, or the proposed fix, in Markdown using the template below. Keep the description stakeholder-readable (plain language); route implementation/architecture-level detail to step 8 instead of the description.
+5. **Self-review** — confirm every required section is filled in and no sentence just restates another, and run the Pre-publish checklist in `../ADF.md`; fix any gaps before presenting it.
 6. **Publish gate** — show the full draft (or diff, for Verify/Edit) to the user and get explicit approval. Never call a JIRA write tool before approval, and never push a change to an already-published ticket without a fresh preview + approval. For Edit, if the existing description is non-empty, ask whether to post it as a comment first before overwriting.
 7. **Execute** — once approved, use the available JIRA MCP tools to create or update the ticket (and link it to a parent Epic if one was given).
-8. **Confirm** — report back the ticket key/URL and a one-line summary of what changed.
+8. **Technical comment (if applicable)** — if the story carries implementation/architecture-level detail, post it as a Jira comment on the ticket instead of in the description.
+9. **Sub-tasks** — check the ticket's existing sub-tasks first; create only the ones missing from the standard set the user wants (see below), never duplicate. Ask before creating any.
+10. **Confirm** — report back the ticket key/URL and a one-line summary of what changed.
 
 ## Title pattern
 `[Action verb] [what] [context]`. Max 80 chars, start with a capital letter, no trailing period, omit ticket IDs.
@@ -42,9 +44,6 @@ Outcome-based, verifiable criteria for "story complete" (one-liners).
 ### Functional specifications (optional, add if the story needs logic or rules)
 * Logic/rules required to meet the acceptance criteria.
 
-### Technical specifications (optional, add if the story is technical)
-* Design/architecture/implementation details required to meet the acceptance criteria.
-
 ### Non-functional requirements (optional, add if needed)
 * Performance, security, reliability, maintainability, usability, etc.
 
@@ -54,21 +53,15 @@ Explicitly excluded items (one-liners).
 ## How to test?
 Step-by-step, clear and measurable test instructions covering happy path and edge cases, verifying the acceptance criteria.
 
-## Assumptions (optional, add if needed)
-* Assumptions made during analysis and design.
-
-## Decisions (optional, add if needed)
-* Key decisions with rationale, using a `<>` decision block, dated YYYY-MM-DD.
-
-## Dependencies (optional, add if needed)
-* External dependencies and potential risks.
-
-## Risks / Impacts (optional, add if needed)
-* Potential risks/impacts on other systems or teams.
-
-## Notes / Q&A (optional, add if needed)
-* Additional notes and Q&A.
+## Additional notes (optional, include only the bullets that apply)
+* **Assumption:** assumption made during analysis/design.
+* **Decision (YYYY-MM-DD):** key decision and rationale.
+* **Dependency:** external dependency and potential risk.
+* **Risk/Impact:** potential risk or impact on other systems/teams.
+* **Note/Q&A:** anything else worth capturing.
 ```
+
+Default to the minimum: Context, Description, Acceptance criteria, Out of scope, and How to test are the only sections every story needs. Only add Functional specifications, Non-functional requirements, or an Additional notes bullet when this specific story genuinely needs it — never include a section or bullet with no real content, and never add implementation/architecture detail here (post it as a comment per Workflow step 8).
 
 Apply INVEST principles when drafting a Story:
 * **Independent**: Ensure the story can be developed and delivered without waiting on other stories.
@@ -84,9 +77,9 @@ Best practices for writing a Story:
 * One story should not cover multiple features or requirements.
 * Always include acceptance criteria that are clear, measurable and testable.
 * Collaborate with stakeholders to ensure the story meets their needs and expectations.
-* If it is a technical story, include context and rationale for the technical decision.
+* If it is a technical story, keep the business rationale in Context and post implementation-level detail as a comment (Workflow step 8), not in the description.
 
-Always ask before adding the following sub-tasks to a Story (check for existing ones first to avoid duplication):
+Standard sub-task set for Workflow step 9 (check the ticket's existing sub-tasks first, create only what's missing):
 * Create test cases
 * Execute test cases
 * Create or update UnitTests
