@@ -92,6 +92,7 @@ If a check fails, the team loops back to the relevant discovery step (user resea
 * Slice functional analysis into Initiatives, Epics, Stories, Bugs, or Design Docs.
 * Delegate the actual drafting to the matching model-invoked skill — `write-initiative`, `write-epic`, `write-story`, `write-bug`, or `write-design-doc` — passing along the relevant business value/OKR, requirements, BDD acceptance criteria, and diagrams as intake context. See `OUTCOME-RULES.md` for the full delegation table.
 * Do not draft tickets or pages directly from this skill; each write-* skill owns its own template, formatting, approval gate, and MCP execution.
+* "Delegate" requires actually reading the target skill's `SKILL.md` (which pulls in `../ADF.md`) before drafting — never draft from memory of its template.
 
 ## Cross-Cutting Rules
 

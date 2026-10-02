@@ -40,4 +40,6 @@ Work item drafting, templates, title patterns, formatting, and attachment rules 
 | Initiative | `write-initiative` |
 | Confluence design doc | `write-design-doc` |
 
+"Invoke" means actually read that skill's `SKILL.md` file before drafting a single line — do not draft from memory of its template. Each write-* `SKILL.md` points to `../ADF.md`; loading the file is what pulls ADF formatting and the Pre-publish checklist into scope. Skipping this read is the single biggest cause of tickets drafted with plain-prose formatting instead of ADF.
+
 Hand each skill the relevant Analysis Layer output (business value/OKR, requirements, BDD acceptance criteria, diagrams) as intake context; the skill handles drafting, verification, approval gate, and MCP execution itself.
