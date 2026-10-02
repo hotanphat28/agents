@@ -53,15 +53,24 @@ Explicitly excluded items (one-liners).
 ## How to test?
 Step-by-step, clear and measurable test instructions covering happy path and edge cases, verifying the acceptance criteria.
 
-## Additional notes (optional, include only the bullets that apply)
-* **Assumption:** assumption made during analysis/design.
-* **Decision (YYYY-MM-DD):** key decision and rationale.
-* **Dependency:** external dependency and potential risk.
-* **Risk/Impact:** potential risk or impact on other systems/teams.
-* **Note/Q&A:** anything else worth capturing.
+## Additional notes (optional, include only the subheadings that apply)
+### Assumptions
+Assumption made during analysis/design.
+
+### Decisions
+**(YYYY-MM-DD)** key decision and rationale.
+
+### Dependencies
+External dependency and potential risk.
+
+### Risks/Impact
+Potential risk or impact on other systems/teams.
+
+### Notes/Q&A
+Anything else worth capturing.
 ```
 
-Default to the minimum: Context, Description, Acceptance criteria, Out of scope, and How to test are the only sections every story needs. Only add Functional specifications, Non-functional requirements, or an Additional notes bullet when this specific story genuinely needs it — never include a section or bullet with no real content, and never add implementation/architecture detail here (post it as a comment per Workflow step 8).
+Default to the minimum: Context, Description, Acceptance criteria, Out of scope, and How to test are the only sections every story needs. Only add Functional specifications, Non-functional requirements, or an Additional notes subheading when this specific story genuinely needs it — never include a section with no real content, and never add implementation/architecture detail here (post it as a comment per Workflow step 8).
 
 Apply INVEST principles when drafting a Story:
 * **Independent**: Ensure the story can be developed and delivered without waiting on other stories.
