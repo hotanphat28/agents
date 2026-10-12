@@ -11,25 +11,14 @@ Should have the following diagram types when possible:
 * **Domain Models** for data structures and relationships
 * **Component Diagrams** for system architecture and dependencies — optional, only when architecture complexity warrants a dedicated diagram
 
-Default tool: use `/diagram-design` to generate diagrams. If `/diagram-design` is not available, ask the user to select one of the following list:
+This default set applies to every diagram deliverable, including **AS-IS vs TO-BE Architecture Comparisons** (Gap Analysis, Functional & Logic Analysis item 4) for both Greenfield and Brownfield lifecycles — there is no separate tool or workflow for that case.
 
-1. SVG embedded in HTML
-2. PlantUML rendered in HTML
+## Tool fallback chain
+1. **Default**: use `/diagram-design` to generate the diagram, then automate exporting it into SVG via `/diagram-design`.
+2. **If `/diagram-design` cannot generate the diagram**: fall back to hand-authored SVG embedded in HTML, matching the theme used for the HTML documents.
+3. **If hand-authored SVG also cannot represent the diagram**: stop and ask the user how to proceed.
 
-After a diagram is generated in a separate html file, automate exporting it into SVG via `/diagram-design`.
-
-This default covers BPMN/Flowchart, **all Sequence diagrams**, and Domain Model diagrams — even though `archify` also has a Sequence type, do not use it for this skill's Sequence diagrams; it is reserved solely for the AS-IS/TO-BE case below.
-
-## AS-IS vs TO-BE Architecture Comparison (Gap Analysis)
-
-When the Gap Analysis step (Functional & Logic Analysis, item 4) covers **Data Flow** or **Component** diagrams **and** the lifecycle is Brownfield (a real codebase exists to trace), use `archify` instead of `/diagram-design` so the comparison is evidence-backed and diffable:
-
-1. Trace the current codebase to produce an evidence-backed AS-IS architecture JSON (nodes cite `SRC n` file/line at the current commit).
-2. Author the TO-BE architecture JSON by hand from the analysis (no code evidence required — it does not exist yet), reusing the same component ids as the AS-IS snapshot where the component still exists — archify's `compare` requires at least one shared component id to prove both snapshots describe the same system.
-3. Use archify's `compare` command for the `architecture` type to render the Before / Delta / After comparison (`compare` isn't documented in archify's own `SKILL.md` — locate the installed archify skill first, then check its `bin/archify.mjs` usage banner for exact syntax).
-4. Embed or link the resulting HTML in the **Technical** tab (see `DOCUMENT-TEMPLATE.md` Tab → Component Mapping) instead of two separate static diagrams. There is no separate "Architecture Decisions" tab — only the 6 mandated tabs exist.
-
-For **Greenfield** concepts (no existing codebase to trace) there is no AS-IS state, so stay on `/diagram-design` for the Data Flow/Component diagram of the proposed TO-BE only.
+Apply this same three-step chain to AS-IS/TO-BE comparisons — embed the resulting diagram(s) in the **Technical** tab (see `DOCUMENT-TEMPLATE.md` Tab → Component Mapping). There is no separate "Architecture Decisions" tab — only the 6 mandated tabs exist.
 
 ## Theming
 All diagrams MUST apply and match the theme used for the HTML documents (e.g., matching colors and fonts).

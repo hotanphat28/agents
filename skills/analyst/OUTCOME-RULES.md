@@ -6,7 +6,7 @@
 1. Determine use case (Analysis / Proposal / Plan / Review) and depth:
    * **Light** — quick note or single-screen ask. Linear, no tabs (per `DOCUMENT-TEMPLATE.md` General Guidance). Only the Generic Card / Reference Table components that directly answer the ask.
    * **Standard** (default) — full 6-tab structure. Exactly the rows in `DOCUMENT-TEMPLATE.md`'s Tab → Component Mapping that have content from the Analysis Layer; skip a row entirely if that analysis step wasn't run, don't invent placeholder content for it.
-   * **Deep** — full 6-tab structure plus every optional/conditional component that applies (ADRs, Prototype Handoff Briefs, AS-IS/TO-BE `delta.html`, Concept Architecture Card) even when only partially filled, so reviewers see the full shape of the analysis.
+   * **Deep** — full 6-tab structure plus every optional/conditional component that applies (ADRs, Prototype Handoff Briefs, AS-IS/TO-BE comparison diagram, Concept Architecture Card) even when only partially filled, so reviewers see the full shape of the analysis.
 2. Assemble the document dynamically using the snippets and base HTML shell provided in `DOCUMENT-TEMPLATE.md`.
 3. Use the fallback inline CSS provided in the shell if custom themes are missing or inaccessible.
 4. Populate **6 mandatory tabs**: Context | Business | Functional | Technical | Assessment | Action

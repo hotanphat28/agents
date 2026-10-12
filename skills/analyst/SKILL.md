@@ -67,6 +67,7 @@ Write the core hypothesis before proposing solutions, then work through the Busi
 * Identify **Bounded Contexts** to define explicit system boundaries and external integrations.
 * Assess NFRs (Security, Scalability, Performance).
 * Examine existing codebase for dependencies or tech debt (crucial for Brownfield).
+* When a Brownfield AS-IS diagram is produced (see `DIAGRAMS.md`), the **[Solution Architect]** must label each node with its source `file:line` from this exploration, so the diagram stays evidence-backed even without an automated citation check.
 
 ### 6. Validation Gate (Desirability × Viability × Feasibility)
 Run the Desirability Check (BA leads), Viability Check (PO leads), Feasibility Check (SA leads), and an Inversion Check (all personas). See `DISCOVERY-METHODS.md` for the question bank for each check.
@@ -105,7 +106,7 @@ When asked to explain a topic, system, or logic quickly in chat (outside of form
 - **Diffs**: Use `diff` markdown to show the shape of a change when the surrounding structure already exists.
 
 ### Diagrams
-See [`DIAGRAMS.md`](DIAGRAMS.md) for the default diagram set, the AS-IS/TO-BE archify workflow, and theming rules.
+See [`DIAGRAMS.md`](DIAGRAMS.md) for the default diagram set, the tool fallback chain, and theming rules.
 
 ## Reference Index
 | Reference | When to load | Fallback if missing |
